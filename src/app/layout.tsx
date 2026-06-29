@@ -47,8 +47,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        {/* Anti-FOUC: body starts hidden (below) and is revealed only after window load,
+            once the goo/IX2 runtimes have set their animation "from" states — so elements
+            never flash visible-then-hidden. Failsafe timeout guarantees it never stays blank. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){function r(){var b=document.body;if(!b)return;b.style.transition='opacity .4s ease';b.style.opacity='1';}if(document.readyState==='complete'){requestAnimationFrame(r);}else{window.addEventListener('load',function(){requestAnimationFrame(r);},{once:true});}setTimeout(r,2000);})();`,
+          }}
+        />
       </head>
-      <body className="body">{children}</body>
+      <body className="body" style={{ opacity: 0 }}>
+        {children}
+      </body>
     </html>
   )
 }

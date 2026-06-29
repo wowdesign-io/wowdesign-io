@@ -1476,7 +1476,7 @@ figure {
 .hero-banner-subtitle-number {
   color: #fff;
   letter-spacing: -3.2px;
-  font-family: Satoshi;
+  font-family: Outfit, sans-serif;
   font-size: 40px;
   font-weight: 500;
   line-height: 100%;
@@ -2076,7 +2076,7 @@ figure {
   color: var(--primary);
   letter-spacing: -.48px;
   text-transform: uppercase;
-  font-family: Funnel Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 16px;
   display: inline-block;
 }
@@ -2238,7 +2238,7 @@ figure {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  font-family: Funnel Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 46px;
   font-weight: 500;
   line-height: 100%;
@@ -2291,7 +2291,7 @@ figure {
   color: var(--primary);
   letter-spacing: -.48px;
   text-transform: uppercase;
-  font-family: Funnel Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 16px;
 }
 
@@ -2415,7 +2415,7 @@ figure {
   color: #fff;
   letter-spacing: 0;
   margin-bottom: 7px;
-  font-family: Host Grotesk, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 34px;
@@ -2493,7 +2493,7 @@ figure {
   letter-spacing: -.6px;
   margin-left: auto;
   margin-right: auto;
-  font-family: Funnel Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 1.3rem;
   font-weight: 400;
   line-height: 30px;
@@ -2743,7 +2743,7 @@ figure {
   -webkit-background-clip: text;
   background-clip: text;
   margin-bottom: 10px;
-  font-family: Funnel Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 28px;
   font-weight: 400;
   line-height: 38px;
@@ -2783,7 +2783,7 @@ figure {
 .core-features-slider-card-number {
   color: #bebec1;
   letter-spacing: -.48px;
-  font-family: Funnel Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 16px;
   font-weight: 400;
   position: absolute;
@@ -3157,7 +3157,7 @@ figure {
 .blog-left-post-name {
   color: #fff;
   letter-spacing: -.84px;
-  font-family: Funnel Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 28px;
   font-weight: 500;
   line-height: 38px;
@@ -3432,7 +3432,7 @@ figure {
 
 .testimonial-rating-text {
   color: #fff;
-  font-family: Host Grotesk, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 18px;
   font-weight: 500;
 }
@@ -3536,7 +3536,7 @@ figure {
   color: #fff;
   letter-spacing: -.48px;
   margin-bottom: 10px;
-  font-family: Playfair Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 1.5rem;
   font-style: italic;
   font-weight: 500;
@@ -3625,7 +3625,7 @@ figure {
   background-image: linear-gradient(125deg, #ee7c2c, #7700df);
   -webkit-background-clip: text;
   background-clip: text;
-  font-family: Funnel Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 84px;
   font-weight: 500;
   line-height: 100%;
@@ -4113,7 +4113,7 @@ figure {
   color: #fff;
   background-image: linear-gradient(125deg, #ee7c2c, #260047);
   padding: 12px 24px;
-  font-family: Funnel Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-weight: 500;
 }
 
@@ -4154,7 +4154,7 @@ figure {
   background-image: linear-gradient(125deg, #fff 40%, #999 70%);
   -webkit-background-clip: text;
   background-clip: text;
-  font-family: Funnel Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 28px;
   font-weight: 500;
   line-height: 38px;
@@ -4250,7 +4250,7 @@ figure {
   width: 100%;
   padding-top: 15px;
   padding-bottom: 15px;
-  font-family: Funnel Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 16px;
   font-weight: 600;
 }
@@ -4423,7 +4423,7 @@ figure {
 
 .source-details {
   color: #bebec1;
-  font-family: Host Grotesk, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 16px;
   line-height: 28px;
 }
@@ -4436,7 +4436,7 @@ figure {
 
 .license-th {
   color: #fff;
-  font-family: Host Grotesk, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 24px;
   font-weight: 500;
   line-height: 100%;
@@ -4552,7 +4552,7 @@ figure {
 .style-guide-number {
   color: #fff;
   letter-spacing: -.76px;
-  font-family: Funnel Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 38px;
   font-weight: 500;
   line-height: 100%;
@@ -5103,7 +5103,7 @@ figure {
   background-image: linear-gradient(125deg, #fff 30%, #999 80%);
   -webkit-background-clip: text;
   background-clip: text;
-  font-family: Funnel Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 54px;
   font-weight: 500;
   line-height: 100%;
@@ -5182,7 +5182,7 @@ figure {
 .pricing-details-rich-content h3 {
   color: #fff;
   margin-bottom: 10px;
-  font-family: Host Grotesk, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 24px;
   font-weight: 500;
   line-height: 34px;
@@ -5246,7 +5246,7 @@ figure {
 .pricing-details-price {
   color: #fff;
   letter-spacing: -1.26px;
-  font-family: Funnel Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 42px;
   font-weight: 500;
   line-height: 100%;
@@ -6093,7 +6093,7 @@ figure {
 .about-us-gallery-description-text {
   color: #bebec1;
   letter-spacing: -.84px;
-  font-family: Funnel Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 28px;
   font-weight: 500;
   line-height: 38px;
@@ -6355,7 +6355,7 @@ figure {
   text-transform: uppercase;
   justify-content: flex-start;
   align-items: center;
-  font-family: Funnel Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
@@ -6641,7 +6641,7 @@ figure {
   letter-spacing: 0;
   text-transform: uppercase;
   margin-bottom: 11px;
-  font-family: Host Grotesk, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -7163,7 +7163,7 @@ figure {
 }
 
 .cart-footer-price {
-  font-family: Host Grotesk, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 24px;
   font-weight: 500;
 }
@@ -7229,7 +7229,7 @@ figure {
 .cart-name {
   color: #fff;
   margin-bottom: 12px;
-  font-family: Host Grotesk, sans-serif;
+  font-family: Outfit, sans-serif;
   font-size: 24px;
   font-weight: 500;
   line-height: 100%;
@@ -7475,7 +7475,7 @@ figure {
   text-align: center;
   text-transform: uppercase;
   padding: .75rem 1.5rem;
-  font-family: Funnel Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-weight: 500;
   text-decoration: none;
   box-shadow: 0 20px 40px #0006;
@@ -7533,7 +7533,7 @@ figure {
   border-style: solid;
   border-color: var(--primary);
   text-transform: uppercase;
-  font-family: Funnel Display, sans-serif;
+  font-family: Outfit, sans-serif;
   font-weight: 500;
 }
 
