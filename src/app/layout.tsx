@@ -1,20 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Outfit, Inter } from 'next/font/google'
 import './globals.css'
-
-const outfit = Outfit({
-  variable: '--font-heading',
-  subsets: ['latin'],
-  weight: ['500'],
-  display: 'swap',
-})
-
-const inter = Inter({
-  variable: '--font-body',
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  display: 'swap',
-})
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -52,8 +37,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="en"
       data-wf-page="68ac826b2e7f29829046bfc6"
       data-wf-site="68ac826a2e7f29829046bf54"
-      className={`${outfit.variable} ${inter.variable}`}
     >
+      <head>
+        {/* Real Outfit + Inter under their literal family names (300–700) so the
+            Webflow CSS `font-family: Outfit / Inter` resolves at the correct weights. */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="body">{children}</body>
     </html>
   )

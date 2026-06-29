@@ -15,7 +15,7 @@ export default function HomePage() {
 
       </div>
     </div>
-    <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" className="navbar w-nav">
+    <div data-w-id="3af1c84f-ff74-c014-cb3b-40446b73b1e3" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" className="navbar w-nav">
       <div className="nav-container _1430">
         <div className="navbar-container">
           <a href="/" aria-current="page" className="navbar-logo w-nav-brand w--current"><img src="https://a.storyblok.com/f/293523249633085/8983/8b2fec33e4/wowdesign-logo-dark.svg" loading="lazy" alt="" className="navbar-logo-image" /></a>
@@ -27,7 +27,7 @@ export default function HomePage() {
           </nav>
           <div className="navbar-button-wrapper">
             <div className="primary-button-wrapper desktop">
-              <a href="/book-a-demo" data-cta="Nav - Demo" className="primary-button w-inline-block">
+              <a href="/book-a-demo" data-cta="Nav - Demo" data-w-id="3af1c84f-ff74-c014-cb3b-40446b73b1f6" className="primary-button w-inline-block">
                 <div className="primary-button-border-wrap">
                   <div className="primary-button-wrap">
                     <div className="primary-button-text">Book A Demo</div>
@@ -56,16 +56,16 @@ export default function HomePage() {
               </a>
             </div>
             <div className="menu-button w-nav-button">
-              <div data-is-ix2-target="1" className="hamburger-menu-icon" data-animation-type="lottie" data-src="https://uploads-ssl.webflow.com/64d728cd40ba078bc56626e6/64d728cd40ba078bc566288f_Hamburger%20menu.lottie" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-duration="0" data-loading="eager" data-ix2-initial-state="0"></div>
+              <div data-is-ix2-target="1" className="hamburger-menu-icon" data-w-id="b58e0106-6be1-80f9-2e9e-29cc3a30b8aa" data-animation-type="lottie" data-src="https://uploads-ssl.webflow.com/64d728cd40ba078bc56626e6/64d728cd40ba078bc566288f_Hamburger%20menu.lottie" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-duration="0" data-loading="eager" data-ix2-initial-state="0"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <section className="section relative">
+    <section data-w-id="ff16e7a9-f7e3-77c2-015f-a1152daaa887" className="section relative">
       <div className="banner-container">
         <div className="banner-content">
-          <div data-goo-stagger="0.3" data-goo="fade-up" data-goo-type="stagger" className="banner-typography">
+          <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" data-w-id="6e58a63e-55a6-96bc-8457-502e6779cd81" className="banner-typography">
             <div className="hero-banner-subtitle-wrapper">
               <div className="tagline-container">
                 <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ph" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256">
@@ -148,8 +148,8 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="banner-world-element-wrapper"><img src="https://a.storyblok.com/f/293523249633085/158204/b331a144ce/hero-building.webp" loading="lazy" alt="" className="banner-world-element-image" />
-            <div className="banner-world-element-tag-content">
+          <div data-w-id="e8a9f885-801b-a42c-0374-9df70f06c829" className="banner-world-element-wrapper"><img src="https://a.storyblok.com/f/293523249633085/158204/b331a144ce/hero-building.webp" loading="lazy" style={{ WebkitTransform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="banner-world-element-image" />
+            <div style={{ opacity: "0" }} className="banner-world-element-tag-content">
               <div className="banner-world-element-tag-wrapper">
                 <div className="banner-world-element-tag-single one">
                   <div className="banner-world-element-tag-line-name">
@@ -199,7 +199,7 @@ export default function HomePage() {
     </section>
     <section className="section solving">
       <div className="container">
-        <div data-goo-stagger="0.3" data-goo="fade-up" data-goo-type="stagger" className="solving-section-title-wrapper">
+        <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="solving-section-title-wrapper">
           <div className="section-subtitle-wrapper">
             <div className="tagline-container">
               <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ic" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -215,7 +215,7 @@ export default function HomePage() {
           <p className="text-size-medium">The website. The digital twin. The automated follow-up. One presales system built for boutique developers.</p>
         </div>
         <div className="solving-content">
-          <div data-goo-stagger="0.3" data-goo="fade-up" data-goo-type="stagger" className="w-layout-grid solving-grid">
+          <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="w-layout-grid solving-grid">
             <div className="solving-grid-single _1st">
               <div className="solving-card one">
                 <div className="solving-card-icon-wrapper"><img src="https://a.storyblok.com/f/293523249633085/6907/f12b27a98f/icon-digital-twin.svg" loading="lazy" alt="" className="solving-card-icon" /></div>
@@ -448,7 +448,7 @@ export default function HomePage() {
             <div className="comparison13_component">
               <div className="margin-bottom margin-xxlarge">
                 <div className="text-align-center">
-                  <div data-goo-stagger="0.3" data-goo="fade-up" data-goo-type="stagger" className="max-width-large align-center">
+                  <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="max-width-large align-center">
                     <div className="display-flex-vertical flex-align-center">
                       <div className="margin-bottom margin-xsmall">
                         <div className="tagline-container">
@@ -468,7 +468,7 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="max-width-xlarge align-center">
-                <div data-goo-stagger="0.3" data-goo="fade-up" data-goo-type="stagger" className="w-layout-grid pricing-grid">
+                <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="w-layout-grid pricing-grid">
                   <div className="pricing-card-wrap">
                     <div className="pricing-single">
                       <div className="pricing-top-content">
@@ -477,7 +477,7 @@ export default function HomePage() {
                             <h5 className="pricing-name">Other Agencies</h5>
                           </div>
                         </div>
-                        <div data-goo-stagger="0.3" data-goo="fade-up" data-goo-type="stagger" className="pricing-features-wrapper">
+                        <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="pricing-features-wrapper">
                           <ul role="list" className="pricing-features-list">
                             <li className="pricing-features-list-item">
                               <div className="icon-embed-xsmall text-color-tertiary2 w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ph" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256">
@@ -535,7 +535,7 @@ export default function HomePage() {
                         <div className="pricing-image-name-wrap">
                           <div className="pricing-icon-wrapper"><img loading="lazy" src="https://a.storyblok.com/f/293523249633085/8983/8b2fec33e4/wowdesign-logo-dark.svg" alt="" className="pricing-icon" /></div>
                         </div>
-                        <div data-goo-stagger="0.3" data-goo="fade-up" data-goo-type="stagger" className="pricing-features-wrapper">
+                        <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="pricing-features-wrapper">
                           <ul role="list" className="pricing-features-list">
                             <li className="pricing-features-list-item">
                               <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ph" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256">
@@ -651,9 +651,9 @@ export default function HomePage() {
       </div>
     </section>
     <section className="section testimonial">
-      <div className="testimonial-content">
+      <div data-w-id="d1c43377-0abd-fb74-1663-3b34e3b073f7" className="testimonial-content">
         <div className="testimonial-wrapper">
-          <div data-goo-stagger="0.3" data-goo="fade-up" data-goo-type="stagger" className="container">
+          <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="container">
             <div className="section-subtitle-wrapper">
               <div className="tagline-container">
                 <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ic" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -706,7 +706,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div data-goo-stagger="0.3" data-goo="fade-up" data-goo-type="stagger" className="testimonial-top-content">
+          <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="testimonial-top-content">
             <div className="testimonial-top-left-card">
               <div className="testimonial-single-card one">
                 <div className="testimonial-description-wrapper">
@@ -748,7 +748,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div data-goo-stagger="0.3" data-goo="fade-up" data-goo-type="stagger" className="testimonial-bottom-content">
+          <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="testimonial-bottom-content">
             <div className="testimonial-bottom-left-card">
               <div className="testimonial-single-card four">
                 <div className="testimonial-description-wrapper">
@@ -781,11 +781,11 @@ export default function HomePage() {
     </section>
     <div id="features" className="spacer-xhuge"></div>
     <section className="section features">
-      <div className="container">
-        <div className="features-content">
-          <div className="features-flex">
+      <div data-w-id="55692835-ec59-ff32-dc75-62ba954b11b2" className="container">
+        <div data-w-id="cfed3ab0-e0d5-9d4d-71bb-4e33ec1cc83e" className="features-content">
+          <div data-w-id="8e59ac06-7b15-3b19-f5f5-8abed0e71d57" className="features-flex">
             <div className="features-typography-card top-border-none">
-              <div data-goo-stagger="0.3" data-goo="fade-up" data-goo-type="stagger" className="features-typography-card-single">
+              <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="features-typography-card-single">
                 <div className="features-subtitle-wrapper">
                   <div className="tagline-container">
                     <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--carbon" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
@@ -879,23 +879,23 @@ export default function HomePage() {
               </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" />
             </div>
             <div className="features-card-image-wrapper is-img-right">
-              <div className="feature-card is-img"><img src="https://a.storyblok.com/f/293523249633085/72635/6f7cacc5c2/feature-digital-twin.avif" loading="lazy" alt="" className="feature-image" /></div>
+              <div data-w-id="a202ce4a-5e35-d5f5-2be0-ab58c0d0077c" style={{ opacity: "0" }} className="feature-card is-img"><img src="https://a.storyblok.com/f/293523249633085/72635/6f7cacc5c2/feature-digital-twin.avif" loading="lazy" alt="" className="feature-image" /></div>
               <div className="sky-container">
                 <div className="primary-sky-circle"></div>
                 <div className="secondary-sky-circle"></div>
               </div>
             </div>
           </div>
-          <div className="features-flex">
+          <div data-w-id="ebd5f07d-eafe-59e0-f034-e156826266d1" className="features-flex">
             <div className="features-card-image-wrapper is-img-left">
-              <div className="feature-card is-img"><img src="https://a.storyblok.com/f/293523249633085/42447/787a01ec39/feature-crm-sync.avif" loading="lazy" alt="" className="feature-image" /></div>
+              <div data-w-id="28e89ac4-77b9-0431-08a4-05002c844b00" style={{ opacity: "0" }} className="feature-card is-img"><img src="https://a.storyblok.com/f/293523249633085/42447/787a01ec39/feature-crm-sync.avif" loading="lazy" alt="" className="feature-image" /></div>
               <div className="sky-container">
                 <div className="primary-sky-circle"></div>
                 <div className="secondary-sky-circle"></div>
               </div>
             </div>
             <div className="features-typography-card">
-              <div data-goo-stagger="0.3" data-goo="fade-up" data-goo-type="stagger" className="features-typography-card-single">
+              <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="features-typography-card-single">
                 <div className="features-subtitle-wrapper">
                   <div className="tagline-container">
                     <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ph" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256">
@@ -988,9 +988,9 @@ export default function HomePage() {
               </div><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" /><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" />
             </div>
           </div>
-          <div className="features-flex">
+          <div data-w-id="13d6c07f-4a33-8d62-06ff-903db291555a" className="features-flex">
             <div className="features-typography-card">
-              <div data-goo-stagger="0.3" data-goo="fade-up" data-goo-type="stagger" className="features-typography-card-single">
+              <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="features-typography-card-single">
                 <div className="features-subtitle-wrapper">
                   <div className="tagline-container">
                     <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ic" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -1081,23 +1081,23 @@ export default function HomePage() {
               </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" />
             </div>
             <div className="features-card-image-wrapper is-img-right">
-              <div className="feature-card is-img"><img src="https://a.storyblok.com/f/293523249633085/46642/15716bba68/feature-leads.avif" loading="lazy" alt="" className="feature-image" /></div>
+              <div data-w-id="3f282790-4b02-6f90-2ea8-57469b4e2a1b" style={{ opacity: "0" }} className="feature-card is-img"><img src="https://a.storyblok.com/f/293523249633085/46642/15716bba68/feature-leads.avif" loading="lazy" alt="" className="feature-image" /></div>
               <div className="sky-container">
                 <div className="primary-sky-circle"></div>
                 <div className="secondary-sky-circle"></div>
               </div>
             </div>
           </div>
-          <div className="features-flex">
+          <div data-w-id="9b51addb-87d6-74b6-befd-d478bccc56a5" className="features-flex">
             <div className="features-card-image-wrapper is-img-left">
-              <div className="feature-card is-img"><img src="/images/65e2250341631373794d20d2_6564d517cc477ac6d22cd256_Devices2023.avif" loading="lazy" alt="" className="feature-image" /></div>
+              <div data-w-id="b0b350bf-9e4f-7b40-1b72-6b6f8835e8e3" style={{ opacity: "0" }} className="feature-card is-img"><img src="/images/65e2250341631373794d20d2_6564d517cc477ac6d22cd256_Devices2023.avif" loading="lazy" alt="" className="feature-image" /></div>
               <div className="sky-container">
                 <div className="primary-sky-circle"></div>
                 <div className="secondary-sky-circle"></div>
               </div>
             </div>
             <div className="features-typography-card">
-              <div data-goo-stagger="0.3" data-goo="fade-up" data-goo-type="stagger" className="features-typography-card-single">
+              <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="features-typography-card-single">
                 <div className="features-subtitle-wrapper">
                   <div className="tagline-container">
                     <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ic" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -1188,9 +1188,9 @@ export default function HomePage() {
               </div><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" /><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" />
             </div>
           </div>
-          <div className="features-flex">
+          <div data-w-id="ed8183e3-0c0e-6b26-1a78-ccf67eb07729" className="features-flex">
             <div className="features-typography-card">
-              <div data-goo-stagger="0.3" data-goo="fade-up" data-goo-type="stagger" className="features-typography-card-single">
+              <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="features-typography-card-single">
                 <div className="features-subtitle-wrapper">
                   <div className="tagline-container">
                     <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ph" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256">
@@ -1283,7 +1283,7 @@ export default function HomePage() {
               </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" />
             </div>
             <div className="features-card-image-wrapper is-img-right">
-              <div className="feature-card is-img"><img src="https://a.storyblok.com/f/293523249633085/22836/5803d5ac66/feature-analytics.avif" loading="lazy" alt="" className="feature-image" />
+              <div data-w-id="b634b020-4b0a-a245-cafd-8a6c14447ece" style={{ opacity: "0" }} className="feature-card is-img"><img src="https://a.storyblok.com/f/293523249633085/22836/5803d5ac66/feature-analytics.avif" loading="lazy" alt="" className="feature-image" />
                 <div className="icon-embed-custom w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" id="fi_993762" x="0px" y="0px" viewBox="0 0 479.998 479.998" xmlSpace="preserve" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" aria-hidden="true" role="img">
                     <g>
                       <g>
@@ -1485,10 +1485,10 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="features-flex">
+          <div data-w-id="e9747994-564d-829d-c6d7-6006be2c22af" className="features-flex">
             <div className="features-card-image-wrapper">
-              <div className="feature-card">
-                <div className="icon-1x1-features w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--heroicons" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+              <div data-w-id="ed36d771-d953-0d6b-b454-fed5f6567fc3" style={{ opacity: "0", WebkitTransform: "translate3d(0, 200px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, 200px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, 200px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, 200px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" }} className="feature-card">
+                <div style={{ opacity: "0", WebkitTransform: "translate3d(0, 200px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, 200px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, 200px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, 200px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" }} className="icon-1x1-features w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--heroicons" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                     <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12.75L11.25 15L15 9.75m-3-7.036A11.96 11.96 0 0 1 3.598 6A12 12 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623c5.176-1.332 9-6.03 9-11.622c0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285"></path>
                   </svg></div>
               </div>
@@ -1498,7 +1498,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="features-typography-card">
-              <div data-goo-stagger="0.3" data-goo="fade-up" data-goo-type="stagger" className="features-typography-card-single">
+              <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="features-typography-card-single">
                 <div className="features-subtitle-wrapper">
                   <div className="tagline-container">
                     <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ph" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256">
@@ -1601,7 +1601,7 @@ export default function HomePage() {
             <div className="layout237_component">
               <div className="margin-bottom margin-xxlarge">
                 <div className="text-align-center">
-                  <div data-goo-stagger="0.3" data-goo="fade-up" data-goo-type="stagger" className="max-width-large align-center">
+                  <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="max-width-large align-center">
                     <div className="display-flex-vertical flex-align-center">
                       <div className="margin-bottom margin-xsmall">
                         <div className="tagline-container">
@@ -1620,7 +1620,7 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <div data-goo-stagger="0.3" data-goo="fade-up" data-goo-type="stagger" className="w-layout-grid layout237_list">
+              <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="w-layout-grid layout237_list">
                 <div id="w-node-_5bacbfb7-9f05-92dc-f68d-38ed810a6613-9046bfc6" className="layout237_item">
                   <div className="margin-bottom margin-small">
                     <div className="layout237_item-icon-wrapper">
@@ -1747,17 +1747,17 @@ export default function HomePage() {
       </div>
     </section>
     <section className="section community-spotlight">
-      <div className="community-spotlight-content">
+      <div data-w-id="5b30ccf4-9c4d-b796-8be3-2831dab6d2ae" className="community-spotlight-content">
         <div className="community-spotlight-typography">
-          <div className="community-spotlight-icon-wrapper"><img src="https://a.storyblok.com/f/293523249633085/8994/9dd4c3b99e/wowdesign-w.svg" loading="lazy" alt="" className="community-spotlight-icon" /></div>
-          <div className="community-spotlight-title-description">
+          <div className="community-spotlight-icon-wrapper"><img src="https://a.storyblok.com/f/293523249633085/8994/9dd4c3b99e/wowdesign-w.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-icon" /></div>
+          <div style={{ opacity: "0", WebkitTransform: "translate3d(0, 0, 0) scale3d(0.8, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, 0, 0) scale3d(0.8, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, 0, 0) scale3d(0.8, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, 0, 0) scale3d(0.8, 0.8, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" }} className="community-spotlight-title-description">
             <h2 className="community-spotlight-title">Native To Your Existing Workflow.</h2>
             <p className="community-spotlight-description">We connect directly to the CRMs and platforms your sales team already uses — syncing unit availability, pricing, and buyer interactions automatically. <br />No manual updates. No duplicate entry.</p>
           </div>
         </div>
-        <div className="community-spotlight-image-wrap"><img src="https://a.storyblok.com/f/293523249633085/50638/3e5225fa50/integrations-bg.webp" loading="lazy" alt="" className="community-spotlight-image-bg-shape" />
-          <div className="community-spotlight-top-images"><img src="https://a.storyblok.com/f/293523249633085/1816/e8a283ca00/logo-yardi.svg" loading="lazy" alt="" className="community-spotlight-image _1" /><img src="https://a.storyblok.com/f/293523249633085/6940/9e23549a97/logo-meta.svg" loading="lazy" alt="" className="community-spotlight-image _2" /><img src="https://a.storyblok.com/f/293523249633085/6891/74a12590ec/logo-google-ads.svg" loading="lazy" alt="" className="community-spotlight-image _3" /><img src="https://a.storyblok.com/f/293523249633085/4646/ba39a6a011/logo-hubspot.svg" loading="lazy" alt="" className="community-spotlight-image _4" /><img src="https://a.storyblok.com/f/293523249633085/9809/7884b35e40/logo-activecampaign.svg" loading="lazy" alt="" className="community-spotlight-image _5" /><img src="https://a.storyblok.com/f/293523249633085/3402/812cf25617/logo-spark.svg" loading="lazy" alt="" className="community-spotlight-image _6" /><img src="https://a.storyblok.com/f/293523249633085/6615/778585fa73/logo-calendly.svg" loading="lazy" alt="" className="community-spotlight-image _7" /></div>
-          <div className="community-spotlight-bottom-images"><img src="https://a.storyblok.com/f/293523249633085/3656/e556a03e4b/logo-slack.svg" loading="lazy" alt="" className="community-spotlight-image _8" /><img src="https://a.storyblok.com/f/293523249633085/6211/c415c143ea/logo-claude.svg" loading="lazy" alt="" className="community-spotlight-image _9" /><img src="https://a.storyblok.com/f/293523249633085/4255/59db0ed78b/logo-twilio.svg" loading="lazy" alt="" className="community-spotlight-image _10" /><img src="https://a.storyblok.com/f/293523249633085/4994/0454ad66e2/logo-hotjar.svg" loading="lazy" alt="" className="community-spotlight-image _11" /><img src="https://a.storyblok.com/f/293523249633085/4705/f50748547d/logo-chatgpt.svg" loading="lazy" alt="" className="community-spotlight-image _12" /><img src="/images/webflow.svg" loading="lazy" alt="" className="community-spotlight-image _13" /><img src="https://a.storyblok.com/f/293523249633085/10257/2fefdc144c/logo-airtable.svg" loading="lazy" alt="" className="community-spotlight-image _14" /><img src="https://a.storyblok.com/f/293523249633085/11784/e80b7a2ba8/logo-salesforce.svg" loading="lazy" alt="" className="community-spotlight-image _15" /><img src="https://a.storyblok.com/f/293523249633085/4034/64aa429772/logo-n8n.svg" loading="lazy" alt="" className="community-spotlight-image _16" /><img src="https://a.storyblok.com/f/293523249633085/4961/09e8be2968/logo-zapier.svg" loading="lazy" alt="" className="community-spotlight-image _17" /><img src="https://a.storyblok.com/f/293523249633085/4025/45a3e33f91/logo-make.svg" loading="lazy" alt="" className="community-spotlight-image _18" /></div>
+        <div data-w-id="f5204fb9-5501-c729-be95-6f1e3f47b79b" className="community-spotlight-image-wrap"><img src="https://a.storyblok.com/f/293523249633085/50638/3e5225fa50/integrations-bg.webp" loading="lazy" alt="" className="community-spotlight-image-bg-shape" />
+          <div className="community-spotlight-top-images"><img src="https://a.storyblok.com/f/293523249633085/1816/e8a283ca00/logo-yardi.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, -430px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -430px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -430px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -430px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-image _1" /><img src="https://a.storyblok.com/f/293523249633085/6940/9e23549a97/logo-meta.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-image _2" /><img src="https://a.storyblok.com/f/293523249633085/6891/74a12590ec/logo-google-ads.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-image _3" /><img src="https://a.storyblok.com/f/293523249633085/4646/ba39a6a011/logo-hubspot.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-image _4" /><img src="https://a.storyblok.com/f/293523249633085/9809/7884b35e40/logo-activecampaign.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-image _5" /><img src="https://a.storyblok.com/f/293523249633085/3402/812cf25617/logo-spark.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-image _6" /><img src="https://a.storyblok.com/f/293523249633085/6615/778585fa73/logo-calendly.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -420px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-image _7" /></div>
+          <div className="community-spotlight-bottom-images"><img src="https://a.storyblok.com/f/293523249633085/3656/e556a03e4b/logo-slack.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-image _8" /><img src="https://a.storyblok.com/f/293523249633085/6211/c415c143ea/logo-claude.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-image _9" /><img src="https://a.storyblok.com/f/293523249633085/4255/59db0ed78b/logo-twilio.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-image _10" /><img src="https://a.storyblok.com/f/293523249633085/4994/0454ad66e2/logo-hotjar.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-image _11" /><img src="https://a.storyblok.com/f/293523249633085/4705/f50748547d/logo-chatgpt.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-image _12" /><img src="/images/webflow.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-image _13" /><img src="https://a.storyblok.com/f/293523249633085/10257/2fefdc144c/logo-airtable.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-image _14" /><img src="https://a.storyblok.com/f/293523249633085/11784/e80b7a2ba8/logo-salesforce.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-image _15" /><img src="https://a.storyblok.com/f/293523249633085/4034/64aa429772/logo-n8n.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-image _16" /><img src="https://a.storyblok.com/f/293523249633085/4961/09e8be2968/logo-zapier.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-image _17" /><img src="https://a.storyblok.com/f/293523249633085/4025/45a3e33f91/logo-make.svg" loading="lazy" style={{ WebkitTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -400px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="community-spotlight-image _18" /></div>
         </div>
         <div className="community-spotlight-button-wrapper">
           <div className="primary-button-wrapper">
@@ -1834,9 +1834,9 @@ export default function HomePage() {
     <div id="about" className="spacer-xhuge"></div>
     <section className="section team-member">
       <div className="team-member-content">
-        <div className="team-member-wrapper">
+        <div data-w-id="9d8f881c-aa19-35f1-e630-46c8098def5c" className="team-member-wrapper">
           <div className="team-member-title-team-member">
-            <div className="team-member-title-wrapper">
+            <div style={{ opacity: "0" }} className="team-member-title-wrapper">
               <div className="section-subtitle-wrapper">
                 <div className="tagline-container">
                   <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ic" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -1854,9 +1854,9 @@ export default function HomePage() {
             </div>
             <div className="top-team-member-wrapper">
               <div className="w-layout-grid top-team-member-grid">
-                <div className="team-member-single one">
-                  <div className="team-member-image-wrap"><img src="https://a.storyblok.com/f/293523249633085/23185/b909bbc604/andy-bittner.avif" loading="lazy" alt="" className="team-member-image" /><img src="/images/Team-Member-Shape.webp" loading="lazy" alt="" className="team-member-shape" /></div>
-                  <div style={{ display: "none" }} className="team-member-typography-wrap"><img src="/images/Team-Member-Typography-Mouse.svg" loading="lazy" alt="" className="team-member-typography-mouse" />
+                <div data-w-id="9d8f881c-aa19-35f1-e630-46c8098def66" style={{ opacity: "0" }} className="team-member-single one">
+                  <div className="team-member-image-wrap"><img src="https://a.storyblok.com/f/293523249633085/23185/b909bbc604/andy-bittner.avif" loading="lazy" alt="" className="team-member-image" /><img src="/images/Team-Member-Shape.webp" loading="lazy" style={{ WebkitTransform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="team-member-shape" /></div>
+                  <div style={{ opacity: "0", display: "none", WebkitTransform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" }} className="team-member-typography-wrap"><img src="/images/Team-Member-Typography-Mouse.svg" loading="lazy" alt="" className="team-member-typography-mouse" />
                     <div className="team-member-typography">
                       <div className="team-member-name">Andy</div>
                       <div className="team-member-bio">CEO & Founder</div>
@@ -1868,17 +1868,17 @@ export default function HomePage() {
           </div>
           <div className="top-team-member-bottom-content">
             <div className="w-layout-grid bottom-team-member-grid">
-              <div className="team-member-single two">
-                <div className="team-member-image-wrap"><img src="/images/ashekur-rahman-1.avif" loading="lazy" alt="" className="team-member-image" /><img src="/images/Team-Member-Shape.webp" loading="lazy" alt="" className="team-member-shape" /></div>
-                <div style={{ display: "none" }} className="team-member-typography-wrap"><img src="/images/Team-Member-Typography-Mouse.svg" loading="lazy" alt="" className="team-member-typography-mouse" />
+              <div data-w-id="f0cf19fe-9c6a-73c3-428d-e15ef9e21901" style={{ opacity: "0" }} className="team-member-single two">
+                <div className="team-member-image-wrap"><img src="/images/ashekur-rahman-1.avif" loading="lazy" alt="" className="team-member-image" /><img src="/images/Team-Member-Shape.webp" loading="lazy" style={{ WebkitTransform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="team-member-shape" /></div>
+                <div style={{ opacity: "0", display: "none", WebkitTransform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" }} className="team-member-typography-wrap"><img src="/images/Team-Member-Typography-Mouse.svg" loading="lazy" alt="" className="team-member-typography-mouse" />
                   <div className="team-member-typography">
                     <div className="team-member-name">Ashekur</div>
                     <div className="team-member-bio">Lead Systems Engineer</div>
                   </div>
                 </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="team-member-line top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="team-member-line top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="team-member-line bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="team-member-line bottom-right" />
               </div>
-              <div className="team-member-single border-none three">
-                <div className="team-member-image-wrap"><img src="https://a.storyblok.com/f/293523249633085/12711/335c7ed351/team-mahmudul.avif" loading="lazy" alt="" className="team-member-image" /><img src="/images/Team-Member-Shape.webp" loading="lazy" alt="" className="team-member-shape" /></div>
+              <div data-w-id="262b2154-2c95-39a5-a2a3-e1a4af8f25ec" style={{ opacity: "0" }} className="team-member-single border-none three">
+                <div className="team-member-image-wrap"><img src="https://a.storyblok.com/f/293523249633085/12711/335c7ed351/team-mahmudul.avif" loading="lazy" alt="" className="team-member-image" /><img src="/images/Team-Member-Shape.webp" loading="lazy" style={{ WebkitTransform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="team-member-shape" /></div>
                 <div className="team-member-typography-wrap left-0"><img src="/images/Team-Member-Typography-Mouse.svg" loading="lazy" alt="" className="team-member-typography-mouse" />
                   <div className="team-member-typography">
                     <div className="team-member-name">Mahmudul</div>
@@ -1886,18 +1886,18 @@ export default function HomePage() {
                   </div>
                 </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="team-member-line top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="team-member-line top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="team-member-line bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="team-member-line bottom-right" />
               </div>
-              <div className="team-member-single four">
-                <div className="team-member-image-wrap"><img src="https://a.storyblok.com/f/293523249633085/14443/2cdf1683f4/team-odule.avif" loading="lazy" alt="" className="team-member-image" /><img src="/images/Team-Member-Shape.webp" loading="lazy" alt="" className="team-member-shape" /></div>
-                <div style={{ display: "none" }} className="team-member-typography-wrap"><img src="/images/Team-Member-Typography-Mouse.svg" loading="lazy" alt="" className="team-member-typography-mouse" />
+              <div data-w-id="9d8f881c-aa19-35f1-e630-46c8098def86" style={{ opacity: "0" }} className="team-member-single four">
+                <div className="team-member-image-wrap"><img src="https://a.storyblok.com/f/293523249633085/14443/2cdf1683f4/team-odule.avif" loading="lazy" alt="" className="team-member-image" /><img src="/images/Team-Member-Shape.webp" loading="lazy" style={{ WebkitTransform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="team-member-shape" /></div>
+                <div style={{ opacity: "0", display: "none", WebkitTransform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" }} className="team-member-typography-wrap"><img src="/images/Team-Member-Typography-Mouse.svg" loading="lazy" alt="" className="team-member-typography-mouse" />
                   <div className="team-member-typography">
                     <div className="team-member-name">Odule</div>
                     <div className="team-member-bio">CRM Integration Lead</div>
                   </div>
                 </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="team-member-line top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="team-member-line top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="team-member-line bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="team-member-line bottom-right" />
               </div>
-              <div className="team-member-single five">
-                <div className="team-member-image-wrap"><img src="https://a.storyblok.com/f/293523249633085/12190/3e639acf63/team-bence.avif" loading="lazy" alt="" className="team-member-image" /><img src="/images/Team-Member-Shape.webp" loading="lazy" alt="" className="team-member-shape" /></div>
-                <div style={{ display: "none" }} className="team-member-typography-wrap"><img src="/images/Team-Member-Typography-Mouse.svg" loading="lazy" alt="" className="team-member-typography-mouse" />
+              <div data-w-id="9d8f881c-aa19-35f1-e630-46c8098def95" style={{ opacity: "0" }} className="team-member-single five">
+                <div className="team-member-image-wrap"><img src="https://a.storyblok.com/f/293523249633085/12190/3e639acf63/team-bence.avif" loading="lazy" alt="" className="team-member-image" /><img src="/images/Team-Member-Shape.webp" loading="lazy" style={{ WebkitTransform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, -101%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="team-member-shape" /></div>
+                <div style={{ opacity: "0", display: "none", WebkitTransform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, 0, 0) scale3d(0.6, 0.6, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" }} className="team-member-typography-wrap"><img src="/images/Team-Member-Typography-Mouse.svg" loading="lazy" alt="" className="team-member-typography-mouse" />
                   <div className="team-member-typography">
                     <div className="team-member-name">Bence</div>
                     <div className="team-member-bio">Performance Engineer</div>
@@ -1909,10 +1909,10 @@ export default function HomePage() {
         </div>
       </div>
     </section>
-    <section className="section cta">
+    <section data-w-id="1c3f6ead-2444-a223-fec9-b2e0c543d72e" className="section cta">
       <div className="container">
         <div className="cta-content">
-          <div className="cta-typography">
+          <div data-w-id="1c3f6ead-2444-a223-fec9-b2e0c543d731" className="cta-typography">
             <div className="cta-title-description">
               <h2 className="cta-title">Stop Sending PDFs. <br />Start Selling Units.</h2>
               <p className="cta-description-text">Replace static brochures with a presales system built to accelerate sales — combining a digital twin, live inventory sync, and qualified buyer data delivered directly to your team.<br /></p>
@@ -1994,7 +1994,7 @@ export default function HomePage() {
     </section>
     <section id="faq" className="section faq">
       <div className="container">
-        <div className="faq-section-title-wrapper">
+        <div data-w-id="012200b2-da6c-54ac-4c67-4c085ad775fe" className="faq-section-title-wrapper">
           <div className="section-subtitle-wrapper center">
             <div className="tagline-container">
               <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ic" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -2008,7 +2008,7 @@ export default function HomePage() {
             <h2 className="section-title">Frequently asked questions</h2>
           </div>
         </div>
-        <div className="faq-content">
+        <div data-w-id="012200b2-da6c-54ac-4c67-4c085ad77607" className="faq-content">
           <div data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100" className="w-tabs">
             <div className="faq-accordion-wrapper w-tab-menu">
               <a data-w-tab="Tab 1" className="single-faq-accordion-wrap w-inline-block w-tab-link w--current">
@@ -2129,7 +2129,7 @@ export default function HomePage() {
     <section className="section footer">
       <div className="footer-container">
         <div className="footer-content">
-          <div className="footer-top-content">
+          <div data-w-id="7ccbf7a2-080d-66f9-81b6-2448b055e0d1" className="footer-top-content">
             <div className="footer-information-wrapper">
               <div className="footer-information-single">
                 <div className="footer-logo-description">
@@ -2250,8 +2250,13 @@ export default function HomePage() {
       <div className="footer-bottom-line"></div>
     </section>
   </div>
+      {/* Webflow IX2 (jQuery + exported runtime with this site's interaction data) */}
       <Script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js" strategy="afterInteractive" />
-      <Script src="https://cdn.prod.website-files.com/68ac826a2e7f29829046bf54/68ac826a2e7f29829046bf54.js" strategy="afterInteractive" />
+      <Script src="/webflow.js" strategy="afterInteractive" />
+      {/* goo stagger reveals (GSAP + ScrollTrigger + goo-motion-library) */}
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" strategy="afterInteractive" />
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" strategy="afterInteractive" />
+      <Script src="https://cdn.jsdelivr.net/npm/goo-motion-library@latest/dist/goo.bundle.js" strategy="afterInteractive" />
     </>
   )
 }
