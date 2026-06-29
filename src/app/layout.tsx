@@ -52,7 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             never flash visible-then-hidden. Failsafe timeout guarantees it never stays blank. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){function r(){var b=document.body;if(!b)return;b.style.transition='opacity .4s ease';b.style.opacity='1';}if(document.readyState==='complete'){requestAnimationFrame(r);}else{window.addEventListener('load',function(){requestAnimationFrame(r);},{once:true});}setTimeout(r,2000);})();`,
+            __html: `(function(){function rb(){var b=document.body;if(b){b.style.transition='opacity .4s ease';b.style.opacity='1';}}function rv(e){e.style.transition='opacity .6s ease, transform .6s ease';e.style.opacity='1';if(e.style.transform)e.style.transform='none';}function init(){rb();try{var els=[].slice.call(document.querySelectorAll('[style*="opacity"]')).filter(function(e){return getComputedStyle(e).opacity==='0';});if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){rv(x.target);io.unobserve(x.target);}});},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e);});setTimeout(function(){els.forEach(rv);},3500);}else{els.forEach(rv);}}catch(_){}}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}window.addEventListener('load',rb,{once:true});setTimeout(rb,2000);})();`,
           }}
         />
       </head>
