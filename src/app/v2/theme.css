@@ -1,0 +1,29 @@
+/* Clean design tokens for the rebuilt site — values matched to the Webflow
+   reference (wowdesign-miami.css :root + the responsive rem base). Namespaced
+   --c-* / --font-* so they're self-sufficient and don't depend on the old CSS. */
+:root {
+  --c-bg: #06070d;            /* page background */
+  --c-bg-elev: #0b0f19;       /* dark-bg (buttons/cards) */
+  --c-dark: #000;
+  --c-primary: #2d68ff;
+  --c-secondary: #a044ff;
+  --c-accent: #ff2c55;
+  --c-grey: #94a3b8;
+  --c-paragraph: #bebec1;
+  --c-white-74: #ffffffbd;
+  --c-border: #ffffff1f;
+  --c-border-soft: #ffffff14;
+  --c-surface: #151c2c;
+  --radial-primary: #2e77fa9e;
+  --radial-secondary: #a044ff80;
+  --font-head: "Outfit", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+.v2Root {
+  background: var(--c-bg);
+  color: #fff;
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
