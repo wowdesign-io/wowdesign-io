@@ -1,11 +1,11 @@
 import Script from 'next/script'
 
 export const metadata = {
-  title: "Book A Demo | wowdesign",
-  description: "See the presales system live — the website, the digital twin, and the automated follow-up in a 30-minute walkthrough on a live project.",
+  title: "Carry Cost Calculator | wowdesign",
+  description: "Calculate capital preserved by accelerating project absorption. See exact savings from selling 2-6 months faster. Free calculator for developers.",
 }
 
-export default function BookADemoPage() {
+export default function CarryCostCalculatorPage() {
   return (
     <>
 <div className="page-wrapper">
@@ -28,11 +28,11 @@ export default function BookADemoPage() {
             <a href="/#features" className="nav-menu-link w-nav-link">Features</a>
             <a href="/#how-it-works" className="nav-menu-link w-nav-link">How it works</a>
             <a href="/#about" className="nav-menu-link w-nav-link">about</a>
-            <a data-cta="Nav - Calc" href="/carry-cost-calculator" className="nav-menu-link w-nav-link">Carry Cost Calc</a>
+            <a data-cta="Nav - Calc" href="/carry-cost-calculator" aria-current="page" className="nav-menu-link w-nav-link w--current">Carry Cost Calc</a>
           </nav>
           <div className="navbar-button-wrapper">
             <div className="primary-button-wrapper desktop">
-              <a href="/book-a-demo" data-cta="Nav - Demo" data-w-id="3af1c84f-ff74-c014-cb3b-40446b73b1f6" aria-current="page" className="primary-button w-inline-block w--current">
+              <a href="/book-a-demo" data-cta="Nav - Demo" data-w-id="3af1c84f-ff74-c014-cb3b-40446b73b1f6" className="primary-button w-inline-block">
                 <div className="primary-button-border-wrap">
                   <div className="primary-button-wrap">
                     <div className="primary-button-text">Book A Demo</div>
@@ -76,25 +76,57 @@ export default function BookADemoPage() {
                 <div className="tagline-container">
                   <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ph" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256">
                       <g fill="currentColor">
-                        <path d="M216 72v104H40V72a16 16 0 0 1 16-16h144a16 16 0 0 1 16 16" opacity=".2"></path>
-                        <path d="M232 168h-8V72a24 24 0 0 0-24-24H56a24 24 0 0 0-24 24v96h-8a8 8 0 0 0-8 8v16a24 24 0 0 0 24 24h176a24 24 0 0 0 24-24v-16a8 8 0 0 0-8-8M48 72a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8v96H48Zm176 120a8 8 0 0 1-8 8H40a8 8 0 0 1-8-8v-8h192ZM152 88a8 8 0 0 1-8 8h-32a8 8 0 0 1 0-16h32a8 8 0 0 1 8 8"></path>
+                        <path d="M224 104v48H48v-48Z" opacity=".2"></path>
+                        <path d="M224 96h-40V56a8 8 0 0 0-8-8H56v-8a8 8 0 0 0-16 0v176a8 8 0 0 0 16 0v-8h88a8 8 0 0 0 8-8v-40h72a8 8 0 0 0 8-8v-48a8 8 0 0 0-8-8m-56-32v32H56V64Zm-32 128H56v-32h80Zm80-48H56v-32h160Z"></path>
                       </g>
                     </svg></div>
-                  <div className="text-style-tagline">Book A Demo</div>
+                  <div className="text-style-tagline">Carry Cost Calculator</div>
                 </div>
               </div>
               <div className="inner-banner-title-wrapper">
-                <h1 className="inner-banner-title contact-us">See the System Live.</h1>
-                <p className="inner-banner-description about-us">Book a 30-minute walkthrough. See the digital twin, floor plan viewer, and automated follow-up running on a real project — then decide.</p>
+                <h1 className="inner-banner-title contact-us">Stop Funding the Bank. <br />Start Funding Your Next Deal.</h1>
+                <p className="inner-banner-description about-us">In a high-interest environment, time is your most expensive liability.<br />See how much capital you preserve by selling out just 90 days faster.</p>
               </div>
               <div className="banner-button-wrapper">
                 <div className="primary-button-wrapper">
-                  <a href="#project" className="inner-button w-inline-block">
+                  <a href="#roi-calculator" className="inner-button w-inline-block">
                     <div className="primary-button-border-wrap">
                       <div className="inner-button-wrap">
                         <div className="inner-button-text-wrap">
-                          <div className="inner-button-text">BOOK A DEMO</div>
-                          <div className="inner-button-hover-text">BOOK A DEMO</div>
+                          <div className="inner-button-text">Run your numbers</div>
+                          <div className="inner-button-hover-text">Run your numbers</div>
+                        </div>
+                        <div className="inner-button-star-wrap"><img loading="lazy" src="/images/inner-button-star-1.svg" alt="" className="inner-button-star _1" /><img loading="lazy" src="/images/inner-button-star-2.svg" alt="" className="inner-button-star _2" /><img loading="lazy" src="/images/inner-button-star-3.svg" alt="" className="inner-button-star _3" /></div>
+                        <div className="inner-button-hover-bg"></div>
+                      </div>
+                    </div>
+                    <div className="line-wrap-inner">
+                      <div className="inner-line-wrap _1">
+                        <div className="line"></div>
+                        <div className="line _2"></div>
+                      </div>
+                      <div className="inner-line-wrap _2">
+                        <div className="line _3"></div>
+                        <div className="line _4"></div>
+                      </div>
+                      <div className="inner-line-wrap _3">
+                        <div className="line _5"></div>
+                        <div className="line _6"></div>
+                      </div>
+                      <div className="inner-line-wrap _4">
+                        <div className="line _7"></div>
+                        <div className="line _8"></div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div className="primary-button-wrapper">
+                  <a href="/book-a-demo" className="inner-button w-inline-block">
+                    <div className="primary-button-border-wrap">
+                      <div className="inner-button-wrap">
+                        <div className="inner-button-text-wrap">
+                          <div className="inner-button-text">Book A Demo</div>
+                          <div className="inner-button-hover-text">Book A Demo</div>
                         </div>
                         <div className="inner-button-star-wrap"><img loading="lazy" src="/images/inner-button-star-1.svg" alt="" className="inner-button-star _1" /><img loading="lazy" src="/images/inner-button-star-2.svg" alt="" className="inner-button-star _2" /><img loading="lazy" src="/images/inner-button-star-3.svg" alt="" className="inner-button-star _3" /></div>
                         <div className="inner-button-hover-bg"></div>
@@ -121,7 +153,6 @@ export default function BookADemoPage() {
                   </a>
                 </div>
               </div>
-              <div className="subhero-timeline text-size-small">Built for 10–50 unit developments.<br />Launched in 6–8 weeks.</div>
             </div>
           </div><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="inner-banner-pluse-icon top-left" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="inner-banner-pluse-icon top-right" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="inner-banner-pluse-icon bottom-left" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="inner-banner-pluse-icon bottom-right" />
           <div className="cta-radial-gradient1"></div>
@@ -129,15 +160,34 @@ export default function BookADemoPage() {
         </div>
       </div>
     </section>
-    <section id="project" className="section contact-us">
+    <section id="roi-calculator" className="section roi">
       <div className="container">
-        <div className="contact-us-wrapper">
+        <div data-w-id="cce02c8f-bf74-6eb9-db79-4a28a0499fb5" style={{ opacity: "0" }} className="contact-us-wrapper"><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="contact-us-icon top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="contact-us-icon top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="contact-us-icon bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="contact-us-icon bottom-right" />
           <div className="w-embed w-script">
-            <div style={{ width: "100%", height: "100%", overflow: "scroll" }} id="my-cal-inline-book-a-demo"></div>
-
-          </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="contact-us-icon top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="contact-us-icon top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="contact-us-icon bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="contact-us-icon bottom-right" />
+            <div id="wwd-calc-root"></div>
+            
+          </div>
           <div className="call-radial-gradient1"></div>
           <div className="call-radial-gradient2"></div>
+        </div>
+      </div>
+    </section>
+    <section className="section_content7">
+      <div className="padding-global">
+        <div className="container-large">
+          <div className="padding-section-large">
+            <div className="content7_component">
+              <div className="max-width-large align-center">
+                <div className="content7_content-wrapper">
+                  <div className="text-rich-text w-richtext">
+                    <h4>What the numbers mean</h4>
+                    <p className="rich-text-p">Every month a unit sits unsold, your construction loan compounds and your ops budget bleeds. The calculator above puts an exact dollar figure on that delay — and shows what closing 2–6 months faster is actually worth.</p>
+                    <p>That's the gap wowdesign closes. We build the website, the digital twin, and the automated follow-up system that pre-qualifies buyers before your sales team picks up the phone — so your project absorbs faster and your capital stays where it belongs.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -298,7 +348,7 @@ export default function BookADemoPage() {
             <div className="footer-menu-wrapper">
               <div id="newsletter" className="footer-form-wrapper">
                 <div className="footer-form-block w-form">
-                  <form id="wf-form-NL-Form" name="wf-form-NL-Form" data-name="NL-Form" method="get" className="footer-form" data-wf-page-id="68b03afe7096334b9f7252c6" data-wf-element-id="7ccbf7a2-080d-66f9-81b6-2448b055e13b">
+                  <form id="wf-form-NL-Form" name="wf-form-NL-Form" data-name="NL-Form" method="get" className="footer-form" data-wf-page-id="68b04f4de2c473630dcbed39" data-wf-element-id="7ccbf7a2-080d-66f9-81b6-2448b055e13b">
                     <div className="footer-form-text-wrapper"><label htmlFor="name" className="footer-form-text-block">Subscribe to Newsletter</label></div>
                     <div className="footer-form-input-field-button"><input className="footer-form-input-field is-1 w-input" maxLength={256} name="nl_first_name" data-name="nl_first_name" placeholder="First Name" type="text" id="nl_first_name" required /><input className="footer-form-input-field w-input" maxLength={256} name="nl_email" data-name="nl_email" placeholder="Email" type="email" id="nl_email" required /><input type="submit" data-wait="" className="footer-form-submit-button w-button" value="" /></div>
                   </form>
@@ -339,10 +389,10 @@ export default function BookADemoPage() {
                   <div className="footer-menu-list-wrapper">
                     <ul role="list" className="footer-menu-list">
                       <li className="footer-menu-list-item">
-                        <a href="/book-a-demo" aria-current="page" className="footer-menu-text-link w--current">Book A Demo</a>
+                        <a href="/book-a-demo" className="footer-menu-text-link">Book A Demo</a>
                       </li>
                       <li className="footer-menu-list-item">
-                        <a href="/carry-cost-calculator" className="footer-menu-text-link">Carry Cost Calculator</a>
+                        <a href="/carry-cost-calculator" aria-current="page" className="footer-menu-text-link w--current">Carry Cost Calculator</a>
                       </li>
                       <li className="footer-menu-list-item">
                         <a href="/#faq" className="footer-menu-text-link">FAQ</a>
@@ -404,7 +454,7 @@ export default function BookADemoPage() {
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" strategy="afterInteractive" />
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" strategy="afterInteractive" />
       <Script src="https://cdn.jsdelivr.net/npm/goo-motion-library@latest/dist/goo.bundle.js" strategy="afterInteractive" />
-      <Script id="cal-embed" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: "(function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement(\"script\")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === \"string\"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, [\"initNamespace\", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, \"https://app.cal.com/embed/embed.js\", \"init\");\nCal(\"init\", \"book-a-demo\", {origin:\"https://app.cal.com\"});\nCal.config = Cal.config || {}; Cal.config.forwardQueryParams = true;\nCal.ns[\"book-a-demo\"](\"inline\", { elementOrSelector:\"#my-cal-inline-book-a-demo\", config: {\"layout\":\"month_view\",\"useSlotsViewOnSmallScreen\":\"true\",\"theme\":\"dark\"}, calLink: \"wowdesign/book-a-demo\" });\nCal.ns[\"book-a-demo\"](\"ui\", {\"theme\":\"dark\",\"cssVarsPerTheme\":{\"light\":{\"cal-brand\":\"#2E77FA\"},\"dark\":{\"cal-brand\":\"#2E77FA\"}},\"hideEventTypeDetails\":false,\"layout\":\"month_view\"});" }} />
+      <Script src="https://cdn.jsdelivr.net/gh/wowdesign-io/carry-cost-calc@main/carry-cost-calculator.js" strategy="afterInteractive" />
     </>
   )
 }
