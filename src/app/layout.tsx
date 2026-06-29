@@ -48,18 +48,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${inter.variable} h-full`}>
-      <head>
-        {/* Prevent flash on repeat visits — inline before paint */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{if(sessionStorage.getItem('wowLoaded'))document.documentElement.classList.add('wow-loaded')}catch(e){}`,
-          }}
-        />
-      </head>
-      <body className="min-h-full flex flex-col antialiased bg-brand-dark text-white">
-        {children}
-      </body>
+    <html
+      lang="en"
+      data-wf-page="68ac826b2e7f29829046bfc6"
+      data-wf-site="68ac826a2e7f29829046bf54"
+      className={`${outfit.variable} ${inter.variable}`}
+    >
+      <body className="body">{children}</body>
     </html>
   )
 }
