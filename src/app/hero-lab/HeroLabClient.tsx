@@ -16,32 +16,6 @@ export default function HeroLabClient() {
       }}
     >
       <TowerScene />
-
-      {/* headline overlay — final composition TBD, here just to feel the pairing */}
-      <div
-        style={{
-          position: 'absolute',
-          top: '12%',
-          left: 0,
-          right: 0,
-          textAlign: 'center',
-          pointerEvents: 'none',
-        }}
-      >
-        <h1
-          style={{
-            margin: 0,
-            color: '#fff',
-            fontFamily: '"Outfit", sans-serif',
-            fontWeight: 500,
-            fontSize: '6rem',
-            lineHeight: 1,
-            letterSpacing: '-0.01em',
-          }}
-        >
-          Sell Out Faster.
-        </h1>
-      </div>
     </div>
   )
 }
