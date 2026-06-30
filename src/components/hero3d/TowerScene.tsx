@@ -38,7 +38,7 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
   useEffect(() => { onReady?.() }, [onReady])
   return <primitive object={prepared} />
 }
-useGLTF.preload(MODELS.sanzio)
+useGLTF.preload(MODELS.woolderpark)
 
 // auto-play DRONE ORBIT around the building once everything is loaded, settling
 // into the hero framing. The clock starts on this rig's first frame — and since
@@ -47,17 +47,30 @@ function CameraRig() {
   const t0 = useRef<number | null>(null)
   const look = useRef(new THREE.Vector3(0, 9, 0))
   const DUR = 6
-  const endAngle = 0.9 // lands looking at sanzio's hero (balcony/glass) façade
-  const startAngle = endAngle + 2.9 // ~165° arc while swooping in
-  // debug: ?t=<seconds> freezes the camera at that point in the flight
-  const override = useMemo(() => {
-    if (typeof window !== 'undefined') {
-      const v = new URLSearchParams(window.location.search).get('t')
-      if (v !== null) return parseFloat(v)
+  // woolderpark lakefront: land 3/4 on the glass-balcony façade with the lake on the left
+  const endAngle = 3.3
+  const startAngle = endAngle + 2.2 // ~126° glide, sweeping in low over the water
+  // debug: ?t=<seconds> freezes the camera at that point in the flight.
+  // free-orbit inspect: ?ang=<rad>&rad=<n>&h=<n>&ly=<n> sets a static pose.
+  const dbg = useMemo(() => {
+    if (typeof window === 'undefined') return null
+    const q = new URLSearchParams(window.location.search)
+    const t = q.get('t')
+    const ang = q.get('ang')
+    if (ang !== null) {
+      return { static: true as const,
+        ang: parseFloat(ang), rad: parseFloat(q.get('rad') || '30'),
+        h: parseFloat(q.get('h') || '6'), ly: parseFloat(q.get('ly') || '7') }
     }
-    return null
+    return { static: false as const, t: t !== null ? parseFloat(t) : null }
   }, [])
   useFrame((state) => {
+    if (dbg && dbg.static) {
+      state.camera.position.set(Math.cos(dbg.ang) * dbg.rad, dbg.h, Math.sin(dbg.ang) * dbg.rad)
+      state.camera.lookAt(0, dbg.ly, 0)
+      return
+    }
+    const override = dbg && !dbg.static ? dbg.t : null
     if (t0.current === null) t0.current = state.clock.elapsedTime
     const t = override !== null ? override : state.clock.elapsedTime - t0.current
     const e = easeOut(THREE.MathUtils.clamp(t / DUR, 0, 1))
@@ -68,10 +81,12 @@ function CameraRig() {
     const angle = THREE.MathUtils.lerp(startAngle, endAngle, e) + sway
     // start FAR (tower against sky), swoop in while circling, settle on the
     // top-third + sky. Low camera + looking up keeps the floor out of frame.
-    const radius = THREE.MathUtils.lerp(34, 19, e)
-    const height = THREE.MathUtils.lerp(7, 3, e) + bob * 0.4
+    // start FAR + LOW out over the lake, glide in and RISE to an elevated 3/4 that
+    // frames the whole low-rise + the water. (Low wide building → no top-third-vs-sky.)
+    const radius = THREE.MathUtils.lerp(58, 40, e)
+    const height = THREE.MathUtils.lerp(3, 9, e) + bob * 0.4
     state.camera.position.set(Math.cos(angle) * radius, height, Math.sin(angle) * radius)
-    look.current.set(THREE.MathUtils.lerp(-2, -3.2, e), THREE.MathUtils.lerp(7, 12.2, e), 0)
+    look.current.set(THREE.MathUtils.lerp(0, -3, e), THREE.MathUtils.lerp(6, 6.2, e), 0)
     state.camera.lookAt(look.current)
   })
   return null
@@ -83,13 +98,13 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
       const m = new URLSearchParams(window.location.search).get('model')
       if (m && MODELS[m]) return MODELS[m]
     }
-    return MODELS.sanzio
+    return MODELS.woolderpark
   }, [])
   return (
     <Canvas
       gl={{ antialias: true, powerPreference: 'high-performance' }}
       dpr={[1, 2]}
-      camera={{ position: [Math.cos(3.8) * 34, 7, Math.sin(3.8) * 34], fov: 32 }}
+      camera={{ position: [Math.cos(5.5) * 58, 3, Math.sin(5.5) * 58], fov: 32 }}
     >
       <Suspense fallback={null}>
         <fog attach="fog" args={['#c4cedd', 70, 240]} />
