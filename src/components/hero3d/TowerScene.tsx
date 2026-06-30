@@ -42,14 +42,14 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
     // REAL glass: a reflective physical material that mirrors the HDRI sky + clouds,
     // tinted blue-grey and slightly see-through. Replaces the flat OPAQUE model glass.
     const glass = new THREE.MeshPhysicalMaterial({
-      color: new THREE.Color('#8ea7bb'),
-      metalness: 0.0,
-      roughness: 0.05,
-      envMapIntensity: 2.6,
+      color: new THREE.Color('#6f8a9b'), // blue-grey tint; clearcoat reflects the sky on top
+      metalness: 0.1,
+      roughness: 0.04,
+      envMapIntensity: 1.6,
       transparent: true,
-      opacity: 0.55,
+      opacity: 0.88,
       clearcoat: 1,
-      clearcoatRoughness: 0.03,
+      clearcoatRoughness: 0.04,
       ior: 1.45,
       reflectivity: 1,
       side: THREE.DoubleSide,
@@ -62,8 +62,10 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
       m.receiveShadow = true
       const mats = Array.isArray(m.material) ? m.material : [m.material]
       const tag = (mats.map((x) => x?.name || '').join(' ') + ' ' + m.name).toLowerCase()
-      if (tag.includes('glass')) {
-        m.material = glass // mirror-like reflective glass
+      // the tower's window glass is the "Condominio_Aragon" material (363 instances);
+      // "_Gray_Glass_2" is small glass bits. Both become real reflective glass.
+      if (tag.includes('condominio') || tag.includes('glass')) {
+        m.material = glass // reflective glass
       } else {
         // concrete / metal frames + railings: let them catch the sky a bit so they
         // read as real surfaces, not matte plastic
@@ -86,10 +88,10 @@ useGLTF.preload(MODELS.adriana)
 function CameraRig() {
   const t0 = useRef<number | null>(null)
   const look = useRef(new THREE.Vector3(0, 9, 0))
-  const DUR = 11
-  // SPIRAL: 2 full circles around the tower, climbing bottom → top, then settle with
-  // the top third framed on the RIGHT so the hero copy on the left stays readable.
-  const TURNS = 2
+  const DUR = 10
+  // SPIRAL: ONE calm circle around the tower, climbing bottom → top (2 turns made Andy
+  // dizzy), then settle with the top third+ framed on the RIGHT so the left hero reads.
+  const TURNS = 1
   const endAngle = 3.75 // 3/4 corner of the balcony face at the settle
   const startAngle = endAngle + TURNS * Math.PI * 2
   // debug: ?t=<seconds> freezes the camera at that point in the flight.
@@ -126,8 +128,8 @@ function CameraRig() {
     const height = THREE.MathUtils.lerp(3, 9.5, e) + bob * 0.4
     _cam.set(Math.cos(angle) * radius, height, Math.sin(angle) * radius)
     state.camera.position.copy(_cam)
-    // look climbs from the tower base to the top third
-    const ly = THREE.MathUtils.lerp(7, 11.5, e)
+    // look climbs from the tower base to the top third (settle ~1 floor lower per Andy)
+    const ly = THREE.MathUtils.lerp(7, 10.3, e)
     look.current.set(0, ly, 0)
     // pan the look along camera-right so the tower drifts to screen-RIGHT at the settle
     // (leaves the left clear for the hero copy)
@@ -157,7 +159,7 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
         toneMappingExposure: 0.92, // pull back the blown-out highlights
       }}
       dpr={[1, 2]}
-      camera={{ position: [Math.cos(16.32) * 25, 3, Math.sin(16.32) * 25], fov: 32 }}
+      camera={{ position: [Math.cos(10.03) * 25, 3, Math.sin(10.03) * 25], fov: 32 }}
     >
       <Suspense fallback={null}>
         <fog attach="fog" args={['#aeb9c9', 95, 300]} />
