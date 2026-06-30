@@ -38,7 +38,7 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
   useEffect(() => { onReady?.() }, [onReady])
   return <primitive object={prepared} />
 }
-useGLTF.preload(MODELS.woolderpark)
+useGLTF.preload(MODELS.sanzio)
 
 // auto-play DRONE ORBIT around the building once everything is loaded, settling
 // into the hero framing. The clock starts on this rig's first frame — and since
@@ -47,9 +47,10 @@ function CameraRig() {
   const t0 = useRef<number | null>(null)
   const look = useRef(new THREE.Vector3(0, 9, 0))
   const DUR = 6
-  // woolderpark lakefront: land 3/4 on the glass-balcony façade with the lake on the left
-  const endAngle = 3.3
-  const startAngle = endAngle + 2.2 // ~126° glide, sweeping in low over the water
+  // sanzio: land craned-up on the hero façade, top-third against sky. AVOID THE FLOOR —
+  // the ground (labels/floating slab) wrecks the premium feel, so we never show it.
+  const endAngle = 0.9
+  const startAngle = endAngle + 2.9 // ~165° arc while swooping in
   // debug: ?t=<seconds> freezes the camera at that point in the flight.
   // free-orbit inspect: ?ang=<rad>&rad=<n>&h=<n>&ly=<n> sets a static pose.
   const dbg = useMemo(() => {
@@ -81,12 +82,12 @@ function CameraRig() {
     const angle = THREE.MathUtils.lerp(startAngle, endAngle, e) + sway
     // start FAR (tower against sky), swoop in while circling, settle on the
     // top-third + sky. Low camera + looking up keeps the floor out of frame.
-    // start FAR + LOW out over the lake, glide in and RISE to an elevated 3/4 that
-    // frames the whole low-rise + the water. (Low wide building → no top-third-vs-sky.)
-    const radius = THREE.MathUtils.lerp(58, 40, e)
-    const height = THREE.MathUtils.lerp(3, 9, e) + bob * 0.4
+    // far → swoop in while circling → settle craned-up on the top third + sky.
+    // Low camera looking UP keeps the floor out of frame the whole way.
+    const radius = THREE.MathUtils.lerp(34, 19, e)
+    const height = THREE.MathUtils.lerp(7, 3, e) + bob * 0.4
     state.camera.position.set(Math.cos(angle) * radius, height, Math.sin(angle) * radius)
-    look.current.set(THREE.MathUtils.lerp(0, -3, e), THREE.MathUtils.lerp(6, 6.2, e), 0)
+    look.current.set(THREE.MathUtils.lerp(-2, -3.2, e), THREE.MathUtils.lerp(7, 12.2, e), 0)
     state.camera.lookAt(look.current)
   })
   return null
@@ -98,13 +99,13 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
       const m = new URLSearchParams(window.location.search).get('model')
       if (m && MODELS[m]) return MODELS[m]
     }
-    return MODELS.woolderpark
+    return MODELS.sanzio
   }, [])
   return (
     <Canvas
       gl={{ antialias: true, powerPreference: 'high-performance' }}
       dpr={[1, 2]}
-      camera={{ position: [Math.cos(5.5) * 58, 3, Math.sin(5.5) * 58], fov: 32 }}
+      camera={{ position: [Math.cos(3.8) * 34, 7, Math.sin(3.8) * 34], fov: 32 }}
     >
       <Suspense fallback={null}>
         <fog attach="fog" args={['#c4cedd', 70, 240]} />
