@@ -10,7 +10,7 @@ function rand(seed: number) {
   const v = Math.sin(seed * 127.1 + 311.7) * 43758.5453
   return v - Math.floor(v)
 }
-const easeInOut = (x: number) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2)
+const easeOut = (x: number) => 1 - Math.pow(1 - x, 3) // fast swoop in, smooth settle
 
 const MODELS: Record<string, string> = {
   pivotal: '/models/pivotal_point.glb',
@@ -81,9 +81,9 @@ function Ground() {
 function CameraRig() {
   const t0 = useRef<number | null>(null)
   const look = useRef(new THREE.Vector3(0, 9, 0))
-  const DUR = 10
+  const DUR = 6
   const endAngle = 0.9
-  const startAngle = endAngle + 4.2 // ~240° spiral around the tower
+  const startAngle = endAngle + 3.4 // ~195° arc while swooping in
   // debug: ?t=<seconds> freezes the camera at that point in the flight
   const override = useMemo(() => {
     if (typeof window !== 'undefined') {
@@ -95,19 +95,18 @@ function CameraRig() {
   useFrame((state) => {
     if (t0.current === null) t0.current = state.clock.elapsedTime
     const t = override !== null ? override : state.clock.elapsedTime - t0.current
-    const e = easeInOut(THREE.MathUtils.clamp(t / DUR, 0, 1))
+    const e = easeOut(THREE.MathUtils.clamp(t / DUR, 0, 1))
     // after the settle, gently sway/bob AROUND the hero framing (never drift away)
     const post = Math.max(t - DUR, 0)
     const sway = Math.sin(post * 0.16) * 0.03
     const bob = Math.sin(post * 0.12) * 0.25
     const angle = THREE.MathUtils.lerp(startAngle, endAngle, e) + sway
-    // SPIRAL CLIMB: start low + close looking up at the lower floors (no ground),
-    // then orbit around AND rise, ending high on the top of the tower vs sky.
-    const radius = THREE.MathUtils.lerp(8, 13, e)
-    const height = THREE.MathUtils.lerp(1.5, 5, e) + bob * 0.4
+    // start FAR (tower against sky), swoop in while circling, settle on the
+    // top-third + sky. Low camera + looking up keeps the floor out of frame.
+    const radius = THREE.MathUtils.lerp(32, 13, e)
+    const height = THREE.MathUtils.lerp(4, 5, e) + bob * 0.4
     state.camera.position.set(Math.cos(angle) * radius, height, Math.sin(angle) * radius)
-    // framing pans UP the building as we climb: lower floors -> top
-    look.current.set(THREE.MathUtils.lerp(-2, -3.5, e), THREE.MathUtils.lerp(4, 12.5, e), 0)
+    look.current.set(THREE.MathUtils.lerp(-3, -3.5, e), THREE.MathUtils.lerp(10, 12.5, e), 0)
     state.camera.lookAt(look.current)
   })
   return null
@@ -125,7 +124,7 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
     <Canvas
       gl={{ antialias: true, powerPreference: 'high-performance' }}
       dpr={[1, 2]}
-      camera={{ position: [Math.cos(5.1) * 8, 1.5, Math.sin(5.1) * 8], fov: 32 }}
+      camera={{ position: [Math.cos(4.3) * 32, 4, Math.sin(4.3) * 32], fov: 32 }}
     >
       <Suspense fallback={null}>
         <fog attach="fog" args={['#c4cedd', 70, 240]} />
