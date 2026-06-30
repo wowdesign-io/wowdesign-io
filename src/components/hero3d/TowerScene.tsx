@@ -6,15 +6,13 @@ import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import { Suspense, useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 
-function rand(seed: number) {
-  const v = Math.sin(seed * 127.1 + 311.7) * 43758.5453
-  return v - Math.floor(v)
-}
 const easeOut = (x: number) => 1 - Math.pow(1 - x, 3) // fast swoop in, smooth settle
 
 const MODELS: Record<string, string> = {
-  pivotal: '/models/pivotal_point.glb',
+  sanzio: '/models/sanzio.glb', // boutique mid-rise w/ parking + street + entrance (incl. site)
+  woolderpark: '/models/woolderpark.glb', // boutique waterfront mid-rise (incl. site)
   miami: '/models/miami_style_condominium.glb',
+  pivotal: '/models/pivotal_point.glb',
 }
 const TARGET_H = 14
 
@@ -40,40 +38,7 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
   useEffect(() => { onReady?.() }, [onReady])
   return <primitive object={prepared} />
 }
-useGLTF.preload(MODELS.pivotal)
-useGLTF.preload(MODELS.miami)
-
-// DISTANT skyline only — far, tall, hazed towers near the horizon for context.
-// Kept way out so they never cross the drone's path or block the hero shot.
-function City() {
-  const buildings = useMemo(() => {
-    const arr: { x: number; z: number; w: number; d: number; h: number }[] = []
-    let s = 1
-    for (let ring = 0; ring < 2; ring++) {
-      const count = 22 + ring * 14
-      const radius = 78 + ring * 42
-      for (let k = 0; k < count; k++) {
-        const ang = (k / count) * Math.PI * 2 + rand(s++) * 0.4
-        const rr = radius + rand(s++) * 26
-        arr.push({ x: Math.cos(ang) * rr, z: Math.sin(ang) * rr, w: 6 + rand(s++) * 10, d: 6 + rand(s++) * 10, h: 22 + rand(s++) * (32 + ring * 18) })
-      }
-    }
-    return arr
-  }, [])
-  // light matte so the distant towers haze into the fog/sky
-  const mat = useMemo(() => new THREE.MeshStandardMaterial({ color: '#67768c', metalness: 0.08, roughness: 0.95, envMapIntensity: 1 }), [])
-  return <group>{buildings.map((b, i) => (<mesh key={i} position={[b.x, b.h / 2, b.z]} material={mat}><boxGeometry args={[b.w, b.h, b.d]} /></mesh>))}</group>
-}
-
-// simple ground, far below — the camera stays angled up so it's effectively never in frame
-function Ground() {
-  return (
-    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.05, 0]}>
-      <planeGeometry args={[700, 700]} />
-      <meshStandardMaterial color="#10161f" metalness={0.2} roughness={0.9} envMapIntensity={0.4} />
-    </mesh>
-  )
-}
+useGLTF.preload(MODELS.sanzio)
 
 // auto-play DRONE ORBIT around the building once everything is loaded, settling
 // into the hero framing. The clock starts on this rig's first frame — and since
@@ -82,8 +47,8 @@ function CameraRig() {
   const t0 = useRef<number | null>(null)
   const look = useRef(new THREE.Vector3(0, 9, 0))
   const DUR = 6
-  const endAngle = 0.9
-  const startAngle = endAngle + 3.4 // ~195° arc while swooping in
+  const endAngle = 0.9 // lands looking at sanzio's hero (balcony/glass) façade
+  const startAngle = endAngle + 2.9 // ~165° arc while swooping in
   // debug: ?t=<seconds> freezes the camera at that point in the flight
   const override = useMemo(() => {
     if (typeof window !== 'undefined') {
@@ -103,10 +68,10 @@ function CameraRig() {
     const angle = THREE.MathUtils.lerp(startAngle, endAngle, e) + sway
     // start FAR (tower against sky), swoop in while circling, settle on the
     // top-third + sky. Low camera + looking up keeps the floor out of frame.
-    const radius = THREE.MathUtils.lerp(24, 13, e)
-    const height = THREE.MathUtils.lerp(1, 5, e) + bob * 0.4
+    const radius = THREE.MathUtils.lerp(34, 19, e)
+    const height = THREE.MathUtils.lerp(7, 3, e) + bob * 0.4
     state.camera.position.set(Math.cos(angle) * radius, height, Math.sin(angle) * radius)
-    look.current.set(THREE.MathUtils.lerp(-3, -3.5, e), THREE.MathUtils.lerp(7, 12.5, e), 0)
+    look.current.set(THREE.MathUtils.lerp(-2, -3.2, e), THREE.MathUtils.lerp(7, 12.2, e), 0)
     state.camera.lookAt(look.current)
   })
   return null
@@ -118,13 +83,13 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
       const m = new URLSearchParams(window.location.search).get('model')
       if (m && MODELS[m]) return MODELS[m]
     }
-    return MODELS.miami
+    return MODELS.sanzio
   }, [])
   return (
     <Canvas
       gl={{ antialias: true, powerPreference: 'high-performance' }}
       dpr={[1, 2]}
-      camera={{ position: [Math.cos(4.3) * 24, 1, Math.sin(4.3) * 24], fov: 32 }}
+      camera={{ position: [Math.cos(3.8) * 34, 7, Math.sin(3.8) * 34], fov: 32 }}
     >
       <Suspense fallback={null}>
         <fog attach="fog" args={['#c4cedd', 70, 240]} />
@@ -134,8 +99,6 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
 
         <CameraRig />
         <Building url={modelUrl} onReady={onReady} />
-        <City />
-        <Ground />
 
         <Environment files="/hdri/sky.hdr" background backgroundBlurriness={0.02} environmentIntensity={1} />
 
