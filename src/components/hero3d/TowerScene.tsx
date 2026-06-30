@@ -81,9 +81,9 @@ function Ground() {
 function CameraRig() {
   const t0 = useRef<number | null>(null)
   const look = useRef(new THREE.Vector3(0, 9, 0))
-  const DUR = 8
+  const DUR = 10
   const endAngle = 0.9
-  const startAngle = endAngle + 4 // ~230° sweep around the upper tower
+  const startAngle = endAngle + 4.2 // ~240° spiral around the tower
   // debug: ?t=<seconds> freezes the camera at that point in the flight
   const override = useMemo(() => {
     if (typeof window !== 'undefined') {
@@ -101,12 +101,13 @@ function CameraRig() {
     const sway = Math.sin(post * 0.16) * 0.03
     const bob = Math.sin(post * 0.12) * 0.25
     const angle = THREE.MathUtils.lerp(startAngle, endAngle, e) + sway
-    // close + low, looking UP at the upper tower against the sky for the WHOLE
-    // flight — orbit circles the top of the tower, floor stays out of frame
-    const radius = THREE.MathUtils.lerp(24, 13, e)
-    const height = THREE.MathUtils.lerp(6, 5, e) + bob * 0.4
+    // SPIRAL CLIMB: start low + close looking up at the lower floors (no ground),
+    // then orbit around AND rise, ending high on the top of the tower vs sky.
+    const radius = THREE.MathUtils.lerp(8, 13, e)
+    const height = THREE.MathUtils.lerp(1.5, 5, e) + bob * 0.4
     state.camera.position.set(Math.cos(angle) * radius, height, Math.sin(angle) * radius)
-    look.current.set(THREE.MathUtils.lerp(-2.5, -3.5, e), THREE.MathUtils.lerp(13, 12.5, e), 0)
+    // framing pans UP the building as we climb: lower floors -> top
+    look.current.set(THREE.MathUtils.lerp(-2, -3.5, e), THREE.MathUtils.lerp(4, 12.5, e), 0)
     state.camera.lookAt(look.current)
   })
   return null
@@ -124,7 +125,7 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
     <Canvas
       gl={{ antialias: true, powerPreference: 'high-performance' }}
       dpr={[1, 2]}
-      camera={{ position: [Math.cos(4.9) * 24, 6, Math.sin(4.9) * 24], fov: 32 }}
+      camera={{ position: [Math.cos(5.1) * 8, 1.5, Math.sin(5.1) * 8], fov: 32 }}
     >
       <Suspense fallback={null}>
         <fog attach="fog" args={['#c4cedd', 70, 240]} />
