@@ -9,6 +9,7 @@ import * as THREE from 'three'
 const easeOut = (x: number) => 1 - Math.pow(1 - x, 3) // fast swoop in, smooth settle
 
 const MODELS: Record<string, string> = {
+  residential: '/models/residential.glb', // simple residential building
   sanzio: '/models/sanzio.glb', // boutique mid-rise w/ parking + street + entrance (incl. site)
   woolderpark: '/models/woolderpark.glb', // boutique waterfront mid-rise (incl. site)
   miami: '/models/miami_style_condominium.glb',
@@ -38,7 +39,7 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
   useEffect(() => { onReady?.() }, [onReady])
   return <primitive object={prepared} />
 }
-useGLTF.preload(MODELS.sanzio)
+useGLTF.preload(MODELS.residential)
 
 // auto-play DRONE ORBIT around the building once everything is loaded, settling
 // into the hero framing. The clock starts on this rig's first frame — and since
@@ -47,9 +48,9 @@ function CameraRig() {
   const t0 = useRef<number | null>(null)
   const look = useRef(new THREE.Vector3(0, 9, 0))
   const DUR = 6
-  // sanzio: land craned-up on the hero façade, top-third against sky. AVOID THE FLOOR —
-  // the ground (labels/floating slab) wrecks the premium feel, so we never show it.
-  const endAngle = 0.9
+  // residential: land craned-up on the BALCONY wing, top-third against sky. AVOID THE
+  // FLOOR — the ground wrecks the premium feel, so we keep looking up and never show it.
+  const endAngle = 4.7
   const startAngle = endAngle + 2.9 // ~165° arc while swooping in
   // debug: ?t=<seconds> freezes the camera at that point in the flight.
   // free-orbit inspect: ?ang=<rad>&rad=<n>&h=<n>&ly=<n> sets a static pose.
@@ -82,12 +83,12 @@ function CameraRig() {
     const angle = THREE.MathUtils.lerp(startAngle, endAngle, e) + sway
     // start FAR (tower against sky), swoop in while circling, settle on the
     // top-third + sky. Low camera + looking up keeps the floor out of frame.
-    // far → swoop in while circling → settle craned-up on the top third + sky.
-    // Low camera looking UP keeps the floor out of frame the whole way.
-    const radius = THREE.MathUtils.lerp(34, 19, e)
-    const height = THREE.MathUtils.lerp(7, 3, e) + bob * 0.4
+    // circle in while RISING up the façade → settle craned-up on the top third + sky.
+    // Camera stays LOW + always looks UP, so the ground is below the frame the whole way.
+    const radius = THREE.MathUtils.lerp(28, 18, e)
+    const height = THREE.MathUtils.lerp(2.5, 3.5, e) + bob * 0.4
     state.camera.position.set(Math.cos(angle) * radius, height, Math.sin(angle) * radius)
-    look.current.set(THREE.MathUtils.lerp(-2, -3.2, e), THREE.MathUtils.lerp(7, 12.2, e), 0)
+    look.current.set(THREE.MathUtils.lerp(-2, -3.2, e), THREE.MathUtils.lerp(9, 12, e), 0)
     state.camera.lookAt(look.current)
   })
   return null
@@ -99,13 +100,13 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
       const m = new URLSearchParams(window.location.search).get('model')
       if (m && MODELS[m]) return MODELS[m]
     }
-    return MODELS.sanzio
+    return MODELS.residential
   }, [])
   return (
     <Canvas
       gl={{ antialias: true, powerPreference: 'high-performance' }}
       dpr={[1, 2]}
-      camera={{ position: [Math.cos(3.8) * 34, 7, Math.sin(3.8) * 34], fov: 32 }}
+      camera={{ position: [Math.cos(7.6) * 28, 2.5, Math.sin(7.6) * 28], fov: 32 }}
     >
       <Suspense fallback={null}>
         <fog attach="fog" args={['#c4cedd', 70, 240]} />

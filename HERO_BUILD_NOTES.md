@@ -58,3 +58,18 @@ npx gltf-transform optimize <in>.glb <out>.glb --compress draco --texture-compre
 2. Shrink HDRI to 1k + compress; lazy-load the canvas.
 3. Nav/hero-text polish at the final angle.
 4. Wire `<TowerScene>` into the real homepage (drop-in replacement for the hero section).
+
+## Candidate PAID models (Fab) — fallback if no good free model
+Andy's picks (2026-07-01) if free models keep missing the warm/luxury+balconies bar:
+- https://www.fab.com/listings/4e2fc147-bbb5-4a48-a8f7-3894b323b1ba
+- https://www.fab.com/listings/687e786f-2fdf-42bf-b6fd-9addba48f7af  (~€25)
+
+**BUYING RULE:** Fab is Epic's marketplace — MANY assets are Unreal-Engine-only (`.uasset`),
+which three.js CANNOT load. Before buying, confirm the listing ships **FBX / OBJ / glTF / GLB**
+(check "Supported Formats / Technical Details"). If UE-only, skip it. (Fab listings 403 to
+automated fetch, so the format must be eyeballed on the page.)
+
+## Free model verdict log
+- `residential.glb` (simple_residential_building, 4.9MB→290KB): cold grey concrete block,
+  one wing has glass balconies but overall plain/generic + visible floor (grass/road/parking).
+  Does NOT clear the warm/luxury bar. Available via `?model=residential` but NOT shipped.
