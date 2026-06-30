@@ -1,7 +1,7 @@
 'use client'
 
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Environment, MeshReflectorMaterial } from '@react-three/drei'
+import { Environment, MeshReflectorMaterial, useGLTF } from '@react-three/drei'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import { Suspense, useMemo, useRef } from 'react'
 import * as THREE from 'three'
@@ -101,22 +101,56 @@ function HeroTower() {
   )
 }
 
+const MODELS: Record<string, string> = {
+  pivotal: '/models/pivotal_point.glb',
+  miami: '/models/miami_style_condominium.glb',
+}
+const TARGET_H = 14 // world-units tall; matches the old placeholder so the camera framing holds
+
+// real building GLB — auto-centered on origin, base on the ground, scaled to TARGET_H
+function Building({ url }: { url: string }) {
+  const { scene } = useGLTF(url)
+  const prepared = useMemo(() => {
+    const root = scene.clone(true)
+    const box = new THREE.Box3().setFromObject(root)
+    const size = new THREE.Vector3()
+    const center = new THREE.Vector3()
+    box.getSize(size)
+    box.getCenter(center)
+    const s = TARGET_H / size.y
+    root.scale.setScalar(s)
+    root.position.set(-center.x * s, -box.min.y * s, -center.z * s)
+    root.traverse((o) => {
+      const m = o as THREE.Mesh
+      if (m.isMesh) {
+        m.castShadow = true
+        m.receiveShadow = true
+      }
+    })
+    return root
+  }, [scene])
+  return <primitive object={prepared} />
+}
+useGLTF.preload(MODELS.pivotal)
+useGLTF.preload(MODELS.miami)
+
 function City() {
   const buildings = useMemo(() => {
     const arr: { x: number; z: number; w: number; d: number; h: number }[] = []
     let s = 1
     for (let ring = 0; ring < 3; ring++) {
-      const count = 14 + ring * 8
-      const radius = 26 + ring * 13
+      const count = 16 + ring * 9
+      const radius = 48 + ring * 20
       for (let k = 0; k < count; k++) {
         const ang = (k / count) * Math.PI * 2 + rand(s++) * 0.5
-        const rr = radius + rand(s++) * 8
-        arr.push({ x: Math.cos(ang) * rr, z: Math.sin(ang) * rr, w: 2 + rand(s++) * 3.5, d: 2 + rand(s++) * 3.5, h: 4 + rand(s++) * (14 + ring * 6) })
+        const rr = radius + rand(s++) * 14
+        arr.push({ x: Math.cos(ang) * rr, z: Math.sin(ang) * rr, w: 3 + rand(s++) * 5, d: 3 + rand(s++) * 5, h: 6 + rand(s++) * (18 + ring * 8) })
       }
     }
     return arr
   }, [])
-  const mat = useMemo(() => new THREE.MeshStandardMaterial({ color: '#0a0e18', metalness: 0.85, roughness: 0.28, envMapIntensity: 0.45 }), [])
+  // matte, light-toned so distant towers haze into the fog/sky instead of reading as black boxes
+  const mat = useMemo(() => new THREE.MeshStandardMaterial({ color: '#2a3445', metalness: 0.1, roughness: 0.9, envMapIntensity: 0.9 }), [])
   return <group>{buildings.map((b, i) => (<mesh key={i} position={[b.x, b.h / 2, b.z]} material={mat}><boxGeometry args={[b.w, b.h, b.d]} /></mesh>))}</group>
 }
 
@@ -152,6 +186,13 @@ function CameraRig() {
 }
 
 export default function TowerScene() {
+  const modelUrl = useMemo(() => {
+    if (typeof window !== 'undefined') {
+      const m = new URLSearchParams(window.location.search).get('model')
+      if (m && MODELS[m]) return MODELS[m]
+    }
+    return MODELS.miami
+  }, [])
   return (
     <Canvas
       gl={{ antialias: true, powerPreference: 'high-performance' }}
@@ -165,7 +206,7 @@ export default function TowerScene() {
         <pointLight position={[-10, 6, 6]} intensity={60} color="#2E77FA" distance={50} />
 
         <CameraRig />
-        <HeroTower />
+        <Building url={modelUrl} />
         <City />
         <Ground />
 
