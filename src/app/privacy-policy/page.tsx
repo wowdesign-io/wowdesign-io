@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
     <div data-w-id="3af1c84f-ff74-c014-cb3b-40446b73b1e3" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" className="navbar w-nav">
       <div className="nav-container _1430">
         <div className="navbar-container">
-          <a href="/" className="navbar-logo w-nav-brand"><img src="https://a.storyblok.com/f/293523249633085/8983/8b2fec33e4/wowdesign-logo-dark.svg" loading="lazy" alt="" className="navbar-logo-image" /></a>
+          <a href="/" className="navbar-logo w-nav-brand"><img src="/images/wow-design-color-logo-dark.svg" loading="lazy" alt="" className="navbar-logo-image" /></a>
           <nav role="navigation" className="nav-menu w-nav-menu">
             <a href="/#features" className="nav-menu-link w-nav-link">Features</a>
             <a href="/#how-it-works" className="nav-menu-link w-nav-link">How it works</a>
@@ -251,7 +251,7 @@ export default function PrivacyPolicyPage() {
             <div className="footer-information-wrapper">
               <div className="footer-information-single">
                 <div className="footer-logo-description">
-                  <a href="/" className="footer-logo-link-block w-inline-block"><img src="https://a.storyblok.com/f/293523249633085/8983/8b2fec33e4/wowdesign-logo-dark.svg" loading="lazy" alt="" className="footer-logo-image" /></a>
+                  <a href="/" className="footer-logo-link-block w-inline-block"><img src="/images/wow-design-color-logo-dark.svg" loading="lazy" alt="" className="footer-logo-image" /></a>
                   <p className="footer-description-text">We build the website, the digital twin, and the automated follow-up system — so boutique developers sell out 31% faster.</p>
                 </div>
               </div>

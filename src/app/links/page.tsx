@@ -28,7 +28,7 @@ export default function LinksPage() {
               <div className="margin-bottom margin-medium">
                 <div className="text-align-center">
                   <div className="margin-vertical margin-small">
-                    <div className="links10_image-wrapper"><img width="Auto" loading="lazy" alt="" src="https://a.storyblok.com/f/293523249633085/8983/8b2fec33e4/wowdesign-logo-dark.svg" className="links10_image" /></div>
+                    <div className="links10_image-wrapper"><img width="Auto" loading="lazy" alt="" src="/images/wow-design-color-logo-dark.svg" className="links10_image" /></div>
                   </div>
                   <p>We build the website, the digital twin, and the automated follow-up system — so your team always knows who's ready to buy.</p>
                   <div className="margin-vertical margin-xsmall">

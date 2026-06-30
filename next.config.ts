@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
   // lockfile (it sits one level up under "Web Projects").
   turbopack: { root: process.cwd() },
   images: {
-    remotePatterns: [{ protocol: 'https', hostname: 'a.storyblok.com' }],
     qualities: [75, 85, 90],
     formats: ['image/avif', 'image/webp'],
   },
