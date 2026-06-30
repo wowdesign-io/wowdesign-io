@@ -103,10 +103,10 @@ function CameraRig() {
     const angle = THREE.MathUtils.lerp(startAngle, endAngle, e) + sway
     // start FAR (tower against sky), swoop in while circling, settle on the
     // top-third + sky. Low camera + looking up keeps the floor out of frame.
-    const radius = THREE.MathUtils.lerp(32, 13, e)
-    const height = THREE.MathUtils.lerp(4, 5, e) + bob * 0.4
+    const radius = THREE.MathUtils.lerp(24, 13, e)
+    const height = THREE.MathUtils.lerp(1, 5, e) + bob * 0.4
     state.camera.position.set(Math.cos(angle) * radius, height, Math.sin(angle) * radius)
-    look.current.set(THREE.MathUtils.lerp(-3, -3.5, e), THREE.MathUtils.lerp(10, 12.5, e), 0)
+    look.current.set(THREE.MathUtils.lerp(-3, -3.5, e), THREE.MathUtils.lerp(7, 12.5, e), 0)
     state.camera.lookAt(look.current)
   })
   return null
@@ -124,7 +124,7 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
     <Canvas
       gl={{ antialias: true, powerPreference: 'high-performance' }}
       dpr={[1, 2]}
-      camera={{ position: [Math.cos(4.3) * 32, 4, Math.sin(4.3) * 32], fov: 32 }}
+      camera={{ position: [Math.cos(4.3) * 24, 1, Math.sin(4.3) * 24], fov: 32 }}
     >
       <Suspense fallback={null}>
         <fog attach="fog" args={['#c4cedd', 70, 240]} />
