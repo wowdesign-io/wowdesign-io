@@ -9,6 +9,12 @@ import * as THREE from 'three'
 // accelerate into the move, streak through the middle, decelerate to settle
 const easeInOut = (x: number) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2)
 
+// reused each frame to pan the look target along the camera's right axis (no per-frame allocs)
+const _cam = new THREE.Vector3()
+const _dir = new THREE.Vector3()
+const _right = new THREE.Vector3()
+const _UP = new THREE.Vector3(0, 1, 0)
+
 const MODELS: Record<string, string> = {
   adriana: '/models/adriana.glb', // €3 modern glass tower — teal balconies, podium base
   residential: '/models/residential.glb', // simple residential building
@@ -32,9 +38,40 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
     const s = TARGET_H / size.y
     root.scale.setScalar(s)
     root.position.set(-center.x * s, -box.min.y * s, -center.z * s)
+
+    // REAL glass: a reflective physical material that mirrors the HDRI sky + clouds,
+    // tinted blue-grey and slightly see-through. Replaces the flat OPAQUE model glass.
+    const glass = new THREE.MeshPhysicalMaterial({
+      color: new THREE.Color('#8ea7bb'),
+      metalness: 0.0,
+      roughness: 0.05,
+      envMapIntensity: 2.6,
+      transparent: true,
+      opacity: 0.55,
+      clearcoat: 1,
+      clearcoatRoughness: 0.03,
+      ior: 1.45,
+      reflectivity: 1,
+      side: THREE.DoubleSide,
+      depthWrite: false,
+    })
     root.traverse((o) => {
       const m = o as THREE.Mesh
-      if (m.isMesh) { m.castShadow = true; m.receiveShadow = true }
+      if (!m.isMesh) return
+      m.castShadow = true
+      m.receiveShadow = true
+      const mats = Array.isArray(m.material) ? m.material : [m.material]
+      const tag = (mats.map((x) => x?.name || '').join(' ') + ' ' + m.name).toLowerCase()
+      if (tag.includes('glass')) {
+        m.material = glass // mirror-like reflective glass
+      } else {
+        // concrete / metal frames + railings: let them catch the sky a bit so they
+        // read as real surfaces, not matte plastic
+        mats.forEach((mat) => {
+          const std = mat as THREE.MeshStandardMaterial
+          if (std && 'envMapIntensity' in std) std.envMapIntensity = Math.max(std.envMapIntensity ?? 1, 1.15)
+        })
+      }
     })
     return root
   }, [scene])
@@ -49,11 +86,12 @@ useGLTF.preload(MODELS.adriana)
 function CameraRig() {
   const t0 = useRef<number | null>(null)
   const look = useRef(new THREE.Vector3(0, 9, 0))
-  const DUR = 9.5
-  // adriana glass tower: a ~320° sweeping push-in that ends on a 3/4 corner of the
-  // balcony face. AVOID THE FLOOR — camera stays low + always looks up at the tower.
-  const endAngle = 3.75
-  const startAngle = endAngle + 5.6 // ~320° orbit — a real journey, not a clip
+  const DUR = 11
+  // SPIRAL: 2 full circles around the tower, climbing bottom → top, then settle with
+  // the top third framed on the RIGHT so the hero copy on the left stays readable.
+  const TURNS = 2
+  const endAngle = 3.75 // 3/4 corner of the balcony face at the settle
+  const startAngle = endAngle + TURNS * Math.PI * 2
   // debug: ?t=<seconds> freezes the camera at that point in the flight.
   // free-orbit inspect: ?ang=<rad>&rad=<n>&h=<n>&ly=<n> sets a static pose.
   const dbg = useMemo(() => {
@@ -83,14 +121,19 @@ function CameraRig() {
     const sway = Math.sin(post * 0.16) * 0.03
     const bob = Math.sin(post * 0.12) * 0.25
     const angle = THREE.MathUtils.lerp(startAngle, endAngle, e) + sway
-    // start FAR (tower against sky), swoop in while circling, settle on the
-    // top-third + sky. Low camera + looking up keeps the floor out of frame.
-    // start FAR (tower small against big sky) → rush in while orbiting ~320° → ease
-    // onto a craned-up 3/4 hero of the glass tower. Always looking up = no floor.
-    const radius = THREE.MathUtils.lerp(50, 24, e)
-    const height = THREE.MathUtils.lerp(4, 7, e) + bob * 0.4
-    state.camera.position.set(Math.cos(angle) * radius, height, Math.sin(angle) * radius)
-    look.current.set(THREE.MathUtils.lerp(-1, -3.2, e), THREE.MathUtils.lerp(14, 11, e), 0)
+    // climb the tower as we spiral; stay fairly close so the floor stays below frame
+    const radius = THREE.MathUtils.lerp(25, 22, e)
+    const height = THREE.MathUtils.lerp(3, 9.5, e) + bob * 0.4
+    _cam.set(Math.cos(angle) * radius, height, Math.sin(angle) * radius)
+    state.camera.position.copy(_cam)
+    // look climbs from the tower base to the top third
+    const ly = THREE.MathUtils.lerp(7, 11.5, e)
+    look.current.set(0, ly, 0)
+    // pan the look along camera-right so the tower drifts to screen-RIGHT at the settle
+    // (leaves the left clear for the hero copy)
+    _dir.copy(look.current).sub(_cam).normalize()
+    _right.copy(_dir).cross(_UP).normalize()
+    look.current.addScaledVector(_right, -THREE.MathUtils.lerp(0, 5, e))
     state.camera.lookAt(look.current)
   })
   return null
@@ -114,7 +157,7 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
         toneMappingExposure: 0.92, // pull back the blown-out highlights
       }}
       dpr={[1, 2]}
-      camera={{ position: [Math.cos(9.35) * 50, 4, Math.sin(9.35) * 50], fov: 32 }}
+      camera={{ position: [Math.cos(16.32) * 25, 3, Math.sin(16.32) * 25], fov: 32 }}
     >
       <Suspense fallback={null}>
         <fog attach="fog" args={['#aeb9c9', 95, 300]} />
@@ -141,7 +184,8 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
         <CameraRig />
         <Building url={modelUrl} onReady={onReady} />
 
-        <Environment files="/hdri/sky.hdr" background backgroundBlurriness={0.04} environmentIntensity={0.6} />
+        {/* sharper background so the glass reflects a crisp sky; brighter env for real reflections */}
+        <Environment files="/hdri/sky.hdr" background backgroundBlurriness={0.015} environmentIntensity={0.85} />
 
         <EffectComposer>
           <Bloom luminanceThreshold={0.95} intensity={0.22} mipmapBlur radius={0.7} />
