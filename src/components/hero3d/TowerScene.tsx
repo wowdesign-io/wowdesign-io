@@ -10,6 +10,7 @@ import * as THREE from 'three'
 const easeInOut = (x: number) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2)
 
 const MODELS: Record<string, string> = {
+  adriana: '/models/adriana.glb', // €3 modern glass tower — teal balconies, podium base
   residential: '/models/residential.glb', // simple residential building
   sanzio: '/models/sanzio.glb', // boutique mid-rise w/ parking + street + entrance (incl. site)
   woolderpark: '/models/woolderpark.glb', // boutique waterfront mid-rise (incl. site)
@@ -40,7 +41,7 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
   useEffect(() => { onReady?.() }, [onReady])
   return <primitive object={prepared} />
 }
-useGLTF.preload(MODELS.residential)
+useGLTF.preload(MODELS.adriana)
 
 // auto-play DRONE ORBIT around the building once everything is loaded, settling
 // into the hero framing. The clock starts on this rig's first frame — and since
@@ -49,9 +50,9 @@ function CameraRig() {
   const t0 = useRef<number | null>(null)
   const look = useRef(new THREE.Vector3(0, 9, 0))
   const DUR = 9.5
-  // residential: a ~320° sweeping push-in that ends craned-up on the BALCONY wing.
-  // AVOID THE FLOOR — camera stays low + always looks up, so the ground never shows.
-  const endAngle = 4.7
+  // adriana glass tower: a ~320° sweeping push-in that ends on a 3/4 corner of the
+  // balcony face. AVOID THE FLOOR — camera stays low + always looks up at the tower.
+  const endAngle = 3.75
   const startAngle = endAngle + 5.6 // ~320° orbit — a real journey, not a clip
   // debug: ?t=<seconds> freezes the camera at that point in the flight.
   // free-orbit inspect: ?ang=<rad>&rad=<n>&h=<n>&ly=<n> sets a static pose.
@@ -84,12 +85,12 @@ function CameraRig() {
     const angle = THREE.MathUtils.lerp(startAngle, endAngle, e) + sway
     // start FAR (tower against sky), swoop in while circling, settle on the
     // top-third + sky. Low camera + looking up keeps the floor out of frame.
-    // start FAR (building small against big sky) → rush in while orbiting ~320° →
-    // ease onto a craned-up 3/4 hero of the balcony wing. Always looking up = no floor.
-    const radius = THREE.MathUtils.lerp(46, 20, e)
-    const height = THREE.MathUtils.lerp(3, 5, e) + bob * 0.4
+    // start FAR (tower small against big sky) → rush in while orbiting ~320° → ease
+    // onto a craned-up 3/4 hero of the glass tower. Always looking up = no floor.
+    const radius = THREE.MathUtils.lerp(50, 24, e)
+    const height = THREE.MathUtils.lerp(4, 7, e) + bob * 0.4
     state.camera.position.set(Math.cos(angle) * radius, height, Math.sin(angle) * radius)
-    look.current.set(THREE.MathUtils.lerp(-1, -3.2, e), THREE.MathUtils.lerp(13.5, 10.5, e), 0)
+    look.current.set(THREE.MathUtils.lerp(-1, -3.2, e), THREE.MathUtils.lerp(14, 11, e), 0)
     state.camera.lookAt(look.current)
   })
   return null
@@ -101,7 +102,7 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
       const m = new URLSearchParams(window.location.search).get('model')
       if (m && MODELS[m]) return MODELS[m]
     }
-    return MODELS.residential
+    return MODELS.adriana
   }, [])
   return (
     <Canvas
@@ -113,7 +114,7 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
         toneMappingExposure: 0.92, // pull back the blown-out highlights
       }}
       dpr={[1, 2]}
-      camera={{ position: [Math.cos(10.3) * 46, 3, Math.sin(10.3) * 46], fov: 32 }}
+      camera={{ position: [Math.cos(9.35) * 50, 4, Math.sin(9.35) * 50], fov: 32 }}
     >
       <Suspense fallback={null}>
         <fog attach="fog" args={['#aeb9c9', 95, 300]} />
