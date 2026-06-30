@@ -1,7 +1,7 @@
 'use client'
 
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Environment, useGLTF, useTexture } from '@react-three/drei'
+import { Environment, useGLTF } from '@react-three/drei'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import { Suspense, useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
@@ -43,54 +43,34 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
 useGLTF.preload(MODELS.pivotal)
 useGLTF.preload(MODELS.miami)
 
-// neighbouring buildings laid out on a CITY GRID with street-gaps between them,
-// denser/closer so the hero tower sits inside a real city. Taller further out.
+// DISTANT skyline only — far, tall, hazed towers near the horizon for context.
+// Kept way out so they never cross the drone's path or block the hero shot.
 function City() {
   const buildings = useMemo(() => {
     const arr: { x: number; z: number; w: number; d: number; h: number }[] = []
     let s = 1
-    const CELL = 16 // block pitch (building footprint + street)
-    const N = 4
-    for (let gx = -N; gx <= N; gx++) {
-      for (let gz = -N; gz <= N; gz++) {
-        if (gx === 0 && gz === 0) continue // hero block stays clear
-        if (rand(s++) < 0.16) continue // some open lots / variety
-        const x = gx * CELL + (rand(s++) - 0.5) * 3
-        const z = gz * CELL + (rand(s++) - 0.5) * 3
-        const dist = Math.hypot(gx, gz)
-        const w = 6 + rand(s++) * 3 // wider streets (CELL 16, footprint 6-9)
-        const d = 6 + rand(s++) * 3
-        // near neighbours stay below the hero (14); skyline grows tall further out
-        const h = 4 + dist * 2.5 + rand(s++) * 8
-        arr.push({ x, z, w, d, h })
+    for (let ring = 0; ring < 2; ring++) {
+      const count = 22 + ring * 14
+      const radius = 78 + ring * 42
+      for (let k = 0; k < count; k++) {
+        const ang = (k / count) * Math.PI * 2 + rand(s++) * 0.4
+        const rr = radius + rand(s++) * 26
+        arr.push({ x: Math.cos(ang) * rr, z: Math.sin(ang) * rr, w: 6 + rand(s++) * 10, d: 6 + rand(s++) * 10, h: 22 + rand(s++) * (32 + ring * 18) })
       }
     }
     return arr
   }, [])
-  // glassy blue-grey so neighbours reflect the sky like real towers (not flat boxes)
-  const mat = useMemo(() => new THREE.MeshStandardMaterial({ color: '#3a4756', metalness: 0.45, roughness: 0.35, envMapIntensity: 1 }), [])
-  return <group>{buildings.map((b, i) => (<mesh key={i} position={[b.x, b.h / 2, b.z]} material={mat} castShadow><boxGeometry args={[b.w, b.h, b.d]} /></mesh>))}</group>
+  // light matte so the distant towers haze into the fog/sky
+  const mat = useMemo(() => new THREE.MeshStandardMaterial({ color: '#67768c', metalness: 0.08, roughness: 0.95, envMapIntensity: 1 }), [])
+  return <group>{buildings.map((b, i) => (<mesh key={i} position={[b.x, b.h / 2, b.z]} material={mat}><boxGeometry args={[b.w, b.h, b.d]} /></mesh>))}</group>
 }
 
-// real textured asphalt ground (replaces the empty reflective plane)
+// simple ground, far below — the camera stays angled up so it's effectively never in frame
 function Ground() {
-  const [diff, nor, rough] = useTexture([
-    '/textures/ground_diff.jpg',
-    '/textures/ground_nor.jpg',
-    '/textures/ground_rough.jpg',
-  ])
-  useMemo(() => {
-    ;[diff, nor, rough].forEach((t) => {
-      t.wrapS = t.wrapT = THREE.RepeatWrapping
-      t.repeat.set(45, 45)
-      t.anisotropy = 8
-    })
-    diff.colorSpace = THREE.SRGBColorSpace
-  }, [diff, nor, rough])
   return (
-    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.02, 0]} receiveShadow>
-      <planeGeometry args={[500, 500]} />
-      <meshStandardMaterial map={diff} normalMap={nor} roughnessMap={rough} color="#7a7d82" metalness={0} roughness={1} envMapIntensity={0.6} />
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.05, 0]}>
+      <planeGeometry args={[700, 700]} />
+      <meshStandardMaterial color="#10161f" metalness={0.2} roughness={0.9} envMapIntensity={0.4} />
     </mesh>
   )
 }
@@ -103,7 +83,7 @@ function CameraRig() {
   const look = useRef(new THREE.Vector3(0, 9, 0))
   const DUR = 8
   const endAngle = 0.9
-  const startAngle = endAngle + 4.3 // ~245° sweep around the building
+  const startAngle = endAngle + 4 // ~230° sweep around the upper tower
   // debug: ?t=<seconds> freezes the camera at that point in the flight
   const override = useMemo(() => {
     if (typeof window !== 'undefined') {
@@ -121,12 +101,12 @@ function CameraRig() {
     const sway = Math.sin(post * 0.16) * 0.03
     const bob = Math.sin(post * 0.12) * 0.25
     const angle = THREE.MathUtils.lerp(startAngle, endAngle, e) + sway
-    // start high+far (whole building + city), end CLOSE + LOW looking UP at the
-    // top third against the sky — no ground, no surroundings in frame
-    const radius = THREE.MathUtils.lerp(40, 12, e)
-    const height = THREE.MathUtils.lerp(18, 5, e) + bob
+    // close + low, looking UP at the upper tower against the sky for the WHOLE
+    // flight — orbit circles the top of the tower, floor stays out of frame
+    const radius = THREE.MathUtils.lerp(24, 13, e)
+    const height = THREE.MathUtils.lerp(6, 5, e) + bob * 0.4
     state.camera.position.set(Math.cos(angle) * radius, height, Math.sin(angle) * radius)
-    look.current.set(THREE.MathUtils.lerp(0, -3, e), THREE.MathUtils.lerp(9, 12, e), 0)
+    look.current.set(THREE.MathUtils.lerp(-2.5, -3.5, e), THREE.MathUtils.lerp(13, 12.5, e), 0)
     state.camera.lookAt(look.current)
   })
   return null
@@ -144,10 +124,10 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
     <Canvas
       gl={{ antialias: true, powerPreference: 'high-performance' }}
       dpr={[1, 2]}
-      camera={{ position: [Math.cos(5.2) * 46, 30, Math.sin(5.2) * 46], fov: 32 }}
+      camera={{ position: [Math.cos(4.9) * 24, 6, Math.sin(4.9) * 24], fov: 32 }}
     >
       <Suspense fallback={null}>
-        <fog attach="fog" args={['#c4cedd', 55, 155]} />
+        <fog attach="fog" args={['#c4cedd', 70, 240]} />
         <ambientLight intensity={0.4} />
         <directionalLight position={[14, 22, 8]} intensity={2.3} color="#fff1dc" castShadow />
         <pointLight position={[-12, 7, 6]} intensity={70} color="#2E77FA" distance={55} />
