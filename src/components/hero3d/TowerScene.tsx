@@ -6,7 +6,8 @@ import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import { Suspense, useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 
-const easeOut = (x: number) => 1 - Math.pow(1 - x, 3) // fast swoop in, smooth settle
+// accelerate into the move, streak through the middle, decelerate to settle
+const easeInOut = (x: number) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2)
 
 const MODELS: Record<string, string> = {
   residential: '/models/residential.glb', // simple residential building
@@ -47,11 +48,11 @@ useGLTF.preload(MODELS.residential)
 function CameraRig() {
   const t0 = useRef<number | null>(null)
   const look = useRef(new THREE.Vector3(0, 9, 0))
-  const DUR = 6
-  // residential: land craned-up on the BALCONY wing, top-third against sky. AVOID THE
-  // FLOOR — the ground wrecks the premium feel, so we keep looking up and never show it.
+  const DUR = 9.5
+  // residential: a ~320° sweeping push-in that ends craned-up on the BALCONY wing.
+  // AVOID THE FLOOR — camera stays low + always looks up, so the ground never shows.
   const endAngle = 4.7
-  const startAngle = endAngle + 2.9 // ~165° arc while swooping in
+  const startAngle = endAngle + 5.6 // ~320° orbit — a real journey, not a clip
   // debug: ?t=<seconds> freezes the camera at that point in the flight.
   // free-orbit inspect: ?ang=<rad>&rad=<n>&h=<n>&ly=<n> sets a static pose.
   const dbg = useMemo(() => {
@@ -75,7 +76,7 @@ function CameraRig() {
     const override = dbg && !dbg.static ? dbg.t : null
     if (t0.current === null) t0.current = state.clock.elapsedTime
     const t = override !== null ? override : state.clock.elapsedTime - t0.current
-    const e = easeOut(THREE.MathUtils.clamp(t / DUR, 0, 1))
+    const e = easeInOut(THREE.MathUtils.clamp(t / DUR, 0, 1))
     // after the settle, gently sway/bob AROUND the hero framing (never drift away)
     const post = Math.max(t - DUR, 0)
     const sway = Math.sin(post * 0.16) * 0.03
@@ -83,12 +84,12 @@ function CameraRig() {
     const angle = THREE.MathUtils.lerp(startAngle, endAngle, e) + sway
     // start FAR (tower against sky), swoop in while circling, settle on the
     // top-third + sky. Low camera + looking up keeps the floor out of frame.
-    // circle in while RISING up the façade → settle craned-up on the top third + sky.
-    // Camera stays LOW + always looks UP, so the ground is below the frame the whole way.
-    const radius = THREE.MathUtils.lerp(28, 18, e)
-    const height = THREE.MathUtils.lerp(2.5, 3.5, e) + bob * 0.4
+    // start FAR (building small against big sky) → rush in while orbiting ~320° →
+    // ease onto a craned-up 3/4 hero of the balcony wing. Always looking up = no floor.
+    const radius = THREE.MathUtils.lerp(46, 20, e)
+    const height = THREE.MathUtils.lerp(3, 5, e) + bob * 0.4
     state.camera.position.set(Math.cos(angle) * radius, height, Math.sin(angle) * radius)
-    look.current.set(THREE.MathUtils.lerp(-2, -3.2, e), THREE.MathUtils.lerp(9, 12, e), 0)
+    look.current.set(THREE.MathUtils.lerp(-1, -3.2, e), THREE.MathUtils.lerp(13.5, 10.5, e), 0)
     state.camera.lookAt(look.current)
   })
   return null
@@ -104,23 +105,45 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
   }, [])
   return (
     <Canvas
-      gl={{ antialias: true, powerPreference: 'high-performance' }}
+      shadows
+      gl={{
+        antialias: true,
+        powerPreference: 'high-performance',
+        toneMapping: THREE.ACESFilmicToneMapping, // cinematic filmic curve
+        toneMappingExposure: 0.92, // pull back the blown-out highlights
+      }}
       dpr={[1, 2]}
-      camera={{ position: [Math.cos(7.6) * 28, 2.5, Math.sin(7.6) * 28], fov: 32 }}
+      camera={{ position: [Math.cos(10.3) * 46, 3, Math.sin(10.3) * 46], fov: 32 }}
     >
       <Suspense fallback={null}>
-        <fog attach="fog" args={['#c4cedd', 70, 240]} />
-        <ambientLight intensity={0.4} />
-        <directionalLight position={[14, 22, 8]} intensity={2.3} color="#fff1dc" castShadow />
-        <pointLight position={[-12, 7, 6]} intensity={70} color="#2E77FA" distance={55} />
+        <fog attach="fog" args={['#aeb9c9', 95, 300]} />
+        {/* low ambient — let the sun + HDRI do the work so the building has form, not flat plastic */}
+        <ambientLight intensity={0.16} />
+        {/* warm key sun, low-ish angle for raking light + long self-shadows (kills the flat look) */}
+        <directionalLight
+          position={[26, 16, 14]}
+          intensity={2.7}
+          color="#ffe6c2"
+          castShadow
+          shadow-mapSize={[2048, 2048]}
+          shadow-bias={-0.0004}
+          shadow-camera-near={1}
+          shadow-camera-far={95}
+          shadow-camera-left={-28}
+          shadow-camera-right={28}
+          shadow-camera-top={28}
+          shadow-camera-bottom={-28}
+        />
+        {/* cool sky fill from the opposite side so shadows read blue, not black */}
+        <directionalLight position={[-18, 11, -12]} intensity={0.55} color="#9db4d6" />
 
         <CameraRig />
         <Building url={modelUrl} onReady={onReady} />
 
-        <Environment files="/hdri/sky.hdr" background backgroundBlurriness={0.02} environmentIntensity={1} />
+        <Environment files="/hdri/sky.hdr" background backgroundBlurriness={0.04} environmentIntensity={0.6} />
 
         <EffectComposer>
-          <Bloom luminanceThreshold={0.75} intensity={0.45} mipmapBlur radius={0.8} />
+          <Bloom luminanceThreshold={0.95} intensity={0.22} mipmapBlur radius={0.7} />
         </EffectComposer>
       </Suspense>
     </Canvas>
