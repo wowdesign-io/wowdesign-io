@@ -4,72 +4,62 @@ import dynamic from 'next/dynamic'
 
 const TowerScene = dynamic(() => import('@/components/hero3d/TowerScene'), { ssr: false })
 
+const ghost: React.CSSProperties = {
+  display: 'inline-flex', alignItems: 'center', gap: 10, padding: '14px 26px',
+  background: 'rgba(11,15,25,0.55)', border: '1px solid rgba(255,255,255,0.18)', color: '#fff',
+  fontFamily: '"Outfit", sans-serif', fontSize: '1rem', fontWeight: 500, textTransform: 'uppercase',
+  letterSpacing: '0.02em', textDecoration: 'none', borderRadius: 2, backdropFilter: 'blur(6px)',
+}
+
 export default function HeroLabClient() {
   return (
-    <div
-      style={{
-        position: 'fixed',
-        inset: 0,
-        background:
-          'radial-gradient(70% 60% at 50% 100%, rgba(60,112,255,0.22), transparent 70%), radial-gradient(90% 70% at 50% 115%, rgba(160,68,255,0.16), transparent 72%), #0a1020',
-        overflow: 'hidden',
-      }}
-    >
+    <div style={{ position: 'fixed', inset: 0, background: '#0a1020', overflow: 'hidden' }}>
       <TowerScene />
 
-      {/* fixed brand nav over the scene */}
+      {/* fixed brand nav */}
       <header
         style={{
-          position: 'fixed',
-          insetInline: 0,
-          top: 0,
-          zIndex: 10,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: '2rem',
-          padding: '14px max(24px, 4vw)',
-          borderBottom: '1px solid rgba(255,255,255,0.08)',
-          background: 'linear-gradient(to bottom, rgba(10,16,32,0.7), rgba(10,16,32,0))',
-          backdropFilter: 'blur(8px)',
-          WebkitBackdropFilter: 'blur(8px)',
-          pointerEvents: 'auto',
+          position: 'fixed', insetInline: 0, top: 0, zIndex: 10, display: 'flex', alignItems: 'center',
+          justifyContent: 'space-between', gap: '2rem', padding: '16px max(28px, 4vw)', pointerEvents: 'auto',
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <a href="/" aria-label="wowdesign home">
-          <img src="/images/wow-design-color-logo-dark.svg" alt="wowdesign" style={{ height: 30, display: 'block' }} />
+          <img src="/images/wow-design-color-logo-dark.svg" alt="wowdesign" style={{ height: 30, display: 'block', filter: 'drop-shadow(0 1px 4px rgba(0,0,0,0.4))' }} />
         </a>
-        <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }} className="hero-nav">
+        <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
           {['Features', 'How it works', 'About', 'Carry Cost Calc'].map((l) => (
-            <a
-              key={l}
-              href="#"
-              style={{ color: '#94a3b8', fontFamily: '"Inter", sans-serif', fontSize: '1rem', textDecoration: 'none' }}
-            >
-              {l}
-            </a>
+            <a key={l} href="#" style={{ color: '#fff', opacity: 0.85, fontFamily: '"Inter", sans-serif', fontSize: '1rem', textDecoration: 'none', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>{l}</a>
           ))}
         </nav>
-        <a
-          href="/book-a-demo"
-          style={{
-            background: '#2E77FA',
-            color: '#fff',
-            fontFamily: '"Outfit", sans-serif',
-            fontWeight: 500,
-            fontSize: '0.95rem',
-            textTransform: 'uppercase',
-            letterSpacing: '0.04em',
-            padding: '11px 22px',
-            borderRadius: 2,
-            textDecoration: 'none',
-            whiteSpace: 'nowrap',
-          }}
-        >
-          Book A Demo
-        </a>
+        <a href="/book-a-demo" style={{ background: '#2E77FA', color: '#fff', fontFamily: '"Outfit", sans-serif', fontWeight: 500, fontSize: '0.95rem', textTransform: 'uppercase', letterSpacing: '0.04em', padding: '11px 22px', borderRadius: 2, textDecoration: 'none', whiteSpace: 'nowrap' }}>Book A Demo</a>
       </header>
+
+      {/* hero intro — left-offset, fades in once the drone settles */}
+      <div
+        style={{
+          position: 'absolute', left: 'max(28px, 5vw)', top: '50%', transform: 'translateY(-50%)',
+          maxWidth: 600, zIndex: 5, pointerEvents: 'none',
+          opacity: 0, animation: 'heroIn 1.1s ease 3.4s forwards',
+        }}
+      >
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '0.5rem 1rem', border: '1px solid rgba(255,255,255,0.3)', borderRadius: 4, color: '#fff', fontFamily: '"Outfit", sans-serif', fontSize: '0.9rem', textShadow: '0 1px 6px rgba(0,0,0,0.5)' }}>
+          Presales System
+        </span>
+        <h1 style={{ margin: '22px 0 0', color: '#fff', fontFamily: '"Outfit", sans-serif', fontWeight: 500, fontSize: '5.5rem', lineHeight: 1, letterSpacing: '-0.01em', textShadow: '0 2px 24px rgba(0,0,0,0.45)' }}>
+          Sell Out<br />Faster.
+        </h1>
+        <p style={{ margin: '24px 0 0', maxWidth: 520, color: '#fff', opacity: 0.9, fontFamily: '"Inter", sans-serif', fontSize: '1.2rem', lineHeight: 1.6, textShadow: '0 1px 12px rgba(0,0,0,0.5)' }}>
+          Boutique developers close 31% faster with wowdesign — the website, the digital twin, and the
+          automated follow-up system, so your team always knows who&rsquo;s ready to buy.
+        </p>
+        <div style={{ display: 'flex', gap: 20, marginTop: 34, pointerEvents: 'auto' }}>
+          <a href="/carry-cost-calculator" style={ghost}>Carry Cost Calc ✦</a>
+          <a href="#features" style={ghost}>Features ✦</a>
+        </div>
+      </div>
+
+      <style>{`@keyframes heroIn { to { opacity: 1 } }`}</style>
     </div>
   )
 }
