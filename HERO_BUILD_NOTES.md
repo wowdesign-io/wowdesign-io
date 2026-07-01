@@ -73,3 +73,36 @@ automated fetch, so the format must be eyeballed on the page.)
 - `residential.glb` (simple_residential_building, 4.9MB→290KB): cold grey concrete block,
   one wing has glass balconies but overall plain/generic + visible floor (grass/road/parking).
   Does NOT clear the warm/luxury bar. Available via `?model=residential` but NOT shipped.
+
+## TOP candidate (Andy, 2026-07-01) — €3 glass tower — BUY
+- https://www.fab.com/listings/dcadeef6-260c-468f-bd2c-c05583d33319  (~€3)
+- Modern residential glass tower: teal glass balconies, white frames, podium base
+  w/ palm trees + pool deck. Premium/warm look + balconies = exactly the brief.
+  Tall-tower shape → ideal for the top-third+sky (floor-hidden) landing.
+- BEFORE BUY: confirm Supported Formats includes FBX / OBJ / glTF / GLB (not UE-only).
+  At €3 it's low-risk even if conversion is fiddly. Drop the download in public/models/.
+
+## HARD LESSONS (2026-07-01)
+- **NEVER run `gltf-transform optimize` blindly.** Its `simplify` (geometry decimation)
+  + `palette` (material merge) DESTROYED the adriana windows/balconies and flattened the
+  glass. For these archviz models use Draco-only (lossless) when compacting:
+  `gltf-transform draco in.glb out.glb`. Compact ONLY after the look is approved.
+- **NEVER delete the source model.** Keep `*_original.glb` untouched; only ever process a copy.
+- **Model glass is usually flat OPAQUE** (adriana glass = material color, no textures). To look
+  real it must be REPLACED with a reflective MeshPhysicalMaterial (low roughness + clearcoat +
+  envMapIntensity) that mirrors the HDRI. The offline Fab render ≠ what the raw GLB looks like.
+- **SwiftShader screenshots cannot show glass reflections** — glass realism is a live-GPU
+  judgment only. Tune glass via deploy + Andy's eyes, not screenshots.
+
+## UNLOCK (2026-07-01) — I can now SEE the real render
+- **Headless real-GPU screenshots:** launch Chrome with `--use-angle=d3d11` (NOT
+  `--use-gl=swiftshader`). On this machine WebGL then runs on the Intel Arc GPU and
+  renders reflections/glass for real. Script: `scratchpad/shot-gpu.js`. SwiftShader
+  draws glass FLAT (no env reflections) — that's why glass tuning was impossible before.
+  Verify renderer via `WEBGL_debug_renderer_info` (logs "ANGLE (Intel ... D3D11)").
+- **adriana glass = the `Condominio_Aragon` material** (363 instances), NOT "glass" or
+  "FrontColor". Replaced with a reflective MeshPhysicalMaterial (color #6f8a9b, rough
+  0.04, clearcoat 1, opacity 0.88, envMapIntensity 1.6) → windows mirror the sky.
+  Detect glass by tag.includes('condominio') || 'glass'. Frames/slabs stay solid.
+- **Debugging materials:** force ALL meshes to chrome (`if (true) m.material = glass`)
+  to confirm env reflections work, then bisect by material name to find the glass.

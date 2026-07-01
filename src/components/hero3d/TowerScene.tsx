@@ -2,7 +2,7 @@
 
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Environment, useGLTF } from '@react-three/drei'
-import { EffectComposer, Bloom } from '@react-three/postprocessing'
+import { EffectComposer, Bloom, N8AO } from '@react-three/postprocessing'
 import { Suspense, useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 
@@ -41,12 +41,12 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
 
     // REAL glass: a reflective physical material that mirrors the HDRI sky + clouds,
     // tinted blue-grey and slightly see-through. Replaces the flat OPAQUE model glass.
-    // window glass — green-teal reflective (matches the model's original preview render)
+    // window glass — blue-teal reflective (matches the model's original preview render)
     const glass = new THREE.MeshPhysicalMaterial({
-      color: new THREE.Color('#33645b'),
-      metalness: 0.5, // tints reflections green-teal so clouds don't grey it
+      color: new THREE.Color('#2b6d94'),
+      metalness: 0.5, // tints reflections blue-teal so clouds don't grey it
       roughness: 0.12,
-      envMapIntensity: 1.25,
+      envMapIntensity: 1.3,
       transparent: true,
       opacity: 0.86,
       clearcoat: 0.5,
@@ -208,6 +208,9 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
         <Environment files="/hdri/sky.hdr" background backgroundBlurriness={0.015} environmentIntensity={0.85} />
 
         <EffectComposer>
+          {/* ambient occlusion — the dark contact shadows in corners/recesses that make
+              CG read as real & grounded instead of flat. Biggest single realism lever. */}
+          <N8AO aoRadius={2.5} distanceFalloff={1} intensity={3.5} halfRes />
           <Bloom luminanceThreshold={0.95} intensity={0.22} mipmapBlur radius={0.7} />
         </EffectComposer>
       </Suspense>
