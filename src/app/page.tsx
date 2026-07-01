@@ -72,7 +72,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
           <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>{heroVisual}</div>
           {/* brand radial light on the copy side (glows through the glass card) + a soft bottom
               fade into the dark page. Light touch of darkening on the far left for legibility. */}
-          <div style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', background: 'radial-gradient(58% 82% at 24% 48%, rgba(46,119,250,0.34) 0%, rgba(215,56,255,0.16) 42%, rgba(7,11,22,0) 72%), linear-gradient(90deg, rgba(7,11,22,0.42) 0%, rgba(7,11,22,0.16) 38%, rgba(7,11,22,0) 60%), linear-gradient(0deg, rgba(9,12,22,1) 0%, rgba(9,12,22,0) 26%)' }} />
+          <div style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', background: 'radial-gradient(72% 92% at 26% 46%, rgba(46,119,250,0.5) 0%, rgba(215,56,255,0.26) 40%, rgba(255,44,85,0.12) 60%, rgba(7,11,22,0) 78%), linear-gradient(90deg, rgba(7,11,22,0.42) 0%, rgba(7,11,22,0.16) 38%, rgba(7,11,22,0) 60%), linear-gradient(0deg, rgba(9,12,22,1) 0%, rgba(9,12,22,0) 26%)' }} />
           {/* hero's own brand glow — the site's sky-container system, contained by the relative hero (sits behind the copy via DOM order) */}
           <div className="sky-container">
             <div className="primary-sky-circle"></div>
@@ -168,6 +168,13 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 </a>
               </div>
             </div>
+            {heroVisual && (
+              <div className="hero-proof">
+                <div className="hero-proof-item"><span className="hero-proof-num">31%</span> faster sell-out</div>
+                <div className="hero-proof-item"><span className="hero-proof-num">49%</span> more qualified leads</div>
+                <div className="hero-proof-item"><span className="hero-proof-num">3&times;</span> buyer engagement</div>
+              </div>
+            )}
           </div>
           {!heroVisual && (<div data-w-id="e8a9f885-801b-a42c-0374-9df70f06c829" className="banner-world-element-wrapper"><img src="/images/psd-3d-isometric-tall-building-surrounded-by-trees-transparent-background-with-white-sky.webp" loading="lazy" style={{ WebkitTransform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="banner-world-element-image" />
             <div style={{ opacity: "0" }} className="banner-world-element-tag-content">

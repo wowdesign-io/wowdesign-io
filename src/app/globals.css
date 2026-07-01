@@ -65,6 +65,32 @@ body.flight-done .hero-card { opacity: 1; transform: none; }
   line-height: 1.55;
 }
 
+/* Hero proof strip — the value props, stated with restraint. Numbers in brand blue
+   for a focal color pop; a hairline top rule separates it from the CTAs. */
+.hero-proof {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 24px;
+  margin-top: 34px;
+  padding-top: 26px;
+  border-top: 1px solid var(--light-border);
+  font-family: Inter, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+.hero-proof-item { display: flex; align-items: baseline; gap: 8px; }
+.hero-proof-num {
+  font-family: Outfit, sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--primary);
+}
+
 /* Features (solving) section sits directly under the 3D hero (its headline ticker is
    hidden there), so give it a top pad matching its responsive bottom pad. Scoped to the
    3D hero via the marker class so the current live "/" (with the ticker) is unchanged. */
