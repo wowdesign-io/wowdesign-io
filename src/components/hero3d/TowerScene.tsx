@@ -41,17 +41,32 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
 
     // REAL glass: a reflective physical material that mirrors the HDRI sky + clouds,
     // tinted blue-grey and slightly see-through. Replaces the flat OPAQUE model glass.
+    // window glass — green-teal reflective (matches the model's original preview render)
     const glass = new THREE.MeshPhysicalMaterial({
-      color: new THREE.Color('#1c5182'), // blue; slight metalness tints reflections blue so clouds don't grey it
-      metalness: 0.5,
-      roughness: 0.13,
-      envMapIntensity: 1.15,
+      color: new THREE.Color('#33645b'),
+      metalness: 0.5, // tints reflections green-teal so clouds don't grey it
+      roughness: 0.12,
+      envMapIntensity: 1.25,
       transparent: true,
-      opacity: 0.9, // some see-through — real glass isn't a 100% mirror
-      clearcoat: 0.4,
+      opacity: 0.86,
+      clearcoat: 0.5,
       clearcoatRoughness: 0.1,
       ior: 1.45,
       reflectivity: 1,
+      side: THREE.DoubleSide,
+      depthWrite: false,
+    })
+    // balcony balustrades ("_Burnt_Umber_1") — darker reflective glass, NOT dead black
+    const railGlass = new THREE.MeshPhysicalMaterial({
+      color: new THREE.Color('#22443d'),
+      metalness: 0.4,
+      roughness: 0.14,
+      envMapIntensity: 1.2,
+      transparent: true,
+      opacity: 0.72, // balustrade — more see-through than the windows
+      clearcoat: 0.5,
+      clearcoatRoughness: 0.12,
+      ior: 1.45,
       side: THREE.DoubleSide,
       depthWrite: false,
     })
@@ -65,7 +80,9 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
       // the tower's window glass is the "Condominio_Aragon" material (363 instances);
       // "_Gray_Glass_2" is small glass bits. Both become real reflective glass.
       if (tag.includes('condominio') || tag.includes('glass')) {
-        m.material = glass // reflective glass
+        m.material = glass // window glass
+      } else if (tag.includes('umber')) {
+        m.material = railGlass // balcony balustrade glass (was flat black)
       } else {
         // concrete / metal frames + railings: let them catch the sky a bit so they
         // read as real surfaces, not matte plastic
@@ -124,13 +141,13 @@ function CameraRig() {
     const bob = Math.sin(post * 0.12) * 0.25
     const angle = THREE.MathUtils.lerp(startAngle, endAngle, e) + sway
     // climb the tower as we spiral; stay fairly close so the floor stays below frame
-    const radius = THREE.MathUtils.lerp(20, 22, e)
-    // start closer + looking up so the frame begins ~3-5th floor (podium/foundation +
-    // empty ground cropped out — Andy: don't see it "standing in the middle of nowhere").
+    const radius = THREE.MathUtils.lerp(24, 22, e)
+    // start low enough to show the pool-deck + palms at the bottom, but crop the stone
+    // podium/foundation + empty ground below it (Andy: pool & palms yes, foundation no).
     const height = THREE.MathUtils.lerp(5, 9.5, e) + bob * 0.4
     _cam.set(Math.cos(angle) * radius, height, Math.sin(angle) * radius)
     state.camera.position.copy(_cam)
-    const ly = THREE.MathUtils.lerp(9, 10.3, e)
+    const ly = THREE.MathUtils.lerp(8, 10.3, e)
     look.current.set(0, ly, 0)
     // pan the look along camera-right so the tower drifts to screen-RIGHT at the settle
     // (leaves the left clear for the hero copy)
@@ -160,7 +177,7 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
         toneMappingExposure: 0.92, // pull back the blown-out highlights
       }}
       dpr={[1, 2]}
-      camera={{ position: [Math.cos(10.03) * 20, 5, Math.sin(10.03) * 20], fov: 32 }}
+      camera={{ position: [Math.cos(10.03) * 24, 5, Math.sin(10.03) * 24], fov: 32 }}
     >
       <Suspense fallback={null}>
         <fog attach="fog" args={['#aeb9c9', 95, 300]} />
