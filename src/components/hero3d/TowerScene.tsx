@@ -189,11 +189,14 @@ function Palms({ anchor }: { anchor: THREE.Vector3 }) {
   }, [scene])
   // 4 palms around the pool (anchor = deck top, pool centre; pool ~2.4 x 5.0, on -x side)
   const instances = useMemo(() => {
+    // tower+balconies span x[-4.6,4.5] z[-3.3,3.6]; deck reaches x[-5.4,5.4] z[-4.4,4.4].
+    // Palms MUST sit in the open border (outside the tower footprint) or they poke into the
+    // balconies above. These 4 ring the pool on the open -x edge + the two z-ends.
     const spots = [
-      { x: -2.4, z: -3.4, r: 0.4, s: 1.05 },
-      { x: -2.4, z: 3.4, r: -0.7, s: 0.95 },
-      { x: 1.8, z: 3.1, r: 1.3, s: 1.0 },
-      { x: 1.8, z: -3.1, r: 2.2, s: 0.88 },
+      { x: -1.96, z: -2.0, r: 0.4, s: 1.05 }, // -x deck edge, pool -z side
+      { x: -1.96, z: 2.0, r: -0.7, s: 0.95 }, // -x deck edge, pool +z side
+      { x: 0.04, z: 3.9, r: 1.3, s: 1.0 }, // open +z strip (pool +z end)
+      { x: 0.04, z: -3.9, r: 2.2, s: 0.88 }, // open -z strip (pool -z end)
     ]
     return spots.map((sp) => ({
       obj: palm.clone(true),
