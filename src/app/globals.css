@@ -41,3 +41,11 @@
 }
 .hero-card:hover { transform: translateY(0); }
 body.flight-done .hero-card { opacity: 1; transform: none; }
+
+/* Features (solving) section sits directly under the 3D hero (its headline ticker is
+   hidden there), so give it a top pad matching its responsive bottom pad. Scoped to the
+   3D hero via the marker class so the current live "/" (with the ticker) is unchanged. */
+.section.solving.hero3d-topgap { padding-top: 7rem; }
+@media screen and (max-width: 991px) { .section.solving.hero3d-topgap { padding-top: 100px; } }
+@media screen and (max-width: 767px) { .section.solving.hero3d-topgap { padding-top: 80px; } }
+@media screen and (max-width: 479px) { .section.solving.hero3d-topgap { padding-top: 60px; } }

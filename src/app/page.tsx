@@ -222,7 +222,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
         </div>
       </div>
     </section>)}
-    <section className="section solving">
+    <section className={heroVisual ? 'section solving hero3d-topgap' : 'section solving'}>
       <div className="container">
         <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="solving-section-title-wrapper">
           <div className="section-subtitle-wrapper">
