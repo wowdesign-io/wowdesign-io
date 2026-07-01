@@ -12,8 +12,7 @@
    for surfaces that must stay opaque over the bright 3D background.
    ───────────────────────────────────────────────────────────────────────── */
 :root {
-  --surface-90: #151c2ce6; /* #151c2c @ 90% */
-  --surface-glass: #151c2c8c; /* #151c2c @ ~55% — frosted hero panel (building shows through) */
+  --surface-90: #151c2ce6; /* #151c2c @ 90% — nav + hero card surface */
 }
 
 /* Contain the comparison section's sky-container glow so it stops escaping onto
@@ -29,12 +28,12 @@
   backdrop-filter: blur(5px);
 }
 
-/* 3D hero card — a true frosted-glass panel: translucent surface + strong blur so the 3D
-   building reads THROUGH it. Builds on .solving-card (hairline border, hard edges); adds a
-   generous premium padding + the post-flight reveal (flight-done set by Hero3D). */
+/* 3D hero card — a dark glass panel matching the nav (--surface-90) + blur. Builds on
+   .solving-card (hairline border, hard edges); adds a generous premium padding + the
+   post-flight reveal (flight-done set by Hero3D). */
 .hero-card {
   padding: 52px 56px 56px;
-  background-color: var(--surface-glass);
+  background-color: var(--surface-90);
   border: 1px solid var(--light-border);
   -webkit-backdrop-filter: blur(36px) saturate(1.15);
   backdrop-filter: blur(36px) saturate(1.15);
