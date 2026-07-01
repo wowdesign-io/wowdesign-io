@@ -255,45 +255,63 @@ function mulberry32(a: number) {
 
 // Cheap hazy skyline: ONE instanced draw call of low-poly boxes ringed FAR outside the
 // drone-flight radius (~24), so it frames the tower on the horizon and fades into the fog
-// (near 95) without ever crossing the camera path or costing meaningful perf. Short near,
-// taller far → skyline depth. No shadows (they sit beyond the ±28 shadow frustum anyway).
+// (near 95) without ever crossing the camera path or costing meaningful perf. Each building
+// is 1-3 stacked SETBACK boxes (base widest, tiers narrower) → varied silhouettes, not flat
+// cubes. Short near, taller far → skyline depth. No shadows (beyond the ±28 shadow frustum).
+// TODO (tomorrow): window facades (merged geometry + procedural texture) + grid-aligned
+// blocks with streets — see HERO_BUILD_NOTES.md.
 function CityBackdrop() {
   const ref = useRef<THREE.InstancedMesh>(null)
-  const COUNT = 110
-  const { geo, mat } = useMemo(
-    () => ({
-      geo: new THREE.BoxGeometry(1, 1, 1),
-      mat: new THREE.MeshStandardMaterial({ color: '#6f7c92', roughness: 0.9, metalness: 0, envMapIntensity: 0.45 }),
-    }),
-    [],
-  )
-  useLayoutEffect(() => {
-    const mesh = ref.current
-    if (!mesh) return
+  const { geo, mat, boxes } = useMemo(() => {
     const rand = mulberry32(20260702)
-    const m = new THREE.Matrix4()
-    const pos = new THREE.Vector3()
-    const quat = new THREE.Quaternion()
-    const scl = new THREE.Vector3()
-    const col = new THREE.Color()
-    const base = new THREE.Color('#6f7c92')
-    for (let i = 0; i < COUNT; i++) {
+    const list: { m: THREE.Matrix4; shade: number }[] = []
+    const q = new THREE.Quaternion()
+    for (let b = 0; b < 92; b++) {
       const ang = rand() * Math.PI * 2
       const rad = 50 + rand() * 150 // 50..200 — well beyond the ~24 flight radius
       const distF = (rad - 50) / 150
-      const h = 4 + rand() * (5 + distF * 18) // short near, up to ~27 tall far
-      pos.set(Math.cos(ang) * rad, h / 2, Math.sin(ang) * rad)
-      quat.setFromAxisAngle(_UP, rand() * Math.PI)
-      scl.set(4 + rand() * 6, h, 4 + rand() * 6)
-      m.compose(pos, quat, scl)
-      mesh.setMatrixAt(i, m)
-      col.copy(base).multiplyScalar(0.82 + rand() * 0.34) // subtle brightness variation
-      mesh.setColorAt(i, col)
+      const cx = Math.cos(ang) * rad
+      const cz = Math.sin(ang) * rad
+      q.setFromAxisAngle(_UP, rand() * Math.PI)
+      const totalH = 5 + rand() * (5 + distF * 18) // short near, taller far
+      const tiers = 1 + Math.floor(rand() * 3) // 1..3 stacked setbacks
+      const weights: number[] = []
+      for (let t = 0; t < tiers; t++) weights.push(tiers - t) // base tallest
+      const wsum = weights.reduce((a, c) => a + c, 0)
+      const shade = 0.82 + rand() * 0.34
+      let w = 5 + rand() * 6
+      let d = 5 + rand() * 6
+      let y = 0
+      for (let t = 0; t < tiers; t++) {
+        const th = totalH * (weights[t] / wsum)
+        list.push({
+          m: new THREE.Matrix4().compose(new THREE.Vector3(cx, y + th / 2, cz), q, new THREE.Vector3(w, th, d)),
+          shade,
+        })
+        y += th
+        w *= 0.68 // setback: each tier narrower than the one below
+        d *= 0.68
+      }
     }
+    return {
+      geo: new THREE.BoxGeometry(1, 1, 1),
+      mat: new THREE.MeshStandardMaterial({ color: '#6f7c92', roughness: 0.9, metalness: 0, envMapIntensity: 0.45 }),
+      boxes: list,
+    }
+  }, [])
+  useLayoutEffect(() => {
+    const mesh = ref.current
+    if (!mesh) return
+    const col = new THREE.Color()
+    const base = new THREE.Color('#6f7c92')
+    boxes.forEach((it, i) => {
+      mesh.setMatrixAt(i, it.m)
+      mesh.setColorAt(i, col.copy(base).multiplyScalar(it.shade))
+    })
     mesh.instanceMatrix.needsUpdate = true
     if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true
-  }, [])
-  return <instancedMesh ref={ref} args={[geo, mat, COUNT]} frustumCulled={false} />
+  }, [boxes])
+  return <instancedMesh ref={ref} args={[geo, mat, boxes.length]} frustumCulled={false} />
 }
 
 // auto-play DRONE ORBIT around the building once everything is loaded, settling
