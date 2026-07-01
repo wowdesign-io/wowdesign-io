@@ -65,8 +65,8 @@ export default function HeroLabClient() {
           automated follow-up system, so your team always knows who&rsquo;s ready to buy.
         </p>
         <div className="hl-btns">
-          <a href="/carry-cost-calculator" className="hl-btn hl-primary">Carry Cost Calc <span className="hl-star">✦</span></a>
-          <a href="#features" className="hl-btn hl-ghost">Features <span className="hl-star">✦</span></a>
+          <a href="/carry-cost-calculator" className="hl-btn">Carry Cost Calc <span className="hl-star">✦</span></a>
+          <a href="#features" className="hl-btn">Features <span className="hl-star">✦</span></a>
         </div>
       </div>
 
@@ -118,15 +118,14 @@ export default function HeroLabClient() {
           font-family: "Inter", sans-serif; font-size: 1.15rem; line-height: 1.6;
           text-shadow: 0 1px 12px rgba(0,0,0,0.5); }
         .hl-btns { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 36px; pointer-events: auto; }
-        .hl-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border-radius: 4px;
-          font-family: "Outfit", sans-serif; font-weight: 500; font-size: 0.92rem; text-transform: uppercase;
-          letter-spacing: 0.03em; text-decoration: none; transition: background .2s ease, transform .2s ease, border-color .2s ease; }
-        .hl-primary { background: #2E77FA; color: #fff; box-shadow: 0 10px 30px rgba(46,119,250,0.38); }
-        .hl-primary:hover { background: #1f63e0; transform: translateY(-1px); }
-        .hl-ghost { background: rgba(11,15,25,0.4); color: #fff; border: 1px solid rgba(255,255,255,0.28);
-          backdrop-filter: blur(8px); }
-        .hl-ghost:hover { background: rgba(11,15,25,0.62); border-color: rgba(255,255,255,0.5); }
-        .hl-star { color: #FF2C55; font-size: 0.9em; }
+        /* dark buttons to match the site's hero .inner-button (only the nav CTA is blue) */
+        .hl-btn { display: inline-flex; align-items: center; gap: 10px; padding: 15px 28px; border-radius: 4px;
+          background: rgba(10,12,20,0.82); color: #fff; border: 1px solid rgba(255,255,255,0.16);
+          backdrop-filter: blur(8px); font-family: "Outfit", sans-serif; font-weight: 500; font-size: 0.92rem;
+          text-transform: uppercase; letter-spacing: 0.03em; text-decoration: none;
+          transition: background .2s ease, transform .2s ease, border-color .2s ease; }
+        .hl-btn:hover { background: rgba(10,12,20,0.95); border-color: rgba(255,255,255,0.35); transform: translateY(-1px); }
+        .hl-star { color: #fff; font-size: 0.9em; opacity: 0.9; }
 
         @keyframes hlspin { to { transform: rotate(360deg); } }
 
