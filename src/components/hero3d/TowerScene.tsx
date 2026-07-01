@@ -42,14 +42,14 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
     // REAL glass: a reflective physical material that mirrors the HDRI sky + clouds,
     // tinted blue-grey and slightly see-through. Replaces the flat OPAQUE model glass.
     const glass = new THREE.MeshPhysicalMaterial({
-      color: new THREE.Color('#123f63'), // DEEP blue so sky reflections read as streaks, not wash
-      metalness: 0.0,
-      roughness: 0.06,
-      envMapIntensity: 1.4,
+      color: new THREE.Color('#1c5182'), // blue; slight metalness tints reflections blue so clouds don't grey it
+      metalness: 0.5,
+      roughness: 0.13,
+      envMapIntensity: 1.15,
       transparent: true,
-      opacity: 0.88, // balance: some see-through (real glass isn't a 100% mirror) but stays blue
-      clearcoat: 0.9,
-      clearcoatRoughness: 0.06,
+      opacity: 0.9, // some see-through — real glass isn't a 100% mirror
+      clearcoat: 0.4,
+      clearcoatRoughness: 0.1,
       ior: 1.45,
       reflectivity: 1,
       side: THREE.DoubleSide,
@@ -88,9 +88,9 @@ useGLTF.preload(MODELS.adriana)
 function CameraRig() {
   const t0 = useRef<number | null>(null)
   const look = useRef(new THREE.Vector3(0, 9, 0))
-  const DUR = 10
-  // SPIRAL: ONE calm circle around the tower, climbing bottom → top (2 turns made Andy
-  // dizzy), then settle with the top third+ framed on the RIGHT so the left hero reads.
+  const DUR = 7.5
+  // SPIRAL: ONE calm circle, starting framed on the ~3-5th floor (podium/foundation
+  // cropped out) and climbing to settle with the top third+ on the RIGHT.
   const TURNS = 1
   const endAngle = 3.75 // 3/4 corner of the balcony face at the settle
   const startAngle = endAngle + TURNS * Math.PI * 2
@@ -124,12 +124,13 @@ function CameraRig() {
     const bob = Math.sin(post * 0.12) * 0.25
     const angle = THREE.MathUtils.lerp(startAngle, endAngle, e) + sway
     // climb the tower as we spiral; stay fairly close so the floor stays below frame
-    const radius = THREE.MathUtils.lerp(25, 22, e)
-    const height = THREE.MathUtils.lerp(3, 9.5, e) + bob * 0.4
+    const radius = THREE.MathUtils.lerp(20, 22, e)
+    // start closer + looking up so the frame begins ~3-5th floor (podium/foundation +
+    // empty ground cropped out — Andy: don't see it "standing in the middle of nowhere").
+    const height = THREE.MathUtils.lerp(5, 9.5, e) + bob * 0.4
     _cam.set(Math.cos(angle) * radius, height, Math.sin(angle) * radius)
     state.camera.position.copy(_cam)
-    // look climbs from the tower base to the top third (settle ~1 floor lower per Andy)
-    const ly = THREE.MathUtils.lerp(7, 10.3, e)
+    const ly = THREE.MathUtils.lerp(9, 10.3, e)
     look.current.set(0, ly, 0)
     // pan the look along camera-right so the tower drifts to screen-RIGHT at the settle
     // (leaves the left clear for the hero copy)
@@ -159,7 +160,7 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
         toneMappingExposure: 0.92, // pull back the blown-out highlights
       }}
       dpr={[1, 2]}
-      camera={{ position: [Math.cos(10.03) * 25, 3, Math.sin(10.03) * 25], fov: 32 }}
+      camera={{ position: [Math.cos(10.03) * 20, 5, Math.sin(10.03) * 20], fov: 32 }}
     >
       <Suspense fallback={null}>
         <fog attach="fog" args={['#aeb9c9', 95, 300]} />

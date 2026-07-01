@@ -51,7 +51,7 @@ export default function HeroLabClient() {
         style={{
           position: 'absolute', left: 'max(28px, 5vw)', top: '50%', transform: 'translateY(-50%)',
           maxWidth: 600, zIndex: 5, pointerEvents: 'none',
-          opacity: 0, animation: ready ? 'heroIn 1.2s ease 9s forwards' : 'none',
+          opacity: 0, animation: ready ? 'heroIn 1.2s ease 6.5s forwards' : 'none',
         }}
       >
         <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '0.5rem 1rem', border: '1px solid rgba(255,255,255,0.3)', borderRadius: 4, color: '#fff', fontFamily: '"Outfit", sans-serif', fontSize: '0.9rem', textShadow: '0 1px 6px rgba(0,0,0,0.5)' }}>Presales System</span>
