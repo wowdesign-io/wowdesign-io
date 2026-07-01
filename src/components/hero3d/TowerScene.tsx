@@ -176,14 +176,28 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
     }
     return MODELS.adriana
   }, [])
+  // ?hdri=<name> to A/B test sky HDRIs during tuning (default = partly-cloudy puresky)
+  const hdriFile = useMemo(() => {
+    const map: Record<string, string> = {
+      partly: '/hdri/sky.hdr',
+      clear: '/hdri/sky-clear.hdr',
+      autumn: '/hdri/sky-autumn.hdr',
+      noon: '/hdri/sky-noon.hdr',
+    }
+    if (typeof window !== 'undefined') {
+      const h = new URLSearchParams(window.location.search).get('hdri')
+      if (h && map[h]) return map[h]
+    }
+    return '/hdri/sky-autumn.hdr' // bright clear Florida blue (partly-cloudy read too dark/moody)
+  }, [])
   return (
     <Canvas
       shadows
       gl={{
         antialias: true,
         powerPreference: 'high-performance',
-        toneMapping: THREE.AgXToneMapping, // filmic curve that holds bright sky + reflections without the ACES "video-game" highlight clip
-        toneMappingExposure: 1.0, // bright sunny day
+        toneMapping: THREE.NeutralToneMapping, // Khronos PBR-Neutral: bright + saturated (AgX was muting/darkening the whole scene)
+        toneMappingExposure: 1.15, // bright sunny day
       }}
       dpr={[1, 2]}
       // near:1 / far:350 (not the default 0.1/1000) → far more depth-buffer precision, kills the
@@ -192,13 +206,14 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
     >
       <Suspense fallback={null}>
         <fog attach="fog" args={['#aeb9c9', 95, 300]} />
-        {/* low ambient — let the sun + HDRI do the work so the building has form, not flat plastic */}
-        <ambientLight intensity={0.16} />
-        {/* warm key sun, low-ish angle for raking light + long self-shadows (kills the flat look) */}
+        {/* ambient fill — lifted so the facade isn't muddy/dark */}
+        <ambientLight intensity={0.34} />
+        {/* warm key sun — moved to the CAMERA side (settle cam sits at ~-x,-z) so it FRONT-lights
+            the visible facade instead of backlighting it into shade. Offset for 3/4 shadows. */}
         <directionalLight
-          position={[26, 16, 14]}
-          intensity={2.7}
-          color="#ffe6c2"
+          position={[-10, 22, -22]}
+          intensity={3.2}
+          color="#fff2df"
           castShadow
           shadow-mapSize={[2048, 2048]}
           shadow-bias={-0.0004}
@@ -221,13 +236,13 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
             HDRI's ground haze) — it does NOT blur the glass reflections, which sample the crisp env
             map. Rotated so the sun sits behind the tower, left sky stays clean for the hero copy. */}
         <Environment
-          files="/hdri/sky.hdr"
+          files={hdriFile}
           background
-          backgroundBlurriness={0.03}
-          backgroundIntensity={1}
-          backgroundRotation={[0, 0.6, 0]}
-          environmentIntensity={1}
-          environmentRotation={[0, 0.6, 0]}
+          backgroundBlurriness={0.04}
+          backgroundIntensity={1.15}
+          backgroundRotation={[0, 3.2, 0]}
+          environmentIntensity={1.15}
+          environmentRotation={[0, 3.2, 0]}
         />
 
         <EffectComposer multisampling={8}>
