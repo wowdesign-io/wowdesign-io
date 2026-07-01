@@ -3,7 +3,7 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Environment, useGLTF, useTexture, Clouds, Cloud } from '@react-three/drei'
 import { EffectComposer, Bloom, N8AO } from '@react-three/postprocessing'
-import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
+import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 
 // accelerate into the move, streak through the middle, decelerate to settle
@@ -242,6 +242,60 @@ function Palms({ anchor }: { anchor: THREE.Vector3 }) {
 }
 useGLTF.preload(PALM_URL)
 
+// small deterministic PRNG so the skyline layout is stable across reloads (and tunable)
+function mulberry32(a: number) {
+  return function () {
+    a |= 0
+    a = (a + 0x6d2b79f5) | 0
+    let t = Math.imul(a ^ (a >>> 15), 1 | a)
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+  }
+}
+
+// Cheap hazy skyline: ONE instanced draw call of low-poly boxes ringed FAR outside the
+// drone-flight radius (~24), so it frames the tower on the horizon and fades into the fog
+// (near 95) without ever crossing the camera path or costing meaningful perf. Short near,
+// taller far → skyline depth. No shadows (they sit beyond the ±28 shadow frustum anyway).
+function CityBackdrop() {
+  const ref = useRef<THREE.InstancedMesh>(null)
+  const COUNT = 110
+  const { geo, mat } = useMemo(
+    () => ({
+      geo: new THREE.BoxGeometry(1, 1, 1),
+      mat: new THREE.MeshStandardMaterial({ color: '#6f7c92', roughness: 0.9, metalness: 0, envMapIntensity: 0.45 }),
+    }),
+    [],
+  )
+  useLayoutEffect(() => {
+    const mesh = ref.current
+    if (!mesh) return
+    const rand = mulberry32(20260702)
+    const m = new THREE.Matrix4()
+    const pos = new THREE.Vector3()
+    const quat = new THREE.Quaternion()
+    const scl = new THREE.Vector3()
+    const col = new THREE.Color()
+    const base = new THREE.Color('#6f7c92')
+    for (let i = 0; i < COUNT; i++) {
+      const ang = rand() * Math.PI * 2
+      const rad = 50 + rand() * 150 // 50..200 — well beyond the ~24 flight radius
+      const distF = (rad - 50) / 150
+      const h = 4 + rand() * (5 + distF * 18) // short near, up to ~27 tall far
+      pos.set(Math.cos(ang) * rad, h / 2, Math.sin(ang) * rad)
+      quat.setFromAxisAngle(_UP, rand() * Math.PI)
+      scl.set(4 + rand() * 6, h, 4 + rand() * 6)
+      m.compose(pos, quat, scl)
+      mesh.setMatrixAt(i, m)
+      col.copy(base).multiplyScalar(0.82 + rand() * 0.34) // subtle brightness variation
+      mesh.setColorAt(i, col)
+    }
+    mesh.instanceMatrix.needsUpdate = true
+    if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true
+  }, [])
+  return <instancedMesh ref={ref} args={[geo, mat, COUNT]} frustumCulled={false} />
+}
+
 // auto-play DRONE ORBIT around the building once everything is loaded, settling
 // into the hero framing. The clock starts on this rig's first frame — and since
 // it's inside <Suspense>, that's only after the model + HDRI have loaded.
@@ -365,6 +419,7 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
         <CameraRig />
         <Building url={modelUrl} onReady={onReady} onPoolAnchor={setPoolAnchor} />
         <Ground />
+        <CityBackdrop />
         {poolAnchor && <Palms anchor={poolAnchor} />}
 
         {/* a couple of bright white puffy clouds in the upper sky (both sides so at least one is
