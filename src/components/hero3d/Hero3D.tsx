@@ -9,7 +9,7 @@ const TowerScene = dynamic(() => import('./TowerScene'), { ssr: false })
 // once the whole page is assembled on /hero-lab.
 export default function Hero3D() {
   return (
-    <div style={{ position: 'relative', width: '100%', height: 'min(80vh, 820px)', minHeight: 460 }}>
+    <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
       <TowerScene />
     </div>
   )

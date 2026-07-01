@@ -65,10 +65,18 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
         </div>
       </div>
     </div>
-    <section data-w-id="ff16e7a9-f7e3-77c2-015f-a1152daaa887" className="section relative">
-      <div className="banner-container">
-        <div className="banner-content">
-          <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" data-w-id="6e58a63e-55a6-96bc-8457-502e6779cd81" className="banner-typography">
+    <section data-w-id="ff16e7a9-f7e3-77c2-015f-a1152daaa887" className="section relative" style={heroVisual ? { minHeight: '100svh', display: 'flex', alignItems: 'center', overflow: 'hidden' } : undefined}>
+      {heroVisual && (
+        <>
+          {/* live 3D scene as the hero background */}
+          <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>{heroVisual}</div>
+          {/* legibility + seamless fade into the dark page below */}
+          <div style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', background: 'linear-gradient(90deg, rgba(7,11,22,0.85) 0%, rgba(7,11,22,0.5) 26%, rgba(7,11,22,0.12) 48%, rgba(7,11,22,0) 60%), linear-gradient(0deg, rgba(9,12,22,1) 0%, rgba(9,12,22,0) 26%)' }} />
+        </>
+      )}
+      <div className="banner-container" style={heroVisual ? { position: 'absolute', left: 'max(28px, 5vw)', top: '50%', transform: 'translateY(-50%)', zIndex: 2, width: 'auto', maxWidth: 500, margin: 0, padding: 0 } : undefined}>
+        <div className="banner-content" style={heroVisual ? { display: 'block', width: 'auto', margin: 0 } : undefined}>
+          <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" data-w-id="6e58a63e-55a6-96bc-8457-502e6779cd81" className="banner-typography" style={heroVisual ? { textAlign: 'left', alignItems: 'flex-start', maxWidth: 500, margin: 0 } : undefined}>
             <div className="hero-banner-subtitle-wrapper">
               <div className="tagline-container">
                 <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ph" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256">
@@ -151,7 +159,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
               </div>
             </div>
           </div>
-          {heroVisual ?? (<div data-w-id="e8a9f885-801b-a42c-0374-9df70f06c829" className="banner-world-element-wrapper"><img src="/images/psd-3d-isometric-tall-building-surrounded-by-trees-transparent-background-with-white-sky.webp" loading="lazy" style={{ WebkitTransform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="banner-world-element-image" />
+          {!heroVisual && (<div data-w-id="e8a9f885-801b-a42c-0374-9df70f06c829" className="banner-world-element-wrapper"><img src="/images/psd-3d-isometric-tall-building-surrounded-by-trees-transparent-background-with-white-sky.webp" loading="lazy" style={{ WebkitTransform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="banner-world-element-image" />
             <div style={{ opacity: "0" }} className="banner-world-element-tag-content">
               <div className="banner-world-element-tag-wrapper">
                 <div className="banner-world-element-tag-single one">
