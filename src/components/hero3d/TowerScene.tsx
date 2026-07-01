@@ -3,7 +3,7 @@
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Environment, useGLTF, useTexture, Clouds, Cloud } from '@react-three/drei'
 import { EffectComposer, Bloom, N8AO } from '@react-three/postprocessing'
-import { Suspense, useEffect, useMemo, useRef } from 'react'
+import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 
 // accelerate into the move, streak through the middle, decelerate to settle
@@ -26,8 +26,9 @@ const MODELS: Record<string, string> = {
 const TARGET_H = 14
 
 // real building GLB — auto-centered on origin, base on the ground, scaled to TARGET_H
-function Building({ url, onReady }: { url: string; onReady?: () => void }) {
+function Building({ url, onReady, onPoolAnchor }: { url: string; onReady?: () => void; onPoolAnchor?: (v: THREE.Vector3) => void }) {
   const { scene } = useGLTF(url)
+  const anchorRef = useRef<THREE.Vector3 | null>(null)
   const prepared = useMemo(() => {
     const root = scene.clone(true)
     const box = new THREE.Box3().setFromObject(root)
@@ -107,9 +108,22 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
         })
       }
     })
+    root.updateMatrixWorld(true)
+    const poolBox = new THREE.Box3()
+    root.traverse((o) => {
+      const m = o as THREE.Mesh
+      if (!m.isMesh) return
+      const t = ((Array.isArray(m.material) ? m.material : [m.material]).map((x) => x?.name || '').join(' ') + ' ' + m.name).toLowerCase()
+      if (t.includes('pool') || t.includes('water')) poolBox.expandByObject(m)
+    })
+    if (!poolBox.isEmpty()) {
+      const c = poolBox.getCenter(new THREE.Vector3())
+      anchorRef.current = new THREE.Vector3(c.x, poolBox.max.y, c.z) // deck top, pool centre
+    }
     return root
   }, [scene])
   useEffect(() => { onReady?.() }, [onReady])
+  useEffect(() => { if (anchorRef.current) onPoolAnchor?.(anchorRef.current) }, [onPoolAnchor])
   return <primitive object={prepared} />
 }
 useGLTF.preload(MODELS.adriana)
@@ -133,6 +147,70 @@ function Ground() {
   )
 }
 useTexture.preload('/textures/grass_diff.jpg')
+
+// real palm props around the pool (the model's own palm shipped without its texture).
+// Loads the 340KB optimised pack, keeps ONE variant, normalises it to ~3.6 units tall,
+// and drops 4 around the pool deck. Frond material set to alpha-cutout so it reads as fronds.
+const PALM_URL = '/models/palm_trees.glb'
+function Palms({ anchor }: { anchor: THREE.Vector3 }) {
+  const { scene } = useGLTF(PALM_URL)
+  const palm = useMemo(() => {
+    const src = scene.clone(true)
+    const remove: THREE.Object3D[] = []
+    src.traverse((o) => {
+      const m = o as THREE.Mesh
+      if (m.isMesh && !/^PALMLOW_/.test(m.name)) remove.push(m) // keep only the PALMLOW variant
+    })
+    remove.forEach((o) => o.parent?.remove(o))
+    src.updateMatrixWorld(true)
+    // normalise to ~3.6 units tall, base at y=0, centred on x/z
+    let box = new THREE.Box3().setFromObject(src)
+    src.scale.multiplyScalar(3.6 / (box.max.y - box.min.y))
+    src.updateMatrixWorld(true)
+    box = new THREE.Box3().setFromObject(src)
+    const c = box.getCenter(new THREE.Vector3())
+    src.position.set(-c.x, -box.min.y, -c.z)
+    src.traverse((o) => {
+      const m = o as THREE.Mesh
+      if (!m.isMesh) return
+      m.castShadow = true
+      m.receiveShadow = true
+      const mm = m.material as THREE.MeshStandardMaterial
+      if (mm && /frond/i.test(mm.name || '')) {
+        mm.alphaTest = 0.5 // cutout fronds instead of blended quads
+        mm.transparent = false
+        mm.depthWrite = true
+        mm.side = THREE.DoubleSide
+      }
+    })
+    const g = new THREE.Group()
+    g.add(src)
+    return g
+  }, [scene])
+  // 4 palms around the pool (anchor = deck top, pool centre; pool ~2.4 x 5.0, on -x side)
+  const instances = useMemo(() => {
+    const spots = [
+      { x: -2.4, z: -3.4, r: 0.4, s: 1.05 },
+      { x: -2.4, z: 3.4, r: -0.7, s: 0.95 },
+      { x: 1.8, z: 3.1, r: 1.3, s: 1.0 },
+      { x: 1.8, z: -3.1, r: 2.2, s: 0.88 },
+    ]
+    return spots.map((sp) => ({
+      obj: palm.clone(true),
+      pos: [anchor.x + sp.x, anchor.y, anchor.z + sp.z] as [number, number, number],
+      rot: sp.r,
+      scl: sp.s,
+    }))
+  }, [palm, anchor])
+  return (
+    <group>
+      {instances.map((it, i) => (
+        <primitive key={i} object={it.obj} position={it.pos} rotation={[0, it.rot, 0]} scale={it.scl} />
+      ))}
+    </group>
+  )
+}
+useGLTF.preload(PALM_URL)
 
 // auto-play DRONE ORBIT around the building once everything is loaded, settling
 // into the hero framing. The clock starts on this rig's first frame — and since
@@ -216,6 +294,7 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
     }
     return '/hdri/sky-autumn.hdr' // bright clear Florida blue (partly-cloudy read too dark/moody)
   }, [])
+  const [poolAnchor, setPoolAnchor] = useState<THREE.Vector3 | null>(null)
   return (
     <Canvas
       shadows
@@ -254,8 +333,9 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
         <directionalLight position={[-18, 11, -12]} intensity={0.55} color="#9db4d6" />
 
         <CameraRig />
-        <Building url={modelUrl} onReady={onReady} />
+        <Building url={modelUrl} onReady={onReady} onPoolAnchor={setPoolAnchor} />
         <Ground />
+        {poolAnchor && <Palms anchor={poolAnchor} />}
 
         {/* a couple of bright white puffy clouds in the upper sky (both sides so at least one is
             in frame through the flight). Kept to 2 + modest volume for performance. */}

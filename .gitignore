@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# heavy 3D source assets (kept locally only — optimised versions are what ship)
+public/models/palm_tree_pack_lowpoly.glb
+public/models/adriana_residences.fbx
+public/models/adriana_residences_ORIGINAL_DONT_DELETE_OR_EDIT.glb
+public/models/adriana_residences.glb
+public/models/Bina_Apt.zip
+public/models/Bina_Apt/
