@@ -42,14 +42,14 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
     // REAL glass: a reflective physical material that mirrors the HDRI sky + clouds,
     // tinted blue-grey and slightly see-through. Replaces the flat OPAQUE model glass.
     const glass = new THREE.MeshPhysicalMaterial({
-      color: new THREE.Color('#2f6896'), // saturated architectural blue; clearcoat reflects sky on top
-      metalness: 0.15,
-      roughness: 0.04,
-      envMapIntensity: 1.7,
+      color: new THREE.Color('#123f63'), // DEEP blue so sky reflections read as streaks, not wash
+      metalness: 0.0,
+      roughness: 0.06,
+      envMapIntensity: 1.4,
       transparent: true,
-      opacity: 0.92,
-      clearcoat: 1,
-      clearcoatRoughness: 0.04,
+      opacity: 0.95, // nearly opaque so the grey interior doesn't grey the glass
+      clearcoat: 0.8,
+      clearcoatRoughness: 0.06,
       ior: 1.45,
       reflectivity: 1,
       side: THREE.DoubleSide,
