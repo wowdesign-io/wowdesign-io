@@ -53,9 +53,53 @@ npx gltf-transform optimize <in>.glb <out>.glb --compress draco --texture-compre
   **Gotchas:** (a) `page.screenshot` needs `timeout: 60000` + `animations:'disabled'`, `goto` `waitUntil:'load'` (the live canvas never goes idle). (b) **woolderpark hangs the capture at 1440px** under SwiftShader — drop the viewport (`VW=860 VH=540` or smaller) and it captures; sanzio is fine at full size.
 - **Lessons:** never start a dev server while `npm install`/`gltf-transform` runs (locks `node_modules`); `turbopack.root` pinned in `next.config.ts`; git account is always `wowdesign-andy` / `andy@wowdesign.io`.
 
-## Next steps (in order)
-1. Andy watches the live woolderpark flight → decide lighting warmth / final-frame tweaks.
-2. Shrink HDRI to 1k + compress; lazy-load the canvas.
+## TOMORROW (2026-07-02) — REALISM PASS (Andy: "there has to be a way, three.js is so powerful")
+
+Deployed tonight (`61a0750`): blue reflective glass `#2b6d94` + N8AO ambient occlusion. Real step up
+(glass mirrors sky + reads blue, balcony recesses have depth). But it still reads "video game" because
+of ONE structural gap → **the glass only reflects the HDRI sky, not the building itself, the pool, or
+the balconies.** Real archviz glass reflects its surroundings. That's the biggest untapped lever.
+
+Do these in order — each is a real realism jump, cheapest-first:
+
+1. **Screen-Space Reflections (SSR/SSGI) — THE big one.** Add `realism-effects` (0beqz, npm
+   `realism-effects`) → SSGI gives the glass real reflections of the tower/pool/balconies + real
+   global illumination bounce. This is what makes CG glass look shot-in-camera.
+   - ⚠️ RISK: the lib is semi-maintained (last big activity ~2023, v2 in dev). Same class of
+     three-r0.185 incompatibility that made drei `SoftShadows` throw
+     `unpackRGBAToDepth` and blank the scene. **Guard it:** add behind `?ssr=1`, GPU-screenshot
+     first, keep the N8AO+Bloom stack as the fallback if it breaks. If incompatible, try pinning a
+     known-good three range in a branch, or the `postprocessing` core SSR effect.
+2. **True transmission glass** (research-confirmed settings): `transmission: 1`, `opacity: 1` (NOT
+   0.86), `roughness: 0.05–0.15`, `thickness: 0.8–2`, `ior: 1.5`, `envMapIntensity` high. Transmission
+   refracts what's behind the pane instead of faking it with opacity — far more "real glass." Test
+   perf cost (transmission is a second render pass per material) — may need it only on the big panes.
+3. **AgX tone mapping** (three r160+, `THREE.AgXToneMapping`) instead of ACES filmic — AgX handles
+   bright skies + saturated reflections more naturally, less "video-gamey" highlight clipping. A/B it.
+4. **Grounded/contact + soft shadows** without SoftShadows: use drei `<AccumulativeShadows>` +
+   `<RandomizedLight>` for baked soft ground contact, OR `<ContactShadows>` under the podium. Soft
+   grounding shadow = huge "it's really sitting there" signal. (SoftShadows PCSS is OUT on r0.185.)
+5. **Higher-res env + sharper reflections:** current HDRI is 2k blurred (`backgroundBlurriness 0.015`).
+   For crisp glass reflections a sharper env helps; but keep bg blurred for depth-of-field feel — can
+   split: sharp env for IBL, blurred for background (separate `<Environment>` + scene.background).
+6. **Palms decision:** confirmed NOT in the GLB (only 2 materials: `Condominio_Aragon` glass +
+   `FrontColor` everything-else). Fab preview palms/skyline = staged render env, not shipped. Options:
+   (a) add real palm props on the deck (free ones are cartoon low-poly → clash; realistic = paid),
+   (b) skip — deck only shows for the first ~2s, settle frame crops it out. Lean (b) unless SSR lands
+   and the opening beat needs dressing.
+
+**Fallback if real-time still caps out after 1–5:** pre-rendered offline video hero (Blender Cycles /
+the Fab render engine) → MP4 background. ONLY way to truly match the path-traced preview (palms,
+skyline, GI, soft shadows). For an AGENCY hero (emotion, not a client's explorable twin) a video is
+totally legitimate and arguably better. Raise as the decision point if SSR+transmission don't get there.
+
+**Research refs (2026):** realism-effects https://github.com/0beqz/realism-effects ·
+glass/transmission https://tympanus.net/codrops/2021/10/27/creating-the-effect-of-transparent-glass-and-plastic-in-three-js/
+· MeshPhysicalMaterial docs https://threejs.org/docs/pages/MeshPhysicalMaterial.html
+
+## Later (after realism approved)
+1. Shrink HDRI to 1k + compress; lazy-load the canvas.
+2. Gentle Draco-ONLY compact (`gltf-transform draco` — NEVER `optimize`/simplify/palette; keep source).
 3. Nav/hero-text polish at the final angle.
 4. Wire `<TowerScene>` into the real homepage (drop-in replacement for the hero section).
 

@@ -173,8 +173,8 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
       gl={{
         antialias: true,
         powerPreference: 'high-performance',
-        toneMapping: THREE.ACESFilmicToneMapping, // cinematic filmic curve
-        toneMappingExposure: 0.92, // pull back the blown-out highlights
+        toneMapping: THREE.AgXToneMapping, // filmic curve that holds bright sky + reflections without the ACES "video-game" highlight clip
+        toneMappingExposure: 1.15, // AgX renders darker than ACES — lift it back
       }}
       dpr={[1, 2]}
       camera={{ position: [Math.cos(10.03) * 24, 5, Math.sin(10.03) * 24], fov: 32 }}
@@ -207,7 +207,7 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
         {/* sharper background so the glass reflects a crisp sky; brighter env for real reflections */}
         <Environment files="/hdri/sky.hdr" background backgroundBlurriness={0.015} environmentIntensity={0.85} />
 
-        <EffectComposer>
+        <EffectComposer multisampling={8}>
           {/* ambient occlusion — the dark contact shadows in corners/recesses that make
               CG read as real & grounded instead of flat. Biggest single realism lever. */}
           <N8AO aoRadius={2.5} distanceFalloff={1} intensity={3.5} halfRes />
