@@ -80,11 +80,11 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
           </div>
         </>
       )}
-      <div className="banner-container" style={heroVisual ? { position: 'absolute', left: 'max(28px, 5vw)', top: '50%', transform: 'translateY(-50%)', zIndex: 2, width: 'auto', maxWidth: 600, margin: 0, padding: 0 } : undefined}>
+      <div className="banner-container" style={heroVisual ? { position: 'absolute', left: 'max(28px, 5vw)', top: '50%', transform: 'translateY(-50%)', zIndex: 2, width: 'auto', maxWidth: 680, margin: 0, padding: 0 } : undefined}>
         <div className="banner-content" style={heroVisual ? { display: 'block', width: 'auto', margin: 0, border: 'none', paddingTop: 0 } : undefined}>
           <div
             {...(heroVisual
-              ? { className: 'banner-typography solving-card hero-card', style: { textAlign: 'left', alignItems: 'flex-start', maxWidth: 600, margin: 0 } }
+              ? { className: 'banner-typography solving-card hero-card', style: { textAlign: 'left', alignItems: 'flex-start', maxWidth: 680, margin: 0 } }
               : { className: 'banner-typography', 'goo-stagger': '0.3', goo: 'fade-up', 'goo-type': 'stagger', 'data-w-id': '6e58a63e-55a6-96bc-8457-502e6779cd81' })}
           >
             <div className="hero-banner-subtitle-wrapper">
@@ -168,10 +168,6 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 </a>
               </div>
             </div>
-            {heroVisual && (<>
-              <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="solving-card-top-element" />
-              <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="solving-card-bottom-element" />
-            </>)}
           </div>
           {!heroVisual && (<div data-w-id="e8a9f885-801b-a42c-0374-9df70f06c829" className="banner-world-element-wrapper"><img src="/images/psd-3d-isometric-tall-building-surrounded-by-trees-transparent-background-with-white-sky.webp" loading="lazy" style={{ WebkitTransform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="banner-world-element-image" />
             <div style={{ opacity: "0" }} className="banner-world-element-tag-content">
