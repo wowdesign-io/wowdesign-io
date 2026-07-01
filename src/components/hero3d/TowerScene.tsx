@@ -47,8 +47,8 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
       roughness: 0.06,
       envMapIntensity: 1.4,
       transparent: true,
-      opacity: 0.95, // nearly opaque so the grey interior doesn't grey the glass
-      clearcoat: 0.8,
+      opacity: 0.88, // balance: some see-through (real glass isn't a 100% mirror) but stays blue
+      clearcoat: 0.9,
       clearcoatRoughness: 0.06,
       ior: 1.45,
       reflectivity: 1,
