@@ -19,6 +19,17 @@ export default function HeroLabClient() {
     <div style={{ position: 'fixed', inset: 0, background: '#0a1020', overflow: 'hidden' }}>
       <TowerScene onReady={() => setReady(true)} />
 
+      {/* hero scrim — darkens the left + bottom so the copy stays legible and the flat grass
+          reads as a quiet backdrop, not the subject. Sits above the canvas, below the text. */}
+      <div
+        style={{
+          position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none',
+          background:
+            'linear-gradient(90deg, rgba(9,14,28,0.62) 0%, rgba(9,14,28,0.34) 28%, rgba(9,14,28,0) 56%), ' +
+            'linear-gradient(0deg, rgba(9,14,28,0.42) 0%, rgba(9,14,28,0) 24%)',
+        }}
+      />
+
       {/* loading screen — covers until the model + sky are loaded, then fades out
           (so the drone flight never plays before the building is there) */}
       <div
