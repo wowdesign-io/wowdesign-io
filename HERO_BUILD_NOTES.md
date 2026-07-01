@@ -62,14 +62,28 @@ the balconies.** Real archviz glass reflects its surroundings. That's the bigges
 
 Do these in order — each is a real realism jump, cheapest-first:
 
-1. **Screen-Space Reflections (SSR/SSGI) — THE big one.** Add `realism-effects` (0beqz, npm
-   `realism-effects`) → SSGI gives the glass real reflections of the tower/pool/balconies + real
-   global illumination bounce. This is what makes CG glass look shot-in-camera.
-   - ⚠️ RISK: the lib is semi-maintained (last big activity ~2023, v2 in dev). Same class of
-     three-r0.185 incompatibility that made drei `SoftShadows` throw
-     `unpackRGBAToDepth` and blank the scene. **Guard it:** add behind `?ssr=1`, GPU-screenshot
-     first, keep the N8AO+Bloom stack as the fallback if it breaks. If incompatible, try pinning a
-     known-good three range in a branch, or the `postprocessing` core SSR effect.
+1. **Screen-Space Reflections (SSR/SSGI) — ❌ DEAD END on three r0.185 (tried 2026-07-02).**
+   `realism-effects@1.1.2` (0beqz) imports `WebGLMultipleRenderTargets` from three — an API three
+   **removed in r0.172**. The module throws at load ("Export WebGLMultipleRenderTargets doesn't
+   exist") — same class of failure as SoftShadows. Confirmed via `?ssr=1` GPU errcheck. Building an
+   imperative `postprocessing` composer (SSREffect + VelocityDepthNormalPass + TRAA + AgX) was all
+   wired & type-clean — the ONLY blocker is the removed three API. Reviving it needs one of:
+   (a) patch realism-effects dist to emulate WebGLMultipleRenderTargets via `WebGLRenderTarget({count})`
+   (fragile — `.texture` was an array; multi-hour, may hit more removed-API downstream), (b) a
+   maintained fork targeting three ≥0.172 (none found as of 2026-07), or (c) pin three ~0.170 in a
+   branch (risks drei10/fiber9 needing newer three). **`postprocessing` core has NO SSR.** So the
+   only NATIVE reflection lever left is **CubeCamera** (drei `<CubeCamera>`) — render the scene into a
+   live/one-shot cube probe, feed as glass `envMap` so it reflects the pool/podium/ground, not just
+   the HDRI sky. Marginal payoff (single-point probe; deck only shows ~2s) — try only if pursuing
+   real-time further. **DONE instead (bc6b93f): AgX tone mapping + MSAA 8×.**
+
+   **KEY FINDING: the bottleneck is now the MODEL, not three.js.** Every reliable native lever is in
+   (AgX, MSAA 8×, N8AO, physical blue glass, HDRI/IBL, cinematic flight). What still reads "game" is
+   the €3 mesh: flat balcony panels, plain box frames, no window reveals/mullions/depth, cartoon pool
+   blob, no textures. No shader setting fixes low-detail geometry. Real next moves = (a) accept &
+   ship this clean real-time hero, (b) buy a HIGHER-DETAIL glass-tower model (textured, real frames —
+   biggest real-time quality jump, still interactive), or (c) pre-rendered offline video (true
+   photoreal, matches the Fab render). See "Fallback" below.
 2. **True transmission glass** (research-confirmed settings): `transmission: 1`, `opacity: 1` (NOT
    0.86), `roughness: 0.05–0.15`, `thickness: 0.8–2`, `ior: 1.5`, `envMapIntensity` high. Transmission
    refracts what's behind the pane instead of faking it with opacity — far more "real glass." Test

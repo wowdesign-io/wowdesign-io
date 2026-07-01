@@ -43,18 +43,17 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
     // tinted blue-grey and slightly see-through. Replaces the flat OPAQUE model glass.
     // window glass — blue-teal reflective (matches the model's original preview render)
     const glass = new THREE.MeshPhysicalMaterial({
-      color: new THREE.Color('#2b6d94'),
-      metalness: 0.5, // tints reflections blue-teal so clouds don't grey it
-      roughness: 0.12,
-      envMapIntensity: 1.3,
+      color: new THREE.Color('#2f7d94'), // brighter blue-teal to match the Fab preview glass
+      metalness: 0.78, // reflective curtain wall — tinted reflection, interior hidden
+      roughness: 0.05, // sharp, glassy reflections (was 0.12 = soft/CG)
+      envMapIntensity: 1.75,
       transparent: true,
-      opacity: 0.86,
-      clearcoat: 0.5,
-      clearcoatRoughness: 0.1,
-      ior: 1.45,
+      opacity: 0.95, // near-opaque — kills the "see the messy interior slabs through it" game look
+      clearcoat: 1,
+      clearcoatRoughness: 0.04,
+      ior: 1.5,
       reflectivity: 1,
-      side: THREE.DoubleSide,
-      depthWrite: false,
+      side: THREE.FrontSide, // front faces only — no backface interior bleeding through
     })
     // balcony balustrades ("_Burnt_Umber_1") — darker reflective glass, NOT dead black
     const railGlass = new THREE.MeshPhysicalMaterial({
