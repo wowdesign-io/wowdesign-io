@@ -28,7 +28,7 @@ export default function Hero3D() {
       {/* loader — covers the hero until the 3D is ready so the old page background never flashes */}
       <div
         style={{
-          position: 'absolute', inset: 0, zIndex: 5, display: 'flex', flexDirection: 'column',
+          position: 'fixed', inset: 0, zIndex: 9999, display: 'flex', flexDirection: 'column',
           alignItems: 'center', justifyContent: 'center', gap: 22, background: '#0a1020',
           opacity: ready ? 0 : 1, pointerEvents: ready ? 'none' : 'auto', transition: 'opacity .8s ease',
         }}

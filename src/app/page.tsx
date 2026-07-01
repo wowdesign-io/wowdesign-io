@@ -65,7 +65,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
         </div>
       </div>
     </div>
-    <section data-w-id="ff16e7a9-f7e3-77c2-015f-a1152daaa887" className="section relative" style={heroVisual ? { minHeight: '100svh', display: 'flex', alignItems: 'center', overflow: 'hidden', background: '#0a1020' } : undefined}>
+    <section data-w-id="ff16e7a9-f7e3-77c2-015f-a1152daaa887" className="section relative" style={heroVisual ? { minHeight: '100svh', display: 'flex', alignItems: 'center', overflow: 'hidden' } : undefined}>
       {heroVisual && (
         <>
           {/* live 3D scene as the hero background */}
@@ -81,7 +81,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
         </>
       )}
       <div className="banner-container" style={heroVisual ? { position: 'absolute', left: 'max(28px, 5vw)', top: '50%', transform: 'translateY(-50%)', zIndex: 2, width: 'auto', maxWidth: 600, margin: 0, padding: 0 } : undefined}>
-        <div className="banner-content" style={heroVisual ? { display: 'block', width: 'auto', margin: 0 } : undefined}>
+        <div className="banner-content" style={heroVisual ? { display: 'block', width: 'auto', margin: 0, border: 'none', paddingTop: 0 } : undefined}>
           <div
             {...(heroVisual
               ? { className: 'banner-typography solving-card hero-card', style: { textAlign: 'left', alignItems: 'flex-start', maxWidth: 600, margin: 0 } }

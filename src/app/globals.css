@@ -33,6 +33,7 @@
    bright 3D bg, and adds the post-flight reveal (flight-done set by Hero3D). */
 .hero-card {
   background-color: var(--surface-90);
+  overflow: visible; /* show the corner brackets that .banner-typography (overflow:hidden) would clip */
   opacity: 0;
   transform: translateY(28px) scale(0.985);
   transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
