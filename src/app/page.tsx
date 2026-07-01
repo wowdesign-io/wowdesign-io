@@ -18,7 +18,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
 
       </div>
     </div>
-    <div data-w-id="3af1c84f-ff74-c014-cb3b-40446b73b1e3" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" className="navbar w-nav">
+    <div data-w-id="3af1c84f-ff74-c014-cb3b-40446b73b1e3" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" className="navbar w-nav" style={heroVisual ? { background: 'rgba(9,12,22,0.72)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', borderBottom: '1px solid rgba(255,255,255,0.08)' } : undefined}>
       <div className="nav-container _1430">
         <div className="navbar-container">
           <a href="/" aria-current="page" className="navbar-logo w-nav-brand w--current"><img src="/images/wow-design-color-logo-dark.svg" loading="lazy" alt="" className="navbar-logo-image" /></a>
@@ -65,18 +65,23 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
         </div>
       </div>
     </div>
-    <section data-w-id="ff16e7a9-f7e3-77c2-015f-a1152daaa887" className="section relative" style={heroVisual ? { minHeight: '100svh', display: 'flex', alignItems: 'center', overflow: 'hidden' } : undefined}>
+    <section data-w-id="ff16e7a9-f7e3-77c2-015f-a1152daaa887" className="section relative" style={heroVisual ? { minHeight: '100svh', display: 'flex', alignItems: 'center', overflow: 'hidden', background: '#0a1020' } : undefined}>
       {heroVisual && (
         <>
           {/* live 3D scene as the hero background */}
           <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>{heroVisual}</div>
-          {/* legibility + seamless fade into the dark page below */}
-          <div style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', background: 'linear-gradient(90deg, rgba(7,11,22,0.85) 0%, rgba(7,11,22,0.5) 26%, rgba(7,11,22,0.12) 48%, rgba(7,11,22,0) 60%), linear-gradient(0deg, rgba(9,12,22,1) 0%, rgba(9,12,22,0) 26%)' }} />
+          {/* brand radial light on the copy side (glows through the glass card) + a soft bottom
+              fade into the dark page. Light touch of darkening on the far left for legibility. */}
+          <div style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', background: 'radial-gradient(58% 82% at 24% 48%, rgba(46,119,250,0.34) 0%, rgba(215,56,255,0.16) 42%, rgba(7,11,22,0) 72%), linear-gradient(90deg, rgba(7,11,22,0.42) 0%, rgba(7,11,22,0.16) 38%, rgba(7,11,22,0) 60%), linear-gradient(0deg, rgba(9,12,22,1) 0%, rgba(9,12,22,0) 26%)' }} />
         </>
       )}
-      <div className="banner-container" style={heroVisual ? { position: 'absolute', left: 'max(28px, 5vw)', top: '50%', transform: 'translateY(-50%)', zIndex: 2, width: 'auto', maxWidth: 500, margin: 0, padding: 0 } : undefined}>
+      <div className="banner-container" style={heroVisual ? { position: 'absolute', left: 'max(28px, 5vw)', top: '50%', transform: 'translateY(-50%)', zIndex: 2, width: 'auto', maxWidth: 600, margin: 0, padding: 0 } : undefined}>
         <div className="banner-content" style={heroVisual ? { display: 'block', width: 'auto', margin: 0 } : undefined}>
-          <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" data-w-id="6e58a63e-55a6-96bc-8457-502e6779cd81" className="banner-typography" style={heroVisual ? { textAlign: 'left', alignItems: 'flex-start', maxWidth: 500, margin: 0 } : undefined}>
+          <div
+            {...(heroVisual
+              ? { className: 'banner-typography solving-card hero-card', style: { textAlign: 'left', alignItems: 'flex-start', maxWidth: 600, margin: 0 } }
+              : { className: 'banner-typography', 'goo-stagger': '0.3', goo: 'fade-up', 'goo-type': 'stagger', 'data-w-id': '6e58a63e-55a6-96bc-8457-502e6779cd81' })}
+          >
             <div className="hero-banner-subtitle-wrapper">
               <div className="tagline-container">
                 <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ph" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256">
@@ -185,10 +190,10 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
           </div>)}<img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="banner-pluse-icon top-left" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="banner-pluse-icon top-right" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="banner-pluse-icon bottom-left" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="banner-pluse-icon bottom-right" />
         </div>
       </div>
-      <div className="cta-radial-gradient1"></div>
-      <div className="cta-radial-gradient2"></div>
+      {!heroVisual && <div className="cta-radial-gradient1"></div>}
+      {!heroVisual && <div className="cta-radial-gradient2"></div>}
     </section>
-    <section className="section headline-section">
+    {!heroVisual && (<section className="section headline-section">
       <div className="headline-content">
         <div className="headline-ticker">
           <div className="headline-ticker-single">
@@ -207,7 +212,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
           </div>
         </div>
       </div>
-    </section>
+    </section>)}
     <section className="section solving">
       <div className="container">
         <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="solving-section-title-wrapper">

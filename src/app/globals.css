@@ -5,3 +5,21 @@
 @import "./webflow.css";
 @import "./wowdesign-miami.css";
 @import "./webflow-inline.css";
+
+/* 3D hero card (only used on /hero-lab). Glassmorphism over the brand radial light + 3D scene,
+   revealed after the drone flight via the `flight-done` body class set by Hero3D. */
+.hero-card {
+  max-width: 600px;
+  padding: 46px 50px 48px;
+  background: rgba(13, 16, 28, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.hero-card:hover { transform: translateY(0); }
+body.flight-done .hero-card { opacity: 1; transform: none; }
