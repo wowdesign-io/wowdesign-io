@@ -32,6 +32,7 @@
    .solving-card (hairline border, hard edges); adds a generous premium padding + the
    post-flight reveal (flight-done set by Hero3D). */
 .hero-card {
+  max-width: 760px;
   padding: 52px 56px 56px;
   background-color: var(--surface-90);
   border: 1px solid var(--light-border);
@@ -58,10 +59,6 @@ body.flight-done .hero-card { opacity: 1; transform: none; }
   white-space: nowrap; /* keep "Sell Out Faster." on one line — the two-line wrap read squeezed */
   letter-spacing: -0.02em;
   line-height: 1.05;
-}
-/* let it wrap + shrink on tablet/mobile so nowrap never overflows the viewport */
-@media screen and (max-width: 991px) {
-  .hero-card .banner-title { white-space: normal; font-size: 3.4rem; }
 }
 
 /* Hero subhead — comfortable measure + leading for a luxury feel. */
@@ -103,3 +100,20 @@ body.flight-done .hero-card { opacity: 1; transform: none; }
 @media screen and (max-width: 991px) { .section.solving.hero3d-topgap { padding-top: 100px; } }
 @media screen and (max-width: 767px) { .section.solving.hero3d-topgap { padding-top: 80px; } }
 @media screen and (max-width: 479px) { .section.solving.hero3d-topgap { padding-top: 60px; } }
+
+/* ── Hero card size per display class (full mobile responsiveness still TODO) ──── */
+/* 27" / 2560px+ — scale up */
+@media (min-width: 2560px) {
+  .hero-card { max-width: 900px; padding: 64px 72px 68px; }
+  .hero-card .banner-title { font-size: 5.4rem; }
+  .hero-card .banner-description-text { font-size: 1.45rem; }
+}
+/* ~1366px laptops — a touch smaller */
+@media (max-width: 1366px) {
+  .hero-card { max-width: 700px; padding: 46px 50px 50px; }
+  .hero-card .banner-title { font-size: 4rem; }
+}
+/* tablet/mobile guard — let the headline wrap so nowrap never overflows */
+@media (max-width: 991px) {
+  .hero-card .banner-title { white-space: normal; font-size: 3.4rem; }
+}
