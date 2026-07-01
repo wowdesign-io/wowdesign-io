@@ -173,7 +173,7 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
         antialias: true,
         powerPreference: 'high-performance',
         toneMapping: THREE.AgXToneMapping, // filmic curve that holds bright sky + reflections without the ACES "video-game" highlight clip
-        toneMappingExposure: 1.15, // AgX renders darker than ACES — lift it back
+        toneMappingExposure: 0.92, // clear-sky HDRI is much brighter than the old cloudy one — pull it back
       }}
       dpr={[1, 2]}
       camera={{ position: [Math.cos(10.03) * 24, 5, Math.sin(10.03) * 24], fov: 32 }}
@@ -204,7 +204,18 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
         <Building url={modelUrl} onReady={onReady} />
 
         {/* sharper background so the glass reflects a crisp sky; brighter env for real reflections */}
-        <Environment files="/hdri/sky.hdr" background backgroundBlurriness={0.015} environmentIntensity={0.85} />
+        {/* clear blue sky → glass reflects deep blue (matches the Fab preview). Rotated so the
+            bright sun disc sits behind the tower on the RIGHT, keeping the left sky clean for the
+            hero copy. backgroundIntensity dims the sky slightly so white text stays legible. */}
+        <Environment
+          files="/hdri/sky-clear.hdr"
+          background
+          backgroundBlurriness={0.02}
+          backgroundIntensity={0.75}
+          backgroundRotation={[0, 2.2, 0]}
+          environmentIntensity={0.9}
+          environmentRotation={[0, 2.2, 0]}
+        />
 
         <EffectComposer multisampling={8}>
           {/* ambient occlusion — the dark contact shadows in corners/recesses that make
