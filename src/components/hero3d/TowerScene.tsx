@@ -1,7 +1,7 @@
 'use client'
 
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Environment, useGLTF } from '@react-three/drei'
+import { Environment, useGLTF, useTexture, Clouds, Cloud } from '@react-three/drei'
 import { EffectComposer, Bloom, N8AO } from '@react-three/postprocessing'
 import { Suspense, useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
@@ -114,6 +114,26 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
 }
 useGLTF.preload(MODELS.adriana)
 
+// grass ground so the tower is GROUNDED, not flying in a void at the flight start.
+// large tiled plane at the building base, catches the tower's shadow (the real "it's
+// sitting there" signal), fades into the fog/horizon.
+function Ground() {
+  const grass = useTexture('/textures/grass_diff.jpg')
+  useMemo(() => {
+    grass.wrapS = grass.wrapT = THREE.RepeatWrapping
+    grass.repeat.set(90, 90)
+    grass.colorSpace = THREE.SRGBColorSpace
+    grass.anisotropy = 8
+  }, [grass])
+  return (
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.03, 0]} receiveShadow>
+      <planeGeometry args={[600, 600]} />
+      <meshStandardMaterial map={grass} roughness={1} metalness={0} />
+    </mesh>
+  )
+}
+useTexture.preload('/textures/grass_diff.jpg')
+
 // auto-play DRONE ORBIT around the building once everything is loaded, settling
 // into the hero framing. The clock starts on this rig's first frame — and since
 // it's inside <Suspense>, that's only after the model + HDRI have loaded.
@@ -205,7 +225,7 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
         toneMapping: THREE.NeutralToneMapping, // Khronos PBR-Neutral: bright + saturated (AgX was muting/darkening the whole scene)
         toneMappingExposure: 1.15, // bright sunny day
       }}
-      dpr={[1, 2]}
+      dpr={[1, 1.5]} // cap at 1.5x (was 2x = 4x pixels on retina — main lag source)
       // near:1 / far:350 (not the default 0.1/1000) → far more depth-buffer precision, kills the
       // balcony-panel/door z-fighting flicker. Scene is ~14 units tall, camera ~22 units out.
       camera={{ position: [Math.cos(10.03) * 24, 5, Math.sin(10.03) * 24], fov: 32, near: 1, far: 350 }}
@@ -235,6 +255,14 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
 
         <CameraRig />
         <Building url={modelUrl} onReady={onReady} />
+        <Ground />
+
+        {/* a couple of bright white puffy clouds in the upper sky (both sides so at least one is
+            in frame through the flight). Kept to 2 + modest volume for performance. */}
+        <Clouds material={THREE.MeshBasicMaterial} limit={400}>
+          <Cloud seed={2} position={[44, 28, 2]} bounds={[22, 7, 8]} volume={22} color="#ffffff" opacity={1} speed={0.03} />
+          <Cloud seed={7} position={[10, 40, 40]} bounds={[18, 6, 7]} volume={16} color="#ffffff" opacity={0.95} speed={0.03} />
+        </Clouds>
 
         {/* sharper background so the glass reflects a crisp sky; brighter env for real reflections */}
         {/* SUNNY blue sky with puffy white cumulus → glass reflects real CLOUDS, not flat colour.
@@ -251,10 +279,10 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
           environmentRotation={[0, 3.2, 0]}
         />
 
-        <EffectComposer multisampling={8}>
+        <EffectComposer multisampling={4}>
           {/* ambient occlusion — the dark contact shadows in corners/recesses that make
               CG read as real & grounded instead of flat. Biggest single realism lever. */}
-          <N8AO aoRadius={2.5} distanceFalloff={1} intensity={3.5} halfRes />
+          <N8AO aoRadius={2.5} distanceFalloff={1} intensity={3.2} halfRes quality="performance" />
           <Bloom luminanceThreshold={0.95} intensity={0.22} mipmapBlur radius={0.7} />
         </EffectComposer>
       </Suspense>
