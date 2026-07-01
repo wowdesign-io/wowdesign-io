@@ -18,7 +18,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
 
       </div>
     </div>
-    <div data-w-id="3af1c84f-ff74-c014-cb3b-40446b73b1e3" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" className="navbar w-nav" style={heroVisual ? { background: 'rgba(9,12,22,0.72)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', borderBottom: '1px solid rgba(255,255,255,0.08)' } : undefined}>
+    <div data-w-id="3af1c84f-ff74-c014-cb3b-40446b73b1e3" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" className={heroVisual ? 'navbar w-nav navbar--hero-glass' : 'navbar w-nav'}>
       <div className="nav-container _1430">
         <div className="navbar-container">
           <a href="/" aria-current="page" className="navbar-logo w-nav-brand w--current"><img src="/images/wow-design-color-logo-dark.svg" loading="lazy" alt="" className="navbar-logo-image" /></a>
@@ -73,6 +73,11 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
           {/* brand radial light on the copy side (glows through the glass card) + a soft bottom
               fade into the dark page. Light touch of darkening on the far left for legibility. */}
           <div style={{ position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none', background: 'radial-gradient(58% 82% at 24% 48%, rgba(46,119,250,0.34) 0%, rgba(215,56,255,0.16) 42%, rgba(7,11,22,0) 72%), linear-gradient(90deg, rgba(7,11,22,0.42) 0%, rgba(7,11,22,0.16) 38%, rgba(7,11,22,0) 60%), linear-gradient(0deg, rgba(9,12,22,1) 0%, rgba(9,12,22,0) 26%)' }} />
+          {/* hero's own brand glow — the site's sky-container system, contained by the relative hero (sits behind the copy via DOM order) */}
+          <div className="sky-container">
+            <div className="primary-sky-circle"></div>
+            <div className="secondary-sky-circle"></div>
+          </div>
         </>
       )}
       <div className="banner-container" style={heroVisual ? { position: 'absolute', left: 'max(28px, 5vw)', top: '50%', transform: 'translateY(-50%)', zIndex: 2, width: 'auto', maxWidth: 600, margin: 0, padding: 0 } : undefined}>
