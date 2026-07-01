@@ -1,180 +1,57 @@
 # wowdesign.io — 3D Hero Build Notes (resume point)
 
-_Last updated: 2026-06-30. Live prototype: `/hero-lab` (noindex) on `wowdesign-io.vercel.app`._
+_Last updated: 2026-07-02. Live prototype: `/hero-lab` (noindex) on `wowdesign-io.vercel.app`._
 
-## Status — what's done vs open
+## Where things stand (2026-07-02)
 
-**Done (2026-06-30):**
-- Real building + site model in a load-gated cinematic drone flight, mobile-safe size.
-- **CHOSEN model = woolderpark** — a boutique **lakefront** mid-rise (4 storeys) with a **warm detailed brick façade + glass balconies**, sitting on grass with a **lake** wrapping the site. Andy switched from sanzio → woolderpark because the brick (vs sanzio's grey concrete) is more detailed and the waterfront makes a far better drone shot.
-- **Lakefront flight:** low + far out **over the water** (establish) → rising 3/4 arc → settle on an **elevated 3/4 "glory shot"** framing the whole building + glass balconies + the lake, text on the left.
-- **Final frame is NOT "top-third + sky."** That landing was right for the tall tower; a low/wide lakefront building's hero is the full-building 3/4 with water. (The top-third+sky landing lives in git history if we ever go back to a tower.)
-- Procedural City + Ground **removed** — the GLB models carry their own surroundings. The old "build a procedural city/streets" task is **obsolete**.
+The 3D hero is a **full homepage integration**, not a standalone. Going live = a **1-line swap**.
 
-**Open / optional:**
-- **SwiftShader caveat:** headless screenshots render the glass balconies as see-through wireframe and wash out materials. On real GPU hardware (Andy's browser / Vercel) the glass is solid + reflective and the brick reads warmer. Judge the live deploy, not the stills.
-- **HDRI still 5.4MB** (`/hdri/sky.hdr`). Shrink to 1k + compress before homepage integration.
-- Optional: warmer/golden key light for more mood; nav/hero-text polish; lazy-load the `<Canvas>` for the homepage.
+- **Model = `adriana.glb`** (€3 Fab modern glass tower — teal balconies, podium + pool, palm). Scaled to `TARGET_H=14`, centered on origin. (`woolderpark`/`sanzio`/others still selectable via `?model=` but adriana is the chosen one.)
+- **Integration:** `src/app/page.tsx` `HomePage` takes a `heroVisual` prop. Live `/` renders the old isometric hero (prop undefined). `/hero-lab` renders `<HomePage heroVisual={<Hero3D />} />` — the whole homepage with the 3D swapped into the hero. **Every hero/nav change is gated behind `heroVisual`, so the live site is untouched.**
+- **Migration stays PRISTINE.** `src/app/wowdesign-miami.css` (the Webflow export) is NOT edited. **ALL new-hero CSS lives in `src/app/globals.css`** (after the `@import`s), overriding by cascade/specificity. Keep it this way.
 
-## THE size win — glTF optimization (reusable for any model)
+## File map
 
-Raw exports were huge (woolderpark 14.4MB, sanzio 11.7MB — "HUGE for mobile"). One command fixes it:
+- `src/app/page.tsx` — homepage. Nav (~L21, `.navbar--hero-glass` when heroVisual), hero `<section>` (~L68), 3D wrapper + brand-glow overlay (~L72–76), hero card (`banner-typography solving-card hero-card`), proof strip, solving section marker class (`hero3d-topgap`).
+- `src/app/globals.css` — **all new-hero CSS**: tokens (`--surface-90`), `.navbar--hero-glass`, `.section_comparison13` fix, `.hero-card` + gradient headline + subhead + `.hero-proof`, responsive size tiers, solving top-pad.
+- `src/components/hero3d/Hero3D.tsx` — full-page loader **portaled to `<body>`** (brand glow + REAL progress bar via drei `useProgress`, solid-blue bar) + mounts `TowerScene`. `flight-done` body class set after `FLIGHT_MS` (7200) reveals the hero card.
+- `src/components/hero3d/TowerScene.tsx` — the R3F `<Canvas>`: `Building` (adriana, glass material swap), `Ground` (grass 600×600), `CityBackdrop` (skyline), `Palms` (raycast-grounded), `Clouds`, `Environment` (HDRI), `CameraRig`, lights, `EffectComposer` (N8AO + Bloom).
 
-```
-npx gltf-transform optimize <in>.glb <out>.glb --compress draco --texture-compress webp --texture-size 1024
-```
-- **Draco** geometry compression (the bulk of the savings) + **WebP** textures resized to 1024.
-- Result: **woolderpark 14.4MB → 766KB**, **sanzio 11.7MB → 1.08MB** (~90–95% smaller).
-- Loads everywhere: drei's `useGLTF` applies the **Draco decoder by default** (gstatic CDN); three.js GLTFLoader handles WebP via `EXT_texture_webp`. No extra loader setup.
-- `@gltf-transform/cli` is NOT a project dependency — run via `npx` as one-off asset prep (keeps Vercel installs lean). Keep only the optimized `.glb`; delete the raw 10MB+ source.
+## Camera flight (adriana) — DON'T let anything cross it
 
-## Architecture (files in `wowdesign-io`)
+`CameraRig`: ONE turn, `DUR=7.5`. **radius 22→24, height 5→9.5**, `endAngle=3.75`. Looks at tower, pans it to screen-RIGHT at the settle (left clear for hero copy). So **anything past ~r30 is safely clear of the camera**. Debug: `?t=<sec>` freeze, `?ang=&rad=&h=&ly=` static pose, `?hdri=partly|clear|autumn|noon`.
 
-- `src/app/hero-lab/page.tsx` — route (noindex), renders `HeroLabClient`.
-- `src/app/hero-lab/HeroLabClient.tsx` — DOM overlay: loading screen (gates the flight until model+sky load via `onReady`), fixed brand nav, left-offset hero intro (H1 "Sell Out Faster.") that fades in at `6.2s` once `ready`.
-- `src/components/hero3d/TowerScene.tsx` — the R3F `<Canvas>` + scene:
-  - **`MODELS`** map + `?model=` switch: `woolderpark` (default), `sanzio`, `miami`, `pivotal`.
-  - **`Building`** — `useGLTF`, clones, auto-centers + scales to `TARGET_H=14`, base on ground, shadows, `onReady()` on load. Preloads woolderpark.
-  - **`CameraRig`** — auto-play drone flight; clock starts on its first frame **inside `<Suspense>`** (only after model+HDRI load). `DUR=6`, `easeOut`. **woolderpark values:** `endAngle=3.3` (3/4 on the balcony/lake façade), `startAngle=endAngle+2.2` (~126° glide). `radius 58→40`, `height 3→9` (low over water → elevated), `lookAt (0→-3, 6→6.2, 0)`. Post-settle `sin` sway/bob.
-  - **Debug camera (for tuning):** `?t=<sec>` freezes the flight at a time; `?ang=<rad>&rad=<n>&h=<n>&ly=<n>` sets a **static free-orbit pose** to inspect the model / find the best angle.
-  - **`Environment`** HDRI sky `/hdri/sky.hdr` (bg + IBL), `fog #c4cedd 70–240`, subtle `Bloom`. Canvas camera matches flight start (`ang 5.5, rad 58, h 3`, `fov 32`).
+## Done today (2026-07-02) — hero polish
 
-## Assets (in `public/`)
-- `models/woolderpark.glb` (766KB) — **CHOSEN** lakefront brick mid-rise + glass balconies + lake/grass site.
-- `models/sanzio.glb` (1.08MB) — grey-concrete mid-rise w/ parking/street alt (`?model=sanzio`).
-- `models/miami_style_condominium.glb` / `pivotal_point.glb` — older tower alts.
-- `hdri/sky.hdr` (5.4MB) — Poly Haven `kloofendal_48d_partly_cloudy_puresky` 2k. Approved. **Shrink before homepage.**
+- Fixed `section_comparison13` sky-container glow escaping onto the hero (missing `position:relative`).
+- Hero got its own `sky-container` glow.
+- **Nav** = dark glassmorphism (`--surface-90`, `!important` beats the Webflow IX2 scroll interaction that clobbers nav bg).
+- **Hero card** = `.solving-card` look on dark `--surface-90` (matches nav). **Gradient-clipped headline** (white→grey, like every `.section-title`), **one line** (`nowrap`, 4.4rem) — the two-line wrap read squeezed. Corner brackets + the `banner-content` side border-lines + its 195px top-pad removed.
+- **Loader** → portaled to `<body>` (real full-page), brand glow + real progress bar.
+- **Proof strip** (`31% faster · 49% more leads · 3× engagement`, numbers in brand blue) — "epic" per Andy.
+- **Brand glow** amplified (blue→purple→pink radial behind the panel).
+- **Hero card size tiers:** ≥2560px (27") bigger, 1440/1920 = base ("perfect"), ≤1366 a touch smaller. **Full mobile responsiveness still TODO.**
+- Features (solving) section: top-pad matching bottom, scoped to the 3D hero (`.hero3d-topgap`).
+- **CityBackdrop:** ONE instanced draw call, ~92 buildings × 1–3 **tiered setback** boxes, ringed r50–200 (beyond flight), fades into fog. Deterministic (mulberry32 seed).
 
-## How to resume / run locally
-- `npx next dev -p 3301` in `wowdesign-io`, open `/hero-lab`.
-- **Screenshot headless** via the carousel skill's Playwright with GL flags
-  (`--use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader --ignore-gpu-blocklist`).
-  `shot.js` (session scratchpad): `VW=860 VH=540 node shot.js "?t=6" out 6000`.
-  **Gotchas:** (a) `page.screenshot` needs `timeout: 60000` + `animations:'disabled'`, `goto` `waitUntil:'load'` (the live canvas never goes idle). (b) **woolderpark hangs the capture at 1440px** under SwiftShader — drop the viewport (`VW=860 VH=540` or smaller) and it captures; sanzio is fine at full size.
-- **Lessons:** never start a dev server while `npm install`/`gltf-transform` runs (locks `node_modules`); `turbopack.root` pinned in `next.config.ts`; git account is always `wowdesign-andy` / `andy@wowdesign.io`.
+## TOMORROW (2026-07-03) — full city with streets (Andy approved, ~2h, 2–3 deploys)
 
-## TOMORROW (2026-07-02) — REALISM PASS (Andy: "there has to be a way, three.js is so powerful")
+Goal: buildings look "a lil more than cubes" + streets. Keep it cheap + off the flight path.
 
-Deployed tonight (`61a0750`): blue reflective glass `#2b6d94` + N8AO ambient occlusion. Real step up
-(glass mirrors sky + reads blue, balcony recesses have depth). But it still reads "video game" because
-of ONE structural gap → **the glass only reflects the HDRI sky, not the building itself, the pool, or
-the balconies.** Real archviz glass reflects its surroundings. That's the biggest untapped lever.
+1. **Window facades (biggest lift).** Switch `CityBackdrop` from `InstancedMesh` → **merged geometry** (`mergeGeometries` from `three/examples/jsm/utils/BufferGeometryUtils.js` — VERIFY the import resolves first; three-stdlib is also available as a drei dep) so a **procedural facade texture** (canvas: concrete + window grid) tiles at the correct per-building scale. Needs **per-face UV scaling** (side faces repeat = dim/UNIT; roof faces → plain concrete corner of the texture). Daytime scene → dark reflective glass windows (NO emissive glow, or very subtle). Still ~1 draw call.
+2. **Streets.** Grid-align the buildings into **blocks** (replace the random ring with a grid, skip the central block = tower's grassy site, keep min radius > ~30). Add an urban ground: procedural street-grid canvas texture (asphalt blocks + street strips + center lines) on a plane in the city zone, OR thin road strips. Tower keeps its grass block.
+3. Keep setback tiers (already in).
 
-Do these in order — each is a real realism jump, cheapest-first:
+Then: **full mobile responsiveness** of the hero. Deferred perf: shrink HDRI (`/hdri/sky-autumn.hdr` is the default, still large), lazy-load canvas.
 
-1. **Screen-Space Reflections (SSR/SSGI) — ❌ DEAD END on three r0.185 (tried 2026-07-02).**
-   `realism-effects@1.1.2` (0beqz) imports `WebGLMultipleRenderTargets` from three — an API three
-   **removed in r0.172**. The module throws at load ("Export WebGLMultipleRenderTargets doesn't
-   exist") — same class of failure as SoftShadows. Confirmed via `?ssr=1` GPU errcheck. Building an
-   imperative `postprocessing` composer (SSREffect + VelocityDepthNormalPass + TRAA + AgX) was all
-   wired & type-clean — the ONLY blocker is the removed three API. Reviving it needs one of:
-   (a) patch realism-effects dist to emulate WebGLMultipleRenderTargets via `WebGLRenderTarget({count})`
-   (fragile — `.texture` was an array; multi-hour, may hit more removed-API downstream), (b) a
-   maintained fork targeting three ≥0.172 (none found as of 2026-07), or (c) pin three ~0.170 in a
-   branch (risks drei10/fiber9 needing newer three). **`postprocessing` core has NO SSR.** So the
-   only NATIVE reflection lever left is **CubeCamera** (drei `<CubeCamera>`) — render the scene into a
-   live/one-shot cube probe, feed as glass `envMap` so it reflects the pool/podium/ground, not just
-   the HDRI sky. Marginal payoff (single-point probe; deck only shows ~2s) — try only if pursuing
-   real-time further. **DONE instead (bc6b93f): AgX tone mapping + MSAA 8×.**
+## Assets (`public/`)
+- `models/adriana.glb` (3.1MB) — CHOSEN. `adriana_residences_ORIGINAL_DONT_DELETE_OR_EDIT.glb` kept untouched (gitignored). Others (`sanzio`, `woolderpark`, `miami`, `pivotal`, `residential`) still `?model=`-selectable.
+- `hdri/sky-autumn.hdr` (default), `sky.hdr`, `sky-clear.hdr` — A/B via `?hdri=`.
+- `models/palm_trees.glb` (340KB) — pool palms. `palm_tree_pack_lowpoly.glb` (34MB) is gitignored source.
 
-   **CORRECTION (was wrong twice — Andy pushed back, rightly):**
-   - The GLB has **19 materials** (pool, brick pavers, cladding, metal, vegetation, glass…), NOT 2.
-     My "2 materials" was from mesh-*names*; the real materials array is richer. Geometry is DECENT.
-   - **0 textures / 0 images** in the GLB. So the Fab preview's realism came NOT from textures but
-     from the OFFLINE renderer's lighting/reflections on this same untextured geometry. Geometry is
-     NOT the bottleneck.
-   - **The two real levers were SKY + GLASS MATERIAL, both fixed 2026-07-02:**
-     1. **Glass was too transparent** (opacity 0.86 → saw interior slabs = "game asset"). Fixed to a
-        reflective curtain wall: opacity 0.95, metalness 0.78, roughness 0.05, FrontSide, tint
-        `#2f7d94`. Now hides interior, mirrors sky. (3ed3f77)
-     2. **The HDRI was cloudy** → glass reflected grey clouds, never deep blue. Swapped to a CLEAR
-        blue sky (`kloofendal_43d_clear_puresky_2k`, `public/hdri/sky-clear.hdr`), rotated the sun
-        behind the tower (`environmentRotation/backgroundRotation [0,2.2,0]`), `backgroundIntensity`
-        0.75, exposure 0.92. Glass now reads deep blue = matches the preview. (0946705)
-   - Result: settle + podium frames now read like a real building render. THE reflection source is
-     the sky HDRI — if it ever greys again, that's the HDRI, not the material.
-2. **True transmission glass** (research-confirmed settings): `transmission: 1`, `opacity: 1` (NOT
-   0.86), `roughness: 0.05–0.15`, `thickness: 0.8–2`, `ior: 1.5`, `envMapIntensity` high. Transmission
-   refracts what's behind the pane instead of faking it with opacity — far more "real glass." Test
-   perf cost (transmission is a second render pass per material) — may need it only on the big panes.
-3. **AgX tone mapping** (three r160+, `THREE.AgXToneMapping`) instead of ACES filmic — AgX handles
-   bright skies + saturated reflections more naturally, less "video-gamey" highlight clipping. A/B it.
-4. **Grounded/contact + soft shadows** without SoftShadows: use drei `<AccumulativeShadows>` +
-   `<RandomizedLight>` for baked soft ground contact, OR `<ContactShadows>` under the podium. Soft
-   grounding shadow = huge "it's really sitting there" signal. (SoftShadows PCSS is OUT on r0.185.)
-5. **Higher-res env + sharper reflections:** current HDRI is 2k blurred (`backgroundBlurriness 0.015`).
-   For crisp glass reflections a sharper env helps; but keep bg blurred for depth-of-field feel — can
-   split: sharp env for IBL, blurred for background (separate `<Environment>` + scene.background).
-6. **Palms — CORRECTION: the palm IS in the GLB** (Andy's preview shows one on the podium; confirmed
-   geometry `Mesh271_Vegetation_Blur7`, 211 verts = billboard frond-CARDS, near the podium/pool, +
-   grass `Vegetation_Grass_Artificial`). It renders invisible/broken because it's an **alpha-cutout
-   billboard whose texture was stripped** in the €3 Fab conversion (0 images in file). To restore:
-   (a) generate/source a palm-frond RGBA texture + apply as `map`+`alphaMap` (alphaTest ~0.5) to the
-   `Vegetation_Blur7` material — cheapest, uses the designer's own placement, but UV atlas alignment
-   is a gamble; (b) drop a real palm GLB prop at the podium spot — no good FREE realistic palm found
-   (Poly Haven has none; poly.pizza/Quaternius = cartoon; realistic = paid Fab/CGTrader); (c) skip —
-   podium+palm only show the first ~2s, settle crops it. **Andy's call pending.** City skyline in the
-   preview = staged render env, genuinely not shippable in the GLB.
-
-**Fallback if real-time still caps out after 1–5:** pre-rendered offline video hero (Blender Cycles /
-the Fab render engine) → MP4 background. ONLY way to truly match the path-traced preview (palms,
-skyline, GI, soft shadows). For an AGENCY hero (emotion, not a client's explorable twin) a video is
-totally legitimate and arguably better. Raise as the decision point if SSR+transmission don't get there.
-
-**Research refs (2026):** realism-effects https://github.com/0beqz/realism-effects ·
-glass/transmission https://tympanus.net/codrops/2021/10/27/creating-the-effect-of-transparent-glass-and-plastic-in-three-js/
-· MeshPhysicalMaterial docs https://threejs.org/docs/pages/MeshPhysicalMaterial.html
-
-## Later (after realism approved)
-1. Shrink HDRI to 1k + compress; lazy-load the canvas.
-2. Gentle Draco-ONLY compact (`gltf-transform draco` — NEVER `optimize`/simplify/palette; keep source).
-3. Nav/hero-text polish at the final angle.
-4. Wire `<TowerScene>` into the real homepage (drop-in replacement for the hero section).
-
-## Candidate PAID models (Fab) — fallback if no good free model
-Andy's picks (2026-07-01) if free models keep missing the warm/luxury+balconies bar:
-- https://www.fab.com/listings/4e2fc147-bbb5-4a48-a8f7-3894b323b1ba
-- https://www.fab.com/listings/687e786f-2fdf-42bf-b6fd-9addba48f7af  (~€25)
-
-**BUYING RULE:** Fab is Epic's marketplace — MANY assets are Unreal-Engine-only (`.uasset`),
-which three.js CANNOT load. Before buying, confirm the listing ships **FBX / OBJ / glTF / GLB**
-(check "Supported Formats / Technical Details"). If UE-only, skip it. (Fab listings 403 to
-automated fetch, so the format must be eyeballed on the page.)
-
-## Free model verdict log
-- `residential.glb` (simple_residential_building, 4.9MB→290KB): cold grey concrete block,
-  one wing has glass balconies but overall plain/generic + visible floor (grass/road/parking).
-  Does NOT clear the warm/luxury bar. Available via `?model=residential` but NOT shipped.
-
-## TOP candidate (Andy, 2026-07-01) — €3 glass tower — BUY
-- https://www.fab.com/listings/dcadeef6-260c-468f-bd2c-c05583d33319  (~€3)
-- Modern residential glass tower: teal glass balconies, white frames, podium base
-  w/ palm trees + pool deck. Premium/warm look + balconies = exactly the brief.
-  Tall-tower shape → ideal for the top-third+sky (floor-hidden) landing.
-- BEFORE BUY: confirm Supported Formats includes FBX / OBJ / glTF / GLB (not UE-only).
-  At €3 it's low-risk even if conversion is fiddly. Drop the download in public/models/.
-
-## HARD LESSONS (2026-07-01)
-- **NEVER run `gltf-transform optimize` blindly.** Its `simplify` (geometry decimation)
-  + `palette` (material merge) DESTROYED the adriana windows/balconies and flattened the
-  glass. For these archviz models use Draco-only (lossless) when compacting:
-  `gltf-transform draco in.glb out.glb`. Compact ONLY after the look is approved.
-- **NEVER delete the source model.** Keep `*_original.glb` untouched; only ever process a copy.
-- **Model glass is usually flat OPAQUE** (adriana glass = material color, no textures). To look
-  real it must be REPLACED with a reflective MeshPhysicalMaterial (low roughness + clearcoat +
-  envMapIntensity) that mirrors the HDRI. The offline Fab render ≠ what the raw GLB looks like.
-- **SwiftShader screenshots cannot show glass reflections** — glass realism is a live-GPU
-  judgment only. Tune glass via deploy + Andy's eyes, not screenshots.
-
-## UNLOCK (2026-07-01) — I can now SEE the real render
-- **Headless real-GPU screenshots:** launch Chrome with `--use-angle=d3d11` (NOT
-  `--use-gl=swiftshader`). On this machine WebGL then runs on the Intel Arc GPU and
-  renders reflections/glass for real. Script: `scratchpad/shot-gpu.js`. SwiftShader
-  draws glass FLAT (no env reflections) — that's why glass tuning was impossible before.
-  Verify renderer via `WEBGL_debug_renderer_info` (logs "ANGLE (Intel ... D3D11)").
-- **adriana glass = the `Condominio_Aragon` material** (363 instances), NOT "glass" or
-  "FrontColor". Replaced with a reflective MeshPhysicalMaterial (color #6f8a9b, rough
-  0.04, clearcoat 1, opacity 0.88, envMapIntensity 1.6) → windows mirror the sky.
-  Detect glass by tag.includes('condominio') || 'glass'. Frames/slabs stay solid.
-- **Debugging materials:** force ALL meshes to chrome (`if (true) m.material = glass`)
-  to confirm env reflections work, then bisect by material name to find the glass.
+## Hard rules (keep)
+- Git account: **`wowdesign-andy` / andy@wowdesign.io** — verify before every push.
+- Migration CSS pristine — new CSS in `globals.css` only.
+- Brand: **gradient = background lighting ONLY**, never on UI (bars/buttons/text use solid `#2E77FA`). Outfit 500 headings, hard edges (radius 0).
+- Judge glass/lighting on the **live Vercel deploy** (SwiftShader/local can't show reflections). Workflow: edit → `npx tsc --noEmit` → commit → push → check `wowdesign-io.vercel.app/hero-lab`.
+- Buildings/props must stay **beyond ~r30** (never cross the drone flight) and cheap (instancing / merged geo / procedural textures — no heavy asset loads).
