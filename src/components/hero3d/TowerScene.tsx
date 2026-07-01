@@ -54,6 +54,11 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
       ior: 1.5,
       reflectivity: 1,
       side: THREE.FrontSide, // front faces only — no backface interior bleeding through
+      // push glass depth back slightly so coincident door/panel faces stop z-fighting (flicker)
+      polygonOffset: true,
+      polygonOffsetFactor: 1,
+      polygonOffsetUnits: 1,
+      depthWrite: true, // near-opaque (0.95) → write depth so transparent sort doesn't flip per-frame
     })
     // balcony balustrades ("_Burnt_Umber_1") — darker reflective glass, NOT dead black
     const railGlass = new THREE.MeshPhysicalMaterial({
@@ -67,7 +72,12 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
       clearcoatRoughness: 0.12,
       ior: 1.45,
       side: THREE.DoubleSide,
-      depthWrite: false,
+      // same anti-flicker treatment as the windows (offset + depth write) so the balustrade
+      // and the sliding door behind it stop z-fighting as the camera moves
+      polygonOffset: true,
+      polygonOffsetFactor: 2,
+      polygonOffsetUnits: 2,
+      depthWrite: true,
     })
     root.traverse((o) => {
       const m = o as THREE.Mesh
@@ -173,10 +183,12 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
         antialias: true,
         powerPreference: 'high-performance',
         toneMapping: THREE.AgXToneMapping, // filmic curve that holds bright sky + reflections without the ACES "video-game" highlight clip
-        toneMappingExposure: 0.92, // clear-sky HDRI is much brighter than the old cloudy one — pull it back
+        toneMappingExposure: 1.0, // bright sunny day
       }}
       dpr={[1, 2]}
-      camera={{ position: [Math.cos(10.03) * 24, 5, Math.sin(10.03) * 24], fov: 32 }}
+      // near:1 / far:350 (not the default 0.1/1000) → far more depth-buffer precision, kills the
+      // balcony-panel/door z-fighting flicker. Scene is ~14 units tall, camera ~22 units out.
+      camera={{ position: [Math.cos(10.03) * 24, 5, Math.sin(10.03) * 24], fov: 32, near: 1, far: 350 }}
     >
       <Suspense fallback={null}>
         <fog attach="fog" args={['#aeb9c9', 95, 300]} />
@@ -204,17 +216,18 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
         <Building url={modelUrl} onReady={onReady} />
 
         {/* sharper background so the glass reflects a crisp sky; brighter env for real reflections */}
-        {/* clear blue sky → glass reflects deep blue (matches the Fab preview). Rotated so the
-            bright sun disc sits behind the tower on the RIGHT, keeping the left sky clean for the
-            hero copy. backgroundIntensity dims the sky slightly so white text stays legible. */}
+        {/* SUNNY blue sky with puffy white cumulus → glass reflects real CLOUDS, not flat colour.
+            backgroundBlurriness softens ONLY the drawn backdrop (keeps it clean/premium + hides the
+            HDRI's ground haze) — it does NOT blur the glass reflections, which sample the crisp env
+            map. Rotated so the sun sits behind the tower, left sky stays clean for the hero copy. */}
         <Environment
-          files="/hdri/sky-clear.hdr"
+          files="/hdri/sky.hdr"
           background
-          backgroundBlurriness={0.02}
-          backgroundIntensity={0.75}
-          backgroundRotation={[0, 2.2, 0]}
-          environmentIntensity={0.9}
-          environmentRotation={[0, 2.2, 0]}
+          backgroundBlurriness={0.03}
+          backgroundIntensity={1}
+          backgroundRotation={[0, 0.6, 0]}
+          environmentIntensity={1}
+          environmentRotation={[0, 0.6, 0]}
         />
 
         <EffectComposer multisampling={8}>

@@ -77,13 +77,22 @@ Do these in order — each is a real realism jump, cheapest-first:
    the HDRI sky. Marginal payoff (single-point probe; deck only shows ~2s) — try only if pursuing
    real-time further. **DONE instead (bc6b93f): AgX tone mapping + MSAA 8×.**
 
-   **KEY FINDING: the bottleneck is now the MODEL, not three.js.** Every reliable native lever is in
-   (AgX, MSAA 8×, N8AO, physical blue glass, HDRI/IBL, cinematic flight). What still reads "game" is
-   the €3 mesh: flat balcony panels, plain box frames, no window reveals/mullions/depth, cartoon pool
-   blob, no textures. No shader setting fixes low-detail geometry. Real next moves = (a) accept &
-   ship this clean real-time hero, (b) buy a HIGHER-DETAIL glass-tower model (textured, real frames —
-   biggest real-time quality jump, still interactive), or (c) pre-rendered offline video (true
-   photoreal, matches the Fab render). See "Fallback" below.
+   **CORRECTION (was wrong twice — Andy pushed back, rightly):**
+   - The GLB has **19 materials** (pool, brick pavers, cladding, metal, vegetation, glass…), NOT 2.
+     My "2 materials" was from mesh-*names*; the real materials array is richer. Geometry is DECENT.
+   - **0 textures / 0 images** in the GLB. So the Fab preview's realism came NOT from textures but
+     from the OFFLINE renderer's lighting/reflections on this same untextured geometry. Geometry is
+     NOT the bottleneck.
+   - **The two real levers were SKY + GLASS MATERIAL, both fixed 2026-07-02:**
+     1. **Glass was too transparent** (opacity 0.86 → saw interior slabs = "game asset"). Fixed to a
+        reflective curtain wall: opacity 0.95, metalness 0.78, roughness 0.05, FrontSide, tint
+        `#2f7d94`. Now hides interior, mirrors sky. (3ed3f77)
+     2. **The HDRI was cloudy** → glass reflected grey clouds, never deep blue. Swapped to a CLEAR
+        blue sky (`kloofendal_43d_clear_puresky_2k`, `public/hdri/sky-clear.hdr`), rotated the sun
+        behind the tower (`environmentRotation/backgroundRotation [0,2.2,0]`), `backgroundIntensity`
+        0.75, exposure 0.92. Glass now reads deep blue = matches the preview. (0946705)
+   - Result: settle + podium frames now read like a real building render. THE reflection source is
+     the sky HDRI — if it ever greys again, that's the HDRI, not the material.
 2. **True transmission glass** (research-confirmed settings): `transmission: 1`, `opacity: 1` (NOT
    0.86), `roughness: 0.05–0.15`, `thickness: 0.8–2`, `ior: 1.5`, `envMapIntensity` high. Transmission
    refracts what's behind the pane instead of faking it with opacity — far more "real glass." Test
@@ -96,11 +105,16 @@ Do these in order — each is a real realism jump, cheapest-first:
 5. **Higher-res env + sharper reflections:** current HDRI is 2k blurred (`backgroundBlurriness 0.015`).
    For crisp glass reflections a sharper env helps; but keep bg blurred for depth-of-field feel — can
    split: sharp env for IBL, blurred for background (separate `<Environment>` + scene.background).
-6. **Palms decision:** confirmed NOT in the GLB (only 2 materials: `Condominio_Aragon` glass +
-   `FrontColor` everything-else). Fab preview palms/skyline = staged render env, not shipped. Options:
-   (a) add real palm props on the deck (free ones are cartoon low-poly → clash; realistic = paid),
-   (b) skip — deck only shows for the first ~2s, settle frame crops it out. Lean (b) unless SSR lands
-   and the opening beat needs dressing.
+6. **Palms — CORRECTION: the palm IS in the GLB** (Andy's preview shows one on the podium; confirmed
+   geometry `Mesh271_Vegetation_Blur7`, 211 verts = billboard frond-CARDS, near the podium/pool, +
+   grass `Vegetation_Grass_Artificial`). It renders invisible/broken because it's an **alpha-cutout
+   billboard whose texture was stripped** in the €3 Fab conversion (0 images in file). To restore:
+   (a) generate/source a palm-frond RGBA texture + apply as `map`+`alphaMap` (alphaTest ~0.5) to the
+   `Vegetation_Blur7` material — cheapest, uses the designer's own placement, but UV atlas alignment
+   is a gamble; (b) drop a real palm GLB prop at the podium spot — no good FREE realistic palm found
+   (Poly Haven has none; poly.pizza/Quaternius = cartoon; realistic = paid Fab/CGTrader); (c) skip —
+   podium+palm only show the first ~2s, settle crops it. **Andy's call pending.** City skyline in the
+   preview = staged render env, genuinely not shippable in the GLB.
 
 **Fallback if real-time still caps out after 1–5:** pre-rendered offline video hero (Blender Cycles /
 the Fab render engine) → MP4 background. ONLY way to truly match the path-traced preview (palms,
