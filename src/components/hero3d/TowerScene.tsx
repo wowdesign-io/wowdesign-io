@@ -93,11 +93,17 @@ function Building({ url, onReady }: { url: string; onReady?: () => void }) {
       } else if (tag.includes('umber')) {
         m.material = railGlass // balcony balustrade glass (was flat black)
       } else {
-        // concrete / metal frames + railings: let them catch the sky a bit so they
-        // read as real surfaces, not matte plastic
+        // concrete / white cladding / metal frames: catch a little sky, but pull bright-white
+        // materials DOWN off pure white so they don't clip/blow out under the sunny sky
         mats.forEach((mat) => {
           const std = mat as THREE.MeshStandardMaterial
-          if (std && 'envMapIntensity' in std) std.envMapIntensity = Math.max(std.envMapIntensity ?? 1, 1.15)
+          if (std && 'envMapIntensity' in std) std.envMapIntensity = 0.6
+          const c = std?.color
+          if (c) {
+            const lum = 0.299 * c.r + 0.587 * c.g + 0.114 * c.b
+            // the white cladding sits at ~0.81 → drop it to a soft architectural white (~0.66)
+            if (lum > 0.7) c.multiplyScalar(0.8)
+          }
         })
       }
     })
@@ -212,7 +218,7 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
             the visible facade instead of backlighting it into shade. Offset for 3/4 shadows. */}
         <directionalLight
           position={[-10, 22, -22]}
-          intensity={3.2}
+          intensity={2.6}
           color="#fff2df"
           castShadow
           shadow-mapSize={[2048, 2048]}
