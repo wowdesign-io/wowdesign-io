@@ -25,8 +25,8 @@ export default function HeroLabClient() {
         style={{
           position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none',
           background:
-            'linear-gradient(90deg, rgba(9,14,28,0.62) 0%, rgba(9,14,28,0.34) 28%, rgba(9,14,28,0) 56%), ' +
-            'linear-gradient(0deg, rgba(9,14,28,0.42) 0%, rgba(9,14,28,0) 24%)',
+            'linear-gradient(90deg, rgba(7,11,22,0.82) 0%, rgba(7,11,22,0.5) 26%, rgba(7,11,22,0.12) 48%, rgba(7,11,22,0) 62%), ' +
+            'linear-gradient(0deg, rgba(7,11,22,0.55) 0%, rgba(7,11,22,0) 30%)',
         }}
       />
 

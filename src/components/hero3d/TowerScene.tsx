@@ -163,9 +163,9 @@ function Palms({ anchor }: { anchor: THREE.Vector3 }) {
     })
     remove.forEach((o) => o.parent?.remove(o))
     src.updateMatrixWorld(true)
-    // normalise to ~3.6 units tall, base at y=0, centred on x/z
+    // normalise to ~4 units tall, base at y=0, centred on x/z
     let box = new THREE.Box3().setFromObject(src)
-    src.scale.multiplyScalar(3.6 / (box.max.y - box.min.y))
+    src.scale.multiplyScalar(4.0 / (box.max.y - box.min.y))
     src.updateMatrixWorld(true)
     box = new THREE.Box3().setFromObject(src)
     const c = box.getCenter(new THREE.Vector3())
@@ -187,20 +187,21 @@ function Palms({ anchor }: { anchor: THREE.Vector3 }) {
     g.add(src)
     return g
   }, [scene])
-  // 4 palms around the pool (anchor = deck top, pool centre; pool ~2.4 x 5.0, on -x side)
+  // Palms stand ON the podium deck, beside the pool. The pool podium is under the balcony
+  // overhangs everywhere EXCEPT its outer -x edge strip (x < tower min.x -4.6), which pokes past
+  // them into clear sky. So line the palms along that -x pool edge, on the deck surface (~2.9).
+  const DECK_Y = 2.9
   const instances = useMemo(() => {
-    // tower+balconies span x[-4.6,4.5] z[-3.3,3.6]; deck reaches x[-5.4,5.4] z[-4.4,4.4].
-    // Palms MUST sit in the open border (outside the tower footprint) or they poke into the
-    // balconies above. These 4 ring the pool on the open -x edge + the two z-ends.
+    void anchor
     const spots = [
-      { x: -1.96, z: -2.0, r: 0.4, s: 1.05 }, // -x deck edge, pool -z side
-      { x: -1.96, z: 2.0, r: -0.7, s: 0.95 }, // -x deck edge, pool +z side
-      { x: 0.04, z: 3.9, r: 1.3, s: 1.0 }, // open +z strip (pool +z end)
-      { x: 0.04, z: -3.9, r: 2.2, s: 0.88 }, // open -z strip (pool -z end)
+      { x: -4.8, z: -2.3, r: 0.5, s: 1.05 },
+      { x: -5.0, z: -0.6, r: -0.5, s: 0.95 },
+      { x: -4.8, z: 1.0, r: 1.2, s: 1.0 },
+      { x: -5.0, z: 2.4, r: 2.3, s: 0.9 },
     ]
     return spots.map((sp) => ({
       obj: palm.clone(true),
-      pos: [anchor.x + sp.x, anchor.y, anchor.z + sp.z] as [number, number, number],
+      pos: [sp.x, DECK_Y, sp.z] as [number, number, number], // base on the podium deck
       rot: sp.r,
       scl: sp.s,
     }))
