@@ -1051,16 +1051,6 @@ figure {
   inset: 0% 0% auto;
 }
 
-/* 3D-hero nav: dark glassmorphism matching .solving-card. !important beats the
-   Webflow IX2 scroll interaction that otherwise clobbers the nav background. */
-.navbar.navbar--hero-glass {
-  background-color: var(--surface-30) !important;
-  border-bottom: 1px solid var(--light-border);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  box-shadow: 0 20px 40px var(--dark-60);
-}
-
 .container {
   width: 100%;
   max-width: 1350px;
@@ -8837,7 +8827,6 @@ figure {
 
 .section_comparison13 {
   color: var(--white-74);
-  position: relative;
 }
 
 .comparison13_component {

@@ -6,16 +6,33 @@
 @import "./wowdesign-miami.css";
 @import "./webflow-inline.css";
 
-/* 3D hero card (only used on /hero-lab). Glassmorphism over the brand radial light + 3D scene,
-   revealed after the drone flight via the `flight-done` body class set by Hero3D. */
+/* ─────────────────────────────────────────────────────────────────────────
+   New 3D-hero layer — only used on /hero-lab. Kept here so the migrated Webflow
+   files stay pristine. Reuses the migration's design tokens; adds --surface-90
+   for surfaces that must stay opaque over the bright 3D background.
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --surface-90: #151c2ce6; /* #151c2c @ 90% */
+}
+
+/* Contain the comparison section's sky-container glow so it stops escaping onto
+   the hero (Webflow sets position:relative on this component; the export dropped it). */
+.section_comparison13 { position: relative; }
+
+/* 3D-hero nav: dark glassmorphism over the bright 3D. !important beats the Webflow
+   IX2 scroll interaction that otherwise clobbers the nav background. */
+.navbar.navbar--hero-glass {
+  background-color: var(--surface-90) !important;
+  border-bottom: 1px solid var(--light-border);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+/* 3D hero card — reuses .solving-card's look (dark surface, light border, corner
+   brackets, soft shadow); only overrides the surface to opaque --surface-90 for the
+   bright 3D bg, and adds the post-flight reveal (flight-done set by Hero3D). */
 .hero-card {
-  max-width: 600px;
-  padding: 46px 50px 48px;
-  background: rgba(13, 16, 28, 0.42);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  -webkit-backdrop-filter: blur(18px);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+  background-color: var(--surface-90);
   opacity: 0;
   transform: translateY(28px) scale(0.985);
   transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);

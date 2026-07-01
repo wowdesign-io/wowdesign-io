@@ -168,6 +168,10 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 </a>
               </div>
             </div>
+            {heroVisual && (<>
+              <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="solving-card-top-element" />
+              <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="solving-card-bottom-element" />
+            </>)}
           </div>
           {!heroVisual && (<div data-w-id="e8a9f885-801b-a42c-0374-9df70f06c829" className="banner-world-element-wrapper"><img src="/images/psd-3d-isometric-tall-building-surrounded-by-trees-transparent-background-with-white-sky.webp" loading="lazy" style={{ WebkitTransform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, 0, 0) scale3d(0.5, 0.5, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", opacity: "0" }} alt="" className="banner-world-element-image" />
             <div style={{ opacity: "0" }} className="banner-world-element-tag-content">
@@ -192,7 +196,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 </div>
               </div>
             </div>
-          </div>)}<img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="banner-pluse-icon top-left" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="banner-pluse-icon top-right" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="banner-pluse-icon bottom-left" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="banner-pluse-icon bottom-right" />
+          </div>)}{!heroVisual && (<><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="banner-pluse-icon top-left" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="banner-pluse-icon top-right" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="banner-pluse-icon bottom-left" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="banner-pluse-icon bottom-right" /></>)}
         </div>
       </div>
       {!heroVisual && <div className="cta-radial-gradient1"></div>}
