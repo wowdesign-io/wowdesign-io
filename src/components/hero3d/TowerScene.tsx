@@ -1,6 +1,6 @@
 'use client'
 
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Environment, useGLTF, useTexture, Clouds, Cloud } from '@react-three/drei'
 import { EffectComposer, Bloom, N8AO } from '@react-three/postprocessing'
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
@@ -175,6 +175,7 @@ function Palms({ anchor }: { anchor: THREE.Vector3 }) {
       if (!m.isMesh) return
       m.castShadow = true
       m.receiveShadow = true
+      m.userData.isPalm = true // so the grounding raycast ignores the palms themselves
       const mm = m.material as THREE.MeshStandardMaterial
       if (mm && /frond/i.test(mm.name || '')) {
         mm.alphaTest = 0.5 // cutout fronds instead of blended quads
@@ -187,25 +188,50 @@ function Palms({ anchor }: { anchor: THREE.Vector3 }) {
     g.add(src)
     return g
   }, [scene])
-  // Palms stand ON the podium deck, beside the pool. The pool podium is under the balcony
-  // overhangs everywhere EXCEPT its outer -x edge strip (x < tower min.x -4.6), which pokes past
-  // them into clear sky. So line the palms along that -x pool edge, on the deck surface (~2.9).
-  const DECK_Y = 2.9
-  const instances = useMemo(() => {
+  // Ground each palm by RAYCASTING straight down onto whatever surface is actually below it
+  // (the podium deck) — no more guessing the deck height. Runs once the tower is in the scene.
+  const rootScene = useThree((s) => s.scene)
+  const [placed, setPlaced] = useState<{ x: number; y: number; z: number; r: number; s: number }[]>([])
+  useEffect(() => {
     void anchor
-    const spots = [
-      { x: -4.8, z: -2.3, r: 0.5, s: 1.05 },
-      { x: -5.0, z: -0.6, r: -0.5, s: 0.95 },
-      { x: -4.8, z: 1.0, r: 1.2, s: 1.0 },
-      { x: -5.0, z: 2.4, r: 2.3, s: 0.9 },
+    const ray = new THREE.Raycaster()
+    const down = new THREE.Vector3(0, -1, 0)
+    const isPalm = (o: THREE.Object3D | null) => {
+      while (o) { if (o.userData?.isPalm) return true; o = o.parent }
+      return false
+    }
+    const up = new THREE.Vector3(0, 1, 0)
+    const groundAt = (x: number, z: number) => {
+      ray.set(new THREE.Vector3(x, 60, z), down)
+      const hits = ray.intersectObjects(rootScene.children, true).filter((h) => !isPalm(h.object))
+      return hits.length ? hits[0].point.y : 0
+    }
+    const ceilingAt = (x: number, z: number, from: number) => {
+      ray.set(new THREE.Vector3(x, from + 0.15, z), up)
+      const hits = ray.intersectObjects(rootScene.children, true).filter((h) => !isPalm(h.object))
+      return hits.length ? hits[0].point.y : Infinity
+    }
+    // diagnostic: at each candidate, deck height + overhead clearance to the balcony above
+    const cand = [
+      { x: -4.3, z: -2.2, r: 0.5 },
+      { x: -4.2, z: -0.7, r: -0.5 },
+      { x: -4.3, z: 1.1, r: 1.2 },
+      { x: -4.2, z: 2.4, r: 2.3 },
     ]
-    return spots.map((sp) => ({
-      obj: palm.clone(true),
-      pos: [sp.x, DECK_Y, sp.z] as [number, number, number], // base on the podium deck
-      rot: sp.r,
-      scl: sp.s,
-    }))
-  }, [palm, anchor])
+    const PALM_H = 4.0 // the normalised palm height
+    const res = cand.map((c) => {
+      const y = groundAt(c.x, c.z)
+      const ceil = ceilingAt(c.x, c.z, y)
+      const clear = ceil === Infinity ? 8 : ceil - y
+      const scl = Math.min(1.1, Math.max(0.5, (clear - 0.3) / PALM_H)) // fit under any overhang
+      return { x: c.x, y, z: c.z, r: c.r, s: scl }
+    })
+    setPlaced(res)
+  }, [rootScene, palm, anchor])
+  const instances = useMemo(
+    () => placed.map((sp) => ({ obj: palm.clone(true), pos: [sp.x, sp.y, sp.z] as [number, number, number], rot: sp.r, scl: sp.s })),
+    [palm, placed],
+  )
   return (
     <group>
       {instances.map((it, i) => (
