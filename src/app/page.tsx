@@ -80,11 +80,11 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
           </div>
         </>
       )}
-      <div className="banner-container" style={heroVisual ? { position: 'absolute', left: 'max(28px, 5vw)', top: '50%', transform: 'translateY(-50%)', zIndex: 2, width: 'auto', maxWidth: 680, margin: 0, padding: 0 } : undefined}>
+      <div className="banner-container" style={heroVisual ? { position: 'absolute', left: 'max(28px, 5vw)', top: '50%', transform: 'translateY(-50%)', zIndex: 2, width: 'auto', maxWidth: 760, margin: 0, padding: 0 } : undefined}>
         <div className="banner-content" style={heroVisual ? { display: 'block', width: 'auto', margin: 0, border: 'none', paddingTop: 0 } : undefined}>
           <div
             {...(heroVisual
-              ? { className: 'banner-typography solving-card hero-card', style: { textAlign: 'left', alignItems: 'flex-start', maxWidth: 680, margin: 0 } }
+              ? { className: 'banner-typography solving-card hero-card', style: { textAlign: 'left', alignItems: 'flex-start', maxWidth: 760, margin: 0 } }
               : { className: 'banner-typography', 'goo-stagger': '0.3', goo: 'fade-up', 'goo-type': 'stagger', 'data-w-id': '6e58a63e-55a6-96bc-8457-502e6779cd81' })}
           >
             <div className="hero-banner-subtitle-wrapper">

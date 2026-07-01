@@ -55,8 +55,14 @@ body.flight-done .hero-card { opacity: 1; transform: none; }
   background-image: linear-gradient(125deg, #fff 40%, #999 70%);
   -webkit-background-clip: text;
   background-clip: text;
+  font-size: 4.4rem;
+  white-space: nowrap; /* keep "Sell Out Faster." on one line — the two-line wrap read squeezed */
   letter-spacing: -0.02em;
-  line-height: 1;
+  line-height: 1.05;
+}
+/* let it wrap + shrink on tablet/mobile so nowrap never overflows the viewport */
+@media screen and (max-width: 991px) {
+  .hero-card .banner-title { white-space: normal; font-size: 3.4rem; }
 }
 
 /* Hero subhead — comfortable measure + leading for a luxury feel. */
