@@ -3,8 +3,9 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Environment, useGLTF, useTexture, Clouds, Cloud } from '@react-three/drei'
 import { EffectComposer, Bloom, N8AO } from '@react-three/postprocessing'
-import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
+import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js'
 
 // accelerate into the move, streak through the middle, decelerate to settle
 const easeInOut = (x: number) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2)
@@ -253,65 +254,258 @@ function mulberry32(a: number) {
   }
 }
 
-// Cheap hazy skyline: ONE instanced draw call of low-poly boxes ringed FAR outside the
-// drone-flight radius (~24), so it frames the tower on the horizon and fades into the fog
-// (near 95) without ever crossing the camera path or costing meaningful perf. Each building
-// is 1-3 stacked SETBACK boxes (base widest, tiers narrower) → varied silhouettes, not flat
-// cubes. Short near, taller far → skyline depth. No shadows (beyond the ±28 shadow frustum).
-// TODO (tomorrow): window facades (merged geometry + procedural texture) + grid-aligned
-// blocks with streets — see HERO_BUILD_NOTES.md.
+// ── City geometry constants (shared by CityBackdrop + CityGround so blocks and streets line up) ──
+const CITY_PITCH = 40 // block-centre spacing (block + street)
+const CITY_BLOCK = 26 // building-footprint span inside each block (street gap = PITCH - BLOCK = 14)
+const CITY_HALF = 5 // grid runs gx,gz ∈ [-5..5] → city reaches ~r200
+const CITY_MAX_R = 210 // drop blocks past this (they'd be pure fog anyway)
+const CITY_CLEAR_R = 36 // NOTHING inside this radius — the tower's landscaped block (drone flies r22-24)
+const CITY_GROUND = 440 // street-plane size (covers the whole grid)
+const CITY_HOLE_R = 46 // radius of the grass clearing punched out of the street plane (> CLEAR_R)
+// window "tile" = one 4×4-window texture repeat; TILE_M world units per repeat → consistent window scale
+const TILE_M = 6.8
+
+// Procedural facade texture: neutral-grey concrete + a 4×4 grid of dark reflective-glass windows
+// (slight per-window tone + a faint sky-reflection gradient). Greyscale on purpose — the blue-grey
+// hazy-skyline tint + per-building brightness come from VERTEX COLORS, so one texture serves all.
+// Seamlessly repeatable; the corner texel (0,0) is guaranteed plain concrete so ROOF faces (which
+// pin their UVs there) read as flat concrete, never windows. Daytime → no emissive glow.
+function makeFacadeTexture() {
+  const S = 512
+  const c = document.createElement('canvas')
+  c.width = c.height = S
+  const ctx = c.getContext('2d')!
+  const rnd = mulberry32(0x1a2b3c)
+  ctx.fillStyle = '#8d8f92' // mid concrete grey (tinted later by vertex colour)
+  ctx.fillRect(0, 0, S, S)
+  for (let i = 0; i < 2200; i++) {
+    const g = 110 + Math.floor(rnd() * 60)
+    ctx.fillStyle = `rgba(${g},${g},${g + 4},0.05)` // concrete grain
+    ctx.fillRect(rnd() * S, rnd() * S, 1 + rnd() * 2, 1 + rnd() * 2)
+  }
+  const N = 4
+  const cell = S / N
+  const margin = cell * 0.2 // mullion half-gap → seamless when tiled
+  for (let gy = 0; gy < N; gy++) {
+    for (let gx = 0; gx < N; gx++) {
+      const x0 = gx * cell + margin
+      const y0 = gy * cell + margin
+      const w = cell - margin * 2
+      const h = cell - margin * 2
+      const base = 24 + Math.floor(rnd() * 26) // 24..50 → dark glass, per-window jitter
+      const grad = ctx.createLinearGradient(0, y0, 0, y0 + h)
+      grad.addColorStop(0, `rgb(${base + 20},${base + 26},${base + 38})`) // bluish sky reflection at top
+      grad.addColorStop(0.55, `rgb(${base},${base + 4},${base + 12})`)
+      grad.addColorStop(1, `rgb(${Math.max(8, base - 10)},${Math.max(10, base - 4)},${base + 4})`)
+      ctx.fillStyle = grad
+      ctx.fillRect(x0, y0, w, h)
+      ctx.strokeStyle = 'rgba(28,28,32,0.55)' // thin window frame
+      ctx.lineWidth = 1
+      ctx.strokeRect(x0 + 0.5, y0 + 0.5, w - 1, h - 1)
+    }
+  }
+  const tex = new THREE.CanvasTexture(c)
+  tex.wrapS = tex.wrapT = THREE.RepeatWrapping
+  tex.colorSpace = THREE.SRGBColorSpace
+  tex.anisotropy = 8
+  return tex
+}
+
+// Rewrite a BoxGeometry's per-face UVs so the facade texture tiles at a CONSISTENT real-world
+// window scale on the 4 SIDE faces (repeat = worldSpan / TILE_M, rounded so windows meet cleanly
+// at edges), and the TOP+BOTTOM faces collapse to the concrete corner texel (flat concrete roofs).
+// BoxGeometry face order = +X,-X,+Y,-Y,+Z,-Z, 4 verts each; default uvs are {(0,1),(1,1),(0,0),(1,0)}.
+function setFacadeUVs(geo: THREE.BoxGeometry, w: number, h: number, d: number) {
+  const uv = geo.attributes.uv as THREE.BufferAttribute
+  const rep = (span: number) => Math.max(1, Math.round(span / TILE_M))
+  const rv = rep(h)
+  const side = (f: number, ru: number) => {
+    for (let i = 0; i < 4; i++) {
+      const idx = f * 4 + i
+      uv.setXY(idx, uv.getX(idx) * ru, uv.getY(idx) * rv)
+    }
+  }
+  side(0, rep(d)) // +X (horizontal span = depth)
+  side(1, rep(d)) // -X
+  side(4, rep(w)) // +Z (horizontal span = width)
+  side(5, rep(w)) // -Z
+  for (const f of [2, 3]) for (let i = 0; i < 4; i++) uv.setXY(f * 4 + i, 0.004, 0.004) // roof/floor → concrete
+  uv.needsUpdate = true
+}
+
+// Cheap believable skyline: ONE merged draw call. Buildings sit on a CITY-BLOCK GRID (axis-aligned,
+// streets between blocks) that leaves the centre block (the tower's site) empty grass — nothing ever
+// enters r36 (drone flies r22-24). Each building = 1-3 stacked SETBACK boxes (base widest) with a
+// procedural window facade; per-building brightness/tint is baked into vertex colours in the hazy
+// blue-grey family so the city frames the tower and fades into the fog (95→300) without competing.
+// No shadows (all beyond the ±28 shadow frustum). Deterministic (mulberry32 seed).
 function CityBackdrop() {
-  const ref = useRef<THREE.InstancedMesh>(null)
-  const { geo, mat, boxes } = useMemo(() => {
-    const rand = mulberry32(20260702)
-    const list: { m: THREE.Matrix4; shade: number }[] = []
-    const q = new THREE.Quaternion()
-    for (let b = 0; b < 92; b++) {
-      const ang = rand() * Math.PI * 2
-      const rad = 50 + rand() * 150 // 50..200 — well beyond the ~24 flight radius
-      const distF = (rad - 50) / 150
-      const cx = Math.cos(ang) * rad
-      const cz = Math.sin(ang) * rad
-      q.setFromAxisAngle(_UP, rand() * Math.PI)
-      const totalH = 5 + rand() * (5 + distF * 18) // short near, taller far
-      const tiers = 1 + Math.floor(rand() * 3) // 1..3 stacked setbacks
-      const weights: number[] = []
-      for (let t = 0; t < tiers; t++) weights.push(tiers - t) // base tallest
-      const wsum = weights.reduce((a, c) => a + c, 0)
-      const shade = 0.82 + rand() * 0.34
-      let w = 5 + rand() * 6
-      let d = 5 + rand() * 6
-      let y = 0
-      for (let t = 0; t < tiers; t++) {
-        const th = totalH * (weights[t] / wsum)
-        list.push({
-          m: new THREE.Matrix4().compose(new THREE.Vector3(cx, y + th / 2, cz), q, new THREE.Vector3(w, th, d)),
-          shade,
-        })
-        y += th
-        w *= 0.68 // setback: each tier narrower than the one below
-        d *= 0.68
+  const { geometry, material } = useMemo(() => {
+    const rand = mulberry32(20260703)
+    const geos: THREE.BufferGeometry[] = []
+    const tint = new THREE.Color()
+    const baseTint = new THREE.Color('#8ea1bd') // hazy blue-grey; texture is neutral so this drives colour
+    // nearest distance from origin to an axis-aligned footprint (so we can guarantee the clearing)
+    const nearDist = (cx: number, cz: number, hw: number, hd: number) => {
+      const dx = Math.max(0, Math.abs(cx) - hw)
+      const dz = Math.max(0, Math.abs(cz) - hd)
+      return Math.hypot(dx, dz)
+    }
+    for (let gx = -CITY_HALF; gx <= CITY_HALF; gx++) {
+      for (let gz = -CITY_HALF; gz <= CITY_HALF; gz++) {
+        if (gx === 0 && gz === 0) continue // tower's block — stays grass
+        const bx = gx * CITY_PITCH
+        const bz = gz * CITY_PITCH
+        const blockDist = Math.hypot(bx, bz)
+        if (blockDist > CITY_MAX_R) continue
+        const distF = THREE.MathUtils.clamp((blockDist - CITY_PITCH) / (CITY_MAX_R - CITY_PITCH), 0, 1)
+        // subdivide the block into a 1-or-2 × 1-or-2 lattice of building plots (irregular clusters)
+        const nx = 1 + (rand() < 0.7 ? 1 : 0)
+        const nz = 1 + (rand() < 0.7 ? 1 : 0)
+        const plotW = CITY_BLOCK / nx
+        const plotD = CITY_BLOCK / nz
+        for (let px = 0; px < nx; px++) {
+          for (let pz = 0; pz < nz; pz++) {
+            if (rand() < 0.16) continue // occasional gap (parking lot / low structure)
+            const pcx = bx - CITY_BLOCK / 2 + plotW * (px + 0.5)
+            const pcz = bz - CITY_BLOCK / 2 + plotD * (pz + 0.5)
+            // footprint fills most of the plot, small alley gap, slight jitter
+            let w = plotW * (0.62 + rand() * 0.22)
+            let d = plotD * (0.62 + rand() * 0.22)
+            const jx = (rand() - 0.5) * (plotW - w) * 0.6
+            const jz = (rand() - 0.5) * (plotD - d) * 0.6
+            const cx = pcx + jx
+            const cz = pcz + jz
+            if (nearDist(cx, cz, w / 2, d / 2) < CITY_CLEAR_R) continue // keep the drone-flight clearing sacred
+            const totalH = 5 + rand() * (6 + distF * 20) // short near → tall far (skyline depth)
+            const tiers = 1 + Math.floor(rand() * 3) // 1..3 setback tiers
+            const weights: number[] = []
+            for (let t = 0; t < tiers; t++) weights.push(tiers - t) // base tallest
+            const wsum = weights.reduce((a, cc) => a + cc, 0)
+            const shade = 0.8 + rand() * 0.36
+            tint.copy(baseTint).multiplyScalar(shade)
+            tint.r *= 0.94 + rand() * 0.12 // tiny per-building hue jitter
+            tint.b *= 0.94 + rand() * 0.12
+            let y = 0
+            for (let t = 0; t < tiers; t++) {
+              const th = totalH * (weights[t] / wsum)
+              const g = new THREE.BoxGeometry(w, th, d)
+              setFacadeUVs(g, w, th, d)
+              g.translate(cx, y + th / 2, cz)
+              const n = g.attributes.position.count
+              const col = new Float32Array(n * 3)
+              for (let k = 0; k < n; k++) {
+                col[k * 3] = tint.r
+                col[k * 3 + 1] = tint.g
+                col[k * 3 + 2] = tint.b
+              }
+              g.setAttribute('color', new THREE.BufferAttribute(col, 3))
+              geos.push(g)
+              y += th
+              w *= 0.7 // setback
+              d *= 0.7
+            }
+          }
+        }
       }
     }
-    return {
-      geo: new THREE.BoxGeometry(1, 1, 1),
-      mat: new THREE.MeshStandardMaterial({ color: '#6f7c92', roughness: 0.9, metalness: 0, envMapIntensity: 0.45 }),
-      boxes: list,
-    }
-  }, [])
-  useLayoutEffect(() => {
-    const mesh = ref.current
-    if (!mesh) return
-    const col = new THREE.Color()
-    const base = new THREE.Color('#6f7c92')
-    boxes.forEach((it, i) => {
-      mesh.setMatrixAt(i, it.m)
-      mesh.setColorAt(i, col.copy(base).multiplyScalar(it.shade))
+    const merged = mergeGeometries(geos, false)
+    geos.forEach((g) => g.dispose())
+    const material = new THREE.MeshStandardMaterial({
+      map: makeFacadeTexture(),
+      vertexColors: true,
+      roughness: 0.72,
+      metalness: 0,
+      envMapIntensity: 0.35,
     })
-    mesh.instanceMatrix.needsUpdate = true
-    if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true
-  }, [boxes])
-  return <instancedMesh ref={ref} args={[geo, mat, boxes.length]} frustumCulled={false} />
+    return { geometry: merged, material }
+  }, [])
+  return <mesh geometry={geometry} material={material} frustumCulled={false} castShadow={false} receiveShadow={false} />
+}
+
+// Procedural street texture for the city ground: asphalt grid with darker "city block" tone under
+// each block, faint dashed lane centre-lines down every street, a transparent grass HOLE punched at
+// the centre (so the tower's grass block + landscaping show through), and a soft transparent fade at
+// the outer edge so the plane melts into the distant grass/fog instead of ending in a hard square.
+function makeStreetTexture() {
+  const S = 1024
+  const c = document.createElement('canvas')
+  c.width = c.height = S
+  const ctx = c.getContext('2d')!
+  const rnd = mulberry32(0x5711aa)
+  const w2c = (v: number) => (v / CITY_GROUND + 0.5) * S // world → canvas px
+  const span = (CITY_BLOCK / CITY_GROUND) * S
+  const pitch = (CITY_PITCH / CITY_GROUND) * S
+  ctx.fillStyle = '#5b616b' // asphalt (blue-grey neutral, sits in the hazy family)
+  ctx.fillRect(0, 0, S, S)
+  for (let i = 0; i < 5000; i++) {
+    const g = 70 + Math.floor(rnd() * 34)
+    ctx.fillStyle = `rgba(${g},${g},${g + 6},0.06)` // asphalt grain
+    ctx.fillRect(rnd() * S, rnd() * S, 1 + rnd() * 2, 1 + rnd() * 2)
+  }
+  // block interiors (darker neutral tone) at each grid centre — clear contrast vs the streets
+  ctx.fillStyle = '#2c313a'
+  for (let gx = -CITY_HALF; gx <= CITY_HALF; gx++) {
+    for (let gz = -CITY_HALF; gz <= CITY_HALF; gz++) {
+      if (gx === 0 && gz === 0) continue
+      if (Math.hypot(gx * CITY_PITCH, gz * CITY_PITCH) > CITY_MAX_R) continue
+      const cxp = w2c(gx * CITY_PITCH)
+      const czp = w2c(gz * CITY_PITCH)
+      ctx.fillRect(cxp - span / 2, czp - span / 2, span, span)
+    }
+  }
+  // dashed lane centre-lines down each street corridor (between blocks)
+  ctx.strokeStyle = 'rgba(224,218,188,0.5)'
+  ctx.lineWidth = Math.max(2, S / 640)
+  ctx.setLineDash([S * 0.014, S * 0.018])
+  for (let g = -CITY_HALF; g < CITY_HALF; g++) {
+    const p = w2c((g + 0.5) * CITY_PITCH)
+    ctx.beginPath(); ctx.moveTo(p, 0); ctx.lineTo(p, S); ctx.stroke() // vertical streets
+    ctx.beginPath(); ctx.moveTo(0, p); ctx.lineTo(S, p); ctx.stroke() // horizontal streets
+  }
+  ctx.setLineDash([])
+  // punch the centre grass hole + fade the outer edge (both via destination-out alpha erase)
+  const holeR = (CITY_HOLE_R / (CITY_GROUND / 2)) * (S / 2)
+  const g2 = ctx.createRadialGradient(S / 2, S / 2, 0, S / 2, S / 2, S / 2)
+  g2.addColorStop(0, 'rgba(0,0,0,1)') // erase centre → grass shows
+  g2.addColorStop(holeR / (S / 2), 'rgba(0,0,0,1)')
+  g2.addColorStop(holeR / (S / 2) + 0.02, 'rgba(0,0,0,0)') // keep the city ring
+  g2.addColorStop(0.82, 'rgba(0,0,0,0)')
+  g2.addColorStop(1, 'rgba(0,0,0,1)') // fade the far edge into grass/fog
+  ctx.globalCompositeOperation = 'destination-out'
+  ctx.fillStyle = g2
+  ctx.fillRect(0, 0, S, S)
+  ctx.globalCompositeOperation = 'source-over'
+  const tex = new THREE.CanvasTexture(c)
+  tex.colorSpace = THREE.SRGBColorSpace
+  tex.anisotropy = 8
+  return tex
+}
+
+// The urban ground: one transparent street-grid plane laid just above the grass in the city zone.
+// Second added draw call. No shadows (outside the frustum). Grass shows through the centre hole so
+// the tower keeps its landscaped block.
+function CityGround() {
+  const material = useMemo(
+    () =>
+      new THREE.MeshStandardMaterial({
+        map: makeStreetTexture(),
+        transparent: true,
+        depthWrite: false,
+        roughness: 0.95,
+        metalness: 0,
+        envMapIntensity: 0.2,
+        polygonOffset: true,
+        polygonOffsetFactor: -2,
+        polygonOffsetUnits: -2,
+      }),
+    [],
+  )
+  return (
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.04, 0]} material={material} castShadow={false} receiveShadow={false}>
+      <planeGeometry args={[CITY_GROUND, CITY_GROUND]} />
+    </mesh>
+  )
 }
 
 // auto-play DRONE ORBIT around the building once everything is loaded, settling
@@ -437,6 +631,7 @@ export default function TowerScene({ onReady }: { onReady?: () => void }) {
         <CameraRig />
         <Building url={modelUrl} onReady={onReady} onPoolAnchor={setPoolAnchor} />
         <Ground />
+        <CityGround />
         <CityBackdrop />
         {poolAnchor && <Palms anchor={poolAnchor} />}
 

@@ -1,6 +1,6 @@
 # wowdesign.io — 3D Hero Build Notes (resume point)
 
-_Last updated: 2026-07-02. Live prototype: `/hero-lab` (noindex) on `wowdesign-io.vercel.app`._
+_Last updated: 2026-07-14. Live prototype: `/hero-lab` (noindex) on `wowdesign-io.vercel.app`._
 
 ## Where things stand (2026-07-02)
 
@@ -15,7 +15,7 @@ The 3D hero is a **full homepage integration**, not a standalone. Going live = a
 - `src/app/page.tsx` — homepage. Nav (~L21, `.navbar--hero-glass` when heroVisual), hero `<section>` (~L68), 3D wrapper + brand-glow overlay (~L72–76), hero card (`banner-typography solving-card hero-card`), proof strip, solving section marker class (`hero3d-topgap`).
 - `src/app/globals.css` — **all new-hero CSS**: tokens (`--surface-90`), `.navbar--hero-glass`, `.section_comparison13` fix, `.hero-card` + gradient headline + subhead + `.hero-proof`, responsive size tiers, solving top-pad.
 - `src/components/hero3d/Hero3D.tsx` — full-page loader **portaled to `<body>`** (brand glow + REAL progress bar via drei `useProgress`, solid-blue bar) + mounts `TowerScene`. `flight-done` body class set after `FLIGHT_MS` (7200) reveals the hero card.
-- `src/components/hero3d/TowerScene.tsx` — the R3F `<Canvas>`: `Building` (adriana, glass material swap), `Ground` (grass 600×600), `CityBackdrop` (skyline), `Palms` (raycast-grounded), `Clouds`, `Environment` (HDRI), `CameraRig`, lights, `EffectComposer` (N8AO + Bloom).
+- `src/components/hero3d/TowerScene.tsx` — the R3F `<Canvas>`: `Building` (adriana, glass material swap), `Ground` (grass 600×600), `CityBackdrop` (windowed skyline, merged geo), `CityGround` (street-grid plane), `Palms` (raycast-grounded), `Clouds`, `Environment` (HDRI), `CameraRig`, lights, `EffectComposer` (N8AO + Bloom).
 
 ## Camera flight (adriana) — DON'T let anything cross it
 
@@ -34,15 +34,21 @@ The 3D hero is a **full homepage integration**, not a standalone. Going live = a
 - Features (solving) section: top-pad matching bottom, scoped to the 3D hero (`.hero3d-topgap`).
 - **CityBackdrop:** ONE instanced draw call, ~92 buildings × 1–3 **tiered setback** boxes, ringed r50–200 (beyond flight), fades into fog. Deterministic (mulberry32 seed).
 
-## TOMORROW (2026-07-03) — full city with streets (Andy approved, ~2h, 2–3 deploys)
+## Done (2026-07-14) — full city with streets ✅
 
-Goal: buildings look "a lil more than cubes" + streets. Keep it cheap + off the flight path.
+Goal met: buildings read as **windowed towers on a city-block grid with streets**, not cubes on a random ring. All in `TowerScene.tsx`.
 
-1. **Window facades (biggest lift).** Switch `CityBackdrop` from `InstancedMesh` → **merged geometry** (`mergeGeometries` from `three/examples/jsm/utils/BufferGeometryUtils.js` — VERIFY the import resolves first; three-stdlib is also available as a drei dep) so a **procedural facade texture** (canvas: concrete + window grid) tiles at the correct per-building scale. Needs **per-face UV scaling** (side faces repeat = dim/UNIT; roof faces → plain concrete corner of the texture). Daytime scene → dark reflective glass windows (NO emissive glow, or very subtle). Still ~1 draw call.
-2. **Streets.** Grid-align the buildings into **blocks** (replace the random ring with a grid, skip the central block = tower's grassy site, keep min radius > ~30). Add an urban ground: procedural street-grid canvas texture (asphalt blocks + street strips + center lines) on a plane in the city zone, OR thin road strips. Tower keeps its grass block.
-3. Keep setback tiers (already in).
+- **`CityBackdrop` — merged-geometry windowed city (1 draw call).** Import verified: `mergeGeometries` from `three/examples/jsm/utils/BufferGeometryUtils.js` (three 0.185). Each building tier = a `BoxGeometry` at true world size; `setFacadeUVs()` rewrites per-face UVs so the facade texture tiles at a **consistent real-world window scale** on the 4 SIDE faces (repeat = worldSpan / `TILE_M`, rounded for clean edges) and pins TOP+BOTTOM faces to the concrete corner texel → **flat concrete roofs, never windows.** All tiers `mergeGeometries`-merged into ONE `THREE.Mesh`.
+  - **`makeFacadeTexture()`** — 512² `CanvasTexture`: neutral-grey concrete + a 4×4 grid of dark reflective-glass windows (per-window tone jitter + faint bluish sky-reflection gradient). **Greyscale on purpose** — the hazy blue-grey tint + per-building brightness come from **vertex colours** (`baseTint #8ea1bd × shade × hue-jitter`), so one texture serves every building. Daytime → **no emissive glow** (dark glass).
+- **`CityGround` — procedural street plane (1 draw call).** `makeStreetTexture()` = 1024² transparent `CanvasTexture`: asphalt grid + darker "city block" tone under each block + dashed lane centre-lines down every street. A **transparent grass HOLE** (radius `CITY_HOLE_R`) is punched at the centre and the outer edge fades to transparent, so the tower keeps its landscaped grass block and the plane melts into the distant grass/fog. Sits at `y=+0.04` with `polygonOffset` above the grass; no shadows.
+- **Grid layout.** Shared constants (`CITY_PITCH 40`, `CITY_BLOCK 26`, `CITY_HALF 5`, `CITY_MAX_R 210`, `CITY_CLEAR_R 36`, `CITY_HOLE_R 46`, `CITY_GROUND 440`, `TILE_M 6.8`) drive both components so blocks and streets line up. Grid `gx,gz ∈ [-5..5]`; centre block skipped; each block subdivides into a 1-2 × 1-2 lattice of building plots (irregular clusters, occasional gaps). **Hard clearance enforced per building** via `nearDist()` — any footprint whose nearest point is < `CITY_CLEAR_R` (36) is dropped, so nothing ever enters the drone flight (r22-24). Setback tiers kept (base widest). Deterministic (`mulberry32(20260703)`).
+- **Perf:** net **+1 draw call** (removed the old InstancedMesh = 1; added merged city + street plane = 2). No shadow casting/receiving on either (all beyond the ±28 shadow frustum). No asset loads — procedural canvases + generated geometry only.
+- **To tune:** density → `nx/nz` plot logic + the `rand()<0.16` gap skip; extent → `CITY_HALF` / `CITY_MAX_R`; window scale → `TILE_M` (smaller = more/smaller windows) and the `N=4` grid in `makeFacadeTexture`; clearing size → `CITY_CLEAR_R` (buildings) + `CITY_HOLE_R` (grass hole, keep > CLEAR_R); street contrast/lane lines → colours in `makeStreetTexture`.
+- **Verified** on real-GPU ANGLE (`--use-angle=d3d11`) Playwright shots at `?t=7.5`, `?t=2`, and high static poses: windowed towers, visible street grid + lane lines, clean central grass clearing, fade into fog.
 
-Then: **full mobile responsiveness** of the hero. Deferred perf: shrink HDRI (`/hdri/sky-autumn.hdr` is the default, still large), lazy-load canvas.
+## TOMORROW — full mobile responsiveness
+
+**Full mobile responsiveness** of the hero (hero card size tiers exist for ≥2560 / 1440-1920 / ≤1366 desktop; mobile still TODO). Deferred perf: shrink HDRI (`/hdri/sky-autumn.hdr` is the default, still large), lazy-load canvas.
 
 ## Assets (`public/`)
 - `models/adriana.glb` (3.1MB) — CHOSEN. `adriana_residences_ORIGINAL_DONT_DELETE_OR_EDIT.glb` kept untouched (gitignored). Others (`sanzio`, `woolderpark`, `miami`, `pivotal`, `residential`) still `?model=`-selectable.
