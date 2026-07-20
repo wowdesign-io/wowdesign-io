@@ -29,7 +29,7 @@ const schema = {
     member: [
       { '@type': 'Person', name: 'Andy', jobTitle: 'CEO & Founder' },
       { '@type': 'Person', name: 'Ashekur', jobTitle: 'Lead Systems Engineer' },
-      { '@type': 'Person', name: 'Mahmudul', jobTitle: 'Digital Twin Architect' },
+      { '@type': 'Person', name: 'Sofia', jobTitle: 'Digital Twin Architect' },
       { '@type': 'Person', name: 'Odule', jobTitle: 'CRM Integration Lead' },
       { '@type': 'Person', name: 'Mateo', jobTitle: 'Performance Engineer' },
     ],
