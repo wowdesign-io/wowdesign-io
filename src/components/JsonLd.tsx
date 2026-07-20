@@ -31,7 +31,7 @@ const schema = {
       { '@type': 'Person', name: 'Ashekur', jobTitle: 'Lead Systems Engineer' },
       { '@type': 'Person', name: 'Mahmudul', jobTitle: 'Digital Twin Architect' },
       { '@type': 'Person', name: 'Odule', jobTitle: 'CRM Integration Lead' },
-      { '@type': 'Person', name: 'Bence', jobTitle: 'Performance Engineer' },
+      { '@type': 'Person', name: 'Mateo', jobTitle: 'Performance Engineer' },
     ],
   },
   mainEntity: {
