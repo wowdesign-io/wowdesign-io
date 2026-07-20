@@ -1259,9 +1259,8 @@ figure {
 }
 
 .section.community-spotlight {
-  padding-top: 110px;
-  padding-bottom: 72px;
-  overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
   position: relative;
 }
 
@@ -2442,16 +2441,15 @@ figure {
 }
 
 .community-spotlight-typography {
-  z-index: 4;
+  z-index: 2;
   text-align: center;
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  max-width: 760px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: -20px;
   display: flex;
   position: relative;
 }
@@ -2465,11 +2463,11 @@ figure {
   backdrop-filter: blur(15px);
   justify-content: center;
   align-items: center;
-  max-width: 88px;
-  margin-bottom: 24px;
+  max-width: 120px;
+  margin-bottom: 55px;
   margin-left: auto;
   margin-right: auto;
-  padding: 16px;
+  padding: 21px;
   display: flex;
   position: relative;
   box-shadow: 0 20px 40px #0006;
@@ -2483,101 +2481,106 @@ figure {
 .community-spotlight-title {
   color: #fff;
   text-shadow: 0 4px 10px var(--dark-50);
-  margin-bottom: 14px;
-  font-size: 3.25rem;
+  margin-bottom: 10px;
+  font-size: 3.5rem;
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 64px;
 }
 
 .community-spotlight-description {
   width: 100%;
-  max-width: 620px;
   color: var(--white-74);
-  letter-spacing: -.4px;
+  letter-spacing: -.6px;
   margin-left: auto;
   margin-right: auto;
   font-family: Outfit, sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 30px;
 }
 
 .community-spotlight-image-wrap {
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
-  margin-top: 12px;
+  margin-top: -65px;
   display: flex;
   position: relative;
-  min-height: 360px;
 }
 
 .community-spotlight-image-bg-shape {
   width: 100%;
-  max-width: 1100px;
-  min-height: 340px;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  object-fit: contain;
-  display: block;
+  min-height: 488px;
 }
 
 .community-spotlight-logos {
+  display: none;
+}
+
+.community-spotlight-top-images {
   justify-content: space-between;
   align-items: flex-start;
-  width: 76%;
-  max-width: 820px;
+  width: 100%;
+  max-width: 720px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 24%;
-  z-index: 2;
-  pointer-events: none;
+  inset: auto auto 128px;
 }
 
-.community-spotlight-logos .community-spotlight-image {
-  width: 86px;
-  height: 86px;
-  max-width: 86px;
-  flex: 0 0 auto;
-  pointer-events: auto;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
-}
-
-/* Soft smile — shallow so icons stay large and readable */
-.community-spotlight-image._1,
-.community-spotlight-image._10 {
+/* Top row arc (5 logos) — same smile shape as original 7 */
+.community-spotlight-top-images .community-spotlight-image._1 {
   margin-top: 0;
 }
 
-.community-spotlight-image._2,
-.community-spotlight-image._9 {
-  margin-top: 20px;
+.community-spotlight-top-images .community-spotlight-image._2 {
+  margin-top: 48px;
 }
 
-.community-spotlight-image._3,
-.community-spotlight-image._8 {
-  margin-top: 40px;
+.community-spotlight-top-images .community-spotlight-image._3 {
+  margin-top: 72px;
 }
 
-.community-spotlight-image._4,
-.community-spotlight-image._7 {
-  margin-top: 58px;
+.community-spotlight-top-images .community-spotlight-image._4 {
+  margin-top: 48px;
 }
 
-.community-spotlight-image._5,
-.community-spotlight-image._6 {
-  margin-top: 70px;
+.community-spotlight-top-images .community-spotlight-image._5 {
+  margin-top: 0;
 }
 
-.community-spotlight-top-images,
 .community-spotlight-bottom-images {
-  display: none;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  position: absolute;
+  inset: auto auto 7px;
+}
+
+/* Bottom row arc (5 logos) — original smile depths */
+.community-spotlight-bottom-images .community-spotlight-image._9 {
+  margin-top: 84px;
+}
+
+.community-spotlight-bottom-images .community-spotlight-image._11 {
+  margin-top: 185px;
+}
+
+.community-spotlight-bottom-images .community-spotlight-image._13 {
+  margin-top: 216px;
+}
+
+.community-spotlight-bottom-images .community-spotlight-image._15 {
+  margin-top: 185px;
+}
+
+.community-spotlight-bottom-images .community-spotlight-image._17 {
+  margin-top: 84px;
 }
 
 .community-spotlight-shape {
@@ -2590,15 +2593,13 @@ figure {
 }
 
 .community-spotlight-button-wrapper {
-  grid-column-gap: 1.5rem;
-  grid-row-gap: 1.5rem;
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
   flex-flow: row;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 24px;
+  margin-top: 60px;
   display: flex;
-  position: relative;
-  z-index: 3;
 }
 
 .core-features-section-title-wrapper {
@@ -9872,8 +9873,8 @@ figure {
   }
 
   .section.community-spotlight {
-    padding-top: 80px;
-    padding-bottom: 56px;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .section.core-features {
@@ -10325,41 +10326,40 @@ figure {
     min-height: auto;
   }
 
-  .community-spotlight-logos {
-    width: 82%;
+  .community-spotlight-top-images {
+    max-width: 520px;
+    bottom: 100px;
+  }
+
+  .community-spotlight-bottom-images {
     max-width: 680px;
-    bottom: 26%;
   }
 
-  .community-spotlight-logos .community-spotlight-image {
-    width: 64px;
-    height: 64px;
-    max-width: 64px;
+  .community-spotlight-image {
+    max-width: 70px;
   }
 
-  .community-spotlight-image._1,
-  .community-spotlight-image._10 {
-    margin-top: 0;
+  .community-spotlight-top-images .community-spotlight-image._2,
+  .community-spotlight-top-images .community-spotlight-image._4 {
+    margin-top: 28px;
   }
 
-  .community-spotlight-image._2,
-  .community-spotlight-image._9 {
-    margin-top: 16px;
+  .community-spotlight-top-images .community-spotlight-image._3 {
+    margin-top: 44px;
   }
 
-  .community-spotlight-image._3,
-  .community-spotlight-image._8 {
-    margin-top: 32px;
+  .community-spotlight-bottom-images .community-spotlight-image._9,
+  .community-spotlight-bottom-images .community-spotlight-image._17 {
+    margin-top: 48px;
   }
 
-  .community-spotlight-image._4,
-  .community-spotlight-image._7 {
-    margin-top: 46px;
+  .community-spotlight-bottom-images .community-spotlight-image._11,
+  .community-spotlight-bottom-images .community-spotlight-image._15 {
+    margin-top: 110px;
   }
 
-  .community-spotlight-image._5,
-  .community-spotlight-image._6 {
-    margin-top: 56px;
+  .community-spotlight-bottom-images .community-spotlight-image._13 {
+    margin-top: 130px;
   }
 
   .community-spotlight-shape {
@@ -10370,7 +10370,7 @@ figure {
   }
 
   .community-spotlight-button-wrapper {
-    margin-top: 28px;
+    margin-top: 40px;
   }
 
   .core-features-section-title-wrapper.mb45 {
@@ -12133,8 +12133,8 @@ figure {
   }
 
   .section.community-spotlight {
-    padding-top: 80px;
-    padding-bottom: 56px;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .section.core-features {
@@ -12503,41 +12503,40 @@ figure {
     line-height: 27px;
   }
 
-  .community-spotlight-logos {
-    width: 86%;
-    max-width: 520px;
-    bottom: 28%;
+  .community-spotlight-top-images {
+    max-width: 380px;
+    bottom: 80px;
   }
 
-  .community-spotlight-logos .community-spotlight-image {
-    width: 52px;
-    height: 52px;
+  .community-spotlight-bottom-images {
+    max-width: 500px;
+  }
+
+  .community-spotlight-image {
     max-width: 52px;
   }
 
-  .community-spotlight-image._1,
-  .community-spotlight-image._10 {
-    margin-top: 0;
+  .community-spotlight-top-images .community-spotlight-image._2,
+  .community-spotlight-top-images .community-spotlight-image._4 {
+    margin-top: 20px;
   }
 
-  .community-spotlight-image._2,
-  .community-spotlight-image._9 {
-    margin-top: 12px;
+  .community-spotlight-top-images .community-spotlight-image._3 {
+    margin-top: 32px;
   }
 
-  .community-spotlight-image._3,
-  .community-spotlight-image._8 {
-    margin-top: 24px;
-  }
-
-  .community-spotlight-image._4,
-  .community-spotlight-image._7 {
+  .community-spotlight-bottom-images .community-spotlight-image._9,
+  .community-spotlight-bottom-images .community-spotlight-image._17 {
     margin-top: 36px;
   }
 
-  .community-spotlight-image._5,
-  .community-spotlight-image._6 {
-    margin-top: 44px;
+  .community-spotlight-bottom-images .community-spotlight-image._11,
+  .community-spotlight-bottom-images .community-spotlight-image._15 {
+    margin-top: 80px;
+  }
+
+  .community-spotlight-bottom-images .community-spotlight-image._13 {
+    margin-top: 96px;
   }
 
   .community-spotlight-shape {
@@ -14203,8 +14202,8 @@ figure {
   }
 
   .section.community-spotlight {
-    padding-top: 80px;
-    padding-bottom: 56px;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .section.core-features {
@@ -14608,20 +14607,40 @@ figure {
     line-height: 26px;
   }
 
-  .community-spotlight-logos {
-    width: 96%;
-    max-width: 340px;
-    bottom: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px 12px;
+  .community-spotlight-top-images {
+    max-width: 260px;
+    bottom: 62px;
   }
 
-  .community-spotlight-logos .community-spotlight-image {
-    width: 42px;
-    height: 42px;
-    max-width: 42px;
-    margin-top: 0 !important;
+  .community-spotlight-bottom-images {
+    max-width: 340px;
+  }
+
+  .community-spotlight-image {
+    max-width: 40px;
+  }
+
+  .community-spotlight-top-images .community-spotlight-image._2,
+  .community-spotlight-top-images .community-spotlight-image._4 {
+    margin-top: 14px;
+  }
+
+  .community-spotlight-top-images .community-spotlight-image._3 {
+    margin-top: 22px;
+  }
+
+  .community-spotlight-bottom-images .community-spotlight-image._9,
+  .community-spotlight-bottom-images .community-spotlight-image._17 {
+    margin-top: 24px;
+  }
+
+  .community-spotlight-bottom-images .community-spotlight-image._11,
+  .community-spotlight-bottom-images .community-spotlight-image._15 {
+    margin-top: 56px;
+  }
+
+  .community-spotlight-bottom-images .community-spotlight-image._13 {
+    margin-top: 68px;
   }
 
   .community-spotlight-shape {
