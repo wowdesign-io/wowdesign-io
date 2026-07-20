@@ -1,5 +1,14 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import NewsletterFormHandler from '@/components/NewsletterFormHandler'
+import SiteAnalytics from '@/components/SiteAnalytics'
+import JsonLd from '@/components/JsonLd'
+
+const SITE = 'https://www.wowdesign.io'
+const TITLE = 'Sell Out Faster | Presales System for Boutique Real Estate Developers'
+const DESCRIPTION =
+  "Boutique developers close 31% faster with wowdesign — we build the website, the digital twin, and the automated follow-up system, so your team always knows who's ready to buy."
+const OG_IMAGE = '/images/open-graph-img-en.png'
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -8,27 +17,33 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Sell Out Faster | wowdesign',
-  description:
-    "Boutique developers close 31% faster with wowdesign — we build the website, the digital twin, and the automated follow-up system, so your team always knows who's ready to buy.",
-  metadataBase: new URL('https://www.wowdesign.io'),
+  title: {
+    default: TITLE,
+    template: '%s | wowdesign',
+  },
+  description: DESCRIPTION,
+  metadataBase: new URL(SITE),
   openGraph: {
-    title: 'Sell Out Faster | wowdesign',
-    description:
-      "Boutique developers close 31% faster with wowdesign — we build the website, the digital twin, and the automated follow-up system, so your team always knows who's ready to buy.",
-    url: 'https://www.wowdesign.io',
+    title: TITLE,
+    description: DESCRIPTION,
+    url: SITE,
     siteName: 'wowdesign',
     locale: 'en_US',
     type: 'website',
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: 'wowdesign' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sell Out Faster | wowdesign',
-    description:
-      "Boutique developers close 31% faster with wowdesign — we build the website, the digital twin, and the automated follow-up system, so your team always knows who's ready to buy.",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [OG_IMAGE],
+  },
+  icons: {
+    icon: '/favicon.png',
+    apple: '/webclip.png',
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: 'https://www.wowdesign.io' },
+  // Per-page routes set their own canonical via metadata.alternates
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -47,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <JsonLd />
         {/* Anti-FOUC: body starts hidden (below) and is revealed only after window load,
             once the goo/IX2 runtimes have set their animation "from" states — so elements
             never flash visible-then-hidden. Failsafe timeout guarantees it never stays blank. */}
@@ -58,6 +74,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="body" style={{ opacity: 0 }}>
         {children}
+        <NewsletterFormHandler />
+        <SiteAnalytics />
       </body>
     </html>
   )

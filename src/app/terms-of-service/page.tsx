@@ -1,8 +1,11 @@
 import Script from 'next/script'
 
-export const metadata = {
-  title: "Terms of Service",
-  description: "",
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Terms of Service',
+  description: 'wowdesign terms of service',
+  alternates: { canonical: 'https://www.wowdesign.io/terms-of-service' },
 }
 
 export default function TermsOfServicePage() {

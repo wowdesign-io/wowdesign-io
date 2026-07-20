@@ -1,8 +1,11 @@
 import Script from 'next/script'
+import type { Metadata } from 'next'
 
-export const metadata = {
-  title: "Carry Cost Calculator | wowdesign",
-  description: "Calculate capital preserved by accelerating project absorption. See exact savings from selling 2-6 months faster. Free calculator for developers.",
+export const metadata: Metadata = {
+  title: 'Carry Cost Calculator',
+  description:
+    'Calculate capital preserved by accelerating project absorption. See exact savings from selling 2-6 months faster. Free calculator for developers.',
+  alternates: { canonical: 'https://www.wowdesign.io/carry-cost-calculator' },
 }
 
 export default function CarryCostCalculatorPage() {

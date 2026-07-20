@@ -1,5 +1,10 @@
 import type { ReactNode } from 'react'
+import type { Metadata } from 'next'
 import Script from 'next/script'
+
+export const metadata: Metadata = {
+  alternates: { canonical: 'https://www.wowdesign.io' },
+}
 
 // `heroVisual` swaps the hero's building image for an alternate (the 3D scene on /hero-lab).
 // Defaults to the original isometric image so the live homepage is unchanged.
@@ -80,11 +85,11 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
           </div>
         </>
       )}
-      <div className="banner-container" style={heroVisual ? { position: 'absolute', left: 'max(28px, 5vw)', top: '50%', transform: 'translateY(-50%)', zIndex: 2, width: 'auto', margin: 0, padding: 0 } : undefined}>
-        <div className="banner-content" style={heroVisual ? { display: 'block', width: 'auto', margin: 0, border: 'none', paddingTop: 0 } : undefined}>
+      <div className={heroVisual ? 'banner-container hero-banner-container' : 'banner-container'}>
+        <div className={heroVisual ? 'banner-content hero-banner-content' : 'banner-content'}>
           <div
             {...(heroVisual
-              ? { className: 'banner-typography solving-card hero-card', style: { textAlign: 'left', alignItems: 'flex-start', margin: 0 } }
+              ? { className: 'banner-typography solving-card hero-card' }
               : { className: 'banner-typography', 'goo-stagger': '0.3', goo: 'fade-up', 'goo-type': 'stagger', 'data-w-id': '6e58a63e-55a6-96bc-8457-502e6779cd81' })}
           >
             <div className="hero-banner-subtitle-wrapper">

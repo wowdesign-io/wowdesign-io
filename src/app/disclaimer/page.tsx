@@ -1,8 +1,11 @@
 import Script from 'next/script'
 
-export const metadata = {
-  title: "Disclaimer",
-  description: "",
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Disclaimer',
+  description: 'wowdesign disclaimer',
+  alternates: { canonical: 'https://www.wowdesign.io/disclaimer' },
 }
 
 export default function DisclaimerPage() {

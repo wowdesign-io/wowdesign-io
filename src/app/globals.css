@@ -28,6 +28,28 @@
   backdrop-filter: blur(5px);
 }
 
+/* Hero card positioning wrapper — was inline styles on `banner-container`/`banner-content`
+   in page.tsx (heroVisual only). Moved to classes here so responsive overrides can beat them
+   without fighting inline style specificity. Values below are pixel-equivalent to the old
+   inline styles at desktop widths; only the ≤991px block changes the layout. */
+.hero-banner-container {
+  position: absolute;
+  left: max(28px, 5vw);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+.hero-banner-content {
+  display: block;
+  width: auto;
+  margin: 0;
+  border: none;
+  padding-top: 0;
+}
+
 /* 3D hero card — a dark glass panel matching the nav (--surface-90) + blur. Builds on
    .solving-card (hairline border, hard edges); adds a generous premium padding + the
    post-flight reveal (flight-done set by Hero3D). */
@@ -39,6 +61,9 @@
   -webkit-backdrop-filter: blur(36px) saturate(1.15);
   backdrop-filter: blur(36px) saturate(1.15);
   box-shadow: 0 24px 60px var(--dark-50);
+  text-align: left;
+  align-items: flex-start;
+  margin: 0;
   opacity: 0;
   transform: translateY(28px) scale(0.985);
   transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -113,7 +138,78 @@ body.flight-done .hero-card { opacity: 1; transform: none; }
   .hero-card { max-width: 700px; padding: 46px 50px 50px; }
   .hero-card .banner-title { font-size: 4rem; }
 }
-/* tablet/mobile guard — let the headline wrap so nowrap never overflows */
+/* ── Tablet + mobile hero (≤991px) ────────────────────────────────────────
+   The 3D scene stays the star in the upper portion; the card becomes a
+   bottom-anchored, near-full-width panel over it. Headline switches from
+   nowrap to a wrapping, scaled-down clamp. Everything below is scoped under
+   .hero-banner-container / .hero-card so the live "/" hero (no heroVisual,
+   its own Webflow mobile rules in wowdesign-miami.css) is untouched. */
 @media (max-width: 991px) {
-  .hero-card .banner-title { white-space: normal; font-size: 3.4rem; }
+  .hero-banner-container {
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: max(24px, 3vh);
+    transform: none;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  .hero-banner-content { width: 100%; }
+  .hero-card {
+    max-width: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 34px 30px 36px;
+  }
+  .hero-card .banner-title {
+    white-space: normal;
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+  }
+  .hero-card .banner-description-text {
+    max-width: none;
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+  .hero-proof {
+    margin-top: 24px;
+    padding-top: 20px;
+    gap: 8px 20px;
+  }
+}
+
+/* ── Phones (≤767px) ─────────────────────────────────────────────────────
+   CTAs stack full-width for comfortable tap targets; proof strip loosens
+   its wrap. */
+@media (max-width: 767px) {
+  .hero-banner-container { bottom: max(20px, 2.5vh); padding: 0 16px; }
+  .hero-card { padding: 28px 24px 28px; }
+  .hero-card .banner-title { font-size: 2.6rem; margin-bottom: 16px; }
+  .hero-card .banner-description-text { font-size: 0.98rem; }
+  .hero-card .banner-button-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+  }
+  .hero-card .primary-button-wrapper { display: block; width: 100%; }
+  .hero-card .primary-button-border-wrap { width: 100%; box-sizing: border-box; }
+  .hero-card .inner-button { display: block; width: 100%; box-sizing: border-box; text-align: center; }
+  .hero-card .inner-button-wrap { width: 100%; box-sizing: border-box; }
+}
+
+/* ── Small phones (≤479px) ───────────────────────────────────────────────
+   Proof strip becomes a compact stacked column for readability at this
+   width; card padding tightens further. */
+@media (max-width: 479px) {
+  .hero-banner-container { bottom: max(16px, 2vh); padding: 0 14px; }
+  .hero-card { padding: 24px 20px 24px; }
+  .hero-card .banner-title { font-size: 2.4rem; }
+  .hero-card .banner-description-text { font-size: 0.92rem; }
+  .hero-proof {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 }

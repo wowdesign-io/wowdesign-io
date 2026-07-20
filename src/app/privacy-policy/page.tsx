@@ -1,8 +1,11 @@
 import Script from 'next/script'
 
-export const metadata = {
-  title: "Privacy Policy",
-  description: "",
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description: 'wowdesign privacy policy',
+  alternates: { canonical: 'https://www.wowdesign.io/privacy-policy' },
 }
 
 export default function PrivacyPolicyPage() {

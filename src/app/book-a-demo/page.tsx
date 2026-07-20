@@ -1,8 +1,11 @@
 import Script from 'next/script'
+import type { Metadata } from 'next'
 
-export const metadata = {
-  title: "Book A Demo | wowdesign",
-  description: "See the presales system live — the website, the digital twin, and the automated follow-up in a 30-minute walkthrough on a live project.",
+export const metadata: Metadata = {
+  title: 'Book A Demo',
+  description:
+    'See the presales system live — the website, the digital twin, and the automated follow-up in a 30-minute walkthrough on a live project.',
+  alternates: { canonical: 'https://www.wowdesign.io/book-a-demo' },
 }
 
 export default function BookADemoPage() {

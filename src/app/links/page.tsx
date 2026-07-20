@@ -1,8 +1,11 @@
 import Script from 'next/script'
+import type { Metadata } from 'next'
 
-export const metadata = {
-  title: "Links",
-  description: "",
+export const metadata: Metadata = {
+  title: 'Links',
+  description: 'wowdesign links',
+  robots: { index: false, follow: false },
+  alternates: { canonical: 'https://www.wowdesign.io/links' },
 }
 
 export default function LinksPage() {
