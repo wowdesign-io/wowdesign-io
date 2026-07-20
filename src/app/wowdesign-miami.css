@@ -3506,6 +3506,11 @@ figure {
   border-right: 1px solid #ffffff14;
 }
 
+/* Mateo cutout sits higher in-frame than the other portraits — nudge down to share the row baseline */
+.team-member-single.five .team-member-image {
+  top: 36px;
+}
+
 .team-member-image-wrap {
   border: 1px solid #ffffff1a;
   border-radius: 100%;
