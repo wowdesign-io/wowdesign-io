@@ -3576,6 +3576,16 @@ figure {
 .team-member-shape {
   position: absolute;
   inset: 0%;
+  /* Beat Webflow IX2: glow was flashing in on scroll/load; keep it hover-only */
+  opacity: 0 !important;
+  transform: translate3d(0, -101%, 0) scale3d(1, 1, 1) !important;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
+.team-member-single:hover .team-member-shape {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) scale3d(1, 1, 1) !important;
 }
 
 .team-member-line.top-left {
