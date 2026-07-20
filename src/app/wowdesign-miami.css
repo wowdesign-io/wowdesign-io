@@ -3511,6 +3511,12 @@ figure {
   top: 36px;
 }
 
+/* Sofia fills the circle more tightly than neighbors — scale down slightly to match */
+.team-member-single.three .team-member-image {
+  transform: scale(0.88);
+  transform-origin: center bottom;
+}
+
 .team-member-image-wrap {
   border: 1px solid #ffffff1a;
   border-radius: 100%;
