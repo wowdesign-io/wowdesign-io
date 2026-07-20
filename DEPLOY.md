@@ -11,7 +11,9 @@ Never test WIP on production. Use **staging → then main**.
 
 Fallback staging URL (any Preview deploy): the unique `*.vercel.app` link from the Vercel dashboard / CLI after push.
 
-## Daily workflow
+## Daily workflow (always preview first)
+
+**Rule:** Push every change to `staging` first. Andy opens the staging URL in Cursor’s browser (Design Mode OK for quick polish). **Only after Andy approves** merge/push to `main` → production.
 
 ```bash
 git checkout staging
@@ -25,8 +27,8 @@ git push origin staging
 ```
 
 1. Wait for the Preview deploy to finish in Vercel  
-2. Test on the staging URL (not wowdesign.io)  
-3. When happy:
+2. Test on the staging URL in Cursor browser / Design Mode (not wowdesign.io)  
+3. When Andy says ship / approved:
 
 ```bash
 git checkout main
@@ -35,7 +37,7 @@ git merge staging
 git push origin main
 ```
 
-That updates **production** only.
+That updates **production** only. Never push WIP straight to `main`.
 
 ## One-time Vercel Domains setup
 
