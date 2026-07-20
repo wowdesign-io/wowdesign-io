@@ -2518,10 +2518,11 @@ figure {
 }
 
 .community-spotlight-top-images {
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
+  column-gap: 28px;
   width: 100%;
-  max-width: 720px;
+  max-width: 420px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -2529,32 +2530,29 @@ figure {
   inset: auto auto 128px;
 }
 
-/* Top row arc (5 logos) — same smile shape as original 7 */
+/* Top row arc (4 logos) */
 .community-spotlight-top-images .community-spotlight-image._1 {
   margin-top: 0;
 }
 
 .community-spotlight-top-images .community-spotlight-image._2 {
-  margin-top: 48px;
+  margin-top: 40px;
 }
 
 .community-spotlight-top-images .community-spotlight-image._3 {
-  margin-top: 72px;
+  margin-top: 40px;
 }
 
 .community-spotlight-top-images .community-spotlight-image._4 {
-  margin-top: 48px;
-}
-
-.community-spotlight-top-images .community-spotlight-image._5 {
   margin-top: 0;
 }
 
 .community-spotlight-bottom-images {
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
+  column-gap: 22px;
   width: 100%;
-  max-width: 980px;
+  max-width: 640px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -2562,25 +2560,29 @@ figure {
   inset: auto auto 7px;
 }
 
-/* Bottom row arc (5 logos) — original smile depths */
-.community-spotlight-bottom-images .community-spotlight-image._9 {
-  margin-top: 84px;
+/* Bottom row arc (6 logos) — packed smile */
+.community-spotlight-bottom-images .community-spotlight-image._8 {
+  margin-top: 70px;
+}
+
+.community-spotlight-bottom-images .community-spotlight-image._10 {
+  margin-top: 140px;
 }
 
 .community-spotlight-bottom-images .community-spotlight-image._11 {
-  margin-top: 185px;
+  margin-top: 195px;
 }
 
 .community-spotlight-bottom-images .community-spotlight-image._13 {
-  margin-top: 216px;
+  margin-top: 195px;
 }
 
 .community-spotlight-bottom-images .community-spotlight-image._15 {
-  margin-top: 185px;
+  margin-top: 140px;
 }
 
 .community-spotlight-bottom-images .community-spotlight-image._17 {
-  margin-top: 84px;
+  margin-top: 70px;
 }
 
 .community-spotlight-shape {
@@ -10327,39 +10329,38 @@ figure {
   }
 
   .community-spotlight-top-images {
-    max-width: 520px;
+    max-width: 320px;
     bottom: 100px;
+    column-gap: 18px;
   }
 
   .community-spotlight-bottom-images {
-    max-width: 680px;
+    max-width: 480px;
+    column-gap: 14px;
   }
 
   .community-spotlight-image {
-    max-width: 70px;
+    max-width: 64px;
   }
 
   .community-spotlight-top-images .community-spotlight-image._2,
-  .community-spotlight-top-images .community-spotlight-image._4 {
+  .community-spotlight-top-images .community-spotlight-image._3 {
     margin-top: 28px;
   }
 
-  .community-spotlight-top-images .community-spotlight-image._3 {
-    margin-top: 44px;
+  .community-spotlight-bottom-images .community-spotlight-image._8,
+  .community-spotlight-bottom-images .community-spotlight-image._17 {
+    margin-top: 40px;
   }
 
-  .community-spotlight-bottom-images .community-spotlight-image._9,
-  .community-spotlight-bottom-images .community-spotlight-image._17 {
-    margin-top: 48px;
+  .community-spotlight-bottom-images .community-spotlight-image._10,
+  .community-spotlight-bottom-images .community-spotlight-image._15 {
+    margin-top: 90px;
   }
 
   .community-spotlight-bottom-images .community-spotlight-image._11,
-  .community-spotlight-bottom-images .community-spotlight-image._15 {
-    margin-top: 110px;
-  }
-
   .community-spotlight-bottom-images .community-spotlight-image._13 {
-    margin-top: 130px;
+    margin-top: 120px;
   }
 
   .community-spotlight-shape {
@@ -12504,39 +12505,38 @@ figure {
   }
 
   .community-spotlight-top-images {
-    max-width: 380px;
+    max-width: 260px;
     bottom: 80px;
+    column-gap: 14px;
   }
 
   .community-spotlight-bottom-images {
-    max-width: 500px;
+    max-width: 400px;
+    column-gap: 10px;
   }
 
   .community-spotlight-image {
-    max-width: 52px;
+    max-width: 48px;
   }
 
   .community-spotlight-top-images .community-spotlight-image._2,
-  .community-spotlight-top-images .community-spotlight-image._4 {
+  .community-spotlight-top-images .community-spotlight-image._3 {
     margin-top: 20px;
   }
 
-  .community-spotlight-top-images .community-spotlight-image._3 {
-    margin-top: 32px;
+  .community-spotlight-bottom-images .community-spotlight-image._8,
+  .community-spotlight-bottom-images .community-spotlight-image._17 {
+    margin-top: 28px;
   }
 
-  .community-spotlight-bottom-images .community-spotlight-image._9,
-  .community-spotlight-bottom-images .community-spotlight-image._17 {
-    margin-top: 36px;
+  .community-spotlight-bottom-images .community-spotlight-image._10,
+  .community-spotlight-bottom-images .community-spotlight-image._15 {
+    margin-top: 64px;
   }
 
   .community-spotlight-bottom-images .community-spotlight-image._11,
-  .community-spotlight-bottom-images .community-spotlight-image._15 {
-    margin-top: 80px;
-  }
-
   .community-spotlight-bottom-images .community-spotlight-image._13 {
-    margin-top: 96px;
+    margin-top: 88px;
   }
 
   .community-spotlight-shape {
