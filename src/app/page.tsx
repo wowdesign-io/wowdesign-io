@@ -105,7 +105,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
             </div>
             <div className="banner-title-description">
               <h1 className="banner-title">Sell Out Faster.</h1>
-              <p className="banner-description-text">Keep $400k+ that usually funds the bank. Built for 10–50 unit teams — buyers explore every unit from their phone, and your team knows who’s ready to buy.</p>
+              <p className="banner-description-text">Keep $400k+ that usually funds the bank. Built for boutique real estate developers with 10–50 unit projects — buyers explore every unit from their phone, and your team knows who’s ready to buy.</p>
             </div>
             <div className="banner-button-wrapper">
               <div className="primary-button-wrapper">
