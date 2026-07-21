@@ -10323,7 +10323,7 @@ figure {
   .community-spotlight-top-images {
     width: calc(100% * 4 / 6);
     max-width: calc(100% * 4 / 6);
-    bottom: calc(100vw / 6 * 1.2 + 6px);
+    bottom: calc(100vw / 6 * 1.05 + 2px);
   }
 
   .community-spotlight-bottom-images {
@@ -12512,7 +12512,7 @@ figure {
   }
 
   .community-spotlight-top-images {
-    bottom: calc(100vw / 6 * 1.2 + 4px);
+    bottom: calc(100vw / 6 * 1.05 + 2px);
   }
 
   .community-spotlight-bottom-images {
