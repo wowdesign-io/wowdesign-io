@@ -7,7 +7,7 @@ import JsonLd from '@/components/JsonLd'
 const SITE = 'https://www.wowdesign.io'
 const TITLE = 'Sell Out Faster | Presales System for Boutique Real Estate Developers'
 const DESCRIPTION =
-  "Boutique developers close 31% faster with wowdesign — we build the website, the digital twin, and the automated follow-up system, so your team always knows who's ready to buy."
+  "Boutique developers keep $400k+ that usually goes to the bank — we build the website, the digital twin, and the automated follow-up system, so your team always knows who's ready to buy."
 const OG_IMAGE = '/images/open-graph-img-en.png'
 
 export const viewport: Viewport = {

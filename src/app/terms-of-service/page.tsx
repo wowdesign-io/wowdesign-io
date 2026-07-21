@@ -251,7 +251,7 @@ export default function TermsOfServicePage() {
               <div className="footer-information-single">
                 <div className="footer-logo-description">
                   <a href="/" className="footer-logo-link-block w-inline-block"><img src="/images/wow-design-color-logo-dark.svg" loading="lazy" alt="" className="footer-logo-image" /></a>
-                  <p className="footer-description-text">We build the website, the digital twin, and the automated follow-up system — so boutique developers sell out 31% faster.</p>
+                  <p className="footer-description-text">We build the website, the digital twin, and the automated follow-up system — so boutique developers keep $400k+ by selling out faster.</p>
                 </div>
               </div>
               <div className="footer-information-details">

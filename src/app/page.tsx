@@ -105,7 +105,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
             </div>
             <div className="banner-title-description">
               <h1 className="banner-title">Sell Out Faster.</h1>
-              <p className="banner-description-text">Boutique developers close 31% faster with wowdesign — we build the website, the digital twin, and the automated follow-up system, so your team always knows who’s ready to buy.</p>
+              <p className="banner-description-text">Boutique developers keep $400k+ that usually goes to the bank — we build the website, the digital twin, and the automated follow-up system, so your team always knows who’s ready to buy.</p>
             </div>
             <div className="banner-button-wrapper">
               <div className="primary-button-wrapper">
@@ -175,7 +175,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
             </div>
             {heroVisual && (
               <div className="hero-proof">
-                <div className="hero-proof-item"><span className="hero-proof-num">31%</span> faster sell-out</div>
+                <div className="hero-proof-item"><span className="hero-proof-num">$400k+</span> kept on sell-out</div>
                 <div className="hero-proof-item"><span className="hero-proof-num">49%</span> more qualified leads</div>
                 <div className="hero-proof-item"><span className="hero-proof-num">3&times;</span> buyer engagement</div>
               </div>
@@ -2167,7 +2167,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
               <div className="footer-information-single">
                 <div className="footer-logo-description">
                   <a href="/" aria-current="page" className="footer-logo-link-block w-inline-block w--current"><img src="/images/wow-design-color-logo-dark.svg" loading="lazy" alt="" className="footer-logo-image" /></a>
-                  <p className="footer-description-text">We build the website, the digital twin, and the automated follow-up system — so boutique developers sell out 31% faster.</p>
+                  <p className="footer-description-text">We build the website, the digital twin, and the automated follow-up system — so boutique developers keep $400k+ by selling out faster.</p>
                 </div>
               </div>
               <div className="footer-information-details">

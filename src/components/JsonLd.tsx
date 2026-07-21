@@ -6,7 +6,7 @@ const schema = {
   '@type': 'WebPage',
   name: 'Sell Out Faster | Presales System for Boutique Real Estate Developers',
   description:
-    "Boutique developers close 31% faster with wowdesign. We build the presales system — website, digital twin, and automated follow-up — so your team always knows who's ready to buy.",
+    "Boutique developers keep $400k+ that usually goes to the bank. We build the presales system — website, digital twin, and automated follow-up — so your team always knows who's ready to buy.",
   url: SITE,
   inLanguage: 'en',
   about: {
@@ -14,7 +14,7 @@ const schema = {
     name: 'wowdesign',
     legalName: 'wowdesign LLC',
     description:
-      'We build the website, the digital twin, and the automated follow-up system — so boutique developers sell out 31% faster.',
+      'We build the website, the digital twin, and the automated follow-up system — so boutique developers keep $400k+ by selling out faster.',
     url: SITE,
     logo: {
       '@type': 'ImageObject',
