@@ -2040,6 +2040,34 @@ figure {
   display: flex;
 }
 
+/* CSS marquee — Webflow IX a-18 is unreliable after Next hydration / script timing */
+.headline-section .headline-ticker-single {
+  width: max-content;
+  animation: headline-ticker-marquee 80s linear infinite;
+  will-change: transform;
+}
+
+.headline-section .headline-ticker-inner-ticker {
+  /* Neutralize IX inline transforms so CSS owns the motion */
+  transform: none !important;
+}
+
+@keyframes headline-ticker-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    /* 3 identical strips — shift by one strip width for a seamless loop */
+    transform: translate3d(-33.333%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .headline-section .headline-ticker-single {
+    animation: none;
+  }
+}
+
 .footer-ticker-name {
   color: var(--dark-bg);
   letter-spacing: -5.2px;
