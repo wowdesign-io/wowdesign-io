@@ -10314,13 +10314,10 @@ figure {
 
   .community-spotlight-image-wrap {
     margin-top: 0;
-    /* cancel content 15px pad, then keep a comfortable inset from screen edges */
     width: calc(100% + 30px);
     max-width: none;
     margin-left: -15px;
     margin-right: -15px;
-    padding-left: 28px;
-    padding-right: 28px;
     box-sizing: border-box;
   }
 
@@ -10329,14 +10326,22 @@ figure {
   }
 
   .community-spotlight-top-images {
-    width: calc(100% * 4 / 6);
-    max-width: calc(100% * 4 / 6);
+    left: calc(28px + (100% - 56px) / 6);
+    right: calc(28px + (100% - 56px) / 6);
+    width: auto;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
     bottom: calc(100vw / 6 * 1.0 + 2px);
   }
 
   .community-spotlight-bottom-images {
-    width: 100%;
-    max-width: 100%;
+    left: 28px;
+    right: 28px;
+    width: auto;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
     bottom: 6px;
   }
 
@@ -14616,14 +14621,10 @@ figure {
   }
 
   .community-spotlight-top-images {
-    width: calc(100% * 4 / 6);
-    max-width: calc(100% * 4 / 6);
     bottom: calc(100vw / 6 * 1.0 + 2px);
   }
 
   .community-spotlight-bottom-images {
-    width: 100%;
-    max-width: 100%;
     bottom: 2px;
   }
 
