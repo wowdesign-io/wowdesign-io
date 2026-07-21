@@ -2517,19 +2517,17 @@ figure {
   display: none;
 }
 
+/* Two rows share one smile: bottom wider, top nested — logos interleave like the original 18 */
 .community-spotlight-top-images {
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
-  column-gap: 10px;
-  width: max-content;
-  max-width: none;
+  width: 100%;
+  max-width: 480px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 210px;
+  inset: auto auto 128px;
   z-index: 2;
 }
 
@@ -2540,17 +2538,16 @@ figure {
   flex: 0 0 auto;
 }
 
-/* Top row — gentle dip, stays above bottom row */
 .community-spotlight-top-images .community-spotlight-image._1 {
   margin-top: 0;
 }
 
 .community-spotlight-top-images .community-spotlight-image._2 {
-  margin-top: 28px;
+  margin-top: 36px;
 }
 
 .community-spotlight-top-images .community-spotlight-image._3 {
-  margin-top: 28px;
+  margin-top: 36px;
 }
 
 .community-spotlight-top-images .community-spotlight-image._4 {
@@ -2558,18 +2555,15 @@ figure {
 }
 
 .community-spotlight-bottom-images {
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
-  column-gap: 8px;
-  width: max-content;
-  max-width: none;
+  width: 100%;
+  max-width: 640px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 28px;
+  inset: auto auto 7px;
   z-index: 2;
 }
 
@@ -2580,29 +2574,29 @@ figure {
   flex: 0 0 auto;
 }
 
-/* Bottom row — compact smile, does NOT climb into top row */
+/* Bottom smile — deep enough to weave under top row, not so deep it stacks */
 .community-spotlight-bottom-images .community-spotlight-image._8 {
-  margin-top: 8px;
+  margin-top: 42px;
 }
 
 .community-spotlight-bottom-images .community-spotlight-image._10 {
-  margin-top: 36px;
+  margin-top: 100px;
 }
 
 .community-spotlight-bottom-images .community-spotlight-image._11 {
-  margin-top: 58px;
+  margin-top: 148px;
 }
 
 .community-spotlight-bottom-images .community-spotlight-image._13 {
-  margin-top: 58px;
+  margin-top: 148px;
 }
 
 .community-spotlight-bottom-images .community-spotlight-image._15 {
-  margin-top: 36px;
+  margin-top: 100px;
 }
 
 .community-spotlight-bottom-images .community-spotlight-image._17 {
-  margin-top: 8px;
+  margin-top: 42px;
 }
 
 .community-spotlight-shape {
@@ -10349,13 +10343,12 @@ figure {
   }
 
   .community-spotlight-top-images {
-    bottom: 160px;
-    column-gap: 8px;
+    max-width: 360px;
+    bottom: 100px;
   }
 
   .community-spotlight-bottom-images {
-    bottom: 20px;
-    column-gap: 6px;
+    max-width: 480px;
   }
 
   .community-spotlight-top-images .community-spotlight-image,
@@ -10367,22 +10360,22 @@ figure {
 
   .community-spotlight-top-images .community-spotlight-image._2,
   .community-spotlight-top-images .community-spotlight-image._3 {
-    margin-top: 20px;
+    margin-top: 28px;
   }
 
   .community-spotlight-bottom-images .community-spotlight-image._8,
   .community-spotlight-bottom-images .community-spotlight-image._17 {
-    margin-top: 6px;
+    margin-top: 28px;
   }
 
   .community-spotlight-bottom-images .community-spotlight-image._10,
   .community-spotlight-bottom-images .community-spotlight-image._15 {
-    margin-top: 28px;
+    margin-top: 72px;
   }
 
   .community-spotlight-bottom-images .community-spotlight-image._11,
   .community-spotlight-bottom-images .community-spotlight-image._13 {
-    margin-top: 44px;
+    margin-top: 108px;
   }
 
   .community-spotlight-shape {
@@ -12527,13 +12520,12 @@ figure {
   }
 
   .community-spotlight-top-images {
-    bottom: 130px;
-    column-gap: 6px;
+    max-width: 280px;
+    bottom: 80px;
   }
 
   .community-spotlight-bottom-images {
-    bottom: 16px;
-    column-gap: 5px;
+    max-width: 380px;
   }
 
   .community-spotlight-top-images .community-spotlight-image,
@@ -12545,22 +12537,22 @@ figure {
 
   .community-spotlight-top-images .community-spotlight-image._2,
   .community-spotlight-top-images .community-spotlight-image._3 {
-    margin-top: 14px;
+    margin-top: 20px;
   }
 
   .community-spotlight-bottom-images .community-spotlight-image._8,
   .community-spotlight-bottom-images .community-spotlight-image._17 {
-    margin-top: 4px;
+    margin-top: 20px;
   }
 
   .community-spotlight-bottom-images .community-spotlight-image._10,
   .community-spotlight-bottom-images .community-spotlight-image._15 {
-    margin-top: 20px;
+    margin-top: 52px;
   }
 
   .community-spotlight-bottom-images .community-spotlight-image._11,
   .community-spotlight-bottom-images .community-spotlight-image._13 {
-    margin-top: 32px;
+    margin-top: 78px;
   }
 
   .community-spotlight-shape {
@@ -14632,13 +14624,12 @@ figure {
   }
 
   .community-spotlight-top-images {
-    bottom: 100px;
-    column-gap: 4px;
+    max-width: 200px;
+    bottom: 62px;
   }
 
   .community-spotlight-bottom-images {
-    bottom: 12px;
-    column-gap: 4px;
+    max-width: 280px;
   }
 
   .community-spotlight-top-images .community-spotlight-image,
@@ -14650,22 +14641,22 @@ figure {
 
   .community-spotlight-top-images .community-spotlight-image._2,
   .community-spotlight-top-images .community-spotlight-image._3 {
-    margin-top: 10px;
+    margin-top: 14px;
   }
 
   .community-spotlight-bottom-images .community-spotlight-image._8,
   .community-spotlight-bottom-images .community-spotlight-image._17 {
-    margin-top: 2px;
+    margin-top: 14px;
   }
 
   .community-spotlight-bottom-images .community-spotlight-image._10,
   .community-spotlight-bottom-images .community-spotlight-image._15 {
-    margin-top: 14px;
+    margin-top: 36px;
   }
 
   .community-spotlight-bottom-images .community-spotlight-image._11,
   .community-spotlight-bottom-images .community-spotlight-image._13 {
-    margin-top: 22px;
+    margin-top: 52px;
   }
 
   .community-spotlight-shape {
