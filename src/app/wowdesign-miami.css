@@ -2528,16 +2528,16 @@ figure {
   margin-right: auto;
   display: flex;
   position: absolute;
-  inset: auto auto 148px;
+  inset: auto auto 100px;
   z-index: 2;
 }
 
 .community-spotlight-image._2 {
-  margin-top: 32px;
+  margin-top: 28px;
 }
 
 .community-spotlight-image._3 {
-  margin-top: 32px;
+  margin-top: 28px;
 }
 
 .community-spotlight-bottom-images {
@@ -2554,27 +2554,27 @@ figure {
 }
 
 .community-spotlight-image._8 {
-  margin-top: 20px;
+  margin-top: 8px;
 }
 
 .community-spotlight-image._9 {
-  margin-top: 56px;
+  margin-top: 40px;
 }
 
 .community-spotlight-image._10 {
-  margin-top: 84px;
+  margin-top: 64px;
 }
 
 .community-spotlight-image._11 {
-  margin-top: 84px;
+  margin-top: 64px;
 }
 
 .community-spotlight-image._12 {
-  margin-top: 56px;
+  margin-top: 40px;
 }
 
 .community-spotlight-image._13 {
-  margin-top: 20px;
+  margin-top: 8px;
 }
 
 .community-spotlight-shape {
@@ -10322,7 +10322,7 @@ figure {
 
   .community-spotlight-top-images {
     max-width: 340px;
-    bottom: 120px;
+    bottom: 78px;
   }
 
   .community-spotlight-bottom-images {
@@ -10335,22 +10335,22 @@ figure {
 
   .community-spotlight-image._2,
   .community-spotlight-image._3 {
-    margin-top: 22px;
+    margin-top: 18px;
   }
 
   .community-spotlight-image._8,
   .community-spotlight-image._13 {
-    margin-top: 14px;
+    margin-top: 6px;
   }
 
   .community-spotlight-image._9,
   .community-spotlight-image._12 {
-    margin-top: 40px;
+    margin-top: 28px;
   }
 
   .community-spotlight-image._10,
   .community-spotlight-image._11 {
-    margin-top: 60px;
+    margin-top: 44px;
   }
 
   .community-spotlight-shape {
@@ -12496,7 +12496,7 @@ figure {
 
   .community-spotlight-top-images {
     max-width: 260px;
-    bottom: 95px;
+    bottom: 72px;
   }
 
   .community-spotlight-bottom-images {
@@ -12509,22 +12509,22 @@ figure {
 
   .community-spotlight-image._2,
   .community-spotlight-image._3 {
-    margin-top: 16px;
+    margin-top: 12px;
   }
 
   .community-spotlight-image._8,
   .community-spotlight-image._13 {
-    margin-top: 10px;
+    margin-top: 4px;
   }
 
   .community-spotlight-image._9,
   .community-spotlight-image._12 {
-    margin-top: 30px;
+    margin-top: 22px;
   }
 
   .community-spotlight-image._10,
   .community-spotlight-image._11 {
-    margin-top: 46px;
+    margin-top: 34px;
   }
 
   .community-spotlight-shape {
@@ -14596,12 +14596,12 @@ figure {
   }
 
   .community-spotlight-top-images {
-    max-width: 240px;
+    max-width: 200px;
     bottom: 72px;
   }
 
   .community-spotlight-bottom-images {
-    max-width: 320px;
+    max-width: 300px;
   }
 
   .community-spotlight-image {
@@ -14609,26 +14609,23 @@ figure {
   }
 
   .community-spotlight-image._2,
-  .community-spotlight-image._4 {
+  .community-spotlight-image._3 {
     margin-top: 12px;
   }
 
-  .community-spotlight-image._3 {
-    margin-top: 18px;
-  }
-
   .community-spotlight-image._8,
-  .community-spotlight-image._12 {
+  .community-spotlight-image._13 {
     margin-top: 8px;
   }
 
   .community-spotlight-image._9,
-  .community-spotlight-image._11 {
-    margin-top: 24px;
+  .community-spotlight-image._12 {
+    margin-top: 22px;
   }
 
-  .community-spotlight-image._10 {
-    margin-top: 34px;
+  .community-spotlight-image._10,
+  .community-spotlight-image._11 {
+    margin-top: 32px;
   }
 
   .community-spotlight-shape {
