@@ -10321,36 +10321,39 @@ figure {
   }
 
   .community-spotlight-top-images {
-    max-width: 340px;
-    bottom: 100px;
+    max-width: 280px;
+    bottom: 78px;
   }
 
   .community-spotlight-bottom-images {
-    max-width: 520px;
+    max-width: 420px;
   }
 
   .community-spotlight-image {
-    max-width: 74px;
+    width: 64px;
+    height: 64px;
+    max-width: 64px;
+    min-width: 64px;
   }
 
   .community-spotlight-image._2,
   .community-spotlight-image._3 {
-    margin-top: 18px;
+    margin-top: 14px;
   }
 
   .community-spotlight-image._8,
   .community-spotlight-image._13 {
-    margin-top: 8px;
+    margin-top: 6px;
   }
 
   .community-spotlight-image._9,
   .community-spotlight-image._12 {
-    margin-top: 26px;
+    margin-top: 22px;
   }
 
   .community-spotlight-image._10,
   .community-spotlight-image._11 {
-    margin-top: 40px;
+    margin-top: 34px;
   }
 
   .community-spotlight-shape {
@@ -12495,36 +12498,39 @@ figure {
   }
 
   .community-spotlight-top-images {
-    max-width: 260px;
-    bottom: 78px;
+    max-width: 210px;
+    bottom: 58px;
   }
 
   .community-spotlight-bottom-images {
-    max-width: 400px;
+    max-width: 320px;
   }
 
   .community-spotlight-image {
-    max-width: 55px;
+    width: 48px;
+    height: 48px;
+    max-width: 48px;
+    min-width: 48px;
   }
 
   .community-spotlight-image._2,
   .community-spotlight-image._3 {
-    margin-top: 12px;
+    margin-top: 10px;
   }
 
   .community-spotlight-image._8,
   .community-spotlight-image._13 {
-    margin-top: 6px;
+    margin-top: 4px;
   }
 
   .community-spotlight-image._9,
   .community-spotlight-image._12 {
-    margin-top: 20px;
+    margin-top: 16px;
   }
 
   .community-spotlight-image._10,
   .community-spotlight-image._11 {
-    margin-top: 30px;
+    margin-top: 24px;
   }
 
   .community-spotlight-shape {
@@ -14596,16 +14602,19 @@ figure {
   }
 
   .community-spotlight-top-images {
-    max-width: 200px;
-    bottom: 60px;
+    max-width: 176px;
+    bottom: 50px;
   }
 
   .community-spotlight-bottom-images {
-    max-width: 300px;
+    max-width: 264px;
   }
 
   .community-spotlight-image {
-    max-width: 42px;
+    width: 40px;
+    height: 40px;
+    max-width: 40px;
+    min-width: 40px;
   }
 
   .community-spotlight-image._2,
@@ -14615,17 +14624,17 @@ figure {
 
   .community-spotlight-image._8,
   .community-spotlight-image._13 {
-    margin-top: 4px;
+    margin-top: 2px;
   }
 
   .community-spotlight-image._9,
   .community-spotlight-image._12 {
-    margin-top: 14px;
+    margin-top: 12px;
   }
 
   .community-spotlight-image._10,
   .community-spotlight-image._11 {
-    margin-top: 22px;
+    margin-top: 18px;
   }
 
   .community-spotlight-shape {
