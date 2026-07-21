@@ -2513,15 +2513,7 @@ figure {
   min-height: 488px;
 }
 
-/* 5 top / 5 bottom — same smile idea as prod, scaled for fewer logos, no overlaps */
-.community-spotlight-image {
-  width: 74px;
-  height: 74px;
-  max-width: 74px;
-  flex: 0 0 auto;
-  object-fit: contain;
-}
-
+/* 5 top / 5 bottom — prod circle sizes untouched; only arc positions scaled */
 .community-spotlight-top-images {
   justify-content: space-between;
   align-items: flex-start;
@@ -10333,9 +10325,7 @@ figure {
   }
 
   .community-spotlight-image {
-    width: 60px;
-    height: 60px;
-    max-width: 60px;
+    max-width: 74px;
   }
 
   .community-spotlight-image._2,
@@ -12512,9 +12502,7 @@ figure {
   }
 
   .community-spotlight-image {
-    width: 48px;
-    height: 48px;
-    max-width: 48px;
+    max-width: 55px;
   }
 
   .community-spotlight-image._2,
@@ -14618,9 +14606,7 @@ figure {
   }
 
   .community-spotlight-image {
-    width: 40px;
-    height: 40px;
-    max-width: 40px;
+    max-width: 42px;
   }
 
   .community-spotlight-image._2,
