@@ -2513,7 +2513,7 @@ figure {
   min-height: 488px;
 }
 
-/* 5 top / 5 bottom — natural SVG size (120px), no shrink; bottom wider like prod */
+/* 4 top / 6 bottom — natural SVG size, no shrink; bottom wider like prod */
 .community-spotlight-image {
   flex-shrink: 0;
   display: block;
@@ -2523,7 +2523,7 @@ figure {
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  max-width: 600px;
+  max-width: 480px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -2533,22 +2533,18 @@ figure {
 }
 
 .community-spotlight-image._2 {
-  margin-top: 28px;
+  margin-top: 32px;
 }
 
 .community-spotlight-image._3 {
-  margin-top: 44px;
-}
-
-.community-spotlight-image._4 {
-  margin-top: 28px;
+  margin-top: 32px;
 }
 
 .community-spotlight-bottom-images {
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  max-width: 760px;
+  max-width: 720px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -2558,23 +2554,27 @@ figure {
 }
 
 .community-spotlight-image._8 {
-  margin-top: 24px;
+  margin-top: 20px;
 }
 
 .community-spotlight-image._9 {
-  margin-top: 68px;
+  margin-top: 56px;
 }
 
 .community-spotlight-image._10 {
-  margin-top: 96px;
+  margin-top: 84px;
 }
 
 .community-spotlight-image._11 {
-  margin-top: 68px;
+  margin-top: 84px;
 }
 
 .community-spotlight-image._12 {
-  margin-top: 24px;
+  margin-top: 56px;
+}
+
+.community-spotlight-image._13 {
+  margin-top: 20px;
 }
 
 .community-spotlight-shape {
@@ -10321,12 +10321,12 @@ figure {
   }
 
   .community-spotlight-top-images {
-    max-width: 420px;
+    max-width: 340px;
     bottom: 120px;
   }
 
   .community-spotlight-bottom-images {
-    max-width: 540px;
+    max-width: 520px;
   }
 
   .community-spotlight-image {
@@ -10334,26 +10334,23 @@ figure {
   }
 
   .community-spotlight-image._2,
-  .community-spotlight-image._4 {
-    margin-top: 20px;
-  }
-
   .community-spotlight-image._3 {
-    margin-top: 32px;
+    margin-top: 22px;
   }
 
   .community-spotlight-image._8,
-  .community-spotlight-image._12 {
-    margin-top: 16px;
+  .community-spotlight-image._13 {
+    margin-top: 14px;
   }
 
   .community-spotlight-image._9,
-  .community-spotlight-image._11 {
-    margin-top: 44px;
+  .community-spotlight-image._12 {
+    margin-top: 40px;
   }
 
-  .community-spotlight-image._10 {
-    margin-top: 62px;
+  .community-spotlight-image._10,
+  .community-spotlight-image._11 {
+    margin-top: 60px;
   }
 
   .community-spotlight-shape {
@@ -12498,12 +12495,12 @@ figure {
   }
 
   .community-spotlight-top-images {
-    max-width: 320px;
+    max-width: 260px;
     bottom: 95px;
   }
 
   .community-spotlight-bottom-images {
-    max-width: 420px;
+    max-width: 400px;
   }
 
   .community-spotlight-image {
@@ -12511,26 +12508,23 @@ figure {
   }
 
   .community-spotlight-image._2,
-  .community-spotlight-image._4 {
+  .community-spotlight-image._3 {
     margin-top: 16px;
   }
 
-  .community-spotlight-image._3 {
-    margin-top: 26px;
-  }
-
   .community-spotlight-image._8,
-  .community-spotlight-image._12 {
-    margin-top: 12px;
+  .community-spotlight-image._13 {
+    margin-top: 10px;
   }
 
   .community-spotlight-image._9,
-  .community-spotlight-image._11 {
-    margin-top: 34px;
+  .community-spotlight-image._12 {
+    margin-top: 30px;
   }
 
-  .community-spotlight-image._10 {
-    margin-top: 48px;
+  .community-spotlight-image._10,
+  .community-spotlight-image._11 {
+    margin-top: 46px;
   }
 
   .community-spotlight-shape {
