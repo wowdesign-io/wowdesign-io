@@ -10314,6 +10314,10 @@ figure {
 
   .community-spotlight-image-wrap {
     margin-top: 0;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
   }
 
   .community-spotlight-image-bg-shape {
@@ -10323,7 +10327,7 @@ figure {
   .community-spotlight-top-images {
     width: calc(100% * 4 / 6);
     max-width: calc(100% * 4 / 6);
-    bottom: calc(100vw / 6 * 1.05 + 2px);
+    bottom: calc(100vw / 6 * 1.0 + 2px);
   }
 
   .community-spotlight-bottom-images {
@@ -12512,7 +12516,7 @@ figure {
   }
 
   .community-spotlight-top-images {
-    bottom: calc(100vw / 6 * 1.05 + 2px);
+    bottom: calc(100vw / 6 * 1.0 + 2px);
   }
 
   .community-spotlight-bottom-images {
@@ -14610,7 +14614,7 @@ figure {
   .community-spotlight-top-images {
     width: calc(100% * 4 / 6);
     max-width: calc(100% * 4 / 6);
-    bottom: calc(100vw / 6 * 1.2 + 2px);
+    bottom: calc(100vw / 6 * 1.0 + 2px);
   }
 
   .community-spotlight-bottom-images {
