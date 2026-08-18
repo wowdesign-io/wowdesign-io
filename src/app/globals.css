@@ -213,3 +213,21 @@ body.flight-done .hero-card { opacity: 1; transform: none; }
     gap: 8px;
   }
 }
+
+/* How it works card titles — h3 + heading-style-h6 inherits display-heading
+   tracking and a faded gradient. Pin size in px; solid white like Features. */
+#how-it-works .layout237_item h3.heading-style-h6 {
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  white-space: normal;
+  background-image: none;
+  -webkit-text-fill-color: #fff;
+  color: #fff;
+}
+@media (max-width: 479px) {
+  #how-it-works .layout237_item h3.heading-style-h6 {
+    font-size: 22px;
+  }
+}

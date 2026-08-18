@@ -1,0 +1,25 @@
+/* Card titles are h3.heading-style-h6 — they inherit display-heading
+   tracking and a faded gradient fill, and shrink with Webflow's fluid rem. */
+#how-it-works .layout237_item h3.heading-style-h6 {
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  white-space: normal;
+  background-image: none;
+  -webkit-text-fill-color: #fff;
+  color: #fff;
+}
+
+@media (max-width: 479px) {
+  #how-it-works .layout237_item h3.heading-style-h6 {
+    font-size: 22px;
+  }
+}
+
+/* Features sits under How it works; miami.css top pad is in source but the
+   preview bundle still serves padding-bottom only. */
+.section.solving { padding-top: 7rem; }
+@media screen and (max-width: 991px) { .section.solving { padding-top: 100px; } }
+@media screen and (max-width: 767px) { .section.solving { padding-top: 80px; } }
+@media screen and (max-width: 479px) { .section.solving { padding-top: 60px; } }

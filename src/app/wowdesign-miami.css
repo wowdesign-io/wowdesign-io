@@ -1254,6 +1254,7 @@ figure {
 
 .section.solving {
   background-color: var(--dark);
+  padding-top: 7rem;
   padding-bottom: 7rem;
   position: relative;
 }
@@ -7690,9 +7691,10 @@ figure {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
+  letter-spacing: -0.02em;
   font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 1.4;
+  font-weight: 500;
+  line-height: 1.3;
 }
 
 .text-size-large {
@@ -9890,7 +9892,12 @@ figure {
     padding-bottom: 6rem;
   }
 
-  .section.headline-section, .section.solving {
+  .section.headline-section {
+    padding-bottom: 100px;
+  }
+
+  .section.solving {
+    padding-top: 100px;
     padding-bottom: 100px;
   }
 
@@ -12178,6 +12185,7 @@ figure {
   }
 
   .section.solving {
+    padding-top: 80px;
     padding-bottom: 80px;
   }
 
@@ -14239,6 +14247,7 @@ figure {
   }
 
   .section.solving {
+    padding-top: 60px;
     padding-bottom: 60px;
   }
 
@@ -15968,7 +15977,9 @@ figure {
   }
 
   .heading-style-h6 {
-    font-size: 1.5rem;
+    font-size: 1.125rem;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
   }
 
   .text-style-tagline {
