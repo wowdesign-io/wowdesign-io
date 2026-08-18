@@ -6,7 +6,7 @@ const schema = {
   '@type': 'WebPage',
   name: 'Sell Out Faster | Presales System for Boutique Real Estate Developers',
   description:
-    "Boutique developers keep $400k+ that usually goes to the bank. We build the presales system — website, digital twin, and automated follow-up — so your team always knows who's ready to buy.",
+    "We help boutique real estate developers sell out faster, so they keep $400k+ that would otherwise go to the bank. Buyers explore every unit from their phone. Your team knows who's ready.",
   url: SITE,
   inLanguage: 'en',
   about: {
