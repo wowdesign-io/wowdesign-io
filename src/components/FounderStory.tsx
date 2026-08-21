@@ -8,14 +8,14 @@ type FounderPhoto = {
 }
 
 const colLeft: FounderPhoto[] = [
-  { src: '/images/founder/andy-founder-07-nanuk-bench.webp', alt: 'Andy Bittner with Nanuk', pos: 'pos-nanuk' },
   { src: '/images/founder/andy-founder-13-portrait.webp', alt: 'Andy Bittner, founder of wowdesign', pos: 'pos-portrait' },
+  { src: '/images/founder/andy-founder-07-nanuk-bench.webp', alt: 'Andy Bittner with Nanuk', pos: 'pos-nanuk' },
   { src: '/images/founder/andy-founder-09-mtb.webp', alt: 'Mountain bike ride at sunset', pos: 'pos-mtb' },
 ]
 
 const colRight: FounderPhoto[] = [
+  { src: '/images/founder/andy-founder-08-nanuk-water.webp', alt: 'Nanuk in the water', pos: 'pos-nanuk-water' },
   { src: '/images/founder/andy-founder-10-proptech.webp', alt: 'Andy Bittner at a PropTech conference', pos: 'pos-proptech' },
-  { src: '/images/founder/andy-founder-11-marlins.webp', alt: 'Andy Bittner at a Miami Marlins game', pos: 'pos-marlins' },
   { src: '/images/founder/andy-founder-12-bears.webp', alt: 'Andy Bittner at a Chicago Bears game', pos: 'pos-bears' },
 ]
 
@@ -70,8 +70,16 @@ export default function FounderStory() {
             </div>
           </div>
           <div className="founder-header-images">
-            <MarqueeColumn photos={colLeft} direction="up" />
-            <MarqueeColumn photos={colRight} direction="down" />
+            <div className="founder-images-frame">
+              <div className="founder-images-clip">
+                <MarqueeColumn photos={colLeft} direction="up" />
+                <MarqueeColumn photos={colRight} direction="down" />
+              </div>
+              <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="founder-frame-shape top-left" />
+              <img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="founder-frame-shape top-right" />
+              <img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="founder-frame-shape bottom-left" />
+              <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="founder-frame-shape bottom-right" />
+            </div>
           </div>
         </div>
       </div>

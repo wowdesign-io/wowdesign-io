@@ -1,0 +1,150 @@
+/* Contact form — scoped to /contact only.
+   Do NOT style bare .contact-us-wrapper — the Carry Cost Calc reuses that class. */
+
+.section.contact-us {
+  position: relative;
+  padding-top: 4rem;
+  padding-bottom: 7rem;
+}
+
+.section.contact-us > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.section.contact-us > .sky-container {
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+.section.contact-us .contact-us-wrapper {
+  width: 100%;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px 40px 36px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(13, 12, 32, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-sizing: border-box;
+}
+
+.section.contact-us .contact-us-form {
+  gap: 1.25rem;
+}
+
+.section.contact-us .contact-us-form-wrapper {
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.section.contact-us .contact-us-form-text-field {
+  color: #94a3b8;
+  margin-bottom: 8px;
+  font-family: Outfit, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.section.contact-us .contact-us-form-input-field,
+.section.contact-us .contact-us-textarea {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  transition: border-color 0.15s ease;
+}
+
+.section.contact-us .contact-us-form-input-field {
+  min-height: 48px;
+  padding: 0 14px;
+}
+
+.section.contact-us .contact-us-textarea {
+  min-height: 140px;
+  padding: 14px;
+  resize: vertical;
+}
+
+.section.contact-us .contact-us-form-input-field::placeholder,
+.section.contact-us .contact-us-textarea::placeholder {
+  color: #64748b;
+}
+
+.section.contact-us .contact-us-form-input-field:focus,
+.section.contact-us .contact-us-textarea:focus {
+  outline: none;
+  border-color: #2e77fa;
+}
+
+.section.contact-us .contact-us-form-submit-button {
+  color: #fff;
+  background-color: #2e77fa;
+  background-image: none;
+  border: 0;
+  border-radius: 0;
+  margin-top: 0.5rem;
+  padding: 14px 28px;
+  font-family: Outfit, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.section.contact-us .contact-us-form-submit-button:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+.section.contact-us .contact-us-form-submit-button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.section.contact-us .contact-us-alt {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.section.contact-us .contact-us-alt a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.section.contact-us .contact-us-status {
+  margin: 0.75rem 0 0;
+  color: #bebec1;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.section.contact-us .contact-us-status.is-error {
+  color: #ff6b8a;
+}
+
+@media screen and (max-width: 767px) {
+  .section.contact-us {
+    padding-top: 3rem;
+  }
+
+  .section.contact-us .contact-us-wrapper {
+    padding: 28px 20px;
+  }
+
+  .section.contact-us .contact-us-form-wrapper {
+    flex-direction: column;
+  }
+}

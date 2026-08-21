@@ -30,7 +30,7 @@ export default function TeamMembers({ anchorId = 'about', storyHref }: TeamMembe
               </div>
               <p className="text-size-medium">The team that builds the website, the live building, and the follow-up — so boutique developers sell out faster.</p>
               {storyHref ? (
-                <div className="banner-button-wrapper margin-top margin-small">
+                <div className="banner-button-wrapper margin-top margin-small" style={{ justifyContent: 'flex-start' }}>
                   <div className="primary-button-wrapper">
                     <InnerButton href={storyHref} label="The full story" cta="Home About - Story" />
                   </div>

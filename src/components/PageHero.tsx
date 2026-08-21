@@ -41,7 +41,7 @@ export default function PageHero({
     <section className="section inner-banner">
       <div className="inner-banner-content">
         <div className="inner-banner-wrapper">
-          <div className="container">
+          <div className="container" style={{ position: 'relative', zIndex: 1 }}>
             <div className="inner-banner-typography">
               <div className="inner-banner-subtitle-wrap">
                 <div className="tagline-container">

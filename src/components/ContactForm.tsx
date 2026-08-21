@@ -1,6 +1,7 @@
 'use client'
 
 import { FormEvent, useState } from 'react'
+import '@/app/contact-form.css'
 
 type Status = 'idle' | 'sending' | 'ok' | 'error'
 
@@ -42,15 +43,18 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="section contact-us">
+    <section id="contact-form" className="section contact-us">
       <div className="container">
         <div className="contact-us-wrapper">
           <div className="contact-us-form-block w-form">
             <form className="contact-us-form" onSubmit={onSubmit}>
               <div className="contact-us-form-wrapper">
                 <div className="contact-us-form-single">
-                  <div className="contact-us-form-text-field">Name</div>
+                  <label className="contact-us-form-text-field" htmlFor="contact-name">
+                    Name
+                  </label>
                   <input
+                    id="contact-name"
                     className="contact-us-form-input-field w-input"
                     maxLength={256}
                     name="name"
@@ -61,8 +65,11 @@ export default function ContactForm() {
                   />
                 </div>
                 <div className="contact-us-form-single">
-                  <div className="contact-us-form-text-field">Email</div>
+                  <label className="contact-us-form-text-field" htmlFor="contact-email">
+                    Email
+                  </label>
                   <input
+                    id="contact-email"
                     className="contact-us-form-input-field w-input"
                     maxLength={256}
                     name="email"
@@ -74,8 +81,11 @@ export default function ContactForm() {
                 </div>
               </div>
               <div className="contact-us-form-single">
-                <div className="contact-us-form-text-field">Company</div>
+                <label className="contact-us-form-text-field" htmlFor="contact-company">
+                  Company
+                </label>
                 <input
+                  id="contact-company"
                   className="contact-us-form-input-field w-input"
                   maxLength={256}
                   name="company"
@@ -85,8 +95,11 @@ export default function ContactForm() {
                 />
               </div>
               <div className="contact-us-textarea-wrapper">
-                <div className="contact-us-form-text-field">Message</div>
+                <label className="contact-us-form-text-field" htmlFor="contact-message">
+                  Message
+                </label>
                 <textarea
+                  id="contact-message"
                   className="contact-us-textarea w-input"
                   maxLength={5000}
                   name="message"
@@ -95,19 +108,18 @@ export default function ContactForm() {
                   disabled={status === 'sending'}
                 />
               </div>
-              <input
+              <button
                 type="submit"
-                className="contact-us-form-submit-button w-button"
-                value={status === 'sending' ? 'Sending…' : 'Send message'}
+                className="contact-us-form-submit-button"
                 disabled={status === 'sending'}
-              />
+              >
+                {status === 'sending' ? 'Sending…' : 'Send message'}
+              </button>
               {status === 'ok' ? (
-                <p className="text-size-medium" style={{ marginTop: '1rem', marginBottom: 0 }}>
-                  Got it — we&apos;ll reply at the email you left.
-                </p>
+                <p className="contact-us-status">Got it — we&apos;ll reply at the email you left.</p>
               ) : null}
               {status === 'error' ? (
-                <p className="text-size-medium" style={{ marginTop: '1rem', marginBottom: 0 }}>
+                <p className="contact-us-status is-error">
                   {error || 'Could not send. Email info@wowdesign.io instead.'}
                 </p>
               ) : null}
@@ -118,11 +130,11 @@ export default function ContactForm() {
           <img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="contact-us-icon bottom-left" />
           <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="contact-us-icon bottom-right" />
         </div>
-        <p className="text-size-medium" style={{ textAlign: 'center', marginTop: '2rem' }}>
+        <p className="contact-us-alt">
           Or email <a href="mailto:info@wowdesign.io">info@wowdesign.io</a>
         </p>
       </div>
-      <div className="sky-container">
+      <div className="sky-container" aria-hidden="true">
         <div className="primary-sky-circle"></div>
         <div className="secondary-sky-circle"></div>
       </div>

@@ -76,9 +76,9 @@ export default function ContactPage() {
     <PageHero
       tagline="Contact"
       title="Write to us."
-      description="A question about the system, a project, or a demo. We reply from info@wowdesign.io."
-      ctaLabel="Book a Demo"
-      ctaHref="/book-a-demo"
+      description="A question about the system, a project, or a demo."
+      ctaLabel="Send a message"
+      ctaHref="#contact-form"
       ctaData="Contact - Hero"
       timeline={null}
       taglineIcon={
@@ -90,7 +90,6 @@ export default function ContactPage() {
         </svg>
       }
     />
-    <div className="spacer-xhuge"></div>
     <ContactForm />
     <section className="section footer">
       <div className="footer-container">

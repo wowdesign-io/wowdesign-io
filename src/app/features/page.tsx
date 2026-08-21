@@ -77,7 +77,7 @@ export default function FeaturesPage() {
       tagline="Features"
       title="The system, in detail."
       description="Buyers explore every unit from their phone. Your sales team only calls people who are ready. Here's how each part of that works."
-      ctaLabel="See each part"
+      ctaLabel="Explore features"
       ctaHref="#features"
       ctaData="Features - Hero"
       taglineIcon={

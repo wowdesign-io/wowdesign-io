@@ -214,9 +214,36 @@ body.flight-done .hero-card { opacity: 1; transform: none; }
   }
 }
 
-.footer-information-details-text a {
-  color: inherit;
-  text-decoration: underline;
+#wwd-calc-root {
+  position: relative;
+  z-index: 1;
+}
+
+#roi-calculator .contact-us-wrapper {
+  opacity: 1 !important;
+}
+
+/* Stats ticker: overflow:clip was eating the bottom 1px border on mobile. */
+.historical-numbers-content {
+  overflow-x: clip;
+  overflow-y: visible;
+  padding-bottom: 1px;
+}
+
+.historical-ticker {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Decorative sky glows sit behind content — never block clicks or clip buttons. */
+.sky-container {
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+.section.features {
+  padding-top: 0;
+  padding-bottom: 7rem;
+  position: relative;
 }
 
 /* How it works card titles — h3 + heading-style-h6 inherits display-heading

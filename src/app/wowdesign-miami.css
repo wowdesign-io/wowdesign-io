@@ -1327,6 +1327,7 @@ figure {
 .section.contact-us {
   padding-top: 7rem;
   padding-bottom: 7rem;
+  position: relative;
 }
 
 .section.protected-password {

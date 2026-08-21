@@ -165,7 +165,7 @@ export default function CarryCostCalculatorPage() {
     </section>
     <section id="roi-calculator" className="section roi">
       <div className="container">
-        <div data-w-id="cce02c8f-bf74-6eb9-db79-4a28a0499fb5" style={{ opacity: "0" }} className="contact-us-wrapper"><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="contact-us-icon top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="contact-us-icon top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="contact-us-icon bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="contact-us-icon bottom-right" />
+        <div data-w-id="cce02c8f-bf74-6eb9-db79-4a28a0499fb5" className="contact-us-wrapper"><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="contact-us-icon top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="contact-us-icon top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="contact-us-icon bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="contact-us-icon bottom-right" />
           <div className="w-embed w-script">
             <div id="wwd-calc-root"></div>
             
