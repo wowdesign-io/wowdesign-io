@@ -78,8 +78,8 @@ export default function AboutPage() {
     </div>
     <PageHero
       tagline="About"
-      title="You'll work with Andy."
-      description="German founder of wowdesign. Eight years building websites that sell. I started it so a buyer can pick a unit tonight — and your sales team only calls people who are ready."
+      title="You'll work with us."
+      description="Founder-led, team-built. Eight years shipping websites that sell — so a buyer can pick a unit tonight, and your sales team only calls people who are ready."
       ctaLabel="Meet the team"
       ctaHref="#team"
       ctaData="About - Hero"

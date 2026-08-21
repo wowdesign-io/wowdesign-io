@@ -59,7 +59,7 @@ export default function FounderStory() {
               </div>
               <div className="text-style-tagline">Founder</div>
             </div>
-            <h3 className="founder-heading">I&apos;m Andy.</h3>
+            <h3 className="founder-heading">I&apos;m Andy Bittner.</h3>
             <p className="founder-body">I grew up in Munich. Eight years building websites that sell — agency, then six years on my own, now founder of wowdesign. What I care about has not changed: better UX, smarter tools, and automation that turns a visitor into a buyer.</p>
             <p className="founder-body">Family comes first. That includes Nanuk, my dog from Croatia. When I need a clear head I get outside — water, bike, snowboard. At home I love the griddle — tacos or burgers. On a good Sunday: F1, or Miami or Chicago if they are playing.</p>
             <p className="founder-body">I have always been an early adopter — for the gadget, and for the workflow that saves a day. If a tool works, it goes into the build the next morning.</p>
