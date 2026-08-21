@@ -28,9 +28,9 @@ export default function PrivacyPolicyPage() {
         <div className="navbar-container">
           <a href="/" className="navbar-logo w-nav-brand"><img src="/images/wow-design-color-logo-dark.svg" loading="lazy" alt="" className="navbar-logo-image" /></a>
           <nav role="navigation" className="nav-menu w-nav-menu">
-            <a href="/#features" className="nav-menu-link w-nav-link">Features</a>
+            <a href="/features" className="nav-menu-link w-nav-link">Features</a>
             <a href="/#how-it-works" className="nav-menu-link w-nav-link">How it works</a>
-            <a href="/#about" className="nav-menu-link w-nav-link">about</a>
+            <a href="/about" className="nav-menu-link w-nav-link">about</a>
             <a data-cta="Nav - Calc" href="/carry-cost-calculator" className="nav-menu-link w-nav-link">Carry Cost Calc</a>
           </nav>
           <div className="navbar-button-wrapper">
@@ -215,7 +215,7 @@ export default function PrivacyPolicyPage() {
                     <h3 className="heading-style-h4">10. Children’s Privacy</h3>
                     <p>Our Site and services are intended for business professionals and are not directed to individuals under the age of 13.</p>
                     <p>We do not knowingly collect personal data from children.</p>
-                    <p>If you believe a minor has provided information to us, contact us immediately at <a href="#">info@wowdesign.io</a>.</p>
+                    <p>If you believe a minor has provided information to us, contact us immediately at <a href="mailto:info@wowdesign.io">info@wowdesign.io</a>.</p>
                     <h3 className="heading-style-h4">11. Your Rights</h3>
                     <p>Depending on your jurisdiction, you may have the right to:</p>
                     <ul role="list">
@@ -225,7 +225,7 @@ export default function PrivacyPolicyPage() {
                       <li>Object to certain processing</li>
                       <li>Request data portability</li>
                     </ul>
-                    <p>To exercise these rights, email us at <a href="#">info@wowdesign.io</a>.</p>
+                    <p>To exercise these rights, email us at <a href="mailto:info@wowdesign.io">info@wowdesign.io</a>.</p>
                     <p>We may verify your identity before processing requests.</p>
                     <h3 className="heading-style-h4">12. International Data Transfers</h3>
                     <p>If you access our Site from outside the United States, your information may be transferred to and processed in the United States.</p>
@@ -236,7 +236,7 @@ export default function PrivacyPolicyPage() {
                     <p>Continued use of the Site after updates constitutes acceptance of the revised policy.</p>
                     <h3 className="heading-style-h4">14. Contact Information</h3>
                     <p>wowdesign LLC<br />407 Lincoln Rd, Suite 6H PMB 1673<br />Miami Beach, FL 33139<br />United States</p>
-                    <p>Email: <a href="#">info@wowdesign.io</a>
+                    <p>Email: <a href="mailto:info@wowdesign.io">info@wowdesign.io</a>
                     </p>
                     <h3 className="heading-style-h4">‍</h3>
                   </div>
@@ -260,7 +260,7 @@ export default function PrivacyPolicyPage() {
               </div>
               <div className="footer-information-details">
                 <div className="footer-information-details-single"><img src="/images/Footer-Information-Details-Icon2.svg" loading="lazy" alt="" className="footer-information-details-icon" />
-                  <div className="footer-information-details-text">info@wowdesign.io</div>
+                  <div className="footer-information-details-text"><a href="mailto:info@wowdesign.io">info@wowdesign.io</a></div>
                 </div>
                 <div className="footer-information-details-single"><img src="/images/Footer-Information-Details-Icon3.svg" loading="lazy" alt="" className="footer-information-details-icon" />
                   <div className="footer-information-details-text">wowdesign LLC<br />407 Lincoln Rd<br />Suite 6H PMB 1673<br />Miami Beach, FL 33139</div>
@@ -293,10 +293,10 @@ export default function PrivacyPolicyPage() {
                         <a href="/" className="footer-menu-text-link">home</a>
                       </li>
                       <li className="footer-menu-list-item">
-                        <a href="/#about" className="footer-menu-text-link">about</a>
+                        <a href="/about" className="footer-menu-text-link">about</a>
                       </li>
                       <li className="footer-menu-list-item">
-                        <a href="/#features" className="footer-menu-text-link">Features</a>
+                        <a href="/features" className="footer-menu-text-link">Features</a>
                       </li>
                       <li className="footer-menu-list-item">
                         <a href="/#how-it-works" className="footer-menu-text-link">How it works</a>
@@ -315,6 +315,9 @@ export default function PrivacyPolicyPage() {
                       </li>
                       <li className="footer-menu-list-item">
                         <a href="/carry-cost-calculator" className="footer-menu-text-link">Carry Cost Calculator</a>
+                      </li>
+                      <li className="footer-menu-list-item">
+                        <a href="/contact" className="footer-menu-text-link">Contact</a>
                       </li>
                       <li className="footer-menu-list-item">
                         <a href="/#faq" className="footer-menu-text-link">FAQ</a>

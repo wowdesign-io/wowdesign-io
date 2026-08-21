@@ -6,7 +6,7 @@ const schema = {
   '@type': 'WebPage',
   name: 'Sell Out Faster | Presales System for Boutique Real Estate Developers',
   description:
-    "We help boutique real estate developers sell out faster, so they keep $400k+ that would otherwise go to the bank. Buyers explore every unit from their phone. Your team knows who's ready.",
+    "We help boutique real estate developers with 10–50 unit projects sell out faster, so they keep $400k+ that would otherwise go to the bank. Buyers explore every unit from their phone. Your sales team knows who's ready.",
   url: SITE,
   inLanguage: 'en',
   about: {
@@ -27,11 +27,11 @@ const schema = {
       'https://www.instagram.com/wowdesign_miami',
     ],
     member: [
-      { '@type': 'Person', name: 'Andy', jobTitle: 'CEO & Founder' },
-      { '@type': 'Person', name: 'Ashekur', jobTitle: 'Lead Systems Engineer' },
-      { '@type': 'Person', name: 'Sofia', jobTitle: 'Digital Twin Architect' },
-      { '@type': 'Person', name: 'Odule', jobTitle: 'CRM Integration Lead' },
-      { '@type': 'Person', name: 'Mateo', jobTitle: 'Performance Engineer' },
+      { '@type': 'Person', name: 'Andy Bittner', jobTitle: 'CEO & Founder' },
+      { '@type': 'Person', name: 'Ashekur Rahman', jobTitle: 'Developer' },
+      { '@type': 'Person', name: 'Sofia Mendez', jobTitle: 'Designer' },
+      { '@type': 'Person', name: 'Odule Enoch', jobTitle: 'Automation Expert' },
+      { '@type': 'Person', name: 'Mateo Rivera', jobTitle: '3D Artist' },
     ],
   },
   mainEntity: {

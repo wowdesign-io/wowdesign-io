@@ -28,9 +28,9 @@ export default function BookADemoPage() {
         <div className="navbar-container">
           <a href="/" className="navbar-logo w-nav-brand"><img src="/images/wow-design-color-logo-dark.svg" loading="lazy" alt="" className="navbar-logo-image" /></a>
           <nav role="navigation" className="nav-menu w-nav-menu">
-            <a href="/#features" className="nav-menu-link w-nav-link">Features</a>
+            <a href="/features" className="nav-menu-link w-nav-link">Features</a>
             <a href="/#how-it-works" className="nav-menu-link w-nav-link">How it works</a>
-            <a href="/#about" className="nav-menu-link w-nav-link">about</a>
+            <a href="/about" className="nav-menu-link w-nav-link">about</a>
             <a data-cta="Nav - Calc" href="/carry-cost-calculator" className="nav-menu-link w-nav-link">Carry Cost Calc</a>
           </nav>
           <div className="navbar-button-wrapper">
@@ -99,7 +99,7 @@ export default function BookADemoPage() {
                           <div className="inner-button-text">BOOK A DEMO</div>
                           <div className="inner-button-hover-text">BOOK A DEMO</div>
                         </div>
-                        <div className="inner-button-star-wrap"><img loading="lazy" src="/images/inner-button-star-1.svg" alt="" className="inner-button-star _1" /><img loading="lazy" src="/images/inner-button-star-2.svg" alt="" className="inner-button-star _2" /><img loading="lazy" src="/images/inner-button-star-3.svg" alt="" className="inner-button-star _3" /></div>
+                        <div className="inner-button-star-wrap"><img loading="lazy" src="/images/inner-button-arrow.svg" alt="" className="inner-button-star" /></div>
                         <div className="inner-button-hover-bg"></div>
                       </div>
                     </div>
@@ -192,7 +192,7 @@ export default function BookADemoPage() {
                 </div>
                 <div className="faq-accordion-answer-wrap">
                   <div className="faq-answer">
-                    <p className="faq-answer-text">Most projects launch within 6–8 weeks depending on asset readiness and CRM setup.<br /><br />We handle the technical implementation — your team provides floorplans, renders, and CRM access.</p>
+                    <p className="faq-answer-text">Most projects launch within 6–8 weeks depending on asset readiness and CRM setup.<br /><br />We handle the technical implementation — you provide floorplans, renders, and CRM access.</p>
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>
@@ -203,7 +203,7 @@ export default function BookADemoPage() {
                 </div>
                 <div className="faq-accordion-answer-wrap">
                   <div className="faq-answer">
-                    <p className="faq-answer-text">No. It strengthens your sales team.<br /><br />Our presales system qualifies buyers, tracks unit interest, and delivers better-informed leads — so your team can close faster.</p>
+                    <p className="faq-answer-text">No. It strengthens your sales team.<br /><br />Our presales system qualifies buyers, tracks unit interest, and delivers better-informed leads — so your sales team can close faster.</p>
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>
@@ -214,7 +214,7 @@ export default function BookADemoPage() {
                 </div>
                 <div className="faq-accordion-answer-wrap">
                   <div className="faq-answer">
-                    <p className="faq-answer-text">We track unit-level interactions — including which units buyers explore, view preferences, and floorplan interest.<br /><br />This data syncs directly into your CRM so your team sees context before making contact.</p>
+                    <p className="faq-answer-text">We track unit-level interactions — including which units buyers explore, view preferences, and floorplan interest.<br /><br />This data syncs directly into your CRM so your sales team sees context before making contact.</p>
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>
@@ -291,7 +291,7 @@ export default function BookADemoPage() {
               </div>
               <div className="footer-information-details">
                 <div className="footer-information-details-single"><img src="/images/Footer-Information-Details-Icon2.svg" loading="lazy" alt="" className="footer-information-details-icon" />
-                  <div className="footer-information-details-text">info@wowdesign.io</div>
+                  <div className="footer-information-details-text"><a href="mailto:info@wowdesign.io">info@wowdesign.io</a></div>
                 </div>
                 <div className="footer-information-details-single"><img src="/images/Footer-Information-Details-Icon3.svg" loading="lazy" alt="" className="footer-information-details-icon" />
                   <div className="footer-information-details-text">wowdesign LLC<br />407 Lincoln Rd<br />Suite 6H PMB 1673<br />Miami Beach, FL 33139</div>
@@ -324,10 +324,10 @@ export default function BookADemoPage() {
                         <a href="/" className="footer-menu-text-link">home</a>
                       </li>
                       <li className="footer-menu-list-item">
-                        <a href="/#about" className="footer-menu-text-link">about</a>
+                        <a href="/about" className="footer-menu-text-link">about</a>
                       </li>
                       <li className="footer-menu-list-item">
-                        <a href="/#features" className="footer-menu-text-link">Features</a>
+                        <a href="/features" className="footer-menu-text-link">Features</a>
                       </li>
                       <li className="footer-menu-list-item">
                         <a href="/#how-it-works" className="footer-menu-text-link">How it works</a>
@@ -346,6 +346,9 @@ export default function BookADemoPage() {
                       </li>
                       <li className="footer-menu-list-item">
                         <a href="/carry-cost-calculator" className="footer-menu-text-link">Carry Cost Calculator</a>
+                      </li>
+                      <li className="footer-menu-list-item">
+                        <a href="/contact" className="footer-menu-text-link">Contact</a>
                       </li>
                       <li className="footer-menu-list-item">
                         <a href="/#faq" className="footer-menu-text-link">FAQ</a>

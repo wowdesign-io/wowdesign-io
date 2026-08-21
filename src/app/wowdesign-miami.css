@@ -2464,6 +2464,7 @@ figure {
   max-width: 1530px;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 7rem;
   padding-left: 15px;
   padding-right: 15px;
   position: relative;
@@ -3494,10 +3495,12 @@ figure {
 
 .team-member-single {
   border-left: 1px solid #ffffff14;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   display: flex;
   position: relative;
+  padding-bottom: 20px;
 }
 
 .team-member-single.border-none {
@@ -3553,6 +3556,7 @@ figure {
   font-style: italic;
   font-weight: 500;
   line-height: 100%;
+  white-space: nowrap;
 }
 
 .team-member-bio {
@@ -3564,20 +3568,24 @@ figure {
 }
 
 .team-member-typography-wrap {
-  z-index: 99;
-  display: inline-block;
-  position: absolute;
-  inset: auto -90px -24px auto;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  inset: auto;
+  margin-top: 14px;
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
 }
 
 .team-member-typography-wrap.left-0 {
-  right: 0;
+  right: auto;
 }
 
 .team-member-typography-mouse {
-  margin-bottom: -10px;
-  margin-left: -30px;
-  display: block;
+  display: none;
 }
 
 .team-member-shape {
@@ -7295,19 +7303,10 @@ figure {
   overflow: hidden;
 }
 
-.inner-button-star._1 {
-  position: absolute;
-  inset: 0% auto auto 0%;
-}
-
-.inner-button-star._3 {
-  position: absolute;
-  inset: auto auto 0% 0%;
-}
-
-.inner-button-star._2 {
-  position: absolute;
-  inset: 0% 0% auto auto;
+.inner-button-star {
+  width: 14px;
+  height: 14px;
+  display: block;
 }
 
 .inner-button {
@@ -7352,8 +7351,9 @@ figure {
 }
 
 .inner-button-star-wrap {
-  width: 19px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
   position: relative;
 }
 
@@ -9819,7 +9819,7 @@ figure {
   }
 
   .team-member-typography-wrap.left-0 {
-    right: -90px;
+    right: auto;
   }
 
   .including-section-card-image {
@@ -10325,6 +10325,7 @@ figure {
 
   .community-spotlight-content {
     max-width: 800px;
+    padding-top: 100px;
   }
 
   .community-spotlight-typography {
@@ -10683,7 +10684,8 @@ figure {
   }
 
   .team-member-typography-wrap {
-    right: 10px;
+    position: relative;
+    inset: auto;
   }
 
   .team-member-line {
@@ -12537,6 +12539,7 @@ figure {
 
   .community-spotlight-content {
     max-width: 480px;
+    padding-top: 80px;
   }
 
   .community-spotlight-typography {
@@ -12836,12 +12839,13 @@ figure {
   }
 
   .team-member-typography-wrap {
-    bottom: 5px;
-    right: 20px;
+    position: relative;
+    inset: auto;
+    margin-top: 14px;
   }
 
   .team-member-typography-wrap.left-0 {
-    right: 20px;
+    right: auto;
   }
 
   .team-member-typography-mouse {
@@ -14634,6 +14638,7 @@ figure {
 
   .community-spotlight-content {
     max-width: 380px;
+    padding-top: 60px;
   }
 
   .community-spotlight-typography {

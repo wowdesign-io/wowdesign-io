@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
     ]
   },
   async headers() {
-    return [
+    const security = [
       {
         source: '/(.*)',
         headers: [
@@ -24,15 +24,18 @@ const nextConfig: NextConfig = {
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
         ],
       },
+    ]
+    // Immutable Cache-Control on /_next/* breaks Turbopack HMR in `next dev`.
+    if (process.env.NODE_ENV !== 'production') return security
+    return [
+      ...security,
       {
-        // Aggressive caching for Storyblok CDN assets served through Next.js image optimizer
         source: '/_next/image(.*)',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
         ],
       },
       {
-        // Static assets
         source: '/_next/static/(.*)',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },

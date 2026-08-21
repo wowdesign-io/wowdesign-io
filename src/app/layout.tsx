@@ -7,7 +7,7 @@ import JsonLd from '@/components/JsonLd'
 const SITE = 'https://www.wowdesign.io'
 const TITLE = 'Sell Out Faster | Presales System for Boutique Real Estate Developers'
 const DESCRIPTION =
-  "We help boutique real estate developers sell out faster, so they keep $400k+ that would otherwise go to the bank."
+  "We help boutique real estate developers with 10–50 unit projects sell out faster, so they keep $400k+ that would otherwise go to the bank."
 const OG_IMAGE = '/images/open-graph-img-en.png'
 
 export const viewport: Viewport = {
@@ -46,6 +46,8 @@ export const metadata: Metadata = {
   // Per-page routes set their own canonical via metadata.alternates
 }
 
+const isDev = process.env.NODE_ENV === 'development'
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -63,16 +65,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
         <JsonLd />
-        {/* Anti-FOUC: body starts hidden (below) and is revealed only after window load,
-            once the goo/IX2 runtimes have set their animation "from" states — so elements
-            never flash visible-then-hidden. Failsafe timeout guarantees it never stays blank. */}
+        {/* Anti-FOUC: production waits for IX2/goo "from" states. Dev paints immediately
+            so local review is not a 2s blank page. */}
+        {!isDev && (
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){function rb(){var b=document.body;if(b){b.style.transition='opacity .4s ease';b.style.opacity='1';}}function rv(e){e.style.transition='opacity .6s ease, transform .6s ease';e.style.opacity='1';if(e.style.transform)e.style.transform='none';}function init(){rb();try{var els=[].slice.call(document.querySelectorAll('[style*="opacity"]')).filter(function(e){return getComputedStyle(e).opacity==='0';});if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){rv(x.target);io.unobserve(x.target);}});},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e);});setTimeout(function(){els.forEach(rv);},3500);}else{els.forEach(rv);}}catch(_){}}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}window.addEventListener('load',rb,{once:true});setTimeout(rb,2000);})();`,
           }}
         />
+        )}
       </head>
-      <body className="body" style={{ opacity: 0 }}>
+      <body className="body" style={isDev ? undefined : { opacity: 0 }}>
         {children}
         <NewsletterFormHandler />
         <SiteAnalytics />

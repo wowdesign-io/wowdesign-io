@@ -214,6 +214,11 @@ body.flight-done .hero-card { opacity: 1; transform: none; }
   }
 }
 
+.footer-information-details-text a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 /* How it works card titles — h3 + heading-style-h6 inherits display-heading
    tracking and a faded gradient. Pin size in px; solid white like Features. */
 #how-it-works .layout237_item h3.heading-style-h6 {

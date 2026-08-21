@@ -28,9 +28,9 @@ export default function TermsOfServicePage() {
         <div className="navbar-container">
           <a href="/" className="navbar-logo w-nav-brand"><img src="/images/wow-design-color-logo-dark.svg" loading="lazy" alt="" className="navbar-logo-image" /></a>
           <nav role="navigation" className="nav-menu w-nav-menu">
-            <a href="/#features" className="nav-menu-link w-nav-link">Features</a>
+            <a href="/features" className="nav-menu-link w-nav-link">Features</a>
             <a href="/#how-it-works" className="nav-menu-link w-nav-link">How it works</a>
-            <a href="/#about" className="nav-menu-link w-nav-link">about</a>
+            <a href="/about" className="nav-menu-link w-nav-link">about</a>
             <a data-cta="Nav - Calc" href="/carry-cost-calculator" className="nav-menu-link w-nav-link">Carry Cost Calc</a>
           </nav>
           <div className="navbar-button-wrapper">
@@ -234,7 +234,7 @@ export default function TermsOfServicePage() {
                     <p>Continued use of the Site or services after updates constitutes acceptance of the revised Terms.</p>
                     <h3 className="heading-style-h4">16. Contact Information</h3>
                     <p>wowdesign LLC<br />407 Lincoln Rd, Suite 6H PMB 1673<br />Miami Beach, FL 33139<br />United States</p>
-                    <p>Email: info@wowdesign.io</p>
+                    <p>Email: <a href="mailto:info@wowdesign.io">info@wowdesign.io</a></p>
                   </div>
                 </div>
               </div>
@@ -256,7 +256,7 @@ export default function TermsOfServicePage() {
               </div>
               <div className="footer-information-details">
                 <div className="footer-information-details-single"><img src="/images/Footer-Information-Details-Icon2.svg" loading="lazy" alt="" className="footer-information-details-icon" />
-                  <div className="footer-information-details-text">info@wowdesign.io</div>
+                  <div className="footer-information-details-text"><a href="mailto:info@wowdesign.io">info@wowdesign.io</a></div>
                 </div>
                 <div className="footer-information-details-single"><img src="/images/Footer-Information-Details-Icon3.svg" loading="lazy" alt="" className="footer-information-details-icon" />
                   <div className="footer-information-details-text">wowdesign LLC<br />407 Lincoln Rd<br />Suite 6H PMB 1673<br />Miami Beach, FL 33139</div>
@@ -289,10 +289,10 @@ export default function TermsOfServicePage() {
                         <a href="/" className="footer-menu-text-link">home</a>
                       </li>
                       <li className="footer-menu-list-item">
-                        <a href="/#about" className="footer-menu-text-link">about</a>
+                        <a href="/about" className="footer-menu-text-link">about</a>
                       </li>
                       <li className="footer-menu-list-item">
-                        <a href="/#features" className="footer-menu-text-link">Features</a>
+                        <a href="/features" className="footer-menu-text-link">Features</a>
                       </li>
                       <li className="footer-menu-list-item">
                         <a href="/#how-it-works" className="footer-menu-text-link">How it works</a>
@@ -311,6 +311,9 @@ export default function TermsOfServicePage() {
                       </li>
                       <li className="footer-menu-list-item">
                         <a href="/carry-cost-calculator" className="footer-menu-text-link">Carry Cost Calculator</a>
+                      </li>
+                      <li className="footer-menu-list-item">
+                        <a href="/contact" className="footer-menu-text-link">Contact</a>
                       </li>
                       <li className="footer-menu-list-item">
                         <a href="/#faq" className="footer-menu-text-link">FAQ</a>

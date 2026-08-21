@@ -7,6 +7,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: SITE, lastModified: now, changeFrequency: 'weekly', priority: 1 },
     {
+      url: `${SITE}/about`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${SITE}/features`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${SITE}/contact`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${SITE}/carry-cost-calculator`,
       lastModified: now,
       changeFrequency: 'monthly',

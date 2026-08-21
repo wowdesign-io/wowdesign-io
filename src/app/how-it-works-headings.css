@@ -23,3 +23,56 @@
 @media screen and (max-width: 991px) { .section.solving { padding-top: 100px; } }
 @media screen and (max-width: 767px) { .section.solving { padding-top: 80px; } }
 @media screen and (max-width: 479px) { .section.solving { padding-top: 60px; } }
+
+.community-spotlight-content { padding-top: 7rem !important; }
+@media screen and (max-width: 991px) { .community-spotlight-content { padding-top: 100px !important; } }
+@media screen and (max-width: 767px) { .community-spotlight-content { padding-top: 80px !important; } }
+@media screen and (max-width: 479px) { .community-spotlight-content { padding-top: 60px !important; } }
+
+.section.team-member .team-member-single {
+  flex-direction: column !important;
+  align-items: center !important;
+  padding-bottom: 20px;
+}
+.section.team-member .team-member-typography-wrap,
+.section.team-member .team-member-typography-wrap.left-0 {
+  opacity: 1 !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  transform: none !important;
+  position: relative !important;
+  inset: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  top: auto !important;
+  margin-top: 14px;
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
+}
+.section.team-member .team-member-typography-mouse { display: none !important; }
+.section.team-member .team-member-typography {
+  background: transparent;
+  padding: 0;
+  text-align: center;
+}
+.section.team-member .team-member-name {
+  font-style: normal;
+  font-size: 1.125rem;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+.footer-information-details-text a { color: inherit; text-decoration: underline; }
+.inner-button-star-wrap {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+.inner-button-star {
+  width: 14px;
+  height: 14px;
+  display: block;
+  position: static;
+}

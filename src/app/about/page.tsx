@@ -1,14 +1,20 @@
 import Script from 'next/script'
-
 import type { Metadata } from 'next'
+import PageHero from '@/components/PageHero'
+import PageCta from '@/components/PageCta'
+import FounderStory from '@/components/FounderStory'
+import TeamMembers from '@/components/TeamMembers'
+import ToolsIntegrations from '@/components/ToolsIntegrations'
+import '../how-it-works-headings.css'
 
 export const metadata: Metadata = {
-  title: 'Disclaimer',
-  description: 'wowdesign disclaimer',
-  alternates: { canonical: 'https://www.wowdesign.io/disclaimer' },
+  title: 'About',
+  description:
+    'Andy Bittner — German founder of wowdesign. Eight years building websites that sell. The team he built delivers the full system so boutique developers sell out faster.',
+  alternates: { canonical: 'https://www.wowdesign.io/about' },
 }
 
-export default function DisclaimerPage() {
+export default function AboutPage() {
   return (
     <>
 <div className="page-wrapper">
@@ -30,7 +36,7 @@ export default function DisclaimerPage() {
           <nav role="navigation" className="nav-menu w-nav-menu">
             <a href="/features" className="nav-menu-link w-nav-link">Features</a>
             <a href="/#how-it-works" className="nav-menu-link w-nav-link">How it works</a>
-            <a href="/about" className="nav-menu-link w-nav-link">about</a>
+            <a href="/about" aria-current="page" className="nav-menu-link w-nav-link w--current">about</a>
             <a data-cta="Nav - Calc" href="/carry-cost-calculator" className="nav-menu-link w-nav-link">Carry Cost Calc</a>
           </nav>
           <div className="navbar-button-wrapper">
@@ -70,144 +76,27 @@ export default function DisclaimerPage() {
         </div>
       </div>
     </div>
-    <section className="section inner-banner">
-      <div className="inner-banner-content">
-        <div className="inner-banner-wrapper">
-          <div className="container">
-            <div className="inner-banner-typography">
-              <div className="inner-banner-title-wrapper">
-                <h1 className="inner-banner-title contact-us">Disclaimer</h1>
-                <p className="inner-banner-description about-us">Effective Date: September 2025</p>
-              </div>
-            </div>
-          </div><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="inner-banner-pluse-icon top-left" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="inner-banner-pluse-icon top-right" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="inner-banner-pluse-icon bottom-left" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="inner-banner-pluse-icon bottom-right" />
-          <div className="cta-radial-gradient1"></div>
-          <div className="cta-radial-gradient2"></div>
-        </div>
-      </div>
-    </section>
-    <section className="section_content7">
-      <div className="padding-global">
-        <div className="container-large">
-          <div className="padding-section-large">
-            <div className="content7_component">
-              <div className="max-width-large align-center">
-                <div className="content7_content-wrapper">
-                  <div className="text-rich-text w-richtext">
-                    <h3 className="heading-style-h4">1. General Information</h3>
-                    <p>The information provided on this website (<a target="_new" href="http://www.wowdesign.io">www.wowdesign.io</a>), including content, frameworks, strategy insights, tools, and services, is for general informational and business purposes only.</p>
-                    <p>Nothing on this Site constitutes legal, financial, tax, investment, or professional advisory services.</p>
-                    <p>All use of this Site is at your own discretion and risk.</p>
-                    <h3 className="heading-style-h4">2. No Professional or Financial Advice</h3>
-                    <h4 className="heading-style-h5">2.1 Strategic Services</h4>
-                    <p>wowdesign LLC provides digital strategy, sales infrastructure design, and system implementation services.</p>
-                    <p>We do not provide:</p>
-                    <ul role="list">
-                      <li>Legal advice</li>
-                      <li>Tax advice</li>
-                      <li>Financial advisory services</li>
-                      <li>Investment guarantees</li>
-                      <li>Real estate brokerage services</li>
-                    </ul>
-                    <p>Any decisions made based on our materials, tools, or consultations should be reviewed with qualified professionals in the appropriate field.</p>
-                    <h4 className="heading-style-h5">2.2 No Guaranteed Results</h4>
-                    <p>While our presales systems are designed to improve sales workflows and buyer experience, we do not guarantee:</p>
-                    <ul role="list">
-                      <li>Revenue increases</li>
-                      <li>Sales velocity improvements</li>
-                      <li>Lead generation volume</li>
-                      <li>Conversion rates</li>
-                      <li>Sell-out timelines</li>
-                    </ul>
-                    <p>Performance depends on numerous external factors including market conditions, pricing, execution, sales team performance, and economic environment.</p>
-                    <h3 className="heading-style-h4">3. AI-Generated Tools & Automation Systems</h3>
-                    <h4 className="heading-style-h5">3.1 AI-Supported Features</h4>
-                    <p>Some features or internal workflows may incorporate AI-supported tools and automation platforms.</p>
-                    <p>These may include:</p>
-                    <ul role="list">
-                      <li>Analytical models</li>
-                      <li>Performance simulations</li>
-                      <li>ROI estimations</li>
-                      <li>Strategic suggestions</li>
-                      <li>Content or system architecture assistance</li>
-                    </ul>
-                    <p>These outputs are based on algorithms and user-provided inputs.</p>
-                    <h4 className="heading-style-h5">3.2 No Professional Substitution</h4>
-                    <p>AI-generated outputs:</p>
-                    <ul role="list">
-                      <li>Are not professional financial forecasts</li>
-                      <li>Are not legal opinions</li>
-                      <li>Are not investment recommendations</li>
-                      <li>Are not guaranteed to be accurate or complete</li>
-                    </ul>
-                    <p>They are intended as directional insights to support strategic discussions.</p>
-                    <p>Clients remain responsible for final business decisions.</p>
-                    <h3 className="heading-style-h4">4. Third-Party Platforms & Integrations</h3>
-                    <h4 className="heading-style-h5">4.1 External Services</h4>
-                    <p>Our Site and services may rely on or integrate with third-party platforms, including but not limited to:</p>
-                    <ul role="list">
-                      <li>CRM systems</li>
-                      <li>Hosting providers</li>
-                      <li>Automation platforms</li>
-                      <li>Payment processors</li>
-                      <li>Analytics tools</li>
-                      <li>Scheduling software</li>
-                    </ul>
-                    <p>We do not control these platforms and are not responsible for:</p>
-                    <ul role="list">
-                      <li>Service interruptions</li>
-                      <li>API changes</li>
-                      <li>Platform limitations</li>
-                      <li>Data loss</li>
-                      <li>Security breaches on third-party systems</li>
-                      <li>Policy or pricing changes</li>
-                    </ul>
-                    <h4 className="heading-style-h5">4.2 External Links</h4>
-                    <p>This Site may contain links to external websites. wowdesign LLC is not responsible for the content, accuracy, or policies of those external websites.</p>
-                    <h3 className="heading-style-h4">5. Testimonials & Case Studies</h3>
-                    <p>Testimonials, case studies, and client examples displayed on this Site are illustrative.</p>
-                    <p>They reflect individual experiences and outcomes.</p>
-                    <p>They do not guarantee that you will achieve similar results.</p>
-                    <p>Business performance varies significantly depending on market conditions, offer structure, pricing, sales execution, and other factors outside our control.</p>
-                    <h3 className="heading-style-h4">6. Sales & Revenue Projections</h3>
-                    <p>Any projections, simulations, or performance scenarios presented on this Site or during consultations:</p>
-                    <ul role="list">
-                      <li>Are hypothetical</li>
-                      <li>Are based on assumptions</li>
-                      <li>Should not be interpreted as guaranteed outcomes</li>
-                    </ul>
-                    <p>Past performance does not guarantee future results.</p>
-                    <h3 className="heading-style-h4">7. Children’s Policy</h3>
-                    <p>Our services are intended for business professionals and organizations.</p>
-                    <p>We do not knowingly collect information from individuals under the age of 18.</p>
-                    <p>If you believe a minor has submitted information, please contact us immediately so it can be removed.</p>
-                    <h3 className="heading-style-h4">8. Limitation of Liability</h3>
-                    <p>By using this Site or engaging our services, you agree that wowdesign LLC shall not be liable for:</p>
-                    <ul role="list">
-                      <li>Loss of revenue</li>
-                      <li>Loss of business opportunity</li>
-                      <li>Data loss</li>
-                      <li>Technical failures</li>
-                      <li>System downtime</li>
-                      <li>Third-party integration failures</li>
-                      <li>Market performance fluctuations</li>
-                      <li>Misinterpretation of information</li>
-                    </ul>
-                    <p>Use of this Site and our services is at your own risk.</p>
-                    <p>To the fullest extent permitted by law, our liability is limited to the fees paid for services under an applicable agreement.</p>
-                    <h3 className="heading-style-h4">9. Contact Information</h3>
-                    <p>wowdesign LLC<br />407 Lincoln Rd, Suite 6H PMB 1673<br />Miami Beach, FL 33139<br />United States</p>
-                    <p>Email: <a href="mailto:info@wowdesign.io">info@wowdesign.io</a>
-                    </p>
-                    <p>‍</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <PageHero
+      tagline="About"
+      title="You'll work with Andy."
+      description="German founder of wowdesign. Eight years building websites that sell. I started it so a buyer can pick a unit tonight — and your sales team only calls people who are ready."
+      ctaLabel="Meet the team"
+      ctaHref="#team"
+      ctaData="About - Hero"
+      taglineIcon={
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256">
+          <g fill="currentColor">
+            <path d="M136 108a52 52 0 1 1-52-52a52 52 0 0 1 52 52" opacity=".2"></path>
+            <path d="M117.25 157.92a60 60 0 1 0-66.5 0a95.83 95.83 0 0 0-47.22 37.71a8 8 0 1 0 13.4 8.74a80 80 0 0 1 134.14 0a8 8 0 0 0 13.4-8.74a95.83 95.83 0 0 0-47.22-37.71M40 108a44 44 0 1 1 44 44a44.05 44.05 0 0 1-44-44m210.14 98.7a8 8 0 0 1-11.07-2.33A79.83 79.83 0 0 0 172 168a8 8 0 0 1 0-16a44 44 0 1 0-16.34-84.87a8 8 0 1 1-5.94-14.85a60 60 0 0 1 55.53 105.64a95.83 95.83 0 0 1 47.22 37.71a8 8 0 0 1-2.33 11.07"></path>
+          </g>
+        </svg>
+      }
+    />
+    <div className="spacer-xhuge"></div>
+    <FounderStory />
+    <TeamMembers anchorId="team" />
+    <ToolsIntegrations />
+    <PageCta ctaData="About CTA - Calc" />
     <section className="section footer">
       <div className="footer-container">
         <div className="footer-content">
@@ -231,7 +120,7 @@ export default function DisclaimerPage() {
             <div className="footer-menu-wrapper">
               <div id="newsletter" className="footer-form-wrapper">
                 <div className="footer-form-block w-form">
-                  <form id="wf-form-NL-Form" name="wf-form-NL-Form" data-name="NL-Form" method="get" className="footer-form" data-wf-page-id="68c2f964ad5f60ad0960b373" data-wf-element-id="7ccbf7a2-080d-66f9-81b6-2448b055e13b">
+                  <form id="wf-form-NL-Form" name="wf-form-NL-Form" data-name="NL-Form" method="get" className="footer-form" data-wf-page-id="68b03afe7096334b9f7252c6" data-wf-element-id="7ccbf7a2-080d-66f9-81b6-2448b055e13b">
                     <div className="footer-form-text-wrapper"><label htmlFor="name" className="footer-form-text-block">Subscribe to Newsletter</label></div>
                     <div className="footer-form-input-field-button"><input className="footer-form-input-field is-1 w-input" maxLength={256} name="nl_first_name" data-name="nl_first_name" placeholder="First Name" type="text" id="nl_first_name" required /><input className="footer-form-input-field w-input" maxLength={256} name="nl_email" data-name="nl_email" placeholder="Email" type="email" id="nl_email" required /><input type="submit" data-wait="" className="footer-form-submit-button w-button" value="" /></div>
                   </form>
@@ -254,7 +143,7 @@ export default function DisclaimerPage() {
                         <a href="/" className="footer-menu-text-link">home</a>
                       </li>
                       <li className="footer-menu-list-item">
-                        <a href="/about" className="footer-menu-text-link">about</a>
+                        <a href="/about" aria-current="page" className="footer-menu-text-link w--current">about</a>
                       </li>
                       <li className="footer-menu-list-item">
                         <a href="/features" className="footer-menu-text-link">Features</a>
@@ -317,7 +206,7 @@ export default function DisclaimerPage() {
                         <a href="/terms-of-service" className="footer-menu-text-link">Terms of Service</a>
                       </li>
                       <li className="footer-menu-list-item">
-                        <a href="/disclaimer" aria-current="page" className="footer-menu-text-link w--current">Disclaimer</a>
+                        <a href="/disclaimer" className="footer-menu-text-link">Disclaimer</a>
                       </li>
                     </ul>
                   </div>

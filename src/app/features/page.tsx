@@ -1,14 +1,17 @@
 import Script from 'next/script'
 import type { Metadata } from 'next'
+import FeaturesDeepDive from '@/components/FeaturesDeepDive'
+import PageHero from '@/components/PageHero'
+import PageCta from '@/components/PageCta'
 
 export const metadata: Metadata = {
-  title: 'Carry Cost Calculator',
+  title: 'Features',
   description:
-    'Calculate capital preserved by accelerating project absorption. See exact savings from selling 2-6 months faster. Free calculator for developers.',
-  alternates: { canonical: 'https://www.wowdesign.io/carry-cost-calculator' },
+    'Buyers explore every unit from their phone. Your sales team only calls people who are ready. See each part of the presales system, one by one.',
+  alternates: { canonical: 'https://www.wowdesign.io/features' },
 }
 
-export default function CarryCostCalculatorPage() {
+export default function FeaturesPage() {
   return (
     <>
 <div className="page-wrapper">
@@ -28,10 +31,10 @@ export default function CarryCostCalculatorPage() {
         <div className="navbar-container">
           <a href="/" className="navbar-logo w-nav-brand"><img src="/images/wow-design-color-logo-dark.svg" loading="lazy" alt="" className="navbar-logo-image" /></a>
           <nav role="navigation" className="nav-menu w-nav-menu">
-            <a href="/features" className="nav-menu-link w-nav-link">Features</a>
+            <a href="/features" aria-current="page" className="nav-menu-link w-nav-link w--current">Features</a>
             <a href="/#how-it-works" className="nav-menu-link w-nav-link">How it works</a>
             <a href="/about" className="nav-menu-link w-nav-link">about</a>
-            <a data-cta="Nav - Calc" href="/carry-cost-calculator" aria-current="page" className="nav-menu-link w-nav-link w--current">Carry Cost Calc</a>
+            <a data-cta="Nav - Calc" href="/carry-cost-calculator" className="nav-menu-link w-nav-link">Carry Cost Calc</a>
           </nav>
           <div className="navbar-button-wrapper">
             <div className="primary-button-wrapper desktop">
@@ -70,130 +73,23 @@ export default function CarryCostCalculatorPage() {
         </div>
       </div>
     </div>
-    <section className="section inner-banner">
-      <div className="inner-banner-content">
-        <div className="inner-banner-wrapper">
-          <div className="container">
-            <div className="inner-banner-typography">
-              <div className="inner-banner-subtitle-wrap">
-                <div className="tagline-container">
-                  <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ph" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256">
-                      <g fill="currentColor">
-                        <path d="M224 104v48H48v-48Z" opacity=".2"></path>
-                        <path d="M224 96h-40V56a8 8 0 0 0-8-8H56v-8a8 8 0 0 0-16 0v176a8 8 0 0 0 16 0v-8h88a8 8 0 0 0 8-8v-40h72a8 8 0 0 0 8-8v-48a8 8 0 0 0-8-8m-56-32v32H56V64Zm-32 128H56v-32h80Zm80-48H56v-32h160Z"></path>
-                      </g>
-                    </svg></div>
-                  <div className="text-style-tagline">Carry Cost Calculator</div>
-                </div>
-              </div>
-              <div className="inner-banner-title-wrapper">
-                <h1 className="inner-banner-title contact-us">Stop Funding the Bank. <br />Start Funding Your Next Deal.</h1>
-                <p className="inner-banner-description about-us">In a high-interest environment, time is your most expensive liability.<br />See how much capital you preserve by selling out just 90 days faster.</p>
-              </div>
-              <div className="banner-button-wrapper">
-                <div className="primary-button-wrapper">
-                  <a href="#roi-calculator" className="inner-button w-inline-block">
-                    <div className="primary-button-border-wrap">
-                      <div className="inner-button-wrap">
-                        <div className="inner-button-text-wrap">
-                          <div className="inner-button-text">Run your numbers</div>
-                          <div className="inner-button-hover-text">Run your numbers</div>
-                        </div>
-                        <div className="inner-button-star-wrap"><img loading="lazy" src="/images/inner-button-arrow.svg" alt="" className="inner-button-star" /></div>
-                        <div className="inner-button-hover-bg"></div>
-                      </div>
-                    </div>
-                    <div className="line-wrap-inner">
-                      <div className="inner-line-wrap _1">
-                        <div className="line"></div>
-                        <div className="line _2"></div>
-                      </div>
-                      <div className="inner-line-wrap _2">
-                        <div className="line _3"></div>
-                        <div className="line _4"></div>
-                      </div>
-                      <div className="inner-line-wrap _3">
-                        <div className="line _5"></div>
-                        <div className="line _6"></div>
-                      </div>
-                      <div className="inner-line-wrap _4">
-                        <div className="line _7"></div>
-                        <div className="line _8"></div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div className="primary-button-wrapper">
-                  <a href="/book-a-demo" className="inner-button w-inline-block">
-                    <div className="primary-button-border-wrap">
-                      <div className="inner-button-wrap">
-                        <div className="inner-button-text-wrap">
-                          <div className="inner-button-text">Book A Demo</div>
-                          <div className="inner-button-hover-text">Book A Demo</div>
-                        </div>
-                        <div className="inner-button-star-wrap"><img loading="lazy" src="/images/inner-button-arrow.svg" alt="" className="inner-button-star" /></div>
-                        <div className="inner-button-hover-bg"></div>
-                      </div>
-                    </div>
-                    <div className="line-wrap-inner">
-                      <div className="inner-line-wrap _1">
-                        <div className="line"></div>
-                        <div className="line _2"></div>
-                      </div>
-                      <div className="inner-line-wrap _2">
-                        <div className="line _3"></div>
-                        <div className="line _4"></div>
-                      </div>
-                      <div className="inner-line-wrap _3">
-                        <div className="line _5"></div>
-                        <div className="line _6"></div>
-                      </div>
-                      <div className="inner-line-wrap _4">
-                        <div className="line _7"></div>
-                        <div className="line _8"></div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="inner-banner-pluse-icon top-left" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="inner-banner-pluse-icon top-right" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="inner-banner-pluse-icon bottom-left" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="inner-banner-pluse-icon bottom-right" />
-          <div className="cta-radial-gradient1"></div>
-          <div className="cta-radial-gradient2"></div>
-        </div>
-      </div>
-    </section>
-    <section id="roi-calculator" className="section roi">
-      <div className="container">
-        <div data-w-id="cce02c8f-bf74-6eb9-db79-4a28a0499fb5" style={{ opacity: "0" }} className="contact-us-wrapper"><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="contact-us-icon top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="contact-us-icon top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="contact-us-icon bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="contact-us-icon bottom-right" />
-          <div className="w-embed w-script">
-            <div id="wwd-calc-root"></div>
-            
-          </div>
-          <div className="call-radial-gradient1"></div>
-          <div className="call-radial-gradient2"></div>
-        </div>
-      </div>
-    </section>
-    <section className="section_content7">
-      <div className="padding-global">
-        <div className="container-large">
-          <div className="padding-section-large">
-            <div className="content7_component">
-              <div className="max-width-large align-center">
-                <div className="content7_content-wrapper">
-                  <div className="text-rich-text w-richtext">
-                    <h4>What the numbers mean</h4>
-                    <p className="rich-text-p">Every month a unit sits unsold, your construction loan compounds and your ops budget bleeds. The calculator above puts an exact dollar figure on that delay — and shows what closing 2–6 months faster is actually worth.</p>
-                    <p>That's the gap wowdesign closes. We build the website, the digital twin, and the automated follow-up system that pre-qualifies buyers before your sales team picks up the phone — so your project absorbs faster and your capital stays where it belongs.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <PageHero
+      tagline="Features"
+      title="The system, in detail."
+      description="Buyers explore every unit from their phone. Your sales team only calls people who are ready. Here's how each part of that works."
+      ctaLabel="See each part"
+      ctaHref="#features"
+      ctaData="Features - Hero"
+      taglineIcon={
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M6.26 9L12 13.47L17.74 9L12 4.53z" opacity=".3"></path>
+          <path fill="currentColor" d="m19.37 12.8l-7.38 5.74l-7.37-5.73L3 14.07l9 7l9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9zm0 11.47L6.26 9L12 4.53L17.74 9z"></path>
+        </svg>
+      }
+    />
+    <div className="spacer-xhuge"></div>
+    <FeaturesDeepDive />
+    <PageCta ctaData="Features CTA - Calc" />
     <section id="faq" className="section faq">
       <div className="container">
         <div data-w-id="012200b2-da6c-54ac-4c67-4c085ad775fe" className="faq-section-title-wrapper">
@@ -351,7 +247,7 @@ export default function CarryCostCalculatorPage() {
             <div className="footer-menu-wrapper">
               <div id="newsletter" className="footer-form-wrapper">
                 <div className="footer-form-block w-form">
-                  <form id="wf-form-NL-Form" name="wf-form-NL-Form" data-name="NL-Form" method="get" className="footer-form" data-wf-page-id="68b04f4de2c473630dcbed39" data-wf-element-id="7ccbf7a2-080d-66f9-81b6-2448b055e13b">
+                  <form id="wf-form-NL-Form" name="wf-form-NL-Form" data-name="NL-Form" method="get" className="footer-form" data-wf-page-id="68b03afe7096334b9f7252c6" data-wf-element-id="7ccbf7a2-080d-66f9-81b6-2448b055e13b">
                     <div className="footer-form-text-wrapper"><label htmlFor="name" className="footer-form-text-block">Subscribe to Newsletter</label></div>
                     <div className="footer-form-input-field-button"><input className="footer-form-input-field is-1 w-input" maxLength={256} name="nl_first_name" data-name="nl_first_name" placeholder="First Name" type="text" id="nl_first_name" required /><input className="footer-form-input-field w-input" maxLength={256} name="nl_email" data-name="nl_email" placeholder="Email" type="email" id="nl_email" required /><input type="submit" data-wait="" className="footer-form-submit-button w-button" value="" /></div>
                   </form>
@@ -377,7 +273,7 @@ export default function CarryCostCalculatorPage() {
                         <a href="/about" className="footer-menu-text-link">about</a>
                       </li>
                       <li className="footer-menu-list-item">
-                        <a href="/features" className="footer-menu-text-link">Features</a>
+                        <a href="/features" aria-current="page" className="footer-menu-text-link w--current">Features</a>
                       </li>
                       <li className="footer-menu-list-item">
                         <a href="/#how-it-works" className="footer-menu-text-link">How it works</a>
@@ -395,7 +291,7 @@ export default function CarryCostCalculatorPage() {
                         <a href="/book-a-demo" className="footer-menu-text-link">Book A Demo</a>
                       </li>
                       <li className="footer-menu-list-item">
-                        <a href="/carry-cost-calculator" aria-current="page" className="footer-menu-text-link w--current">Carry Cost Calculator</a>
+                        <a href="/carry-cost-calculator" className="footer-menu-text-link">Carry Cost Calculator</a>
                       </li>
                       <li className="footer-menu-list-item">
                         <a href="/contact" className="footer-menu-text-link">Contact</a>
@@ -460,7 +356,6 @@ export default function CarryCostCalculatorPage() {
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" strategy="afterInteractive" />
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" strategy="afterInteractive" />
       <Script src="https://cdn.jsdelivr.net/npm/goo-motion-library@latest/dist/goo.bundle.js" strategy="afterInteractive" />
-      <Script src="https://cdn.jsdelivr.net/gh/wowdesign-io/carry-cost-calc@main/carry-cost-calculator.js" strategy="afterInteractive" />
     </>
   )
 }

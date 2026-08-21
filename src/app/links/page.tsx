@@ -33,7 +33,7 @@ export default function LinksPage() {
                   <div className="margin-vertical margin-small">
                     <div className="links10_image-wrapper"><img width="Auto" loading="lazy" alt="" src="/images/wow-design-color-logo-dark.svg" className="links10_image" /></div>
                   </div>
-                  <p>We build the website, the digital twin, and the automated follow-up system — so your team always knows who's ready to buy.</p>
+                  <p>We build the website, the digital twin, and the automated follow-up system — so your sales team always knows who's ready to buy.</p>
                   <div className="margin-vertical margin-xsmall">
                     <div className="links10_metatag-item">
                       <div className="links10_metatag-icon">
