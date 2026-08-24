@@ -39,12 +39,9 @@ export default function ProblemSection() {
               <div className="pricing-card-wrap">
                 <div className="pricing-single problem-card">
                   <div className="text-style-tagline">Every extra month</div>
-                  <div className="pricing-price-pack-name-wrap">
-                    <div className="pricing-price">$67k–$100k</div>
-                    <div className="pricing-short-details-text">loan interest / month</div>
-                  </div>
-                  <h3 className="pricing-name">Then ads and ops on top</h3>
-                  <p className="pricing-short-details-text">Typical $10M–$15M construction loan at ~8%. Campaigns, brokers, and ops keep spending until the last unit sells. That is carry — not the interest line alone.</p>
+                  <div className="pricing-price">$67k–$100k</div>
+                  <p className="pricing-short-details-text">Loan interest / month. Ads and ops keep spending until the last unit sells.</p>
+                  <p className="pricing-short-details-text">Typical $10M–$15M construction loan at ~8%. That is carry — not the interest line alone.</p>
                   <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
                   <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
                 </div>
@@ -52,12 +49,9 @@ export default function ProblemSection() {
               <div className="pricing-card-wrap">
                 <div className="pricing-single is-wowdesign problem-card">
                   <div className="text-style-tagline">What you keep</div>
-                  <div className="pricing-price-pack-name-wrap">
-                    <div className="pricing-price">$400k+</div>
-                    <div className="pricing-short-details-text">typical carry kept</div>
-                  </div>
-                  <h3 className="pricing-name">Sell out months earlier</h3>
-                  <p className="pricing-short-details-text">That interest plus burn stays yours. Run your loan, months, and marketing in the calculator.</p>
+                  <div className="pricing-price">$400k+</div>
+                  <p className="pricing-short-details-text">If you sell out months earlier.</p>
+                  <p className="pricing-short-details-text">Interest plus burn that would otherwise leave. Run your loan, months, and marketing in the calculator.</p>
                   <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
                   <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
                 </div>

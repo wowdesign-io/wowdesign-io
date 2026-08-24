@@ -22,6 +22,20 @@
   margin-bottom: 18px;
 }
 
+.problem-card .pricing-price {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.problem-card .pricing-short-details-text {
+  display: block;
+  max-width: 28rem;
+}
+
+.problem-card .pricing-short-details-text + .pricing-short-details-text {
+  margin-top: 14px;
+}
+
 .problem-card .pricing-name,
 .offer-point .pricing-name {
   font-weight: 500;
