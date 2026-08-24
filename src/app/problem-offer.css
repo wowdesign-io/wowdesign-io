@@ -88,6 +88,10 @@
   border-top: 1px solid var(--light-border);
 }
 
+.offer-point .pricing-name {
+  font-weight: 500;
+}
+
 .offer-point:first-child {
   padding-top: 0;
   border-top: none;
