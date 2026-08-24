@@ -7,7 +7,7 @@ import '../how-it-works-headings.css'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    "Write to wowdesign. Questions about the presales system, a project, or a demo ? we reply at info@wowdesign.io.",
+    "Write to wowdesign. Questions about the presales system, a project, or a demo — we reply at info@wowdesign.io.",
   alternates: { canonical: 'https://www.wowdesign.io/contact' },
 }
 
