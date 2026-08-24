@@ -29,21 +29,28 @@
 
 .problem-card .pricing-short-details-text {
   display: block;
-  max-width: 28rem;
-}
-
-.problem-card .pricing-short-details-text + .pricing-short-details-text {
-  margin-top: 14px;
-}
-
-.problem-card .pricing-name,
-.offer-point .pricing-name {
-  font-weight: 500;
-  margin-bottom: 8px;
+  margin-bottom: 22px;
 }
 
 .problem-pair {
+  align-items: stretch;
   margin-bottom: 30px;
+}
+
+.problem-pair .pricing-card-wrap {
+  display: flex;
+  height: 100%;
+}
+
+.problem-pair .problem-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.problem-pair .pricing-features-list {
+  margin-top: auto;
 }
 
 .offer-board {

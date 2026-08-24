@@ -1,6 +1,17 @@
 import InnerButton from '@/components/InnerButton'
 import '@/app/problem-offer.css'
 
+const check = (
+  <div className="icon-embed-xsmall text-color-primary w-embed">
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="100%" height="100%" viewBox="0 0 256 256">
+      <g fill="currentColor">
+        <path d="M216 48v160a8 8 0 0 1-8 8H48a8 8 0 0 1-8-8V48a8 8 0 0 1 8-8h160a8 8 0 0 1 8 8" opacity=".2"></path>
+        <path d="M173.66 98.34a8 8 0 0 1 0 11.32l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 0M224 48v160a16 16 0 0 1-16 16H48a16 16 0 0 1-16-16V48a16 16 0 0 1 16-16h160a16 16 0 0 1 16 16m-16 160V48H48v160z"></path>
+      </g>
+    </svg>
+  </div>
+)
+
 export default function ProblemSection() {
   return (
     <section id="the-problem" className="section problem-band">
@@ -26,10 +37,10 @@ export default function ProblemSection() {
                     </div>
                   </div>
                   <div className="margin-bottom margin-small">
-                    <h2 className="section-title">You&apos;re paying until the last unit sells.</h2>
+                    <h2 className="section-title">One extra month. That&apos;s $67k–$100k.</h2>
                   </div>
                   <p className="text-size-medium">
-                    Interest on the construction loan. Then ads, brokers, and ops. That is carry — a months problem, not a brochure problem. Sell out faster and $400k+ stays yours.
+                    Loan interest. Then ads and ops. Until the last unit sells. Sell out faster and $400k+ stays yours.
                   </p>
                 </div>
               </div>
@@ -38,10 +49,19 @@ export default function ProblemSection() {
             <div className="w-layout-grid pricing-grid problem-pair">
               <div className="pricing-card-wrap">
                 <div className="pricing-single problem-card">
-                  <div className="text-style-tagline">Every extra month</div>
+                  <div className="text-style-tagline">Leaving every month</div>
                   <div className="pricing-price">$67k–$100k</div>
-                  <p className="pricing-short-details-text">Loan interest / month. Ads and ops keep spending until the last unit sells.</p>
-                  <p className="pricing-short-details-text">Typical $10M–$15M construction loan at ~8%. That is carry — not the interest line alone.</p>
+                  <p className="pricing-short-details-text">Typical $10M–$15M construction loan at ~8%.</p>
+                  <ul role="list" className="pricing-features-list">
+                    <li className="pricing-features-list-item">
+                      {check}
+                      <div className="pricing-features-list-item-text">Interest leaves as cost, not profit</div>
+                    </li>
+                    <li className="pricing-features-list-item">
+                      {check}
+                      <div className="pricing-features-list-item-text">Ads, brokers, and ops keep spending</div>
+                    </li>
+                  </ul>
                   <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
                   <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
                 </div>
@@ -51,7 +71,16 @@ export default function ProblemSection() {
                   <div className="text-style-tagline">What you keep</div>
                   <div className="pricing-price">$400k+</div>
                   <p className="pricing-short-details-text">If you sell out months earlier.</p>
-                  <p className="pricing-short-details-text">Interest plus burn that would otherwise leave. Run your loan, months, and marketing in the calculator.</p>
+                  <ul role="list" className="pricing-features-list">
+                    <li className="pricing-features-list-item">
+                      {check}
+                      <div className="pricing-features-list-item-text">Interest plus marketing burn</div>
+                    </li>
+                    <li className="pricing-features-list-item">
+                      {check}
+                      <div className="pricing-features-list-item-text">That money stays yours</div>
+                    </li>
+                  </ul>
                   <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
                   <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
                 </div>
