@@ -12,11 +12,11 @@ export default function PageCta({ ctaData = 'CTA - Calc' }: PageCtaProps) {
           <div data-w-id="1c3f6ead-2444-a223-fec9-b2e0c543d731" className="cta-typography">
             <div className="cta-title-description">
               <h2 className="cta-title">
-                Stop Sending PDFs. <br />
+                Stop Funding the Bank. <br />
                 Start Selling Units.
               </h2>
               <p className="cta-description-text">
-                Replace static brochures with a presales system built to accelerate sales — combining a digital twin, live inventory sync, and qualified buyer data delivered directly to your sales team.
+                Every extra month is loan interest plus marketing burn. See your number, then book a demo for the system that helps boutique developers sell out faster.
                 <br />
               </p>
             </div>
@@ -28,7 +28,7 @@ export default function PageCta({ ctaData = 'CTA - Calc' }: PageCtaProps) {
             <div className="cta-timeline text-size-small">
               Built for 10–50 unit developments.
               <br />
-              Launched in 6–8 weeks.
+              $45k–$75k per project · Launched in 6–8 weeks.
             </div>
           </div>
           <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="cta-top-left-element" />

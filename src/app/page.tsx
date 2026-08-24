@@ -3,6 +3,8 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import './how-it-works-headings.css'
 import PageCta from '@/components/PageCta'
+import ProblemSection from '@/components/ProblemSection'
+import OfferSection from '@/components/OfferSection'
 import SelvaShowcase from '@/components/SelvaShowcase'
 import TeamMembers from '@/components/TeamMembers'
 import InnerButton from '@/components/InnerButton'
@@ -20,7 +22,9 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
     <div className="global-styles">
       <div className="style-overrides w-embed">
         <style dangerouslySetInnerHTML={{ __html: `
-#how-it-works .layout237_item h3.heading-style-h6 {
+#how-it-works .layout237_item h3.heading-style-h6,
+#the-problem .layout237_item h3.heading-style-h6,
+#the-offer .layout237_item h3.heading-style-h6 {
   font-size: 26px !important;
   font-weight: 500 !important;
   letter-spacing: -0.02em !important;
@@ -31,7 +35,9 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
   color: #fff !important;
 }
 @media (max-width: 479px) {
-  #how-it-works .layout237_item h3.heading-style-h6 { font-size: 22px !important; }
+  #how-it-works .layout237_item h3.heading-style-h6,
+  #the-problem .layout237_item h3.heading-style-h6,
+  #the-offer .layout237_item h3.heading-style-h6 { font-size: 22px !important; }
 }
 .section.solving { padding-top: 7rem !important; }
 @media screen and (max-width: 991px) { .section.solving { padding-top: 100px !important; } }
@@ -246,6 +252,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
         </div>
       </div>
     </section>)}
+    <ProblemSection />
     <section id="how-it-works" className="section_layout237">
       <div className="padding-global">
         <div className="container-large">
@@ -340,6 +347,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
         <div className="secondary-sky-circle"></div>
       </div>
     </section>
+    <OfferSection />
     <SelvaShowcase />
     <section className={heroVisual ? 'section solving hero3d-topgap' : 'section solving'}>
       <div className="container">
@@ -893,6 +901,28 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
             <div className="faq-accordion-wrapper w-tab-menu">
               <a data-w-tab="Tab 1" className="single-faq-accordion-wrap w-inline-block w-tab-link w--current">
                 <div className="faq-accordion-question-wrap">
+                  <h3 className="faq-question">What does a project cost?</h3>
+                  <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
+                </div>
+                <div className="faq-accordion-answer-wrap">
+                  <div className="faq-answer">
+                    <p className="faq-answer-text">$45k–$75k per project for the website, digital twin, and automated follow-up — launched in 6–8 weeks.<br /><br />What moves the number: unit count, how deep the twin goes, and how follow-up wires into your sales tools. We operate the platform under maintenance. You do not buy or run a separate viewer.</p>
+                  </div>
+                </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
+              </a>
+              <a data-w-tab="Tab 2" className="single-faq-accordion-wrap w-inline-block w-tab-link">
+                <div className="faq-accordion-question-wrap">
+                  <h3 className="faq-question">What is carry cost — and why does it matter?</h3>
+                  <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
+                </div>
+                <div className="faq-accordion-answer-wrap">
+                  <div className="faq-answer">
+                    <p className="faq-answer-text">Carry is what you spend every month until units are sold — loan interest plus marketing and ops burn. Not the interest alone.<br /><br />Sell out months earlier and that money stays yours. That is the $400k+. Use the Carry Cost Calculator to see your number.</p>
+                  </div>
+                </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
+              </a>
+              <a data-w-tab="Tab 3" className="single-faq-accordion-wrap w-inline-block w-tab-link">
+                <div className="faq-accordion-question-wrap">
                   <h3 className="faq-question">What is the difference between a normal website and your presales system?</h3>
                   <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
                 </div>
@@ -902,7 +932,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>
-              <a data-w-tab="Tab 2" className="single-faq-accordion-wrap w-inline-block w-tab-link">
+              <a data-w-tab="Tab 4" className="single-faq-accordion-wrap w-inline-block w-tab-link">
                 <div className="faq-accordion-question-wrap">
                   <h3 className="faq-question">Do you integrate with our existing CRM?</h3>
                   <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
@@ -913,7 +943,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>
-              <a data-w-tab="Tab 3" className="single-faq-accordion-wrap w-inline-block w-tab-link">
+              <a data-w-tab="Tab 5" className="single-faq-accordion-wrap w-inline-block w-tab-link">
                 <div className="faq-accordion-question-wrap">
                   <h3 className="faq-question">How long does it take to build and launch?</h3>
                   <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
@@ -924,7 +954,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>
-              <a data-w-tab="Tab 4" className="single-faq-accordion-wrap w-inline-block w-tab-link">
+              <a data-w-tab="Tab 6" className="single-faq-accordion-wrap w-inline-block w-tab-link">
                 <div className="faq-accordion-question-wrap">
                   <h3 className="faq-question">Does this replace our sales team?</h3>
                   <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
@@ -935,7 +965,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>
-              <a data-w-tab="Tab 5" className="single-faq-accordion-wrap w-inline-block w-tab-link">
+              <a data-w-tab="Tab 7" className="single-faq-accordion-wrap w-inline-block w-tab-link">
                 <div className="faq-accordion-question-wrap">
                   <h3 className="faq-question">How do we track buyer interest?</h3>
                   <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
@@ -946,7 +976,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>
-              <a data-w-tab="Tab 6" className="single-faq-accordion-wrap w-inline-block w-tab-link">
+              <a data-w-tab="Tab 8" className="single-faq-accordion-wrap w-inline-block w-tab-link">
                 <div className="faq-accordion-question-wrap">
                   <h3 className="faq-question">Can the system handle multiple phases and complex floorplans?</h3>
                   <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
@@ -957,7 +987,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>
-              <a data-w-tab="Tab 7" className="single-faq-accordion-wrap w-inline-block w-tab-link">
+              <a data-w-tab="Tab 9" className="single-faq-accordion-wrap w-inline-block w-tab-link">
                 <div className="faq-accordion-question-wrap">
                   <h3 className="faq-question">Do we need all our final 3D renders finished before we start?</h3>
                   <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
@@ -968,7 +998,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>
-              <a data-w-tab="Tab 8" className="single-faq-accordion-wrap w-inline-block w-tab-link">
+              <a data-w-tab="Tab 10" className="single-faq-accordion-wrap w-inline-block w-tab-link">
                 <div className="faq-accordion-question-wrap">
                   <h3 className="faq-question">Why shouldn't we just have our branding agency build this?</h3>
                   <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
@@ -979,7 +1009,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>
-              <a data-w-tab="Tab 9" className="single-faq-accordion-wrap w-inline-block w-tab-link">
+              <a data-w-tab="Tab 11" className="single-faq-accordion-wrap w-inline-block w-tab-link">
                 <div className="faq-accordion-question-wrap">
                   <h3 className="faq-question">Is this overkill for a smaller project?</h3>
                   <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
@@ -1001,6 +1031,8 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
               <div data-w-tab="Tab 7" className="w-tab-pane"></div>
               <div data-w-tab="Tab 8" className="w-tab-pane"></div>
               <div data-w-tab="Tab 9" className="w-tab-pane"></div>
+              <div data-w-tab="Tab 10" className="w-tab-pane"></div>
+              <div data-w-tab="Tab 11" className="w-tab-pane"></div>
             </div>
           </div>
         </div>

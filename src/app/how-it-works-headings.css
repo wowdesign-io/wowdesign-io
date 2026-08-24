@@ -1,6 +1,8 @@
 /* Card titles are h3.heading-style-h6 — they inherit display-heading
    tracking and a faded gradient fill, and shrink with Webflow's fluid rem. */
-#how-it-works .layout237_item h3.heading-style-h6 {
+#how-it-works .layout237_item h3.heading-style-h6,
+#the-problem .layout237_item h3.heading-style-h6,
+#the-offer .layout237_item h3.heading-style-h6 {
   font-size: 26px;
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -12,7 +14,9 @@
 }
 
 @media (max-width: 479px) {
-  #how-it-works .layout237_item h3.heading-style-h6 {
+  #how-it-works .layout237_item h3.heading-style-h6,
+  #the-problem .layout237_item h3.heading-style-h6,
+  #the-offer .layout237_item h3.heading-style-h6 {
     font-size: 22px;
   }
 }

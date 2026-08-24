@@ -41,8 +41,13 @@ const schema = {
     description:
       'Interactive digital twin presales system for boutique real estate developers with live CRM synchronization, unit-level buyer intent tracking, and automated follow-up.',
     offers: {
-      '@type': 'Offer',
-      description: 'Complete presales system built for boutique developers',
+      '@type': 'AggregateOffer',
+      priceCurrency: 'USD',
+      lowPrice: '45000',
+      highPrice: '75000',
+      offerCount: 1,
+      description:
+        '$45k–$75k per project for the website, digital twin, and automated follow-up. Scope depends on unit count, twin depth, and sales-team wiring. Platform operation is included in maintenance.',
     },
     featureList: [
       'Interactive Digital Twin',
