@@ -270,7 +270,7 @@ body.flight-done .hero-card { opacity: 1; transform: none; }
 }
 
 .inner-button.is-primary .primary-button-border-wrap.is-primary {
-  background-color: var(--border-card); /* #ffffff14 — same glass rim as cards */
+  background-color: var(--border-tagline);
 }
 
 .inner-button.is-primary .inner-button-hover-bg.is-primary {

@@ -16,6 +16,7 @@
   --radial-secondary: #a044ff80;
   --tertiary: #eb32ab;
   --border-card: #ffffff14;
+  --border-tagline: #fff3; /* ~20% white — tagline chips + primary CTA rim */
   --surface-bg: #151c2c;
 }
 
@@ -9027,7 +9028,7 @@ figure {
 .tagline-container {
   grid-column-gap: .5rem;
   grid-row-gap: .5rem;
-  border: 1px solid #fff3;
+  border: 1px solid var(--border-tagline);
   justify-content: center;
   align-items: center;
   padding: .5rem 1rem;
