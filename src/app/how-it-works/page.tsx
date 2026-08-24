@@ -2,13 +2,15 @@ import Script from 'next/script'
 import type { Metadata } from 'next'
 import PageHero from '@/components/PageHero'
 import PageCta from '@/components/PageCta'
-import HowItWorksStory from '@/components/HowItWorksStory'
+import ProblemSection from '@/components/ProblemSection'
+import HowItWorksSection from '@/components/HowItWorksSection'
+import OfferSection from '@/components/OfferSection'
 import '@/app/how-it-works-headings.css'
 
 export const metadata: Metadata = {
   title: 'How it works',
   description:
-    'They pick a unit tonight. Follow-up is automatic. Your sales team has the picture before they call. $45k–$75k per project.',
+    'You\'re paying until the last unit sells. Buyers pick a unit from their phone. Your sales team has the picture. $45k–$75k per project.',
   alternates: { canonical: 'https://www.wowdesign.io/how-it-works' },
 }
 
@@ -76,14 +78,20 @@ export default function HowItWorksPage() {
     </div>
     <PageHero
       tagline="How it works"
-      title="They pick a unit tonight."
-      description="Follow-up is automatic. Your sales team has the picture before they call."
+      title="How it works."
+      description="They pick a unit tonight. Follow-up is automatic. Your sales team has the picture before they call."
       ctaLabel="See how it works"
-      ctaHref="#how-it-works-story"
+      ctaHref="#the-problem"
       ctaData="How it works - Hero"
     />
     <div className="spacer-xhuge"></div>
-    <HowItWorksStory />
+    <ProblemSection />
+    <HowItWorksSection
+      cta="How it works page - Calc"
+      ctaHref="/carry-cost-calculator"
+      ctaLabel="Carry Cost Calc"
+    />
+    <OfferSection />
     <PageCta ctaData="How it works CTA - Calc" />
     <section className="section footer">
       <div className="footer-container">
