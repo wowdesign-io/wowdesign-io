@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
     qualities: [75, 85, 90],
     formats: ['image/avif', 'image/webp'],
   },
+  async redirects() {
+    return [
+      { source: '/contact', destination: '/carry-cost-calculator', permanent: false },
+    ]
+  },
   async rewrites() {
     return [
       // Storyblok visual editor appends story slug to preview URL

@@ -2,19 +2,19 @@ import Script from 'next/script'
 import type { Metadata } from 'next'
 import PageHero from '@/components/PageHero'
 import PageCta from '@/components/PageCta'
-import FounderStory from '@/components/FounderStory'
-import TeamMembers from '@/components/TeamMembers'
-import ToolsIntegrations from '@/components/ToolsIntegrations'
-import '../how-it-works-headings.css'
+import ProblemSection from '@/components/ProblemSection'
+import HowItWorksSection from '@/components/HowItWorksSection'
+import OfferSection from '@/components/OfferSection'
+import '@/app/how-it-works-headings.css'
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'How it works',
   description:
-    'Andy Bittner — German founder of wowdesign. Eight years building websites that sell. The team he built delivers the full system so boutique developers sell out faster.',
-  alternates: { canonical: 'https://www.wowdesign.io/about' },
+    'Carry is interest plus marketing burn. Buyers pick a unit from their phone. Your sales team sees who is ready. $45k–$75k per project.',
+  alternates: { canonical: 'https://www.wowdesign.io/how-it-works' },
 }
 
-export default function AboutPage() {
+export default function HowItWorksPage() {
   return (
     <>
 <div className="page-wrapper">
@@ -35,8 +35,8 @@ export default function AboutPage() {
           <a href="/" className="navbar-logo w-nav-brand"><img src="/images/wow-design-color-logo-dark.svg" loading="lazy" alt="" className="navbar-logo-image" /></a>
           <nav role="navigation" className="nav-menu w-nav-menu">
             <a href="/features" className="nav-menu-link w-nav-link">Features</a>
-            <a href="/how-it-works" className="nav-menu-link w-nav-link">How it works</a>
-            <a href="/about" aria-current="page" className="nav-menu-link w-nav-link w--current">about</a>
+            <a href="/how-it-works" aria-current="page" className="nav-menu-link w-nav-link w--current">How it works</a>
+            <a href="/about" className="nav-menu-link w-nav-link">about</a>
             <a data-cta="Nav - Calc" href="/carry-cost-calculator" className="nav-menu-link w-nav-link">Carry Cost Calc</a>
           </nav>
           <div className="navbar-button-wrapper">
@@ -77,26 +77,17 @@ export default function AboutPage() {
       </div>
     </div>
     <PageHero
-      tagline="About"
-      title="You'll work with us."
-      description="Founder-led, team-built. Eight years shipping websites that sell — so a buyer can pick a unit tonight, and your sales team only calls people who are ready."
-      ctaLabel="Meet the team"
-      ctaHref="#team"
-      ctaData="About - Hero"
-      taglineIcon={
-        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256">
-          <g fill="currentColor">
-            <path d="M136 108a52 52 0 1 1-52-52a52 52 0 0 1 52 52" opacity=".2"></path>
-            <path d="M117.25 157.92a60 60 0 1 0-66.5 0a95.83 95.83 0 0 0-47.22 37.71a8 8 0 1 0 13.4 8.74a80 80 0 0 1 134.14 0a8 8 0 0 0 13.4-8.74a95.83 95.83 0 0 0-47.22-37.71M40 108a44 44 0 1 1 44 44a44.05 44.05 0 0 1-44-44m210.14 98.7a8 8 0 0 1-11.07-2.33A79.83 79.83 0 0 0 172 168a8 8 0 0 1 0-16a44 44 0 1 0-16.34-84.87a8 8 0 1 1-5.94-14.85a60 60 0 0 1 55.53 105.64a95.83 95.83 0 0 1 47.22 37.71a8 8 0 0 1-2.33 11.07"></path>
-          </g>
-        </svg>
-      }
+      tagline="How it works"
+      title="From the money leak to the system."
+      description="Carry is interest plus marketing burn. Then how buyers buy. Then what a project costs. Run the calculator when you want your number."
+      ctaLabel="Carry Cost Calc"
+      ctaHref="/carry-cost-calculator"
+      ctaData="How it works - Hero Calc"
     />
-    <div className="spacer-xhuge"></div>
-    <FounderStory />
-    <TeamMembers anchorId="team" />
-    <ToolsIntegrations />
-    <PageCta ctaData="About CTA - Calc" />
+    <ProblemSection />
+    <HowItWorksSection cta="How it works page - Calc" />
+    <OfferSection />
+    <PageCta ctaData="How it works CTA - Calc" />
     <section className="section footer">
       <div className="footer-container">
         <div className="footer-content">
@@ -143,13 +134,13 @@ export default function AboutPage() {
                         <a href="/" className="footer-menu-text-link">home</a>
                       </li>
                       <li className="footer-menu-list-item">
-                        <a href="/about" aria-current="page" className="footer-menu-text-link w--current">about</a>
+                        <a href="/about" className="footer-menu-text-link">about</a>
                       </li>
                       <li className="footer-menu-list-item">
                         <a href="/features" className="footer-menu-text-link">Features</a>
                       </li>
                       <li className="footer-menu-list-item">
-                        <a href="/how-it-works" className="footer-menu-text-link">How it works</a>
+                        <a href="/how-it-works" aria-current="page" className="footer-menu-text-link w--current">How it works</a>
                       </li>
                     </ul>
                   </div>

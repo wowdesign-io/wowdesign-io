@@ -30,7 +30,7 @@ export default function CarryCostCalculatorPage() {
           <a href="/" className="navbar-logo w-nav-brand"><img src="/images/wow-design-color-logo-dark.svg" loading="lazy" alt="" className="navbar-logo-image" /></a>
           <nav role="navigation" className="nav-menu w-nav-menu">
             <a href="/features" className="nav-menu-link w-nav-link">Features</a>
-            <a href="/#how-it-works" className="nav-menu-link w-nav-link">How it works</a>
+            <a href="/how-it-works" className="nav-menu-link w-nav-link">How it works</a>
             <a href="/about" className="nav-menu-link w-nav-link">about</a>
             <a data-cta="Nav - Calc" href="/carry-cost-calculator" aria-current="page" className="nav-menu-link w-nav-link w--current">Carry Cost Calc</a>
           </nav>
@@ -323,7 +323,7 @@ export default function CarryCostCalculatorPage() {
                         <a href="/features" className="footer-menu-text-link">Features</a>
                       </li>
                       <li className="footer-menu-list-item">
-                        <a href="/#how-it-works" className="footer-menu-text-link">How it works</a>
+                        <a href="/how-it-works" className="footer-menu-text-link">How it works</a>
                       </li>
                     </ul>
                   </div>
@@ -339,9 +339,6 @@ export default function CarryCostCalculatorPage() {
                       </li>
                       <li className="footer-menu-list-item">
                         <a href="/carry-cost-calculator" aria-current="page" className="footer-menu-text-link w--current">Carry Cost Calculator</a>
-                      </li>
-                      <li className="footer-menu-list-item">
-                        <a href="/contact" className="footer-menu-text-link">Contact</a>
                       </li>
                       <li className="footer-menu-list-item">
                         <a href="/#faq" className="footer-menu-text-link">FAQ</a>

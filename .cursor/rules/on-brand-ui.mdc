@@ -1,0 +1,12 @@
+---
+description: Reuse miami.css section classes only. Never invent off-brand UI or new visual CSS.
+alwaysApply: true
+---
+
+# On-brand UI only
+
+Do not invent new section skins, class prefixes, or CSS files for homepage blocks.
+
+Reuse what is already in `src/app/wowdesign-miami.css` (`pricing-single`, `pricing-price`, `layout237`, `cta`, `features-typography-card`, tagline chip, `section-title`, `InnerButton`).
+
+`id` on a section is fine. A new look is not. Andy rejected off-brand Problem/Offer drafts on 2026-08-24.
