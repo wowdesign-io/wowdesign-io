@@ -49,8 +49,8 @@
   height: 100%;
 }
 
-.problem-pair .pricing-features-list {
-  margin-top: auto;
+.problem-card .pricing-features-list-item-text {
+  text-transform: none;
 }
 
 .offer-board {

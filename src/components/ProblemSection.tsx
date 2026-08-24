@@ -3,10 +3,10 @@ import '@/app/problem-offer.css'
 
 const check = (
   <div className="icon-embed-xsmall text-color-primary w-embed">
-    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="100%" height="100%" viewBox="0 0 256 256">
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="100%" height="100%" viewBox="0 0 256 256">
       <g fill="currentColor">
-        <path d="M216 48v160a8 8 0 0 1-8 8H48a8 8 0 0 1-8-8V48a8 8 0 0 1 8-8h160a8 8 0 0 1 8 8" opacity=".2"></path>
-        <path d="M173.66 98.34a8 8 0 0 1 0 11.32l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 0M224 48v160a16 16 0 0 1-16 16H48a16 16 0 0 1-16-16V48a16 16 0 0 1 16-16h160a16 16 0 0 1 16 16m-16 160V48H48v160z"></path>
+        <path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24" opacity=".2"></path>
+        <path d="M173.66 98.34a8 8 0 0 1 0 11.32l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 0M232 128A104 104 0 1 1 128 24a104.11 104.11 0 0 1 104 104m-16 0a88 88 0 1 0-88 88a88.1 88.1 0 0 0 88-88"></path>
       </g>
     </svg>
   </div>
@@ -25,10 +25,10 @@ export default function ProblemSection() {
                     <div className="margin-bottom margin-xsmall">
                       <div className="tagline-container">
                         <div className="icon-embed-xsmall text-color-primary w-embed">
-                          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="100%" height="100%" viewBox="0 0 256 256">
+                          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="100%" height="100%" viewBox="0 0 256 256">
                             <g fill="currentColor">
-                              <path d="M224 56v144H40V56Z" opacity=".2"></path>
-                              <path d="M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16m0 160H40V56h176Zm-40-96a8 8 0 0 1-8 8H88a8 8 0 0 1 0-16h88a8 8 0 0 1 8 8m0 40a8 8 0 0 1-8 8H88a8 8 0 0 1 0-16h88a8 8 0 0 1 8 8"></path>
+                              <path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24" opacity=".2"></path>
+                              <path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m0 192a88 88 0 1 1 88-88a88.1 88.1 0 0 1-88 88m56-88a8 8 0 0 1-8 8h-48V80a8 8 0 0 1 16 0v48h32a8 8 0 0 1 8 8"></path>
                             </g>
                           </svg>
                         </div>
@@ -37,10 +37,14 @@ export default function ProblemSection() {
                     </div>
                   </div>
                   <div className="margin-bottom margin-small">
-                    <h2 className="section-title">One extra month. That&apos;s $67k–$100k.</h2>
+                    <h2 className="section-title">
+                      One extra month.
+                      <br />
+                      That&apos;s $67k–$100k.
+                    </h2>
                   </div>
                   <p className="text-size-medium">
-                    Loan interest. Then ads and ops. Until the last unit sells. Sell out faster and $400k+ stays yours.
+                    That&apos;s the loan. Then ads and ops — until the last unit sells. Boutique developers hit the 50% draw by selling out faster. That&apos;s how $400k+ stays yours.
                   </p>
                 </div>
               </div>
@@ -51,15 +55,19 @@ export default function ProblemSection() {
                 <div className="pricing-single problem-card">
                   <div className="text-style-tagline">Leaving every month</div>
                   <div className="pricing-price">$67k–$100k</div>
-                  <p className="pricing-short-details-text">Typical $10M–$15M construction loan at ~8%.</p>
+                  <p className="pricing-short-details-text">Every month units sit on a typical $10M–$15M loan at 8%.</p>
                   <ul role="list" className="pricing-features-list">
                     <li className="pricing-features-list-item">
                       {check}
-                      <div className="pricing-features-list-item-text">Interest leaves as cost, not profit</div>
+                      <div className="pricing-features-list-item-text">The bank still gets paid if units sit</div>
                     </li>
                     <li className="pricing-features-list-item">
                       {check}
-                      <div className="pricing-features-list-item-text">Ads, brokers, and ops keep spending</div>
+                      <div className="pricing-features-list-item-text">Ads, brokers, and ops stay on until sell-out</div>
+                    </li>
+                    <li className="pricing-features-list-item">
+                      {check}
+                      <div className="pricing-features-list-item-text">The 50% draw waits until units actually move</div>
                     </li>
                   </ul>
                   <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
@@ -70,15 +78,19 @@ export default function ProblemSection() {
                 <div className="pricing-single is-wowdesign problem-card">
                   <div className="text-style-tagline">What you keep</div>
                   <div className="pricing-price">$400k+</div>
-                  <p className="pricing-short-details-text">If you sell out months earlier.</p>
+                  <p className="pricing-short-details-text">What a 10–50 unit project keeps when sell-out happens months earlier.</p>
                   <ul role="list" className="pricing-features-list">
                     <li className="pricing-features-list-item">
                       {check}
-                      <div className="pricing-features-list-item-text">Interest plus marketing burn</div>
+                      <div className="pricing-features-list-item-text">Months of interest you do not keep paying</div>
                     </li>
                     <li className="pricing-features-list-item">
                       {check}
-                      <div className="pricing-features-list-item-text">That money stays yours</div>
+                      <div className="pricing-features-list-item-text">Months of ads and ops you do not keep burning</div>
+                    </li>
+                    <li className="pricing-features-list-item">
+                      {check}
+                      <div className="pricing-features-list-item-text">The 50% draw unlocks sooner, so the build starts sooner</div>
                     </li>
                   </ul>
                   <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />

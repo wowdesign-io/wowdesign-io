@@ -14,10 +14,10 @@ export default function OfferSection() {
                     <div className="margin-bottom margin-xsmall">
                       <div className="tagline-container">
                         <div className="icon-embed-xsmall text-color-primary w-embed">
-                          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="100%" height="100%" viewBox="0 0 256 256">
+                          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="100%" height="100%" viewBox="0 0 256 256">
                             <g fill="currentColor">
-                              <path d="M232 96v96H32V96Z" opacity=".2"></path>
-                              <path d="M232 88h-40.58l-21.53-43.08a8 8 0 0 0-14.14.08L133.89 88H122.11L99.25 45a8 8 0 0 0-14.14-.08L63.58 88H24a16 16 0 0 0-16 16v96a16 16 0 0 0 16 16h208a16 16 0 0 0 16-16v-96a16 16 0 0 0-16-16M92.58 56.55L108.23 88H76.92ZM163.42 56.55L179.08 88h-31.31ZM224 200H32v-96h208z"></path>
+                              <path d="M136 32v184H40V85.35a8 8 0 0 1 3.56-6.66l80-53.33A8 8 0 0 1 136 32" opacity=".2"></path>
+                              <path d="M240 208h-16V96a16 16 0 0 0-16-16h-64V32a16 16 0 0 0-24.88-13.32L39.12 72A16 16 0 0 0 32 85.34V208H16a8 8 0 0 0 0 16h224a8 8 0 0 0 0-16M208 96v112h-64V96ZM48 85.34L128 32v176H48ZM112 112v16a8 8 0 0 1-16 0v-16a8 8 0 1 1 16 0m-32 0v16a8 8 0 0 1-16 0v-16a8 8 0 1 1 16 0m0 56v16a8 8 0 0 1-16 0v-16a8 8 0 0 1 16 0m32 0v16a8 8 0 0 1-16 0v-16a8 8 0 0 1 16 0"></path>
                             </g>
                           </svg>
                         </div>
@@ -29,7 +29,7 @@ export default function OfferSection() {
                     <h2 className="section-title">What a project costs.</h2>
                   </div>
                   <p className="text-size-medium">
-                    Website, digital twin, and follow-up. Built in 6–8 weeks for 10–50 unit buildings. We run the platform. You don&apos;t buy one.
+                    10–50 units. They pick a unit tonight. Your sales team only calls people who are ready. Six to eight weeks. We run it.
                   </p>
                 </div>
               </div>
@@ -38,20 +38,20 @@ export default function OfferSection() {
             <div className="pricing-single is-wowdesign offer-board">
               <div className="offer-board-price">
                 <div className="pricing-price">$45k–$75k</div>
-                <p className="pricing-short-details-text">Per project · launched in 6–8 weeks</p>
+                <p className="pricing-short-details-text">Per project. Live in 6–8 weeks for a 10–50 unit building.</p>
               </div>
               <div className="offer-board-body">
                 <div className="offer-point">
                   <h3 className="pricing-name">What you get</h3>
-                  <p className="pricing-short-details-text">Buyers pick a unit from their phone. Follow-up runs itself. Your sales team sees who is ready before they call.</p>
+                  <p className="pricing-short-details-text">They pick a unit tonight — live price, live availability. Follow-up goes out when they request. Your sales team already knows who is ready.</p>
                 </div>
                 <div className="offer-point">
                   <h3 className="pricing-name">What moves the number</h3>
-                  <p className="pricing-short-details-text">Unit count, how far the twin goes, and how it lands in your sales team&apos;s tools. Not three packages.</p>
+                  <p className="pricing-short-details-text">Units, how far the twin goes, how it shows up for your sales team. Not three packages.</p>
                 </div>
                 <div className="offer-point">
                   <h3 className="pricing-name">How we run it</h3>
-                  <p className="pricing-short-details-text">You never operate a separate viewer. We build it and keep it under maintenance.</p>
+                  <p className="pricing-short-details-text">You never log into a separate viewer. We build it and keep it running. Your sales team sells.</p>
                 </div>
               </div>
               <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
