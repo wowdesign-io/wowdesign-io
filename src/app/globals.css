@@ -214,6 +214,17 @@ body.flight-done .hero-card { opacity: 1; transform: none; }
   }
 }
 
+/* Anti-FOUC for goo: hide targets until GSAP from-states exist.
+   Use visibility (not opacity) so gsap.from still reads opacity:1 as the destination. */
+html:not(.goo-ready):not(.goo-fallback) [goo] {
+  visibility: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  html:not(.goo-ready):not(.goo-fallback) [goo] {
+    visibility: visible;
+  }
+}
+
 #wwd-calc-root {
   position: relative;
   z-index: 1;

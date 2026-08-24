@@ -380,6 +380,11 @@ export default function BookADemoPage() {
       <div className="footer-bottom-line"></div>
     </section>
   </div>
+      <Script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js" strategy="afterInteractive" />
+      <Script src="/webflow.js" strategy="afterInteractive" />
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" strategy="afterInteractive" />
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" strategy="afterInteractive" />
+      <Script src="https://cdn.jsdelivr.net/npm/goo-motion-library@latest/dist/goo.bundle.js" strategy="afterInteractive" />
       <Script id="cal-embed" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: "(function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement(\"script\")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === \"string\"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, [\"initNamespace\", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, \"https://app.cal.com/embed/embed.js\", \"init\");\nCal(\"init\", \"book-a-demo\", {origin:\"https://app.cal.com\"});\nCal.config = Cal.config || {}; Cal.config.forwardQueryParams = true;\nCal.ns[\"book-a-demo\"](\"inline\", { elementOrSelector:\"#my-cal-inline-book-a-demo\", config: {\"layout\":\"month_view\",\"useSlotsViewOnSmallScreen\":\"true\",\"theme\":\"dark\"}, calLink: \"wowdesign/book-a-demo\" });\nCal.ns[\"book-a-demo\"](\"ui\", {\"theme\":\"dark\",\"cssVarsPerTheme\":{\"light\":{\"cal-brand\":\"#2E77FA\"},\"dark\":{\"cal-brand\":\"#2E77FA\"}},\"hideEventTypeDetails\":false,\"layout\":\"month_view\"});" }} />
     </>
   )
