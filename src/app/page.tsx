@@ -23,7 +23,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
         <style dangerouslySetInnerHTML={{ __html: `
 #how-it-works .layout237_item h3.heading-style-h6 {
   font-size: 26px !important;
-  font-weight: 500 !important;
+  font-weight: 400 !important;
   letter-spacing: -0.02em !important;
   line-height: 1.25 !important;
   white-space: normal;
