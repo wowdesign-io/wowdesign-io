@@ -1,225 +1,102 @@
-/* Problem + Offer — not layout237. Hard edges, tagline rim. */
+/* Problem + Offer — site chrome (pricing-single, section shell). Hard edges. */
 
-.section.problem-band,
-.section.offer-band {
+.problem-band,
+.offer-band {
   position: relative;
   overflow: hidden;
 }
 
-.problem-band-inner,
-.offer-band-inner {
+.problem-band > .sky-container,
+.offer-band > .sky-container {
+  pointer-events: none;
+}
+
+.problem-card,
+.problem-keep,
+.offer-board {
   position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 7rem 2rem;
+  overflow: hidden;
+  padding: 40px 36px;
 }
 
-@media screen and (max-width: 991px) {
-  .problem-band-inner,
-  .offer-band-inner {
-    padding: 5rem 1.5rem;
-  }
+.problem-card .text-style-tagline,
+.problem-keep .text-style-tagline {
+  margin-bottom: 18px;
 }
 
-@media screen and (max-width: 479px) {
-  .problem-band-inner,
-  .offer-band-inner {
-    padding: 3.5rem 1.25rem;
-  }
+.problem-card .pricing-price-pack-name-wrap {
+  margin-bottom: 22px;
+  min-height: 54px;
 }
 
-.problem-band-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: 4rem;
-  align-items: center;
-}
-
-@media screen and (max-width: 991px) {
-  .problem-band-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-}
-
-.problem-band-copy .section-title {
-  font-weight: 500;
-}
-
-.problem-band-copy .text-size-medium {
-  margin-top: 0.75rem;
-  max-width: 36rem;
-}
-
-.problem-band-actions {
-  margin-top: 2rem;
-}
-
-.problem-ledger {
-  border: 1px solid var(--border-tagline);
-  background: var(--surface-30);
-  backdrop-filter: blur(12px);
-}
-
-.problem-ledger-row {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 1.25rem;
-  align-items: end;
-  padding: 1.5rem 1.75rem;
-  border-bottom: 1px solid var(--border-tagline);
-}
-
-.problem-ledger-row:last-child {
-  border-bottom: none;
-}
-
-.problem-ledger-row.is-keep {
-  background: color-mix(in srgb, var(--primary) 12%, transparent);
-}
-
-.problem-ledger-kicker {
-  font-family: Outfit, sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--primary);
-  margin-bottom: 0.35rem;
-}
-
-.problem-ledger-label {
-  font-family: Outfit, sans-serif;
-  font-size: 1.25rem;
-  font-weight: 500;
+.problem-card-running {
+  font-size: 1.125rem;
   letter-spacing: -0.02em;
-  color: #fff;
-  line-height: 1.25;
+  align-self: flex-end;
+  padding-bottom: 6px;
 }
 
-.problem-ledger-note {
-  margin: 0.4rem 0 0;
-  font-size: 0.9rem;
-  color: var(--muted-text, #94a3b8);
-  max-width: 22rem;
-}
-
-.problem-ledger-figure {
-  font-family: Outfit, sans-serif;
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
+.problem-card .pricing-name,
+.problem-keep .pricing-name,
+.offer-point .pricing-name {
   font-weight: 500;
-  letter-spacing: -0.03em;
-  color: #fff;
-  white-space: nowrap;
-  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.problem-pair {
+  margin-bottom: 30px;
+}
+
+.problem-keep {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.problem-keep .pricing-price {
+  flex-shrink: 0;
 }
 
 @media screen and (max-width: 767px) {
-  .problem-ledger-row {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-
-  .problem-ledger-figure {
-    white-space: normal;
+  .problem-keep {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
   }
 }
 
-/* Offer: one featured price board, not three process cards */
 .offer-board {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  border: 1px solid var(--border-tagline);
-  background: var(--surface-30);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 20px 40px #0006;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+.offer-board-price .pricing-price {
+  font-size: clamp(2.75rem, 5vw, 3.5rem);
+  margin-bottom: 12px;
+}
+
+.offer-board-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.offer-point {
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--light-border);
+}
+
+.offer-point:first-child {
+  padding-top: 0;
+  border-top: none;
 }
 
 @media screen and (max-width: 991px) {
   .offer-board {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
-}
-
-.offer-board-price {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding: 2.5rem 2.25rem;
-  border-right: 1px solid var(--border-tagline);
-  background: color-mix(in srgb, var(--primary) 10%, transparent);
-}
-
-@media screen and (max-width: 991px) {
-  .offer-board-price {
-    border-right: none;
-    border-bottom: 1px solid var(--border-tagline);
-  }
-}
-
-.offer-price-kicker {
-  margin: 1.25rem 0 0;
-  font-family: Outfit, sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--primary);
-}
-
-.offer-price-amount {
-  font-family: Outfit, sans-serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
-  color: #fff;
-  margin: 0.5rem 0 0;
-}
-
-.offer-price-meta {
-  font-size: 0.95rem;
-  color: var(--muted-text, #94a3b8);
-  margin: 0.75rem 0 0;
-  max-width: 22rem;
-}
-
-.offer-board-body {
-  padding: 2.5rem 2.25rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-.offer-points {
-  display: flex;
-  flex-direction: column;
-  gap: 1.35rem;
-  margin: 0;
-}
-
-.offer-point dt {
-  font-family: Outfit, sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--primary);
-  margin-bottom: 0.35rem;
-}
-
-.offer-point dd {
-  margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.45;
-  color: #fff;
-}
-
-.offer-board-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
 }
