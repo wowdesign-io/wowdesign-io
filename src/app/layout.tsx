@@ -65,15 +65,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
         <JsonLd />
-        {/* Anti-FOUC: hide [goo] until GSAP from-states exist; production also holds body
-            opacity until then. Never force-reveal goo nodes (that fights gsap.from). */}
+        <noscript>
+          <style>{`#wwd-page-loader{display:none!important}`}</style>
+        </noscript>
+        {/* First visit only (sessionStorage): show page loader until goo/ScrollTrigger inits.
+            Return visits / later page loads: no loader. Dev: skip. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var prod=${isDev ? 'false' : 'true'};function mark(c){document.documentElement.classList.add(c);}function rb(){var b=document.body;if(b){b.style.transition='opacity .4s ease';b.style.opacity='1';}}function rv(e){if(e.closest&&e.closest('[goo]'))return;e.style.transition='opacity .6s ease, transform .6s ease';e.style.opacity='1';if(e.style.transform)e.style.transform='none';}function gooApplied(){var nodes=document.querySelectorAll('[goo]');if(!nodes.length)return true;if(!window.gsap||!window.jQuery||!window.ScrollTrigger)return false;try{if(window.ScrollTrigger.getAll&&window.ScrollTrigger.getAll().length>0)return true;}catch(_){}return false;}function revealIx2(){try{var els=[].slice.call(document.querySelectorAll('[style*="opacity"]')).filter(function(e){return !e.closest('[goo]')&&getComputedStyle(e).opacity==='0';});if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){rv(x.target);io.unobserve(x.target);}});},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e);});setTimeout(function(){els.forEach(rv);},3500);}else{els.forEach(rv);}}catch(_){}}function onGooReady(){mark('goo-ready');if(prod){rb();revealIx2();}}var n=0;(function tick(){if(gooApplied()){onGooReady();return;}if(++n>100){mark('goo-fallback');if(prod){rb();revealIx2();}return;}setTimeout(tick,50);})();if(prod){window.addEventListener('load',function(){setTimeout(function(){if(document.body&&getComputedStyle(document.body).opacity==='0')rb();},800);},{once:true});setTimeout(function(){if(document.body&&getComputedStyle(document.body).opacity==='0')rb();},4500);}})();`,
+            __html: `(function(){var dev=${isDev ? 'true' : 'false'};var html=document.documentElement;try{if(dev||sessionStorage.getItem('wwd-seen')){html.classList.add('wwd-seen');return;}html.classList.add('wwd-first');}catch(e){html.classList.add('wwd-seen');return;}function done(){if(html.classList.contains('wwd-ready'))return;html.classList.add('wwd-ready');try{sessionStorage.setItem('wwd-seen','1');}catch(_){ }var el=document.getElementById('wwd-page-loader');if(!el)return;function rm(){if(el&&el.parentNode)el.parentNode.removeChild(el);}el.addEventListener('transitionend',rm,{once:true});setTimeout(rm,700);}function gooReady(){if(!document.querySelector('[goo]'))return true;if(!window.gsap||!window.jQuery||!window.ScrollTrigger)return false;try{return !!(window.ScrollTrigger.getAll&&window.ScrollTrigger.getAll().length);}catch(_){return false;}}var n=0;(function tick(){if(gooReady()){done();return;}if(++n>80){done();return;}setTimeout(tick,50);})();})();`,
           }}
         />
       </head>
-      <body className="body" style={isDev ? undefined : { opacity: 0 }}>
+      <body className="body">
+        <div id="wwd-page-loader" aria-hidden="true">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/wow-design-color-logo-dark.svg" alt="" />
+        </div>
         {children}
         <NewsletterFormHandler />
         <SiteAnalytics />
