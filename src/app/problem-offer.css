@@ -1,5 +1,17 @@
 /* Problem + Offer — site chrome (pricing-single, section shell). Hard edges. */
 
+/* Hero already has inner-banner bottom pad — no extra spacer.
+   Consecutive sections each had padding-section-large top+bottom (14rem).
+   Keep the previous section's bottom; drop the next section's top. */
+.page-how-it-works #how-it-works .padding-section-large,
+.page-how-it-works #the-offer .padding-section-large {
+  padding-top: 0;
+}
+
+.page-how-it-works .section.cta {
+  padding-top: 0;
+}
+
 .problem-band,
 .offer-band {
   position: relative;

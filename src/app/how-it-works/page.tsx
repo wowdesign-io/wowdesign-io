@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function HowItWorksPage() {
   return (
     <>
-<div className="page-wrapper">
+<div className="page-wrapper page-how-it-works">
     <div className="global-styles">
       <div className="style-overrides w-embed">
         
@@ -84,7 +84,6 @@ export default function HowItWorksPage() {
       ctaHref="#the-problem"
       ctaData="How it works - Hero"
     />
-    <div className="spacer-xhuge"></div>
     <ProblemSection />
     <HowItWorksSection
       tagline="The system"
