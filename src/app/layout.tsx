@@ -3,6 +3,7 @@ import './globals.css'
 import NewsletterFormHandler from '@/components/NewsletterFormHandler'
 import SiteAnalytics from '@/components/SiteAnalytics'
 import JsonLd from '@/components/JsonLd'
+import WebflowRuntimeScripts from '@/components/WebflowRuntimeScripts'
 
 const SITE = 'https://www.wowdesign.io'
 const TITLE = 'Sell Out Faster | Presales System for Boutique Real Estate Developers'
@@ -65,15 +66,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
         <JsonLd />
-        {/* Anti-FOUC: hide [goo] until GSAP from-states exist; production also holds body
-            opacity until then. Never force-reveal goo nodes (that fights gsap.from). */}
+        {/* Same early html class Webflow injects for IX2. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var prod=${isDev ? 'false' : 'true'};function mark(c){document.documentElement.classList.add(c);}function rb(){var b=document.body;if(b){b.style.transition='opacity .4s ease';b.style.opacity='1';}}function rv(e){if(e.closest&&e.closest('[goo]'))return;e.style.transition='opacity .6s ease, transform .6s ease';e.style.opacity='1';if(e.style.transform)e.style.transform='none';}function gooApplied(){var nodes=document.querySelectorAll('[goo]');if(!nodes.length)return true;if(!window.gsap||!window.jQuery||!window.ScrollTrigger)return false;try{if(window.ScrollTrigger.getAll&&window.ScrollTrigger.getAll().length>0)return true;}catch(_){}return false;}function revealIx2(){try{var els=[].slice.call(document.querySelectorAll('[style*="opacity"]')).filter(function(e){return !e.closest('[goo]')&&getComputedStyle(e).opacity==='0';});if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){rv(x.target);io.unobserve(x.target);}});},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e);});setTimeout(function(){els.forEach(rv);},3500);}else{els.forEach(rv);}}catch(_){}}function onGooReady(){mark('goo-ready');if(prod){rb();revealIx2();}}var n=0;(function tick(){if(gooApplied()){onGooReady();return;}if(++n>100){mark('goo-fallback');if(prod){rb();revealIx2();}return;}setTimeout(tick,50);})();if(prod){window.addEventListener('load',function(){setTimeout(function(){if(document.body&&getComputedStyle(document.body).opacity==='0')rb();},800);},{once:true});setTimeout(function(){if(document.body&&getComputedStyle(document.body).opacity==='0')rb();},4500);}})();`,
+            __html: `!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);`,
           }}
         />
+        {/* Production: hold body until IX2 initial states exist. Skip goo nodes — GSAP owns those.
+            Dev paints immediately so local review is not a blank page. */}
+        {!isDev && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(){function rb(){var b=document.body;if(b){b.style.transition='opacity .4s ease';b.style.opacity='1';}}function rv(e){if(e.closest&&e.closest('[goo]'))return;e.style.transition='opacity .6s ease, transform .6s ease';e.style.opacity='1';if(e.style.transform)e.style.transform='none';}function init(){rb();try{var els=[].slice.call(document.querySelectorAll('[style*="opacity"]')).filter(function(e){return !e.closest('[goo]')&&getComputedStyle(e).opacity==='0';});if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){rv(x.target);io.unobserve(x.target);}});},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e);});setTimeout(function(){els.forEach(rv);},3500);}else{els.forEach(rv);}}catch(_){}}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}window.addEventListener('load',rb,{once:true});setTimeout(rb,2000);})();`,
+            }}
+          />
+        )}
       </head>
       <body className="body" style={isDev ? undefined : { opacity: 0 }}>
+        <WebflowRuntimeScripts />
         {children}
         <NewsletterFormHandler />
         <SiteAnalytics />
