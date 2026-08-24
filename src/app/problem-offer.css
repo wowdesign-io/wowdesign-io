@@ -12,32 +12,17 @@
 }
 
 .problem-card,
-.problem-keep,
 .offer-board {
   position: relative;
   overflow: hidden;
   padding: 40px 36px;
 }
 
-.problem-card .text-style-tagline,
-.problem-keep .text-style-tagline {
+.problem-card .text-style-tagline {
   margin-bottom: 18px;
 }
 
-.problem-card .pricing-price-pack-name-wrap {
-  margin-bottom: 22px;
-  min-height: 54px;
-}
-
-.problem-card-running {
-  font-size: 1.125rem;
-  letter-spacing: -0.02em;
-  align-self: flex-end;
-  padding-bottom: 6px;
-}
-
 .problem-card .pricing-name,
-.problem-keep .pricing-name,
 .offer-point .pricing-name {
   font-weight: 500;
   margin-bottom: 8px;
@@ -45,25 +30,6 @@
 
 .problem-pair {
   margin-bottom: 30px;
-}
-
-.problem-keep {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2.5rem;
-}
-
-.problem-keep .pricing-price {
-  flex-shrink: 0;
-}
-
-@media screen and (max-width: 767px) {
-  .problem-keep {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.25rem;
-  }
 }
 
 .offer-board {

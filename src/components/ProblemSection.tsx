@@ -38,40 +38,30 @@ export default function ProblemSection() {
             <div className="w-layout-grid pricing-grid problem-pair">
               <div className="pricing-card-wrap">
                 <div className="pricing-single problem-card">
-                  <div className="text-style-tagline">Loan interest</div>
+                  <div className="text-style-tagline">Every extra month</div>
                   <div className="pricing-price-pack-name-wrap">
                     <div className="pricing-price">$67k–$100k</div>
-                    <div className="pricing-short-details-text">/ month</div>
+                    <div className="pricing-short-details-text">loan interest / month</div>
                   </div>
-                  <h3 className="pricing-name">The loan does not wait</h3>
-                  <p className="pricing-short-details-text">Typical $10M–$15M construction loan at ~8%. Every extra month is interest leaving as cost, not profit.</p>
+                  <h3 className="pricing-name">Then ads and ops on top</h3>
+                  <p className="pricing-short-details-text">Typical $10M–$15M construction loan at ~8%. Campaigns, brokers, and ops keep spending until the last unit sells. That is carry — not the interest line alone.</p>
                   <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
                   <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
                 </div>
               </div>
               <div className="pricing-card-wrap">
-                <div className="pricing-single problem-card">
-                  <div className="text-style-tagline">Marketing + ops</div>
+                <div className="pricing-single is-wowdesign problem-card">
+                  <div className="text-style-tagline">What you keep</div>
                   <div className="pricing-price-pack-name-wrap">
-                    <div className="pricing-short-details-text problem-card-running">Keeps running every month</div>
+                    <div className="pricing-price">$400k+</div>
+                    <div className="pricing-short-details-text">typical carry kept</div>
                   </div>
-                  <h3 className="pricing-name">Marketing does not stop</h3>
-                  <p className="pricing-short-details-text">Campaigns, brokers, and day-to-day spend keep going until the units are gone. The calculator adds that burn on top of the interest.</p>
+                  <h3 className="pricing-name">Sell out months earlier</h3>
+                  <p className="pricing-short-details-text">That interest plus burn stays yours. Run your loan, months, and marketing in the calculator.</p>
                   <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
                   <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
                 </div>
               </div>
-            </div>
-
-            <div className="pricing-single is-wowdesign problem-keep">
-              <div>
-                <div className="text-style-tagline">What you keep</div>
-                <h3 className="pricing-name">Sell out months earlier</h3>
-                <p className="pricing-short-details-text">That interest plus burn stays yours. Typical keep on a boutique project: $400k+.</p>
-              </div>
-              <div className="pricing-price">$400k+</div>
-              <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
-              <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
             </div>
 
             <div className="process-button-wrapper">
