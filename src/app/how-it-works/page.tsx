@@ -79,7 +79,7 @@ export default function HowItWorksPage() {
     <PageHero
       tagline="How it works"
       title="Hit your 50% draw faster."
-      description="Every extra month is loan interest plus marketing burn. A buyer should pick a unit tonight. Your sales team should already know who's ready."
+      description="Every extra month is loan interest plus marketing burn. Buyers should pick a unit tonight. Your sales team should already know who's ready."
       ctaLabel="See how it works"
       ctaHref="#the-problem"
       ctaData="How it works - Hero"
@@ -88,7 +88,7 @@ export default function HowItWorksPage() {
     <HowItWorksSection
       tagline="The system"
       title="Your sales team only calls people who are ready."
-      description="They pick a unit tonight. Follow-up goes out. The picture lands in the tools you already use."
+      description="Buyers pick a unit tonight. Follow-up goes out. The picture lands in the tools you already use."
       cta="How it works page - Calc"
       ctaHref="/carry-cost-calculator"
       ctaLabel="Carry Cost Calc"

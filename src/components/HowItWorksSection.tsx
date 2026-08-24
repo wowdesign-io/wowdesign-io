@@ -15,7 +15,7 @@ export default function HowItWorksSection({
   ctaLabel = 'How it works',
   tagline = 'How it works',
   title = 'How it works.',
-  description = 'They pick a unit tonight. Follow-up is automatic. Your sales team has the picture before they call.',
+  description = 'Buyers pick a unit tonight. Follow-up is automatic. Your sales team has the picture before they call.',
 }: HowItWorksSectionProps) {
   return (
     <section id="how-it-works" className="section_layout237">
@@ -58,9 +58,9 @@ export default function HowItWorksSection({
                   </div>
                   <div className="margin-bottom margin-xsmall">
                     <div className="text-style-tagline">Step 1</div>
-                    <h3 className="heading-style-h6">They pick a unit tonight</h3>
+                    <h3 className="heading-style-h6">Buyers pick a unit tonight</h3>
                   </div>
-                  <p>From their phone — every floor, live price, live availability. No PDF. No waiting until Monday.</p><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
+                  <p>From the buyer&apos;s phone — every floor, live price, live availability. Not just a PDF. No waiting until Monday.</p><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
                 </div>
                 <div id="w-node-_5bacbfb7-9f05-92dc-f68d-38ed810a661c-9046bfc6" className="layout237_item is-2">
                   <div className="margin-bottom margin-small">
@@ -77,7 +77,7 @@ export default function HowItWorksSection({
                     <div className="text-style-tagline">Step 2</div>
                     <h3 className="heading-style-h6">Follow-up runs itself</h3>
                   </div>
-                  <p className="paragraph">The second they request a unit, they get the floor plan and next steps. You don&apos;t write a thing.</p><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" /><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
+                  <p className="paragraph">The second a buyer requests a unit, the floor plan and next steps go out. You don&apos;t write a thing.</p><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" /><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
                 </div>
                 <div id="w-node-_5bacbfb7-9f05-92dc-f68d-38ed810a6625-9046bfc6" className="layout237_item is-3">
                   <div className="margin-bottom margin-small">
@@ -94,7 +94,7 @@ export default function HowItWorksSection({
                     <div className="text-style-tagline">Step 3</div>
                     <h3 className="heading-style-h6">Your sales team has the picture</h3>
                   </div>
-                  <p>Which unit they want, and how ready they are — in the tools you already use. No new system to learn.</p><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" /><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
+                  <p>Which unit a buyer wants, and how ready that buyer is — in the tools you already use. No new system to learn.</p><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" /><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
                 </div>
               </div>
               <div className="process-timeline text-size-small">Built in 6–8 weeks.</div>

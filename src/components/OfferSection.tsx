@@ -29,7 +29,7 @@ export default function OfferSection() {
                     <h2 className="section-title">What a project costs.</h2>
                   </div>
                   <p className="text-size-medium">
-                    10–50 units. They pick a unit tonight. Your sales team only calls people who are ready. Six to eight weeks. We run it.
+                    10–50 units. Buyers pick a unit tonight. Your sales team only calls people who are ready. Six to eight weeks. We run it.
                   </p>
                 </div>
               </div>
@@ -43,7 +43,7 @@ export default function OfferSection() {
               <div className="offer-board-body">
                 <div className="offer-point">
                   <h3 className="pricing-name">What you get</h3>
-                  <p className="pricing-short-details-text">They pick a unit tonight — live price, live availability. Follow-up goes out when they request. Your sales team already knows who is ready.</p>
+                  <p className="pricing-short-details-text">Buyers pick a unit tonight — live price, live availability. Follow-up goes out when a buyer requests a unit. Your sales team already knows who is ready.</p>
                 </div>
                 <div className="offer-point">
                   <h3 className="pricing-name">What moves the number</h3>
