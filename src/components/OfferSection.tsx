@@ -26,10 +26,10 @@ export default function OfferSection() {
                     </div>
                   </div>
                   <div className="margin-bottom margin-small">
-                    <h2 className="section-title">$45k–$75k per project.</h2>
+                    <h2 className="section-title">What a project costs.</h2>
                   </div>
                   <p className="text-size-medium">
-                    Website, digital twin, and automated follow-up — one system. Built in 6–8 weeks for boutique 10–50 unit developments.
+                    Website, digital twin, and follow-up. Built in 6–8 weeks for 10–50 unit buildings. We run the platform. You don&apos;t buy one.
                   </p>
                 </div>
               </div>
@@ -43,15 +43,15 @@ export default function OfferSection() {
               <div className="offer-board-body">
                 <div className="offer-point">
                   <h3 className="pricing-name">What you get</h3>
-                  <p className="pricing-short-details-text">Buyers explore every unit from their phone. Follow-up runs itself. Your sales team sees who is ready before they call.</p>
+                  <p className="pricing-short-details-text">Buyers pick a unit from their phone. Follow-up runs itself. Your sales team sees who is ready before they call.</p>
                 </div>
                 <div className="offer-point">
                   <h3 className="pricing-name">What moves the number</h3>
-                  <p className="pricing-short-details-text">Unit count, how deep the twin goes, and how follow-up wires into your sales tools. Same system. Different project weight — not a package menu.</p>
+                  <p className="pricing-short-details-text">Unit count, how far the twin goes, and how it lands in your sales team&apos;s tools. Not three packages.</p>
                 </div>
                 <div className="offer-point">
                   <h3 className="pricing-name">How we run it</h3>
-                  <p className="pricing-short-details-text">You do not buy or operate a separate viewer. We build it, host it, and keep it under maintenance.</p>
+                  <p className="pricing-short-details-text">You never operate a separate viewer. We build it and keep it under maintenance.</p>
                 </div>
               </div>
               <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />

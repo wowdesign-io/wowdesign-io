@@ -4,12 +4,18 @@ type HowItWorksSectionProps = {
   cta?: string
   ctaHref?: string
   ctaLabel?: string
+  tagline?: string
+  title?: string
+  description?: string
 }
 
 export default function HowItWorksSection({
   cta = 'How to - Page',
   ctaHref = '/how-it-works',
   ctaLabel = 'How it works',
+  tagline = 'How it works',
+  title = 'How it works.',
+  description = 'They pick a unit tonight. Follow-up is automatic. Your sales team has the picture before they call.',
 }: HowItWorksSectionProps) {
   return (
     <section id="how-it-works" className="section_layout237">
@@ -27,14 +33,14 @@ export default function HowItWorksSection({
                               <path fill="currentColor" d="M15 7H7.89l3.57 5l-3.57 5H15l3.55-5z" opacity=".3"></path>
                               <path fill="currentColor" d="M16.63 5.84C16.27 5.33 15.67 5 15 5H4l5 7l-5 6.99h11c.67 0 1.27-.32 1.63-.83L21 12zM15 17H7.89l3.57-5l-3.57-5H15l3.55 5z"></path>
                             </svg></div>
-                          <div className="text-style-tagline">How it works</div>
+                          <div className="text-style-tagline">{tagline}</div>
                         </div>
                       </div>
                     </div>
                     <div className="margin-bottom margin-small">
-                      <h2 className="section-title">How it works.</h2>
+                      <h2 className="section-title">{title}</h2>
                     </div>
-                    <p className="text-size-medium">They pick a unit tonight. Follow-up is automatic. Your sales team has the picture before they call.</p>
+                    <p className="text-size-medium">{description}</p>
                   </div>
                 </div>
               </div>
@@ -52,7 +58,7 @@ export default function HowItWorksSection({
                   </div>
                   <div className="margin-bottom margin-xsmall">
                     <div className="text-style-tagline">Step 1</div>
-                    <h3 className="heading-style-h6">A buyer can pick a unit tonight</h3>
+                    <h3 className="heading-style-h6">They pick a unit tonight</h3>
                   </div>
                   <p>From their phone — every floor, live price, live availability. No PDF. No waiting until Monday.</p><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
                 </div>
@@ -86,9 +92,9 @@ export default function HowItWorksSection({
                   </div>
                   <div className="margin-bottom margin-xsmall">
                     <div className="text-style-tagline">Step 3</div>
-                    <h3 className="heading-style-h6">Your sales team has the picture before they call</h3>
+                    <h3 className="heading-style-h6">Your sales team has the picture</h3>
                   </div>
-                  <p>No new system. It shows up in the tools you already use — which unit they want, and how ready they are. Automatically.</p><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" /><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
+                  <p>Which unit they want, and how ready they are — in the tools you already use. No new system to learn.</p><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" /><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
                 </div>
               </div>
               <div className="process-timeline text-size-small">Built in 6–8 weeks.</div>

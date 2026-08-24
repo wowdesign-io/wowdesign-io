@@ -10,7 +10,7 @@ import '@/app/how-it-works-headings.css'
 export const metadata: Metadata = {
   title: 'How it works',
   description:
-    'You\'re paying until the last unit sells. Buyers pick a unit from their phone. Your sales team has the picture. $45k–$75k per project.',
+    'You\'re paying until the last unit sells. Buyers pick a unit tonight. Your sales team only calls people who are ready. $45k–$75k per project.',
   alternates: { canonical: 'https://www.wowdesign.io/how-it-works' },
 }
 
@@ -78,8 +78,8 @@ export default function HowItWorksPage() {
     </div>
     <PageHero
       tagline="How it works"
-      title="How it works."
-      description="They pick a unit tonight. Follow-up is automatic. Your sales team has the picture before they call."
+      title="Hit your 50% draw faster."
+      description="Every extra month is loan interest plus marketing burn. A buyer should pick a unit tonight. Your sales team should already know who's ready."
       ctaLabel="See how it works"
       ctaHref="#the-problem"
       ctaData="How it works - Hero"
@@ -87,6 +87,9 @@ export default function HowItWorksPage() {
     <div className="spacer-xhuge"></div>
     <ProblemSection />
     <HowItWorksSection
+      tagline="The system"
+      title="Your sales team only calls people who are ready."
+      description="They pick a unit tonight. Follow-up goes out. The picture lands in the tools you already use."
       cta="How it works page - Calc"
       ctaHref="/carry-cost-calculator"
       ctaLabel="Carry Cost Calc"

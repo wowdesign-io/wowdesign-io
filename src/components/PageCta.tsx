@@ -16,7 +16,7 @@ export default function PageCta({ ctaData = 'CTA - Calc' }: PageCtaProps) {
                 Start Selling Units.
               </h2>
               <p className="cta-description-text">
-                Every extra month is loan interest plus marketing burn. Run the calculator — that starts the path to a demo.
+                Every extra month is loan interest plus marketing burn. Run your numbers.
                 <br />
               </p>
             </div>

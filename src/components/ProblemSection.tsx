@@ -26,10 +26,10 @@ export default function ProblemSection() {
                     </div>
                   </div>
                   <div className="margin-bottom margin-small">
-                    <h2 className="section-title">Every extra month costs you twice.</h2>
+                    <h2 className="section-title">You&apos;re paying until the last unit sells.</h2>
                   </div>
                   <p className="text-size-medium">
-                    Carry is loan interest plus marketing and ops burn — not the interest alone. Sell out months earlier and that money stays yours. That is the $400k+.
+                    Interest on the construction loan. Then ads, brokers, and ops. That is carry — a months problem, not a brochure problem. Sell out faster and $400k+ stays yours.
                   </p>
                 </div>
               </div>
@@ -43,8 +43,8 @@ export default function ProblemSection() {
                     <div className="pricing-price">$67k–$100k</div>
                     <div className="pricing-short-details-text">/ month</div>
                   </div>
-                  <h3 className="pricing-name">The bank keeps getting paid</h3>
-                  <p className="pricing-short-details-text">Typical $10M–$15M construction loan at ~8%. Every month past sell-out leaves as interest, not profit.</p>
+                  <h3 className="pricing-name">The loan does not wait</h3>
+                  <p className="pricing-short-details-text">Typical $10M–$15M construction loan at ~8%. Every extra month is interest leaving as cost, not profit.</p>
                   <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
                   <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
                 </div>
@@ -55,8 +55,8 @@ export default function ProblemSection() {
                   <div className="pricing-price-pack-name-wrap">
                     <div className="pricing-short-details-text problem-card-running">Keeps running every month</div>
                   </div>
-                  <h3 className="pricing-name">Ads and ops do not pause</h3>
-                  <p className="pricing-short-details-text">Campaigns, brokers, and day-to-day spend keep running until the units are gone. The calculator models that burn too.</p>
+                  <h3 className="pricing-name">Marketing does not stop</h3>
+                  <p className="pricing-short-details-text">Campaigns, brokers, and day-to-day spend keep going until the units are gone. The calculator adds that burn on top of the interest.</p>
                   <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
                   <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
                 </div>
@@ -66,8 +66,8 @@ export default function ProblemSection() {
             <div className="pricing-single is-wowdesign problem-keep">
               <div>
                 <div className="text-style-tagline">What you keep</div>
-                <h3 className="pricing-name">Finish months earlier</h3>
-                <p className="pricing-short-details-text">Interest plus burn that would otherwise leave. Run your loan, rate, months, and marketing in the calculator.</p>
+                <h3 className="pricing-name">Sell out months earlier</h3>
+                <p className="pricing-short-details-text">That interest plus burn stays yours. Typical keep on a boutique project: $400k+.</p>
               </div>
               <div className="pricing-price">$400k+</div>
               <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
