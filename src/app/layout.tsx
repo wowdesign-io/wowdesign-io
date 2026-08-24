@@ -68,11 +68,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <noscript>
           <style>{`#wwd-page-loader{display:none!important}`}</style>
         </noscript>
-        {/* First visit only (sessionStorage): show page loader until goo/ScrollTrigger inits.
-            Return visits / later page loads: no loader. Dev: skip. */}
+        {/* First visit only (sessionStorage). Wait for body + goo — head runs too early
+            to query [goo] (that used to mark "seen" instantly and skip the loader). */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var dev=${isDev ? 'true' : 'false'};var html=document.documentElement;try{if(dev||sessionStorage.getItem('wwd-seen')){html.classList.add('wwd-seen');return;}html.classList.add('wwd-first');}catch(e){html.classList.add('wwd-seen');return;}function done(){if(html.classList.contains('wwd-ready'))return;html.classList.add('wwd-ready');try{sessionStorage.setItem('wwd-seen','1');}catch(_){ }var el=document.getElementById('wwd-page-loader');if(!el)return;function rm(){if(el&&el.parentNode)el.parentNode.removeChild(el);}el.addEventListener('transitionend',rm,{once:true});setTimeout(rm,700);}function gooReady(){if(!document.querySelector('[goo]'))return true;if(!window.gsap||!window.jQuery||!window.ScrollTrigger)return false;try{return !!(window.ScrollTrigger.getAll&&window.ScrollTrigger.getAll().length);}catch(_){return false;}}var n=0;(function tick(){if(gooReady()){done();return;}if(++n>80){done();return;}setTimeout(tick,50);})();})();`,
+            __html: `(function(){var dev=${isDev ? 'true' : 'false'};var html=document.documentElement;try{if(dev||sessionStorage.getItem('wwd-seen')){html.classList.add('wwd-seen');return;}html.classList.add('wwd-first');}catch(e){html.classList.add('wwd-seen');return;}var t0=Date.now(),minMs=600,maxMs=4000;function done(){if(html.classList.contains('wwd-ready'))return;html.classList.add('wwd-ready');try{sessionStorage.setItem('wwd-seen','1');}catch(_){}var el=document.getElementById('wwd-page-loader');if(!el)return;function rm(){if(el&&el.parentNode)el.parentNode.removeChild(el);}el.addEventListener('transitionend',rm,{once:true});setTimeout(rm,700);}function gooReady(){if(!document.body)return false;var nodes=document.querySelectorAll('[goo]');if(!nodes.length)return true;if(!window.gsap||!window.jQuery||!window.ScrollTrigger)return false;try{return !!(window.ScrollTrigger.getAll&&window.ScrollTrigger.getAll().length);}catch(_){return false;}}function tick(){var elapsed=Date.now()-t0;if((gooReady()&&elapsed>=minMs)||elapsed>=maxMs){done();return;}setTimeout(tick,50);}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',tick);}else{tick();}})();`,
           }}
         />
       </head>
