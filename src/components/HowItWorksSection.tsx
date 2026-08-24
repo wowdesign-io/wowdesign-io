@@ -29,10 +29,14 @@ export default function HowItWorksSection({
                     <div className="display-flex-vertical flex-align-center">
                       <div className="margin-bottom margin-xsmall">
                         <div className="tagline-container">
-                          <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ic" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                              <path fill="currentColor" d="M15 7H7.89l3.57 5l-3.57 5H15l3.55-5z" opacity=".3"></path>
-                              <path fill="currentColor" d="M16.63 5.84C16.27 5.33 15.67 5 15 5H4l5 7l-5 6.99h11c.67 0 1.27-.32 1.63-.83L21 12zM15 17H7.89l3.57-5l-3.57-5H15l3.55 5z"></path>
-                            </svg></div>
+                          <div className="icon-embed-xsmall text-color-primary w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="100%" height="100%" viewBox="0 0 256 256">
+                              <g fill="currentColor">
+                                <path d="M224 200a24 24 0 1 1-24-24a24 24 0 0 1 24 24" opacity=".2"></path>
+                                <path d="M200 168a32.06 32.06 0 0 0-31 24H72a32 32 0 0 1 0-64h96a40 40 0 0 0 0-80H72a8 8 0 0 0 0 16h96a24 24 0 0 1 0 48H72a48 48 0 0 0 0 96h97a32 32 0 1 0 31-40m0 48a16 16 0 1 1 16-16a16 16 0 0 1-16 16"></path>
+                              </g>
+                            </svg>
+                          </div>
                           <div className="text-style-tagline">{tagline}</div>
                         </div>
                       </div>

@@ -9,9 +9,7 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
   async redirects() {
-    return [
-      { source: '/contact', destination: '/carry-cost-calculator', permanent: false },
-    ]
+    return []
   },
   async rewrites() {
     return [
