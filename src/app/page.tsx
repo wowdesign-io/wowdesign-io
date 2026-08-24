@@ -247,7 +247,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
         </div>
       </div>
     </section>)}
-    <HowItWorksSection />
+    <HowItWorksSection cta="Home How it works - Page" ctaHref="/how-it-works" ctaLabel="How it works" />
     <SelvaShowcase />
     <section className={heroVisual ? 'section solving hero3d-topgap' : 'section solving'}>
       <div className="container">

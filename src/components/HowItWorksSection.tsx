@@ -2,9 +2,15 @@ import InnerButton from '@/components/InnerButton'
 
 type HowItWorksSectionProps = {
   cta?: string
+  ctaHref?: string
+  ctaLabel?: string
 }
 
-export default function HowItWorksSection({ cta = 'How to - Calc' }: HowItWorksSectionProps) {
+export default function HowItWorksSection({
+  cta = 'How to - Page',
+  ctaHref = '/how-it-works',
+  ctaLabel = 'How it works',
+}: HowItWorksSectionProps) {
   return (
     <section id="how-it-works" className="section_layout237">
       <div className="padding-global">
@@ -88,7 +94,7 @@ export default function HowItWorksSection({ cta = 'How to - Calc' }: HowItWorksS
               <div className="process-timeline text-size-small">Built in 6–8 weeks.</div>
               <div className="process-button-wrapper">
                 <div className="primary-button-wrapper">
-                  <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta={cta} />
+                  <InnerButton href={ctaHref} label={ctaLabel} cta={cta} />
                 </div>
               </div>
             </div>

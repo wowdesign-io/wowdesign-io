@@ -11,7 +11,7 @@ const check = (
   </div>
 )
 
-export default function ProblemSection() {
+export default function ProblemSection({ showCta = true }: { showCta?: boolean }) {
   return (
     <section id="the-problem" className="section_comparison13">
       <div className="padding-global">
@@ -85,11 +85,13 @@ export default function ProblemSection() {
                             <div className="pricing-features-list-item-text">Months earlier = that money stays yours</div>
                           </li>
                         </ul>
+                        {showCta ? (
                         <div className="pricing-features-button-wrapper">
                           <div className="primary-button-wrapper pricing">
                             <InnerButton href="/carry-cost-calculator" label="Run your numbers" cta="Problem - Calc" className="pricing" />
                           </div>
                         </div>
+                        ) : null}
                       </div>
                     </div>
                   </div>

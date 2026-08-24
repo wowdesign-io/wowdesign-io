@@ -78,14 +78,19 @@ export default function HowItWorksPage() {
     </div>
     <PageHero
       tagline="How it works"
-      title="From the money leak to the system."
-      description="Carry is interest plus marketing burn. Then how buyers buy. Then what a project costs. Run the calculator when you want your number."
-      ctaLabel="Carry Cost Calc"
-      ctaHref="/carry-cost-calculator"
-      ctaData="How it works - Hero Calc"
+      title="From carry to the system."
+      description="Interest plus marketing burn until the last unit sells. Then buyers pick a unit from their phone, and your sales team sees who is ready. $45k–$75k per project."
+      ctaLabel="See how it works"
+      ctaHref="#the-problem"
+      ctaData="How it works - Hero"
     />
-    <ProblemSection />
-    <HowItWorksSection cta="How it works page - Calc" />
+    <div className="spacer-xhuge"></div>
+    <ProblemSection showCta={false} />
+    <HowItWorksSection
+      cta="How it works page - Calc"
+      ctaHref="/carry-cost-calculator"
+      ctaLabel="Carry Cost Calc"
+    />
     <OfferSection />
     <PageCta ctaData="How it works CTA - Calc" />
     <section className="section footer">
