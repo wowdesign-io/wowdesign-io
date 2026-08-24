@@ -944,7 +944,7 @@ h1 {
   margin-bottom: 0;
   font-family: Outfit, sans-serif;
   font-size: 80px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 90px;
 }
 
@@ -955,7 +955,7 @@ h2 {
   margin-bottom: 0;
   font-family: Outfit, sans-serif;
   font-size: 3.5rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 64px;
 }
 
@@ -966,7 +966,7 @@ h3 {
   margin-bottom: 0;
   font-family: Outfit, sans-serif;
   font-size: 2.5rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 3.25rem;
 }
 
@@ -977,7 +977,7 @@ h4 {
   margin-bottom: 0;
   font-family: Outfit, sans-serif;
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.3;
 }
 
@@ -988,7 +988,7 @@ h5 {
   margin-bottom: 0;
   font-family: Outfit, sans-serif;
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 34px;
 }
 
@@ -999,7 +999,7 @@ h6 {
   margin-bottom: 0;
   font-family: Outfit, sans-serif;
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 32px;
 }
 
@@ -1935,7 +1935,7 @@ figure {
   text-shadow: 0 4px 10px var(--dark-50);
   margin-bottom: 10px;
   font-size: 3.5rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 64px;
 }
 
@@ -2376,7 +2376,7 @@ figure {
   background-clip: text;
   margin-bottom: 15px;
   font-size: 2.75rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 3.9rem;
 }
 
@@ -2480,7 +2480,7 @@ figure {
   margin-bottom: 7px;
   font-family: Outfit, sans-serif;
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 34px;
 }
 
@@ -2547,7 +2547,7 @@ figure {
   text-shadow: 0 4px 10px var(--dark-50);
   margin-bottom: 10px;
   font-size: 3.5rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 64px;
 }
 
@@ -2680,7 +2680,7 @@ figure {
   -webkit-background-clip: text;
   background-clip: text;
   font-size: 3.5rem;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .section-title.core-features {
@@ -2787,7 +2787,7 @@ figure {
   margin-bottom: 10px;
   font-family: Outfit, sans-serif;
   font-size: 28px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 38px;
   display: inline-block;
 }
@@ -4731,7 +4731,7 @@ figure {
   color: #fff;
   margin-bottom: 16px;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 26px;
 }
 
@@ -5147,6 +5147,7 @@ figure {
   margin-bottom: 6px;
   font-family: Outfit, sans-serif;
   font-size: 1.8rem;
+  font-weight: 500;
 }
 
 .pricing-short-details-text {
@@ -7031,7 +7032,7 @@ figure {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 28px;
 }
 
@@ -7693,7 +7694,7 @@ figure {
 
 .heading-style-h1 {
   font-size: 3.5rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.2;
 }
 
@@ -7709,7 +7710,7 @@ figure {
 
 .heading-style-h3 {
   font-size: 2.5rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.2;
 }
 
@@ -7719,7 +7720,7 @@ figure {
   -webkit-background-clip: text;
   background-clip: text;
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.3;
 }
 
@@ -7729,7 +7730,7 @@ figure {
   -webkit-background-clip: text;
   background-clip: text;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.4;
 }
 
@@ -9467,7 +9468,7 @@ figure {
 }
 
 .heading-2 {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .body {
