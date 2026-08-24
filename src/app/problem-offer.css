@@ -1,0 +1,102 @@
+/* Problem + Offer — site chrome (pricing-single, section shell). Hard edges. */
+
+.problem-band,
+.offer-band {
+  position: relative;
+  overflow: hidden;
+}
+
+.problem-band > .sky-container,
+.offer-band > .sky-container {
+  pointer-events: none;
+}
+
+.problem-card,
+.problem-keep,
+.offer-board {
+  position: relative;
+  overflow: hidden;
+  padding: 40px 36px;
+}
+
+.problem-card .text-style-tagline,
+.problem-keep .text-style-tagline {
+  margin-bottom: 18px;
+}
+
+.problem-card .pricing-price-pack-name-wrap {
+  margin-bottom: 22px;
+  min-height: 54px;
+}
+
+.problem-card-running {
+  font-size: 1.125rem;
+  letter-spacing: -0.02em;
+  align-self: flex-end;
+  padding-bottom: 6px;
+}
+
+.problem-card .pricing-name,
+.problem-keep .pricing-name,
+.offer-point .pricing-name {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.problem-pair {
+  margin-bottom: 30px;
+}
+
+.problem-keep {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.problem-keep .pricing-price {
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .problem-keep {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+}
+
+.offer-board {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+.offer-board-price .pricing-price {
+  font-size: clamp(2.75rem, 5vw, 3.5rem);
+  margin-bottom: 12px;
+}
+
+.offer-board-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.offer-point {
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--light-border);
+}
+
+.offer-point:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+@media screen and (max-width: 991px) {
+  .offer-board {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
