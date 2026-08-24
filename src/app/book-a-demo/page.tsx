@@ -93,7 +93,10 @@ export default function BookADemoPage() {
               </div>
               <div className="banner-button-wrapper">
                 <div className="primary-button-wrapper">
-                  <InnerButton href="#project" label="BOOK A DEMO" />
+                  <InnerButton href="#project" label="BOOK A DEMO" cta="Book a Demo - Hero" />
+                </div>
+                <div className="primary-button-wrapper">
+                  <InnerButton href="/contact" label="Contact Us" cta="Book a Demo - Contact" variant="secondary" />
                 </div>
               </div>
               <div className="subhero-timeline text-size-small">Built for 10–50 unit developments.<br />Launched in 6–8 weeks.</div>
@@ -313,6 +316,9 @@ export default function BookADemoPage() {
                   </div>
                   <div className="footer-menu-list-wrapper">
                     <ul role="list" className="footer-menu-list">
+                      <li className="footer-menu-list-item">
+                        <a href="/contact" className="footer-menu-text-link">Contact</a>
+                      </li>
                       <li className="footer-menu-list-item">
                         <a href="/book-a-demo" aria-current="page" className="footer-menu-text-link w--current">Book A Demo</a>
                       </li>

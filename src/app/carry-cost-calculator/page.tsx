@@ -335,6 +335,9 @@ export default function CarryCostCalculatorPage() {
                   <div className="footer-menu-list-wrapper">
                     <ul role="list" className="footer-menu-list">
                       <li className="footer-menu-list-item">
+                        <a href="/contact" className="footer-menu-text-link">Contact</a>
+                      </li>
+                      <li className="footer-menu-list-item">
                         <a href="/book-a-demo" className="footer-menu-text-link">Book A Demo</a>
                       </li>
                       <li className="footer-menu-list-item">
