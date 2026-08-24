@@ -9,7 +9,7 @@ export default function OfferSection() {
           <div className="padding-section-large">
             <div className="margin-bottom margin-xxlarge">
               <div className="text-align-center">
-                <div className="max-width-large align-center">
+                <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="max-width-large align-center">
                   <div className="display-flex-vertical flex-align-center">
                     <div className="margin-bottom margin-xsmall">
                       <div className="tagline-container">
@@ -35,7 +35,7 @@ export default function OfferSection() {
               </div>
             </div>
 
-            <div className="pricing-single is-wowdesign offer-board">
+            <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="pricing-single is-wowdesign offer-board">
               <div className="offer-board-price">
                 <div className="pricing-price">$45k–$75k</div>
                 <p className="pricing-short-details-text">Per project. Live in 6–8 weeks for a 10–50 unit building.</p>

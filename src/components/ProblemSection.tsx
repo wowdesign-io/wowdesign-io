@@ -20,7 +20,7 @@ export default function ProblemSection() {
           <div className="padding-section-large">
             <div className="margin-bottom margin-xxlarge">
               <div className="text-align-center">
-                <div className="max-width-large align-center">
+                <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="max-width-large align-center">
                   <div className="display-flex-vertical flex-align-center">
                     <div className="margin-bottom margin-xsmall">
                       <div className="tagline-container">
@@ -50,7 +50,7 @@ export default function ProblemSection() {
               </div>
             </div>
 
-            <div className="w-layout-grid pricing-grid problem-pair">
+            <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="w-layout-grid pricing-grid problem-pair">
               <div className="pricing-card-wrap">
                 <div className="pricing-single problem-card">
                   <div className="text-style-tagline">Leaving every month</div>

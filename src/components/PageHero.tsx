@@ -42,7 +42,7 @@ export default function PageHero({
       <div className="inner-banner-content">
         <div className="inner-banner-wrapper">
           <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-            <div className="inner-banner-typography">
+            <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="inner-banner-typography">
               <div className="inner-banner-subtitle-wrap">
                 <div className="tagline-container">
                   <div className="icon-embed-xsmall text-color-primary w-embed">

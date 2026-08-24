@@ -75,7 +75,7 @@ export default function CarryCostCalculatorPage() {
       <div className="inner-banner-content">
         <div className="inner-banner-wrapper">
           <div className="container">
-            <div className="inner-banner-typography">
+            <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="inner-banner-typography">
               <div className="inner-banner-subtitle-wrap">
                 <div className="tagline-container">
                   <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ph" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256">
