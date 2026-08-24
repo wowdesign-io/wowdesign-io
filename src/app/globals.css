@@ -263,3 +263,17 @@ body.flight-done .hero-card { opacity: 1; transform: none; }
     font-size: 22px;
   }
 }
+
+/* Body InnerButton only (inner-button). Nav Book A Demo stays primary-button — do not target it. */
+.inner-button.is-primary .inner-button-wrap.is-primary {
+  background-color: var(--primary);
+}
+
+.inner-button.is-primary .primary-button-border-wrap.is-primary {
+  background-color: var(--dark-bg);
+}
+
+.inner-button.is-primary .inner-button-hover-bg.is-primary {
+  background-color: var(--dark-bg);
+}
+

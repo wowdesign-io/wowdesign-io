@@ -5,6 +5,7 @@ import './how-it-works-headings.css'
 import PageCta from '@/components/PageCta'
 import SelvaShowcase from '@/components/SelvaShowcase'
 import TeamMembers from '@/components/TeamMembers'
+import InnerButton from '@/components/InnerButton'
 
 export const metadata: Metadata = {
   alternates: { canonical: 'https://www.wowdesign.io' },
@@ -182,65 +183,10 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
             </div>
             <div className="banner-button-wrapper">
               <div className="primary-button-wrapper">
-                <a data-cta="Hero - How it works" href="/#how-it-works" data-w-id="3af1c84f-ff74-c014-cb3b-40446b73b1f6" className="primary-button w-inline-block">
-                  <div className="primary-button-border-wrap">
-                    <div className="primary-button-wrap">
-                      <div className="primary-button-text">How it works</div>
-                      <div className="primary-button-hover-text">How it works</div>
-                      <div className="primary-button-hover-bg"></div>
-                    </div>
-                  </div>
-                  <div className="line-wrap">
-                    <div className="primary-line-wrap _1">
-                      <div className="line _1"></div>
-                      <div className="line _2"></div>
-                    </div>
-                    <div className="primary-line-wrap _2">
-                      <div className="line _3"></div>
-                      <div className="line _4"></div>
-                    </div>
-                    <div className="primary-line-wrap _3">
-                      <div className="line _5"></div>
-                      <div className="line _6"></div>
-                    </div>
-                    <div className="primary-line-wrap _4">
-                      <div className="line _7"></div>
-                      <div className="line _8"></div>
-                    </div>
-                  </div>
-                </a>
+                <InnerButton href="/#how-it-works" label="How it works" cta="Hero - How it works" />
               </div>
               <div className="primary-button-wrapper">
-                <a data-cta="Hero - Calc" href="/carry-cost-calculator" className="inner-button w-inline-block">
-                  <div className="primary-button-border-wrap">
-                    <div className="inner-button-wrap">
-                      <div className="inner-button-text-wrap">
-                        <div className="inner-button-text">Carry Cost Calc</div>
-                        <div className="inner-button-hover-text">Carry Cost Calc</div>
-                      </div>
-                      <div className="inner-button-star-wrap"><img loading="lazy" src="/images/inner-button-arrow.svg" alt="" className="inner-button-star" /></div>
-                      <div className="inner-button-hover-bg"></div>
-                    </div>
-                  </div>
-                  <div className="line-wrap-inner">
-                    <div className="inner-line-wrap _1">
-                      <div className="line"></div>
-                      <div className="line _2"></div>
-                    </div>
-                    <div className="inner-line-wrap _2">
-                      <div className="line _3"></div>
-                      <div className="line _4"></div>
-                    </div>
-                    <div className="inner-line-wrap _3">
-                      <div className="line _5"></div>
-                      <div className="line _6"></div>
-                    </div>
-                    <div className="inner-line-wrap _4">
-                      <div className="line _7"></div>
-                      <div className="line _8"></div>
-                    </div>
-                  </div>
-                </a>
+                <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Hero - Calc" variant="secondary" />
               </div>
             </div>
             {heroVisual && (
@@ -382,36 +328,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
               <div className="process-timeline text-size-small">Built in 6–8 weeks.</div>
               <div className="process-button-wrapper">
                 <div className="primary-button-wrapper">
-                  <a data-cta="How to - Calc" href="/carry-cost-calculator" className="inner-button w-inline-block">
-                    <div className="primary-button-border-wrap">
-                      <div className="inner-button-wrap">
-                        <div className="inner-button-text-wrap">
-                          <div className="inner-button-text">Carry Cost Calc</div>
-                          <div className="inner-button-hover-text">Carry Cost Calc</div>
-                        </div>
-                        <div className="inner-button-star-wrap"><img loading="lazy" src="/images/inner-button-arrow.svg" alt="" className="inner-button-star" /></div>
-                        <div className="inner-button-hover-bg"></div>
-                      </div>
-                    </div>
-                    <div className="line-wrap-inner">
-                      <div className="inner-line-wrap _1">
-                        <div className="line"></div>
-                        <div className="line _2"></div>
-                      </div>
-                      <div className="inner-line-wrap _2">
-                        <div className="line _3"></div>
-                        <div className="line _4"></div>
-                      </div>
-                      <div className="inner-line-wrap _3">
-                        <div className="line _5"></div>
-                        <div className="line _6"></div>
-                      </div>
-                      <div className="inner-line-wrap _4">
-                        <div className="line _7"></div>
-                        <div className="line _8"></div>
-                      </div>
-                    </div>
-                  </a>
+                  <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="How to - Calc" />
                 </div>
               </div>
             </div>
@@ -490,6 +407,11 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                   <p className="solving-card-description-text">An accessibility mode instantly converts the experience into a compliant, screen-reader-friendly format.</p>
                 </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="solving-card-top-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="solving-card-bottom-element" />
               </div>
+            </div>
+          </div>
+          <div className="process-button-wrapper">
+            <div className="primary-button-wrapper">
+              <InnerButton href="/features" label="Explore features" cta="Home Features - Explore" />
             </div>
           </div>
         </div>
@@ -831,36 +753,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                         </div>
                         <div className="pricing-features-button-wrapper">
                           <div className="primary-button-wrapper pricing">
-                            <a data-cta="Comparison - Calc" href="/carry-cost-calculator" className="inner-button pricing w-inline-block">
-                              <div className="primary-button-border-wrap">
-                                <div className="inner-button-wrap">
-                                  <div className="inner-button-text-wrap">
-                                    <div className="inner-button-text">Carry Cost Calc</div>
-                                    <div className="inner-button-hover-text">Carry Cost Calc</div>
-                                  </div>
-                                  <div className="inner-button-star-wrap"><img loading="lazy" src="/images/inner-button-arrow.svg" alt="" className="inner-button-star" /></div>
-                                  <div className="inner-button-hover-bg"></div>
-                                </div>
-                              </div>
-                              <div className="line-wrap-inner">
-                                <div className="inner-line-wrap _1">
-                                  <div className="line"></div>
-                                  <div className="line _2"></div>
-                                </div>
-                                <div className="inner-line-wrap _2">
-                                  <div className="line _3"></div>
-                                  <div className="line _4"></div>
-                                </div>
-                                <div className="inner-line-wrap _3">
-                                  <div className="line _5"></div>
-                                  <div className="line _6"></div>
-                                </div>
-                                <div className="inner-line-wrap _4">
-                                  <div className="line _7"></div>
-                                  <div className="line _8"></div>
-                                </div>
-                              </div>
-                            </a>
+                            <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Comparison - Calc" className="pricing" />
                           </div>
                         </div>
                       </div>
@@ -899,36 +792,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
               </div>
               <div className="testimonial-section-button-wrap">
                 <div className="primary-button-wrapper">
-                  <a data-cta="Testimonials - Calc" href="/carry-cost-calculator" className="inner-button w-inline-block">
-                    <div className="primary-button-border-wrap">
-                      <div className="inner-button-wrap">
-                        <div className="inner-button-text-wrap">
-                          <div className="inner-button-text">Carry Cost Calc</div>
-                          <div className="inner-button-hover-text">Carry Cost Calc</div>
-                        </div>
-                        <div className="inner-button-star-wrap"><img loading="lazy" src="/images/inner-button-arrow.svg" alt="" className="inner-button-star" /></div>
-                        <div className="inner-button-hover-bg"></div>
-                      </div>
-                    </div>
-                    <div className="line-wrap-inner">
-                      <div className="inner-line-wrap _1">
-                        <div className="line"></div>
-                        <div className="line _2"></div>
-                      </div>
-                      <div className="inner-line-wrap _2">
-                        <div className="line _3"></div>
-                        <div className="line _4"></div>
-                      </div>
-                      <div className="inner-line-wrap _3">
-                        <div className="line _5"></div>
-                        <div className="line _6"></div>
-                      </div>
-                      <div className="inner-line-wrap _4">
-                        <div className="line _7"></div>
-                        <div className="line _8"></div>
-                      </div>
-                    </div>
-                  </a>
+                  <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Testimonials - Calc" />
                 </div>
               </div>
             </div>

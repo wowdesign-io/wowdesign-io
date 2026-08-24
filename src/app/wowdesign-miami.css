@@ -1107,12 +1107,22 @@ figure {
   z-index: 1;
   background-color: var(--primary);
   letter-spacing: 0;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
   justify-content: center;
   align-items: center;
   padding: 13px 25px;
   display: flex;
   position: relative;
   overflow: hidden;
+}
+
+.primary-button-text-wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .primary-button-text {
@@ -1207,12 +1217,18 @@ figure {
   inset: 0%;
 }
 
-.primary-button-hover-bg {
-  z-index: -1;
-  background-color: var(--primary);
-  opacity: 0;
-  position: absolute;
-  inset: 0%;
+.primary-button-wrap .inner-button-star-wrap {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.primary-button-wrap .inner-button-star {
+  width: 14px;
+  height: 14px;
+  display: block;
+  position: static;
+  filter: brightness(0) invert(1);
 }
 
 .nav-container {
@@ -1528,6 +1544,22 @@ figure {
 
 .primary-button-wrapper.pricing {
   width: 100%;
+  display: block;
+}
+
+.primary-button-wrapper.pricing .primary-button,
+.primary-button-wrapper.pricing .inner-button {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.primary-button-wrapper.pricing .primary-button-border-wrap,
+.primary-button-wrapper.pricing .primary-button-wrap,
+.primary-button-wrapper.pricing .inner-button-wrap {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .primary-button-wrapper.desktop {
@@ -7324,6 +7356,19 @@ figure {
 
 .inner-button.pricing {
   width: 100%;
+}
+
+.primary-button.pricing {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.primary-button.pricing .primary-button-border-wrap,
+.primary-button.pricing .primary-button-wrap {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .inner-line-wrap {

@@ -236,8 +236,8 @@
     width: auto;
     height: 28rem;
     padding-left: 0;
-    margin-bottom: 3rem;
-    order: -1;
+    margin-top: 3rem;
+    margin-bottom: 0;
   }
 
   .founder-images-frame {

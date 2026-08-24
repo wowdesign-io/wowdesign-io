@@ -1,3 +1,4 @@
+import InnerButton from '@/components/InnerButton'
 export default function FeaturesDeepDive() {
   return (
     <section id="features" className="section features">
@@ -64,36 +65,7 @@ export default function FeaturesDeepDive() {
                 </div>
                 <div className="features-button-wrapper">
                   <div className="primary-button-wrapper">
-                    <a data-cta="Digital Twin - Calc" href="/carry-cost-calculator" className="inner-button w-inline-block">
-                      <div className="primary-button-border-wrap">
-                        <div className="inner-button-wrap">
-                          <div className="inner-button-text-wrap">
-                            <div className="inner-button-text">Carry Cost Calc</div>
-                            <div className="inner-button-hover-text">Carry Cost Calc</div>
-                          </div>
-                          <div className="inner-button-star-wrap"><img loading="lazy" src="/images/inner-button-arrow.svg" alt="" className="inner-button-star" /></div>
-                          <div className="inner-button-hover-bg"></div>
-                        </div>
-                      </div>
-                      <div className="line-wrap-inner">
-                        <div className="inner-line-wrap _1">
-                          <div className="line"></div>
-                          <div className="line _2"></div>
-                        </div>
-                        <div className="inner-line-wrap _2">
-                          <div className="line _3"></div>
-                          <div className="line _4"></div>
-                        </div>
-                        <div className="inner-line-wrap _3">
-                          <div className="line _5"></div>
-                          <div className="line _6"></div>
-                        </div>
-                        <div className="inner-line-wrap _4">
-                          <div className="line _7"></div>
-                          <div className="line _8"></div>
-                        </div>
-                      </div>
-                    </a>
+                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Digital Twin - Calc" />
                   </div>
                 </div>
               </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" />
@@ -173,36 +145,7 @@ export default function FeaturesDeepDive() {
                 </div>
                 <div className="features-button-wrapper">
                   <div className="primary-button-wrapper">
-                    <a data-cta="CRM - Calc" href="/carry-cost-calculator" className="inner-button w-inline-block">
-                      <div className="primary-button-border-wrap">
-                        <div className="inner-button-wrap">
-                          <div className="inner-button-text-wrap">
-                            <div className="inner-button-text">Carry Cost Calc</div>
-                            <div className="inner-button-hover-text">Carry Cost Calc</div>
-                          </div>
-                          <div className="inner-button-star-wrap"><img loading="lazy" src="/images/inner-button-arrow.svg" alt="" className="inner-button-star" /></div>
-                          <div className="inner-button-hover-bg"></div>
-                        </div>
-                      </div>
-                      <div className="line-wrap-inner">
-                        <div className="inner-line-wrap _1">
-                          <div className="line"></div>
-                          <div className="line _2"></div>
-                        </div>
-                        <div className="inner-line-wrap _2">
-                          <div className="line _3"></div>
-                          <div className="line _4"></div>
-                        </div>
-                        <div className="inner-line-wrap _3">
-                          <div className="line _5"></div>
-                          <div className="line _6"></div>
-                        </div>
-                        <div className="inner-line-wrap _4">
-                          <div className="line _7"></div>
-                          <div className="line _8"></div>
-                        </div>
-                      </div>
-                    </a>
+                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="CRM - Calc" />
                   </div>
                 </div>
               </div><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" /><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" />
@@ -266,36 +209,7 @@ export default function FeaturesDeepDive() {
                 </div>
                 <div className="features-button-wrapper">
                   <div className="primary-button-wrapper">
-                    <a data-cta="Unit-Specific - Calc" href="/carry-cost-calculator" className="inner-button w-inline-block">
-                      <div className="primary-button-border-wrap">
-                        <div className="inner-button-wrap">
-                          <div className="inner-button-text-wrap">
-                            <div className="inner-button-text">Carry Cost Calc</div>
-                            <div className="inner-button-hover-text">Carry Cost Calc</div>
-                          </div>
-                          <div className="inner-button-star-wrap"><img loading="lazy" src="/images/inner-button-arrow.svg" alt="" className="inner-button-star" /></div>
-                          <div className="inner-button-hover-bg"></div>
-                        </div>
-                      </div>
-                      <div className="line-wrap-inner">
-                        <div className="inner-line-wrap _1">
-                          <div className="line"></div>
-                          <div className="line _2"></div>
-                        </div>
-                        <div className="inner-line-wrap _2">
-                          <div className="line _3"></div>
-                          <div className="line _4"></div>
-                        </div>
-                        <div className="inner-line-wrap _3">
-                          <div className="line _5"></div>
-                          <div className="line _6"></div>
-                        </div>
-                        <div className="inner-line-wrap _4">
-                          <div className="line _7"></div>
-                          <div className="line _8"></div>
-                        </div>
-                      </div>
-                    </a>
+                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Unit-Specific - Calc" />
                   </div>
                 </div>
               </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" />
@@ -373,36 +287,7 @@ export default function FeaturesDeepDive() {
                 </div>
                 <div className="features-button-wrapper">
                   <div className="primary-button-wrapper">
-                    <a data-cta="Speed - Calc" href="/carry-cost-calculator" className="inner-button w-inline-block">
-                      <div className="primary-button-border-wrap">
-                        <div className="inner-button-wrap">
-                          <div className="inner-button-text-wrap">
-                            <div className="inner-button-text">Carry Cost Calc</div>
-                            <div className="inner-button-hover-text">Carry Cost Calc</div>
-                          </div>
-                          <div className="inner-button-star-wrap"><img loading="lazy" src="/images/inner-button-arrow.svg" alt="" className="inner-button-star" /></div>
-                          <div className="inner-button-hover-bg"></div>
-                        </div>
-                      </div>
-                      <div className="line-wrap-inner">
-                        <div className="inner-line-wrap _1">
-                          <div className="line"></div>
-                          <div className="line _2"></div>
-                        </div>
-                        <div className="inner-line-wrap _2">
-                          <div className="line _3"></div>
-                          <div className="line _4"></div>
-                        </div>
-                        <div className="inner-line-wrap _3">
-                          <div className="line _5"></div>
-                          <div className="line _6"></div>
-                        </div>
-                        <div className="inner-line-wrap _4">
-                          <div className="line _7"></div>
-                          <div className="line _8"></div>
-                        </div>
-                      </div>
-                    </a>
+                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Speed - Calc" />
                   </div>
                 </div>
               </div><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" /><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" />
@@ -468,36 +353,7 @@ export default function FeaturesDeepDive() {
                 </div>
                 <div className="features-button-wrapper">
                   <div className="primary-button-wrapper">
-                    <a data-cta="Analytics - Calc" href="/carry-cost-calculator" className="inner-button w-inline-block">
-                      <div className="primary-button-border-wrap">
-                        <div className="inner-button-wrap">
-                          <div className="inner-button-text-wrap">
-                            <div className="inner-button-text">Carry Cost Calc</div>
-                            <div className="inner-button-hover-text">Carry Cost Calc</div>
-                          </div>
-                          <div className="inner-button-star-wrap"><img loading="lazy" src="/images/inner-button-arrow.svg" alt="" className="inner-button-star" /></div>
-                          <div className="inner-button-hover-bg"></div>
-                        </div>
-                      </div>
-                      <div className="line-wrap-inner">
-                        <div className="inner-line-wrap _1">
-                          <div className="line"></div>
-                          <div className="line _2"></div>
-                        </div>
-                        <div className="inner-line-wrap _2">
-                          <div className="line _3"></div>
-                          <div className="line _4"></div>
-                        </div>
-                        <div className="inner-line-wrap _3">
-                          <div className="line _5"></div>
-                          <div className="line _6"></div>
-                        </div>
-                        <div className="inner-line-wrap _4">
-                          <div className="line _7"></div>
-                          <div className="line _8"></div>
-                        </div>
-                      </div>
-                    </a>
+                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Analytics - Calc" />
                   </div>
                 </div>
               </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" />
@@ -776,36 +632,7 @@ export default function FeaturesDeepDive() {
                 </div>
                 <div className="features-button-wrapper">
                   <div className="primary-button-wrapper">
-                    <a data-cta="Compliance - Calc" href="/carry-cost-calculator" className="inner-button w-inline-block">
-                      <div className="primary-button-border-wrap">
-                        <div className="inner-button-wrap">
-                          <div className="inner-button-text-wrap">
-                            <div className="inner-button-text">Carry Cost Calc</div>
-                            <div className="inner-button-hover-text">Carry Cost Calc</div>
-                          </div>
-                          <div className="inner-button-star-wrap"><img loading="lazy" src="/images/inner-button-arrow.svg" alt="" className="inner-button-star" /></div>
-                          <div className="inner-button-hover-bg"></div>
-                        </div>
-                      </div>
-                      <div className="line-wrap-inner">
-                        <div className="inner-line-wrap _1">
-                          <div className="line"></div>
-                          <div className="line _2"></div>
-                        </div>
-                        <div className="inner-line-wrap _2">
-                          <div className="line _3"></div>
-                          <div className="line _4"></div>
-                        </div>
-                        <div className="inner-line-wrap _3">
-                          <div className="line _5"></div>
-                          <div className="line _6"></div>
-                        </div>
-                        <div className="inner-line-wrap _4">
-                          <div className="line _7"></div>
-                          <div className="line _8"></div>
-                        </div>
-                      </div>
-                    </a>
+                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Compliance - Calc" />
                   </div>
                 </div>
               </div><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" /><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" />

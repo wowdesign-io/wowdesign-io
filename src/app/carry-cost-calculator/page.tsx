@@ -1,5 +1,6 @@
 import Script from 'next/script'
 import type { Metadata } from 'next'
+import InnerButton from '@/components/InnerButton'
 
 export const metadata: Metadata = {
   title: 'Carry Cost Calculator',
@@ -92,68 +93,10 @@ export default function CarryCostCalculatorPage() {
               </div>
               <div className="banner-button-wrapper">
                 <div className="primary-button-wrapper">
-                  <a href="#roi-calculator" className="inner-button w-inline-block">
-                    <div className="primary-button-border-wrap">
-                      <div className="inner-button-wrap">
-                        <div className="inner-button-text-wrap">
-                          <div className="inner-button-text">Run your numbers</div>
-                          <div className="inner-button-hover-text">Run your numbers</div>
-                        </div>
-                        <div className="inner-button-star-wrap"><img loading="lazy" src="/images/inner-button-arrow.svg" alt="" className="inner-button-star" /></div>
-                        <div className="inner-button-hover-bg"></div>
-                      </div>
-                    </div>
-                    <div className="line-wrap-inner">
-                      <div className="inner-line-wrap _1">
-                        <div className="line"></div>
-                        <div className="line _2"></div>
-                      </div>
-                      <div className="inner-line-wrap _2">
-                        <div className="line _3"></div>
-                        <div className="line _4"></div>
-                      </div>
-                      <div className="inner-line-wrap _3">
-                        <div className="line _5"></div>
-                        <div className="line _6"></div>
-                      </div>
-                      <div className="inner-line-wrap _4">
-                        <div className="line _7"></div>
-                        <div className="line _8"></div>
-                      </div>
-                    </div>
-                  </a>
+                  <InnerButton href="#roi-calculator" label="Run your numbers" />
                 </div>
                 <div className="primary-button-wrapper">
-                  <a href="/book-a-demo" className="inner-button w-inline-block">
-                    <div className="primary-button-border-wrap">
-                      <div className="inner-button-wrap">
-                        <div className="inner-button-text-wrap">
-                          <div className="inner-button-text">Book A Demo</div>
-                          <div className="inner-button-hover-text">Book A Demo</div>
-                        </div>
-                        <div className="inner-button-star-wrap"><img loading="lazy" src="/images/inner-button-arrow.svg" alt="" className="inner-button-star" /></div>
-                        <div className="inner-button-hover-bg"></div>
-                      </div>
-                    </div>
-                    <div className="line-wrap-inner">
-                      <div className="inner-line-wrap _1">
-                        <div className="line"></div>
-                        <div className="line _2"></div>
-                      </div>
-                      <div className="inner-line-wrap _2">
-                        <div className="line _3"></div>
-                        <div className="line _4"></div>
-                      </div>
-                      <div className="inner-line-wrap _3">
-                        <div className="line _5"></div>
-                        <div className="line _6"></div>
-                      </div>
-                      <div className="inner-line-wrap _4">
-                        <div className="line _7"></div>
-                        <div className="line _8"></div>
-                      </div>
-                    </div>
-                  </a>
+                  <InnerButton href="/book-a-demo" label="Book A Demo" variant="secondary" />
                 </div>
               </div>
             </div>
