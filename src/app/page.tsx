@@ -22,9 +22,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
     <div className="global-styles">
       <div className="style-overrides w-embed">
         <style dangerouslySetInnerHTML={{ __html: `
-#how-it-works .layout237_item h3.heading-style-h6,
-#the-problem .layout237_item h3.heading-style-h6,
-#the-offer .layout237_item h3.heading-style-h6 {
+#how-it-works .layout237_item h3.heading-style-h6 {
   font-size: 26px !important;
   font-weight: 500 !important;
   letter-spacing: -0.02em !important;
@@ -35,9 +33,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
   color: #fff !important;
 }
 @media (max-width: 479px) {
-  #how-it-works .layout237_item h3.heading-style-h6,
-  #the-problem .layout237_item h3.heading-style-h6,
-  #the-offer .layout237_item h3.heading-style-h6 { font-size: 22px !important; }
+  #how-it-works .layout237_item h3.heading-style-h6 { font-size: 22px !important; }
 }
 .section.solving { padding-top: 7rem !important; }
 @media screen and (max-width: 991px) { .section.solving { padding-top: 100px !important; } }
