@@ -38,7 +38,7 @@ export default function Page() {
             <td>See the vibe. Not pick a unit.</td>
           </tr>
           <tr>
-            <td>Matterport</td>
+            <td>Finished-space scan</td>
             <td>A scan of a finished space</td>
             <td>Walk something that already exists</td>
           </tr>

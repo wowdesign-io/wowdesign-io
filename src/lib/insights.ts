@@ -48,7 +48,7 @@ export const INSIGHTS: InsightArticle[] = [
     h1: 'What is a digital twin for pre-construction?',
     title: 'Digital twin for pre-construction',
     description:
-      'In pre-construction sales, a digital twin is the live building on the project website: every unit, live price, live availability — before anything is built. It is not a BIM model for the construction team, and it is not a Matterport scan of a finished space.',
+      'In pre-construction sales, a digital twin is the live building on the project website: every unit, live price, live availability — before anything is built. It is not a BIM model for the construction team, and it is not a scan of a finished space.',
     answer:
       'In pre-construction sales, a digital twin is the live building a buyer can walk on their phone before a brick is laid. Every unit. Live price. Live availability. Architects often mean a BIM model for the build. That is a different job.',
     datePublished: '2026-09-08',
@@ -59,8 +59,8 @@ export const INSIGHTS: InsightArticle[] = [
         a: 'No. A rendering is a still of the look. A digital twin has to answer which unit, at what price, and whether it is still open.',
       },
       {
-        q: 'Is a digital twin the same as Matterport?',
-        a: 'No. Matterport is a scan of a space that already exists. Pre-construction needs units that do not exist yet.',
+        q: 'Is a digital twin the same as a 3D scan of a finished building?',
+        a: 'No. A scan is of a space that already exists. Pre-construction needs units that do not exist yet.',
       },
       {
         q: 'Is a digital twin the same as a virtual showroom?',
@@ -134,8 +134,8 @@ export const INSIGHTS: InsightArticle[] = [
         a: 'The buyer opens the project site, explores units that are not built yet, sees live price and availability, and leaves a trail your sales team can use. No app. No waiting until Monday.',
       },
       {
-        q: 'Is this the same as Matterport?',
-        a: 'No. Matterport is a scan of a finished space. Pre-construction needs a live inventory of units that do not exist yet, wired to price and availability.',
+        q: 'Is this the same as a 3D scan of a finished building?',
+        a: 'No. A scan is of a space that already exists. Pre-construction needs a live inventory of units that do not exist yet, wired to price and availability.',
       },
       {
         q: 'Do boutique 10–50 unit projects need enterprise sales-gallery software?',

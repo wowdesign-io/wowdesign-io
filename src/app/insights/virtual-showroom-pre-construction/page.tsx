@@ -29,14 +29,9 @@ export default function Page() {
         </thead>
         <tbody>
           <tr>
-            <td>Matterport</td>
-            <td>Scan of a finished space</td>
+            <td>Finished-space scan</td>
+            <td>A walkthrough of something already built</td>
             <td>Units that are not built yet</td>
-          </tr>
-          <tr>
-            <td>A finished-space tour</td>
-            <td>Walkthrough of something already built</td>
-            <td>Live inventory before a brick is laid</td>
           </tr>
           <tr>
             <td>A stacking plan in the CRM</td>
