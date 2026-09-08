@@ -55,7 +55,7 @@ export default function Page() {
       </p>
       <h2>What faster sell-out keeps</h2>
       <p>
-        Three to six extra months on a typical boutique loan is how you get to $400k+ kept. Buyers pick a unit tonight. Your sales team only calls people who are ready.
+        Three to six extra months on a typical boutique loan is how you get to $400k+ kept — interest plus marketing that does not go to the bank.
       </p>
       <p>
         Planpoint platform data on comparable pre-construction developments: 31% faster unit sell-through, 49% more qualified leads, 3x buyer engagement.

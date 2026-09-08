@@ -10,9 +10,9 @@ import { INSIGHTS } from '@/lib/insights'
 import { SITE } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'What extra months actually cost',
+  title: 'Construction loan cost, presale, and selling pre-construction',
   description:
-    'A typical boutique construction loan is $67k–$100k a month to the bank until units are gone. Banks wait on 50% sold. Buyers pick a unit tonight. Your sales team only calls people who are ready.',
+    'How much an extra month of a construction loan costs, what lenders want sold before they fund, virtual showrooms, and interactive floor plans vs a PDF.',
   alternates: { canonical: `${SITE}/insights` },
 }
 
@@ -23,7 +23,7 @@ export default function InsightsIndexPage() {
         data={{
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
-          name: 'What extra months actually cost',
+          name: 'Construction loan cost, presale, and selling pre-construction',
           url: `${SITE}/insights`,
           publisher: { '@id': `${SITE}/#org` },
         }}
@@ -31,12 +31,13 @@ export default function InsightsIndexPage() {
       <SiteChrome current="insights">
         <PageHero
           tagline="Insights"
-          title="What extra months actually cost."
-          description="A typical boutique construction loan is $67k–$100k a month to the bank until units are gone. Banks wait on 50% sold. Buyers pick a unit tonight. Your sales team only calls people who are ready."
+          title="Construction loan cost, presale, and selling pre-construction."
+          description="How much an extra month of a construction loan costs. What lenders want sold before they fund. What a virtual showroom is. Interactive floor plan vs a PDF."
           ctaLabel="Start reading"
           ctaHref="#insights"
           ctaData="Insights index - Read"
           taglineIcon={<InsightsIcon />}
+          timeline={<>Five short reads.</>}
         />
         <section id="insights" className="section features">
           <div className="container">
