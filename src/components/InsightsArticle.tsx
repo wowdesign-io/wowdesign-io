@@ -5,7 +5,6 @@ import PageHero from '@/components/PageHero'
 import PageCta from '@/components/PageCta'
 import FaqAccordion from '@/components/FaqAccordion'
 import SiteChrome from '@/components/SiteChrome'
-import InnerButton from '@/components/InnerButton'
 import InsightsIcon from '@/components/InsightsIcon'
 import { articleSchema, faqPage } from '@/lib/schema'
 import type { InsightArticle } from '@/lib/insights'
@@ -43,23 +42,28 @@ export default function InsightsArticle({
           taglineIcon={<InsightsIcon />}
           wide
           timeline={
-            <a href="/about" className="insights-author">
-              <img
-                src="/images/founder/andy-founder-insights-avatar.webp"
-                alt="Andy Bittner, Founder & CEO of wowdesign"
-                width={40}
-                height={40}
-              />
-              <div>
-                <div className="blog-post-author-name">Andy Bittner</div>
-                <div className="blog-post-author-bio">
-                  Founder &amp; CEO
-                  {article.dateModified !== article.datePublished
-                    ? ` · Updated ${article.dateModified}`
-                    : ` · ${article.datePublished}`}
+            <div className="testimonial-single-card two insights-author-card">
+              <a href="/about" className="testimonial-author-wrapper">
+                <div className="testimonial-author-image-wrap">
+                  <img
+                    src="/images/founder/andy-founder-insights-avatar.webp"
+                    alt="Andy Bittner, Founder & CEO of wowdesign"
+                    className="testimonial-author-image"
+                    width={56}
+                    height={56}
+                  />
                 </div>
-              </div>
-            </a>
+                <div className="testimonial-author-name-bio-wrapper">
+                  <div className="testimonial-author-name">Andy Bittner</div>
+                  <div className="testimonial-author-bio">
+                    Founder &amp; CEO
+                    {article.dateModified !== article.datePublished
+                      ? ` · Updated ${article.dateModified}`
+                      : ` · ${article.datePublished}`}
+                  </div>
+                </div>
+              </a>
+            </div>
           }
         />
         <section className="section_content7 insights-article">
@@ -70,11 +74,6 @@ export default function InsightsArticle({
                   <div className="max-width-large align-center">
                     <div className="content7_content-wrapper">
                       <div className="text-rich-text w-richtext">{children}</div>
-                      <div className="banner-button-wrapper" style={{ marginTop: '2rem' }}>
-                        <div className="primary-button-wrapper">
-                          <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta={`Insights body - ${article.slug}`} />
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
