@@ -10,7 +10,7 @@ import { INSIGHTS } from '@/lib/insights'
 import { SITE } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Construction loan cost, presale, and selling pre-construction',
+  title: 'Construction-loan cost, lender presale, and virtual showrooms',
   description:
     'How much an extra month of a construction loan costs, what lenders want sold before they fund, virtual showrooms, and interactive floor plans vs a PDF.',
   alternates: { canonical: `${SITE}/insights` },
@@ -23,7 +23,7 @@ export default function InsightsIndexPage() {
         data={{
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
-          name: 'Construction loan cost, presale, and selling pre-construction',
+          name: 'Construction-loan cost, lender presale, and virtual showrooms',
           url: `${SITE}/insights`,
           publisher: { '@id': `${SITE}/#org` },
         }}
