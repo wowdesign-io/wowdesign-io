@@ -10,9 +10,9 @@ import { INSIGHTS } from '@/lib/insights'
 import { SITE } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Construction-loan cost, lender presale, and virtual showrooms',
+  title: 'Digital twin, follow-up, and extra months of the construction loan',
   description:
-    'How much an extra month of a construction loan costs, what lenders want sold before they fund, virtual showrooms, and interactive floor plans vs a PDF.',
+    'What a digital twin is on a building that is not built yet. What follow-up should do the night a buyer shows interest. How much an extra month of a construction loan costs.',
   alternates: { canonical: `${SITE}/insights` },
 }
 
@@ -23,7 +23,7 @@ export default function InsightsIndexPage() {
         data={{
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
-          name: 'Construction-loan cost, lender presale, and virtual showrooms',
+          name: 'Digital twin, follow-up, and extra months of the construction loan',
           url: `${SITE}/insights`,
           publisher: { '@id': `${SITE}/#org` },
         }}
@@ -31,13 +31,13 @@ export default function InsightsIndexPage() {
       <SiteChrome current="insights">
         <PageHero
           tagline="Insights"
-          title="Construction loan cost, presale, and selling pre-construction."
-          description="How much an extra month of a construction loan costs. What lenders want sold before they fund. What a virtual showroom is. Interactive floor plan vs a PDF."
+          title="What a digital twin is, what follow-up should do, and what extra months cost."
+          description="People say digital twin and mean three different things. Follow-up is the night a buyer shows interest — or the week of silence after. An extra month of a typical boutique construction loan is $67k–$100k to the bank."
           ctaLabel="Start reading"
           ctaHref="#insights"
           ctaData="Insights index - Read"
           taglineIcon={<InsightsIcon />}
-          timeline={<>Five short reads.</>}
+          timeline={<>Seven short reads.</>}
         />
         <section id="insights" className="section features">
           <div className="container">

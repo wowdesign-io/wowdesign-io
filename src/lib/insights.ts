@@ -44,6 +44,56 @@ export const INSIGHTS: InsightArticle[] = [
     ],
   },
   {
+    slug: 'digital-twin-pre-construction',
+    h1: 'What is a digital twin for pre-construction?',
+    title: 'Digital twin for pre-construction',
+    description:
+      'In pre-construction sales, a digital twin is the live building on the project website: every unit, live price, live availability — before anything is built. It is not a BIM model for the construction team, and it is not a Matterport scan of a finished space.',
+    answer:
+      'In pre-construction sales, a digital twin is the live building a buyer can walk on their phone before a brick is laid. Every unit. Live price. Live availability. Architects often mean a BIM model for the build. That is a different job.',
+    datePublished: '2026-09-08',
+    dateModified: '2026-09-08',
+    faqs: [
+      {
+        q: 'Is a digital twin the same as a 3D rendering?',
+        a: 'No. A rendering is a still of the look. A digital twin has to answer which unit, at what price, and whether it is still open.',
+      },
+      {
+        q: 'Is a digital twin the same as Matterport?',
+        a: 'No. Matterport is a scan of a space that already exists. Pre-construction needs units that do not exist yet.',
+      },
+      {
+        q: 'Is a digital twin the same as a virtual showroom?',
+        a: 'Close, but not the same phrase. Virtual showroom is the sales gallery on the website. Digital twin is the live building inside it — floors, units, price, availability.',
+      },
+    ],
+  },
+  {
+    slug: 'follow-up-pre-construction-buyers',
+    h1: 'What should follow-up look like after a pre-construction buyer shows interest?',
+    title: 'Follow-up for pre-construction buyers',
+    description:
+      'After a pre-construction buyer shows interest, follow-up should go out the same night with the unit they looked at — not a generic pack on Monday. During the build they need something to come back to. The sales team should already know which unit before they call.',
+    answer:
+      'Follow-up is what happens after a buyer shows interest — the same night, not Monday. They should get the unit they looked at, not a generic pack. During the build they need that unit to still be there. Your sales team should already know which one before they call.',
+    datePublished: '2026-09-08',
+    dateModified: '2026-09-08',
+    faqs: [
+      {
+        q: 'When should follow-up go out after a unit request?',
+        a: 'The same night. A buyer who looked at 11pm is cold by Monday if nothing came back.',
+      },
+      {
+        q: 'What should the follow-up actually include?',
+        a: 'The unit they picked, live availability, and a way back into it. A PDF from month one will not hold them through the build.',
+      },
+      {
+        q: 'What should the sales team know before they call?',
+        a: 'Which unit. How far the buyer went. Whether they are still looking. Calling without that is a cold call with a nicer title.',
+      },
+    ],
+  },
+  {
     slug: 'construction-loan-presale-requirement',
     h1: 'How many units do you need to pre-sell before a construction lender funds?',
     title: 'Construction loan presale requirement',

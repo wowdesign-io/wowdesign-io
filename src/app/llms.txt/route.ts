@@ -24,6 +24,8 @@ wowdesign LLC. Miami Beach, Florida. Founder: Andy Bittner (CEO).
 
 ## Insights
 
+- [What is a digital twin for pre-construction?](${SITE}/insights/digital-twin-pre-construction)
+- [What should follow-up look like after a pre-construction buyer shows interest?](${SITE}/insights/follow-up-pre-construction-buyers)
 - [How much does an extra month of a construction loan cost?](${SITE}/insights/construction-loan-extra-month)
 - [How many units do you need to pre-sell before a construction lender funds?](${SITE}/insights/construction-loan-presale-requirement)
 - [What is a virtual showroom for pre-construction?](${SITE}/insights/virtual-showroom-pre-construction)
