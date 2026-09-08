@@ -43,7 +43,7 @@ export default function InsightsArticle({
               <a href="/about" className="testimonial-author-wrapper">
                 <div className="testimonial-author-image-wrap">
                   <img
-                    src="/images/founder/andy-founder-hero.webp"
+                    src="/images/founder/andy-miami-square.webp"
                     alt="Andy Bittner, Founder & CEO of wowdesign"
                     className="testimonial-author-image"
                     width={64}
