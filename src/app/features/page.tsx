@@ -282,6 +282,9 @@ export default function FeaturesPage() {
                       <li className="footer-menu-list-item">
                         <a href="/how-it-works" className="footer-menu-text-link">How it works</a>
                       </li>
+                      <li className="footer-menu-list-item">
+                        <a href="/insights" className="footer-menu-text-link">Insights</a>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -347,7 +350,7 @@ export default function FeaturesPage() {
           </div>
           <div className="footer-bottom-content">
             <div className="footer-details-wrapper">
-              <div className="footer-details-text">© Copyright 2026 - wowdesign LLC</div>
+              <div className="footer-details-text">{'\u00A9'} Copyright 2026 - wowdesign LLC</div>
             </div>
           </div>
         </div>

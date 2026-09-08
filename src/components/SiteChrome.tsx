@@ -293,7 +293,7 @@ export default function SiteChrome({
             </div>
             <div className="footer-bottom-content">
               <div className="footer-details-wrapper">
-                <div className="footer-details-text">© Copyright 2026 - wowdesign LLC</div>
+                <div className="footer-details-text">{'\u00A9'} Copyright 2026 - wowdesign LLC</div>
               </div>
             </div>
           </div>

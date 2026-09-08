@@ -141,6 +141,11 @@ export default function CarryCostCalculatorPage() {
                       <li>Read the total: interest plus burn, times months saved.</li>
                     </ol>
                     <p>Buyers pick a unit tonight. Your sales team only calls people who are ready. That is how extra months come off. After you run the number, book a demo if you want CRM, what the sales team sees, and follow-up.</p>
+                    <p>
+                      <a href="/insights/construction-loan-extra-month">How much an extra month of a construction loan costs</a>
+                      {" — "}
+                      <a href="/insights">all Insights</a>.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -204,7 +209,10 @@ export default function CarryCostCalculatorPage() {
                       <li className="footer-menu-list-item">
                         <a href="/how-it-works" className="footer-menu-text-link">How it works</a>
                       </li>
-                    </ul>
+                                          <li className="footer-menu-list-item">
+                        <a href="/insights" className="footer-menu-text-link">Insights</a>
+                      </li>
+</ul>
                   </div>
                 </div>
                 <div className="footer-menu-single last">
@@ -269,7 +277,7 @@ export default function CarryCostCalculatorPage() {
           </div>
           <div className="footer-bottom-content">
             <div className="footer-details-wrapper">
-              <div className="footer-details-text">Â© Copyright 2026 - wowdesign LLC</div>
+              <div className="footer-details-text">{'\u00A9'} Copyright 2026 - wowdesign LLC</div>
             </div>
           </div>
         </div>
