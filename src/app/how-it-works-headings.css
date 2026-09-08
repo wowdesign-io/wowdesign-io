@@ -86,7 +86,7 @@
   width: 64px;
   height: 64px;
   object-fit: cover;
-  object-position: center 58%;
+  object-position: center;
   filter: none;
 }
 .insights-hero .insights-author-card .testimonial-author-name-bio-wrapper {

@@ -5,8 +5,8 @@ type PageHeroProps = {
   tagline: string
   title: ReactNode
   description: ReactNode
-  ctaLabel: string
-  ctaHref: string
+  ctaLabel?: string
+  ctaHref?: string
   ctaData?: string
   timeline?: ReactNode
   taglineIcon?: ReactNode
@@ -57,11 +57,13 @@ export default function PageHero({
                 <h1 className={wide ? 'inner-banner-title blog-details' : 'inner-banner-title contact-us'}>{title}</h1>
                 <p className="inner-banner-description about-us">{description}</p>
               </div>
-              <div className="banner-button-wrapper">
-                <div className="primary-button-wrapper">
-                  <InnerButton href={ctaHref} label={ctaLabel} cta={ctaData} />
+              {ctaLabel && ctaHref ? (
+                <div className="banner-button-wrapper">
+                  <div className="primary-button-wrapper">
+                    <InnerButton href={ctaHref} label={ctaLabel} cta={ctaData} />
+                  </div>
                 </div>
-              </div>
+              ) : null}
               {timeline ? <div className="subhero-timeline text-size-small">{timeline}</div> : null}
             </div>
           </div>

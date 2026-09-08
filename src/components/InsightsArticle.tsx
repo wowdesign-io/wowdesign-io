@@ -36,9 +36,6 @@ export default function InsightsArticle({
           tagline="Insights"
           title={article.h1}
           description={article.answer}
-          ctaLabel="Carry Cost Calc"
-          ctaHref="/carry-cost-calculator"
-          ctaData={`Insights - ${article.slug}`}
           taglineIcon={<InsightsIcon />}
           wide
           timeline={
@@ -46,7 +43,7 @@ export default function InsightsArticle({
               <a href="/about" className="testimonial-author-wrapper">
                 <div className="testimonial-author-image-wrap">
                   <img
-                    src="/images/founder/andy-founder-insights.webp"
+                    src="/images/founder/andy-founder-hero.webp"
                     alt="Andy Bittner, Founder & CEO of wowdesign"
                     className="testimonial-author-image"
                     width={64}
