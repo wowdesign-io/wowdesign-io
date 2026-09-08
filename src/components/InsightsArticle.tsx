@@ -46,20 +46,20 @@ export default function InsightsArticle({
               <a href="/about" className="testimonial-author-wrapper">
                 <div className="testimonial-author-image-wrap">
                   <img
-                    src="/images/founder/andy-founder-insights-avatar.webp"
+                    src="/images/founder/andy-founder-insights.webp"
                     alt="Andy Bittner, Founder & CEO of wowdesign"
                     className="testimonial-author-image"
-                    width={56}
-                    height={56}
+                    width={64}
+                    height={64}
                   />
                 </div>
                 <div className="testimonial-author-name-bio-wrapper">
                   <div className="testimonial-author-name">Andy Bittner</div>
-                  <div className="testimonial-author-bio">
-                    Founder &amp; CEO
+                  <div className="testimonial-author-bio">Founder &amp; CEO</div>
+                  <div className="blog-post-date-text">
                     {article.dateModified !== article.datePublished
-                      ? ` · Updated ${article.dateModified}`
-                      : ` · ${article.datePublished}`}
+                      ? `Updated ${article.dateModified}`
+                      : article.datePublished}
                   </div>
                 </div>
               </a>
