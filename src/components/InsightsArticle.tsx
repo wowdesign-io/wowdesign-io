@@ -47,15 +47,16 @@ export default function InsightsArticle({
               <img
                 src="/images/founder/andy-founder-insights-avatar.webp"
                 alt="Andy Bittner, Founder & CEO of wowdesign"
-                width={64}
-                height={64}
+                width={40}
+                height={40}
               />
               <div>
                 <div className="blog-post-author-name">Andy Bittner</div>
-                <div className="blog-post-author-bio">Founder &amp; CEO</div>
-                <div className="blog-post-date-text">
-                  {article.datePublished}
-                  {article.dateModified !== article.datePublished ? ` · Updated ${article.dateModified}` : ''}
+                <div className="blog-post-author-bio">
+                  Founder &amp; CEO
+                  {article.dateModified !== article.datePublished
+                    ? ` · Updated ${article.dateModified}`
+                    : ` · ${article.datePublished}`}
                 </div>
               </div>
             </a>
