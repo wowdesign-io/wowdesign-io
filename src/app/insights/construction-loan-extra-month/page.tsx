@@ -16,7 +16,7 @@ export default function Page() {
     <InsightsArticle article={article}>
       <h2>How to calculate monthly construction-loan interest</h2>
       <p>
-        Monthly interest is loan amount × (annual rate ÷ 100) ÷ 12. That is the bank line only. It is not a full construction-loan draw model — those tools show interest as you draw during the build. This is extra months of delay after you already have a loan size and a rate.
+        Monthly interest is loan amount × (annual rate ÷ 100) ÷ 12. That is only what the bank takes. Ads, brokers, and ops keep running until the last unit is gone.
       </p>
       <table>
         <thead>
@@ -48,19 +48,17 @@ export default function Page() {
           </tr>
         </tbody>
       </table>
-      <p>
-        Method: simple monthly interest, not compounded daily and not a draw schedule. Use it to size extra months. Your term sheet is still the source for the rate.
-      </p>
+      <p>Use this to size extra months. Your term sheet is still the rate that counts.</p>
       <h2>Interest is not the whole extra month</h2>
       <p>
-        Interest is only the bank line. Ads, brokers, and ops keep running until the last unit is gone. Leave burn at 0 in the calculator if you only want the bank line. Enter what you actually spend if you want the real extra month.
+        Leave burn at 0 in the calculator if you only want the bank line. Enter what you actually spend if you want the real extra month.
       </p>
       <h2>What faster sell-out keeps</h2>
       <p>
-        Three to six extra months on a typical boutique loan is how you get to $400k+ kept — interest plus marketing that does not go to the bank. Buyers pick a unit tonight. Your sales team only calls people who are ready. Run your number on the calculator.
+        Three to six extra months on a typical boutique loan is how you get to $400k+ kept. Buyers pick a unit tonight. Your sales team only calls people who are ready.
       </p>
       <p>
-        Planpoint platform data on comparable pre-construction developments: 31% faster unit sell-through, 49% more qualified leads, 3x buyer engagement. Supporting proof, not the opener.
+        Planpoint platform data on comparable pre-construction developments: 31% faster unit sell-through, 49% more qualified leads, 3x buyer engagement.
       </p>
     </InsightsArticle>
   )

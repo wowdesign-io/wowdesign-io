@@ -7,6 +7,8 @@ alwaysApply: true
 
 Do not invent new section skins, class prefixes, or CSS files for homepage blocks.
 
-Reuse what is already in `src/app/wowdesign-miami.css` (`pricing-single`, `pricing-price`, `layout237`, `cta`, `features-typography-card`, tagline chip, `section-title`, `InnerButton`).
+Reuse what is already in `src/app/wowdesign-miami.css` (`pricing-single`, `pricing-price`, `layout237`, `cta`, `features-typography-card`, tagline chip, `section-title`, `InnerButton`, `PageHero`).
+
+Inner pages = existing `PageHero`. Never invent a new hero layout. Unique Relume/Phosphor duotone via `taglineIcon`.
 
 `id` on a section is fine. A new look is not. Andy rejected off-brand Problem/Offer drafts on 2026-08-24.

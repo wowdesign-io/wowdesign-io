@@ -50,7 +50,7 @@ export const INSIGHTS: InsightArticle[] = [
     description:
       'US construction lenders commonly want 50–70% of project revenue under contract before they fund. That is not the same as Fannie Mae’s 50% conveyed test for unit-buyer mortgages.',
     answer:
-      'US construction lenders commonly want 50–70% of project revenue under contract before they fund. Count dollars under contract, not a round unit count. Fannie Mae’s 50% conveyed / under-contract test is a buyer-mortgage eligibility rule — do not mash it with the construction draw.',
+      'US construction lenders commonly want 50–70% of project revenue under contract before they fund. Count dollars under contract, not a round unit count. Fannie Mae’s 50% conveyed / under-contract test is about unit-buyer mortgages — not the same as the construction draw.',
     datePublished: '2026-09-08',
     dateModified: '2026-09-08',
     faqs: [
@@ -75,7 +75,7 @@ export const INSIGHTS: InsightArticle[] = [
     description:
       'A virtual showroom for pre-construction is the sales gallery on the website: every unit from a phone, live price and availability, then the sales team only calls people who are ready.',
     answer:
-      'A virtual showroom for pre-construction is the sales gallery on the website — not a PDF pack. Buyers walk floors and pick a unit from their phone with live price and availability. Follow-up runs so your sales team only calls people who are ready.',
+      'A virtual showroom for pre-construction is the sales gallery on the website. Buyers walk floors and pick a unit from their phone with live price and availability. Follow-up runs so your sales team only calls people who are ready.',
     datePublished: '2026-09-08',
     dateModified: '2026-09-08',
     faqs: [
@@ -88,8 +88,8 @@ export const INSIGHTS: InsightArticle[] = [
         a: 'No. Matterport is a scan of a finished space. Pre-construction needs a live inventory of units that do not exist yet, wired to price and availability.',
       },
       {
-        q: 'Do boutique 10–50 unit projects need enterprise LiveSite software?',
-        a: 'Usually not. Those stacks are built for bigger operators. Boutique projects need the buyer site plus the sales-team layer, run for them — not another login.',
+        q: 'Do boutique 10–50 unit projects need enterprise sales-gallery software?',
+        a: 'Usually not. Those stacks are built for bigger operators. A 10–50 unit project needs buyers to pick a unit on the site, and a sales team that already knows who is ready.',
       },
     ],
   },
@@ -100,7 +100,7 @@ export const INSIGHTS: InsightArticle[] = [
     description:
       'A PDF floor plan is a static file. An interactive floor plan lets a buyer click a unit, see live availability and price, and leave a trail your sales team can use before they call.',
     answer:
-      'A PDF floor plan is a file. An interactive floor plan lets a buyer click a unit, see live availability and price, and leave a trail. Your sales team then calls people who already picked something — not people who downloaded a brochure.',
+      'A PDF floor plan is a file. An interactive floor plan lets a buyer click a unit, see live availability and price, and leave a trail. Your sales team then calls people who already picked something — not people who only opened a file.',
     datePublished: '2026-09-08',
     dateModified: '2026-09-08',
     faqs: [
@@ -139,7 +139,7 @@ export const INSIGHTS: InsightArticle[] = [
       },
       {
         q: 'What does a boutique developer website need besides renderings?',
-        a: 'Live units, live price, a way to pick one tonight, and a path into the tools the sales team already uses. Renderings without that are a lookbook.',
+        a: 'Live units, live price, a way to pick one tonight, and a path into the tools the sales team already uses. Renderings without that do not tell your sales team who is ready.',
       },
     ],
   },

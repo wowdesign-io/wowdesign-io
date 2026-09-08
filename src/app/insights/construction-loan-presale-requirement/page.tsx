@@ -16,7 +16,7 @@ export default function Page() {
     <InsightsArticle article={article}>
       <h2>Construction-lender presales vs Fannie’s 50%</h2>
       <p>
-        Two different tests get mashed in Miami conversations. Construction lenders are deciding whether to fund the build. Fannie Mae’s 50% conveyed or under-contract test is about whether unit-buyers can get those mortgages on the project. Do not treat them as one number.
+        Construction lenders are deciding whether to fund the build. Fannie Mae’s 50% conveyed or under-contract test is about whether unit-buyers can get those mortgages on the project. Those are not the same number.
       </p>
       <table>
         <thead>
@@ -41,11 +41,11 @@ export default function Page() {
       </table>
       <h2>How many units is that?</h2>
       <p>
-        Convert the percent to dollars first, then to units. If the lender wants 60% of revenue under contract on a $20M sell-out, that is $12M in contracts — not “60% of the unit count” if penthouses and studios are different prices. Florida term sheets still vary. The Real Deal and lender FAQs keep repeating this because developers mix the tests.
+        Convert the percent to dollars first, then to units. If the lender wants 60% of revenue under contract on a $20M sell-out, that is $12M in contracts — not “60% of the unit count” if penthouses and studios are different prices. Florida term sheets still vary. Yours is the one that counts.
       </p>
       <h2>Why extra months still matter once you know the line</h2>
       <p>
-        Until the construction lender funds, you keep paying interest and marketing with no draw. After completion, unsold units keep the loan and the burn running. Hit the presale line faster and you start the build sooner. Sell out faster after that and you keep the $67k–$100k months. Run the calculator on your loan. Then book a demo if you want the sales-team layer behind the buyer site.
+        Until the construction lender funds, you keep paying interest and marketing with no draw. After completion, unsold units keep the loan and the burn running. Hit the presale line faster and you start the build sooner. Sell out faster after that and you keep the $67k–$100k months.
       </p>
     </InsightsArticle>
   )

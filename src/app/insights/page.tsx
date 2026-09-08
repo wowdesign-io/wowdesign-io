@@ -5,13 +5,14 @@ import PageHero from '@/components/PageHero'
 import PageCta from '@/components/PageCta'
 import SiteChrome from '@/components/SiteChrome'
 import InnerButton from '@/components/InnerButton'
+import InsightsIcon from '@/components/InsightsIcon'
 import { INSIGHTS } from '@/lib/insights'
 import { SITE } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Every extra month costs $67k–$100k',
+  title: 'What extra months actually cost',
   description:
-    'On a typical boutique construction loan, the bank takes $67k–$100k a month you stay unsold. Hit 50% sold faster: buyers pick a unit tonight, and your sales team only calls people who are ready.',
+    'A typical boutique construction loan is $67k–$100k a month to the bank until units are gone. Banks wait on 50% sold. Buyers pick a unit tonight. Your sales team only calls people who are ready.',
   alternates: { canonical: `${SITE}/insights` },
 }
 
@@ -22,7 +23,7 @@ export default function InsightsIndexPage() {
         data={{
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
-          name: 'Every extra month costs $67k–$100k',
+          name: 'What extra months actually cost',
           url: `${SITE}/insights`,
           publisher: { '@id': `${SITE}/#org` },
         }}
@@ -30,13 +31,14 @@ export default function InsightsIndexPage() {
       <SiteChrome current="insights">
         <PageHero
           tagline="Insights"
-          title="Every extra month costs $67k–$100k."
-          description="On a typical boutique construction loan, the bank takes that every month you stay unsold. Hit 50% sold faster: buyers pick a unit tonight, and your sales team only calls people who are ready."
-          ctaLabel="Carry Cost Calc"
-          ctaHref="/carry-cost-calculator"
-          ctaData="Insights index - Calc"
+          title="What extra months actually cost."
+          description="A typical boutique construction loan is $67k–$100k a month to the bank until units are gone. Banks wait on 50% sold. Buyers pick a unit tonight. Your sales team only calls people who are ready."
+          ctaLabel="Start reading"
+          ctaHref="#insights"
+          ctaData="Insights index - Read"
+          taglineIcon={<InsightsIcon />}
         />
-        <section className="section features">
+        <section id="insights" className="section features">
           <div className="container">
             <div className="features-content">
               {INSIGHTS.map((article) => (

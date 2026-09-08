@@ -6,6 +6,7 @@ import PageCta from '@/components/PageCta'
 import FaqAccordion from '@/components/FaqAccordion'
 import SiteChrome from '@/components/SiteChrome'
 import InnerButton from '@/components/InnerButton'
+import InsightsIcon from '@/components/InsightsIcon'
 import { articleSchema, faqPage } from '@/lib/schema'
 import type { InsightArticle } from '@/lib/insights'
 import { SITE } from '@/lib/site'
@@ -39,6 +40,7 @@ export default function InsightsArticle({
           ctaLabel="Carry Cost Calc"
           ctaHref="/carry-cost-calculator"
           ctaData={`Insights - ${article.slug}`}
+          taglineIcon={<InsightsIcon />}
           timeline={
             <>
               Andy Bittner · {article.datePublished}

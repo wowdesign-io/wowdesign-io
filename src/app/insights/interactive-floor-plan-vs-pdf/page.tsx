@@ -39,20 +39,15 @@ export default function Page() {
             <td>A download, maybe</td>
             <td>Which unit, how far they went, whether they are ready</td>
           </tr>
-          <tr>
-            <td>Job it is not</td>
-            <td>A CRM</td>
-            <td>Not Spark.re. Spark stays inventory for the sales team.</td>
-          </tr>
         </tbody>
       </table>
-      <h2>Software category vs what boutique developers buy</h2>
+      <h2>What boutique 10–50 actually needs</h2>
       <p>
-        People search “interactive floor plan software” because vendors rank for it. A 10–50 unit developer does not need to staff a viewer. They need buyers to pick a unit, then a sales team that already knows which one. We build the website and the live building. You do not log into Planpoint.
+        The floor plan lives on the project website. Buyers pick a unit. Your sales team already knows which one. Renderings still sell the look. They do not tell you who is ready.
       </p>
       <h2>What this is worth</h2>
       <p>
-        A PDF cannot close the extra months. Extra months of construction-loan interest plus marketing burn are $67k–$100k a month to the bank on a typical boutique loan. Run the calculator. If you want the operator layer — CRM, what the sales team sees, follow-up — that is the booked demo after the number.
+        Extra months of construction-loan interest plus marketing burn are $67k–$100k a month to the bank on a typical boutique loan. A file cannot take those months off. Run the calculator on your loan.
       </p>
     </InsightsArticle>
   )
