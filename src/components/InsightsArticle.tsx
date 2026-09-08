@@ -43,23 +43,22 @@ export default function InsightsArticle({
           taglineIcon={<InsightsIcon />}
           wide
           timeline={
-            <div className="testimonial-single-card two insights-author-card">
-              <a href="/about" className="blog-post-author-image-information">
-                <img
-                  src="/images/founder/andy-founder-13-portrait.webp"
-                  alt="Andy Bittner, Founder & CEO of wowdesign"
-                  className="insights-author-photo"
-                />
-                <div>
-                  <div className="blog-post-author-name">Andy Bittner</div>
-                  <div className="blog-post-author-bio">Founder &amp; CEO</div>
-                  <div className="blog-post-date-text">
-                    {article.datePublished}
-                    {article.dateModified !== article.datePublished ? ` · Updated ${article.dateModified}` : ''}
-                  </div>
+            <a href="/about" className="insights-author">
+              <img
+                src="/images/founder/andy-founder-insights-avatar.webp"
+                alt="Andy Bittner, Founder & CEO of wowdesign"
+                width={64}
+                height={64}
+              />
+              <div>
+                <div className="blog-post-author-name">Andy Bittner</div>
+                <div className="blog-post-author-bio">Founder &amp; CEO</div>
+                <div className="blog-post-date-text">
+                  {article.datePublished}
+                  {article.dateModified !== article.datePublished ? ` · Updated ${article.dateModified}` : ''}
                 </div>
-              </a>
-            </div>
+              </div>
+            </a>
           }
         />
         <section className="section_content7 insights-article">

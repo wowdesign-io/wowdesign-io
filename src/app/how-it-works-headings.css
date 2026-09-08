@@ -60,28 +60,43 @@
 .insights-hero .inner-banner-description {
   max-width: 820px;
 }
-.insights-hero .insights-author-card {
-  max-width: 340px;
-  min-height: 0;
-  margin: 8px auto 0;
-  padding: 16px 20px;
-  text-align: left;
+.insights-hero .subhero-timeline.text-size-small {
+  color: inherit;
+  margin-top: 8px;
 }
-.insights-hero .insights-author-photo {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center top;
-  filter: none;
-}
-.insights-hero a.blog-post-author-image-information {
+.insights-hero .insights-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
   text-decoration: none;
   color: inherit;
-}
-.insights-hero .blog-post-author-name {
-  margin-bottom: 2px;
   text-align: left;
+}
+.insights-hero .insights-author img {
+  width: 64px;
+  height: 64px;
+  max-width: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  flex-shrink: 0;
+  border: 1px solid #ffffff14;
+}
+.insights-hero .insights-author .blog-post-author-name {
+  margin-bottom: 2px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+  text-align: left;
+  color: #fff;
+}
+.insights-hero .insights-author .blog-post-author-bio,
+.insights-hero .insights-author .blog-post-date-text {
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--white-74);
 }
 .section.team-member .team-member-typography {
   background: transparent;
