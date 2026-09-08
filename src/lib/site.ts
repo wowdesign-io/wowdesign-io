@@ -4,7 +4,7 @@ export const LOGO = `${SITE}/images/wow-design-color-logo-dark.svg`
 export const ANDY = {
   name: 'Andy Bittner',
   jobTitle: 'Founder & CEO',
-  image: `${SITE}/images/andy-bittner-1_1.avif`,
+  image: `${SITE}/images/founder/andy-founder-13-portrait.webp`,
   sameAs: [
     'https://www.youtube.com/@andy_bittner',
     'https://www.linkedin.com/in/andy-bittner-wowdesign/',

@@ -10,6 +10,7 @@ type PageHeroProps = {
   ctaData?: string
   timeline?: ReactNode
   taglineIcon?: ReactNode
+  wide?: boolean
 }
 
 const buildingIcon = (
@@ -36,9 +37,10 @@ export default function PageHero({
     </>
   ),
   taglineIcon = buildingIcon,
+  wide = false,
 }: PageHeroProps) {
   return (
-    <section className="section inner-banner">
+    <section className={wide ? 'section inner-banner insights-hero' : 'section inner-banner'}>
       <div className="inner-banner-content">
         <div className="inner-banner-wrapper">
           <div className="container" style={{ position: 'relative', zIndex: 1 }}>
@@ -52,7 +54,7 @@ export default function PageHero({
                 </div>
               </div>
               <div className="inner-banner-title-wrapper">
-                <h1 className="inner-banner-title contact-us">{title}</h1>
+                <h1 className={wide ? 'inner-banner-title blog-details' : 'inner-banner-title contact-us'}>{title}</h1>
                 <p className="inner-banner-description about-us">{description}</p>
               </div>
               <div className="banner-button-wrapper">

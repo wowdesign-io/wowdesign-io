@@ -41,13 +41,14 @@ export default function InsightsArticle({
           ctaHref="/carry-cost-calculator"
           ctaData={`Insights - ${article.slug}`}
           taglineIcon={<InsightsIcon />}
+          wide
           timeline={
-            <div className="blog-post-author-wrapper" style={{ justifyContent: 'center' }}>
+            <div className="testimonial-single-card two insights-author-card">
               <a href="/about" className="blog-post-author-image-information">
                 <img
-                  src="/images/andy-bittner-1_1.avif"
+                  src="/images/founder/andy-founder-13-portrait.webp"
                   alt="Andy Bittner, Founder & CEO of wowdesign"
-                  className="blog-details-information-author-image"
+                  className="insights-author-photo"
                 />
                 <div>
                   <div className="blog-post-author-name">Andy Bittner</div>

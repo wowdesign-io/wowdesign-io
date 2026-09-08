@@ -54,15 +54,34 @@
 }
 .section.team-member .team-member-typography-mouse { display: none !important; }
 
-.subhero-timeline .blog-details-information-author-image {
+.insights-hero .inner-banner-title.blog-details {
+  max-width: 960px;
+}
+.insights-hero .inner-banner-description {
+  max-width: 820px;
+}
+.insights-hero .insights-author-card {
+  max-width: 340px;
+  min-height: 0;
+  margin: 8px auto 0;
+  padding: 16px 20px;
+  text-align: left;
+}
+.insights-hero .insights-author-photo {
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   object-fit: cover;
-  aspect-ratio: 1;
-  height: 52px;
+  object-position: center top;
+  filter: none;
 }
-.subhero-timeline a.blog-post-author-image-information {
+.insights-hero a.blog-post-author-image-information {
   text-decoration: none;
   color: inherit;
+}
+.insights-hero .blog-post-author-name {
+  margin-bottom: 2px;
+  text-align: left;
 }
 .section.team-member .team-member-typography {
   background: transparent;

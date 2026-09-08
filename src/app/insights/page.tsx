@@ -37,7 +37,8 @@ export default function InsightsIndexPage() {
           ctaHref="#insights"
           ctaData="Insights index - Read"
           taglineIcon={<InsightsIcon />}
-          timeline={<>Seven short reads.</>}
+          wide
+          timeline={<>Seven reads.</>}
         />
         <section id="insights" className="section features">
           <div className="container">
