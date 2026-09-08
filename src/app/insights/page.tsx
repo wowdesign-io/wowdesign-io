@@ -9,9 +9,9 @@ import { INSIGHTS } from '@/lib/insights'
 import { SITE } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Insights for boutique condo developers',
+  title: 'Every extra month costs $67k–$100k',
   description:
-    'Straight answers on construction-loan cost, presale requirements, virtual showrooms, and interactive floor plans — then run your numbers on the calculator.',
+    'On a typical boutique construction loan, the bank takes $67k–$100k a month you stay unsold. Hit 50% sold faster: buyers pick a unit tonight, and your sales team only calls people who are ready.',
   alternates: { canonical: `${SITE}/insights` },
 }
 
@@ -22,7 +22,7 @@ export default function InsightsIndexPage() {
         data={{
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
-          name: 'Insights for boutique condo developers',
+          name: 'Every extra month costs $67k–$100k',
           url: `${SITE}/insights`,
           publisher: { '@id': `${SITE}/#org` },
         }}
@@ -30,8 +30,8 @@ export default function InsightsIndexPage() {
       <SiteChrome current="insights">
         <PageHero
           tagline="Insights"
-          title="Questions boutique developers actually type."
-          description="Construction-loan cost, presale requirements, virtual showrooms, interactive floor plans. Titles match the search. The how is still extra months, $67k–$100k, and a sales team that only calls people who are ready."
+          title="Every extra month costs $67k–$100k."
+          description="On a typical boutique construction loan, the bank takes that every month you stay unsold. Hit 50% sold faster: buyers pick a unit tonight, and your sales team only calls people who are ready."
           ctaLabel="Carry Cost Calc"
           ctaHref="/carry-cost-calculator"
           ctaData="Insights index - Calc"
@@ -54,7 +54,7 @@ export default function InsightsIndexPage() {
                       </div>
                       <div className="features-button-wrapper">
                         <div className="primary-button-wrapper">
-                          <InnerButton href={`/insights/${article.slug}`} label="Read the answer" cta={`Insights index - ${article.slug}`} />
+                          <InnerButton href={`/insights/${article.slug}`} label="Read this" cta={`Insights index - ${article.slug}`} />
                         </div>
                       </div>
                     </div>

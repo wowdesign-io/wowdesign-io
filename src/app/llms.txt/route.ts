@@ -22,7 +22,7 @@ wowdesign LLC. Miami Beach, Florida. Founder: Andy Bittner (CEO).
 - [About](${SITE}/about): Andy Bittner — German founder, 8 years building websites that sell.
 - [Book a demo](${SITE}/book-a-demo): After the calculator. CRM / sales-team view / follow-up.
 
-## Insights (questions developers actually type)
+## Insights
 
 - [How much does an extra month of a construction loan cost?](${SITE}/insights/construction-loan-extra-month)
 - [How many units do you need to pre-sell before a construction lender funds?](${SITE}/insights/construction-loan-presale-requirement)
