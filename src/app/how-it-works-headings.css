@@ -53,6 +53,17 @@
   text-align: center;
 }
 .section.team-member .team-member-typography-mouse { display: none !important; }
+
+.subhero-timeline .blog-details-information-author-image {
+  border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 1;
+  height: 52px;
+}
+.subhero-timeline a.blog-post-author-image-information {
+  text-decoration: none;
+  color: inherit;
+}
 .section.team-member .team-member-typography {
   background: transparent;
   padding: 0;

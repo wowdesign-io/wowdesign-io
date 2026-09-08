@@ -23,7 +23,7 @@ export function organizationGraph() {
         ],
         founder: { '@id': `${SITE}/about#andy` },
         employee: [
-          { '@type': 'Person', name: 'Andy Bittner', jobTitle: 'CEO & Founder' },
+          { '@type': 'Person', name: 'Andy Bittner', jobTitle: 'Founder & CEO' },
           { '@type': 'Person', name: 'Ashekur Rahman', jobTitle: 'Developer' },
         ],
         address: {
@@ -54,6 +54,7 @@ export function personAndy() {
     name: ANDY.name,
     jobTitle: ANDY.jobTitle,
     url: `${SITE}/about`,
+    image: ANDY.image,
     worksFor: { '@id': `${SITE}/#org` },
     sameAs: [...ANDY.sameAs],
   }
@@ -146,6 +147,7 @@ export function articleSchema(opts: {
       name: ANDY.name,
       jobTitle: ANDY.jobTitle,
       url: `${SITE}/about`,
+      image: ANDY.image,
     },
     publisher: { '@id': `${SITE}/#org` },
     mainEntityOfPage: opts.url,

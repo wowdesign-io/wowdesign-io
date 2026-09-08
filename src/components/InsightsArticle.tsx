@@ -42,11 +42,23 @@ export default function InsightsArticle({
           ctaData={`Insights - ${article.slug}`}
           taglineIcon={<InsightsIcon />}
           timeline={
-            <>
-              Andy Bittner · {article.datePublished}
-              <br />
-              Updated {article.dateModified}
-            </>
+            <div className="blog-post-author-wrapper" style={{ justifyContent: 'center' }}>
+              <a href="/about" className="blog-post-author-image-information">
+                <img
+                  src="/images/andy-bittner-1_1.avif"
+                  alt="Andy Bittner, Founder & CEO of wowdesign"
+                  className="blog-details-information-author-image"
+                />
+                <div>
+                  <div className="blog-post-author-name">Andy Bittner</div>
+                  <div className="blog-post-author-bio">Founder &amp; CEO</div>
+                  <div className="blog-post-date-text">
+                    {article.datePublished}
+                    {article.dateModified !== article.datePublished ? ` · Updated ${article.dateModified}` : ''}
+                  </div>
+                </div>
+              </a>
+            </div>
           }
         />
         <section className="section_content7 insights-article">
