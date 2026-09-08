@@ -9,7 +9,10 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
   async redirects() {
-    return []
+    return [
+      { source: '/blog', destination: '/insights', permanent: true },
+      { source: '/blog/:path*', destination: '/insights', permanent: true },
+    ]
   },
   async rewrites() {
     return [

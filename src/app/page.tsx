@@ -7,6 +7,9 @@ import HowItWorksSection from '@/components/HowItWorksSection'
 import SelvaShowcase from '@/components/SelvaShowcase'
 import TeamMembers from '@/components/TeamMembers'
 import InnerButton from '@/components/InnerButton'
+import JsonLd from '@/components/JsonLd'
+import { HOME_FAQS, faqPage } from '@/lib/schema'
+import { SITE } from '@/lib/site'
 
 export const metadata: Metadata = {
   alternates: { canonical: 'https://www.wowdesign.io' },
@@ -17,6 +20,7 @@ export const metadata: Metadata = {
 export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
   return (
     <>
+      <JsonLd data={faqPage(SITE, HOME_FAQS)} />
 <div className="page-wrapper">
     <div className="global-styles">
       <div className="style-overrides w-embed">
@@ -828,7 +832,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 </div>
                 <div className="faq-accordion-answer-wrap">
                   <div className="faq-answer">
-                    <p className="faq-answer-text">A traditional website is a digital brochure — static visuals and a generic contact form.<br /><br />Our presales system is an interactive digital twin that syncs live with your CRM, tracks unit-level buyer interest, and actively supports your sales team.</p>
+                    <p className="faq-answer-text">A traditional website is static visuals and a generic contact form.<br /><br />Our presales system lets buyers explore every unit from their phone with live price and availability, then follow-up runs so your sales team only calls people who are ready.</p>
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>
@@ -905,7 +909,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 </div>
                 <div className="faq-accordion-answer-wrap">
                   <div className="faq-answer">
-                    <p className="faq-answer-text">Branding agencies specialize in visual identity and marketing materials.<br /><br />Our presales system requires interactive 3D infrastructure, live CRM synchronization, performance optimization, and compliance integration.<br /><br />We focus specifically on building sales infrastructure for real estate developers.</p>
+                    <p className="faq-answer-text">Branding agencies specialize in visual identity and marketing materials.<br /><br />This is the website plus the live building plus follow-up, wired so your sales team knows who is ready. That is a different job than a brochure site.</p>
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>
@@ -916,7 +920,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 </div>
                 <div className="faq-accordion-answer-wrap">
                   <div className="faq-answer">
-                    <p className="faq-answer-text">Our systems are designed specifically for 10–50 unit developments.<br /><br />Our presales system requires digital twin infrastructure, live CRM synchronization, performance optimization, and compliance integration.</p>
+                    <p className="faq-answer-text">It is built for 10–50 unit developments. Boutique projects feel extra months of interest and marketing burn the hardest. That is who it is for.</p>
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>
@@ -991,6 +995,9 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                       </li>
                       <li className="footer-menu-list-item">
                         <a href="/how-it-works" className="footer-menu-text-link">How it works</a>
+                      </li>
+                      <li className="footer-menu-list-item">
+                        <a href="/insights" className="footer-menu-text-link">Insights</a>
                       </li>
                     </ul>
                   </div>

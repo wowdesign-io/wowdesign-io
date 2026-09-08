@@ -76,3 +76,16 @@
   display: block;
   position: static;
 }
+
+.insights-article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+.insights-article th,
+.insights-article td {
+  border-bottom: 1px solid var(--light-border, rgba(255, 255, 255, 0.12));
+  padding: 12px 12px 12px 0;
+  text-align: left;
+  vertical-align: top;
+}

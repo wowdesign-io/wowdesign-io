@@ -5,6 +5,10 @@ import PageCta from '@/components/PageCta'
 import ProblemSection from '@/components/ProblemSection'
 import HowItWorksSection from '@/components/HowItWorksSection'
 import OfferSection from '@/components/OfferSection'
+import FaqAccordion from '@/components/FaqAccordion'
+import JsonLd from '@/components/JsonLd'
+import { HOW_IT_WORKS_FAQS, faqPage } from '@/lib/schema'
+import { SITE } from '@/lib/site'
 import '@/app/how-it-works-headings.css'
 
 export const metadata: Metadata = {
@@ -17,6 +21,7 @@ export const metadata: Metadata = {
 export default function HowItWorksPage() {
   return (
     <>
+      <JsonLd data={faqPage(`${SITE}/how-it-works`, HOW_IT_WORKS_FAQS)} />
 <div className="page-wrapper page-how-it-works">
     <div className="global-styles">
       <div className="style-overrides w-embed">
@@ -102,6 +107,7 @@ export default function HowItWorksPage() {
       ctaLabel="Carry Cost Calc"
     />
     <OfferSection />
+    <FaqAccordion items={HOW_IT_WORKS_FAQS} />
     <PageCta ctaData="How it works CTA - Calc" />
     <section className="section footer">
       <div className="footer-container">

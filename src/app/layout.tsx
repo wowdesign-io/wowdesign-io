@@ -3,6 +3,7 @@ import './globals.css'
 import NewsletterFormHandler from '@/components/NewsletterFormHandler'
 import SiteAnalytics from '@/components/SiteAnalytics'
 import JsonLd from '@/components/JsonLd'
+import { organizationGraph } from '@/lib/schema'
 
 const SITE = 'https://www.wowdesign.io'
 const TITLE = 'Sell Out Faster | Presales System for Boutique Real Estate Developers'
@@ -64,7 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
-        <JsonLd />
+        <JsonLd data={organizationGraph()} />
         <noscript>
           <style>{`#wwd-page-loader{display:none!important}`}</style>
         </noscript>

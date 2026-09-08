@@ -1,17 +1,24 @@
-import Script from 'next/script'
+﻿import Script from 'next/script'
 import type { Metadata } from 'next'
 import InnerButton from '@/components/InnerButton'
+import JsonLd from '@/components/JsonLd'
+import FaqAccordion from '@/components/FaqAccordion'
+import { CALC_FAQS, faqPage, howToRunCalc, webApplicationCalc } from '@/lib/schema'
+import { SITE } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Carry Cost Calculator',
+  title: 'Construction loan extra-month calculator',
   description:
-    'Calculate capital preserved by accelerating project absorption. See exact savings from selling 2-6 months faster. Free calculator for developers.',
-  alternates: { canonical: 'https://www.wowdesign.io/carry-cost-calculator' },
+    'See what extra months of construction-loan interest plus marketing and ops cost. Monthly interest is loan x rate / 12. Free calculator for 10-50 unit developers.',
+  alternates: { canonical: `${SITE}/carry-cost-calculator` },
 }
 
 export default function CarryCostCalculatorPage() {
   return (
     <>
+      <JsonLd data={webApplicationCalc()} />
+      <JsonLd data={howToRunCalc()} />
+      <JsonLd data={faqPage(`${SITE}/carry-cost-calculator`, CALC_FAQS)} />
 <div className="page-wrapper">
     <div className="global-styles">
       <div className="style-overrides w-embed">
@@ -88,15 +95,12 @@ export default function CarryCostCalculatorPage() {
                 </div>
               </div>
               <div className="inner-banner-title-wrapper">
-                <h1 className="inner-banner-title contact-us">Stop Funding the Bank. <br />Start Funding Your Next Deal.</h1>
-                <p className="inner-banner-description about-us">In a high-interest environment, time is your most expensive liability.<br />See how much capital you preserve by selling out just 90 days faster.</p>
+                <h1 className="inner-banner-title contact-us">How much does an extra month of a construction loan cost?</h1>
+                <p className="inner-banner-description about-us">On a typical boutique $10M-$15M loan at about 8%, the bank takes $67k-$100k a month. Marketing and ops keep running until units are gone. Enter your loan, rate, months saved, and monthly burn.</p>
               </div>
               <div className="banner-button-wrapper">
                 <div className="primary-button-wrapper">
                   <InnerButton href="#roi-calculator" label="Run your numbers" />
-                </div>
-                <div className="primary-button-wrapper">
-                  <InnerButton href="/book-a-demo" label="Book A Demo" variant="secondary" />
                 </div>
               </div>
             </div>
@@ -127,8 +131,16 @@ export default function CarryCostCalculatorPage() {
                 <div className="content7_content-wrapper">
                   <div className="text-rich-text w-richtext">
                     <h4>What the numbers mean</h4>
-                    <p className="rich-text-p">Every month a unit sits unsold, your construction loan compounds and your ops budget bleeds. The calculator above puts an exact dollar figure on that delay — and shows what closing 2–6 months faster is actually worth.</p>
-                    <p>That's the gap wowdesign closes. We build the website, the digital twin, and the automated follow-up system that pre-qualifies buyers before your sales team picks up the phone — so your project absorbs faster and your capital stays where it belongs.</p>
+                    <p className="rich-text-p">Monthly interest is loan x (annual rate / 100) / 12. A $12M loan at 8% is $80,000 a month to the bank. Multiply by the months you could save (2-6). Then add monthly marketing and ops burn for those months. That is extra months - not a lender draw-schedule calculator.</p>
+                    <h4>How to run it</h4>
+                    <ol>
+                      <li>Enter the construction loan amount in USD.</li>
+                      <li>Enter the annual interest rate as a percent.</li>
+                      <li>Choose how many months faster you could sell out (2-6).</li>
+                      <li>Add monthly marketing and ops spend. Leave 0 for interest only.</li>
+                      <li>Read the total: interest plus burn, times months saved.</li>
+                    </ol>
+                    <p>Buyers pick a unit tonight. Your sales team only calls people who are ready. That is how extra months come off. After you run the number, book a demo if you want CRM, what the sales team sees, and follow-up.</p>
                   </div>
                 </div>
               </div>
@@ -137,140 +149,7 @@ export default function CarryCostCalculatorPage() {
         </div>
       </div>
     </section>
-    <section id="faq" className="section faq">
-      <div className="container">
-        <div data-w-id="012200b2-da6c-54ac-4c67-4c085ad775fe" className="faq-section-title-wrapper">
-          <div className="section-subtitle-wrapper center">
-            <div className="tagline-container">
-              <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ic" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                  <path fill="currentColor" d="M8 4v12h12V4zm6.74 10.69a.96.96 0 0 1-.73.31c-.29 0-.54-.1-.74-.31a1 1 0 0 1-.31-.74c0-.29.1-.54.31-.74s.45-.3.74-.3s.54.1.74.3s.3.45.3.74s-.11.54-.31.74m1.77-5.86c-.23.34-.54.69-.92 1.06c-.3.27-.51.52-.64.75q-.18.345-.18.78v.4h-1.52v-.56c0-.42.09-.78.26-1.09c.18-.32.49-.67.95-1.07c.32-.29.55-.54.69-.74q.21-.3.21-.72q0-.54-.36-.87c-.24-.23-.57-.34-.99-.34c-.4 0-.72.12-.97.36s-.42.53-.53.87l-1.37-.57c.18-.55.52-1.03 1-1.45c.49-.43 1.11-.64 1.85-.64c.56 0 1.05.11 1.49.33q.66.33 1.02.93c.36.6.36.84.36 1.33s-.11.9-.35 1.24" opacity=".3"></path>
-                  <path fill="currentColor" d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2m0 14H8V4h12zm-6.49-5.84c.41-.73 1.18-1.16 1.63-1.8c.48-.68.21-1.94-1.14-1.94c-.88 0-1.32.67-1.5 1.23l-1.37-.57C11.51 5.96 12.52 5 13.99 5c1.23 0 2.08.56 2.51 1.26c.37.6.58 1.73.01 2.57c-.63.93-1.23 1.21-1.56 1.81c-.13.24-.18.4-.18 1.18h-1.52c.01-.41-.06-1.08.26-1.66m-.56 3.79c0-.59.47-1.04 1.05-1.04c.59 0 1.04.45 1.04 1.04c0 .58-.44 1.05-1.04 1.05c-.58 0-1.05-.47-1.05-1.05"></path>
-                </svg></div>
-              <div className="text-style-tagline">FAQ</div>
-            </div>
-          </div>
-          <div className="section-title-single">
-            <h2 className="section-title">Frequently asked questions</h2>
-          </div>
-        </div>
-        <div data-w-id="012200b2-da6c-54ac-4c67-4c085ad77607" className="faq-content">
-          <div data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100" className="w-tabs">
-            <div className="faq-accordion-wrapper w-tab-menu">
-              <a data-w-tab="Tab 1" className="single-faq-accordion-wrap w-inline-block w-tab-link w--current">
-                <div className="faq-accordion-question-wrap">
-                  <h3 className="faq-question">What is the difference between a normal website and your presales system?</h3>
-                  <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
-                </div>
-                <div className="faq-accordion-answer-wrap">
-                  <div className="faq-answer">
-                    <p className="faq-answer-text">A traditional website is a digital brochure — static visuals and a generic contact form.<br /><br />Our presales system is an interactive digital twin that syncs live with your CRM, tracks unit-level buyer interest, and actively supports your sales team.</p>
-                  </div>
-                </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
-              </a>
-              <a data-w-tab="Tab 2" className="single-faq-accordion-wrap w-inline-block w-tab-link">
-                <div className="faq-accordion-question-wrap">
-                  <h3 className="faq-question">Do you integrate with our existing CRM?</h3>
-                  <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
-                </div>
-                <div className="faq-accordion-answer-wrap">
-                  <div className="faq-answer">
-                    <p className="faq-answer-text">Yes. We integrate directly with most modern real estate CRMs including Spark, Yardi, Salesforce, HubSpot, and others.<br /><br />We work within your existing workflow — no duplicate systems, no manual updates.</p>
-                  </div>
-                </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
-              </a>
-              <a data-w-tab="Tab 3" className="single-faq-accordion-wrap w-inline-block w-tab-link">
-                <div className="faq-accordion-question-wrap">
-                  <h3 className="faq-question">How long does it take to build and launch?</h3>
-                  <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
-                </div>
-                <div className="faq-accordion-answer-wrap">
-                  <div className="faq-answer">
-                    <p className="faq-answer-text">Most projects launch within 6–8 weeks depending on asset readiness and CRM setup.<br /><br />We handle the technical implementation — you provide floorplans, renders, and CRM access.</p>
-                  </div>
-                </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
-              </a>
-              <a data-w-tab="Tab 4" className="single-faq-accordion-wrap w-inline-block w-tab-link">
-                <div className="faq-accordion-question-wrap">
-                  <h3 className="faq-question">Does this replace our sales team?</h3>
-                  <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
-                </div>
-                <div className="faq-accordion-answer-wrap">
-                  <div className="faq-answer">
-                    <p className="faq-answer-text">No. It strengthens your sales team.<br /><br />Our presales system qualifies buyers, tracks unit interest, and delivers better-informed leads — so your sales team can close faster.</p>
-                  </div>
-                </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
-              </a>
-              <a data-w-tab="Tab 5" className="single-faq-accordion-wrap w-inline-block w-tab-link">
-                <div className="faq-accordion-question-wrap">
-                  <h3 className="faq-question">How do we track buyer interest?</h3>
-                  <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
-                </div>
-                <div className="faq-accordion-answer-wrap">
-                  <div className="faq-answer">
-                    <p className="faq-answer-text">We track unit-level interactions — including which units buyers explore, view preferences, and floorplan interest.<br /><br />This data syncs directly into your CRM so your sales team sees context before making contact.</p>
-                  </div>
-                </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
-              </a>
-              <a data-w-tab="Tab 6" className="single-faq-accordion-wrap w-inline-block w-tab-link">
-                <div className="faq-accordion-question-wrap">
-                  <h3 className="faq-question">Can the system handle multiple phases and complex floorplans?</h3>
-                  <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
-                </div>
-                <div className="faq-accordion-answer-wrap">
-                  <div className="faq-answer">
-                    <p className="faq-answer-text">Yes. The system supports multi-phase developments, varied floorplans, and dynamic availability across buildings.<br /><br />It scales with your project without requiring enterprise-level complexity.</p>
-                  </div>
-                </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
-              </a>
-              <a data-w-tab="Tab 7" className="single-faq-accordion-wrap w-inline-block w-tab-link">
-                <div className="faq-accordion-question-wrap">
-                  <h3 className="faq-question">Do we need all our final 3D renders finished before we start?</h3>
-                  <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
-                </div>
-                <div className="faq-accordion-answer-wrap">
-                  <div className="faq-answer">
-                    <p className="faq-answer-text">No. We can begin with architectural floorplans and preliminary renders.<br /><br />The digital twin can evolve as final assets become available.</p>
-                  </div>
-                </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
-              </a>
-              <a data-w-tab="Tab 8" className="single-faq-accordion-wrap w-inline-block w-tab-link">
-                <div className="faq-accordion-question-wrap">
-                  <h3 className="faq-question">Why shouldn't we just have our branding agency build this?</h3>
-                  <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
-                </div>
-                <div className="faq-accordion-answer-wrap">
-                  <div className="faq-answer">
-                    <p className="faq-answer-text">Branding agencies specialize in visual identity and marketing materials.<br /><br />Our presales system requires interactive 3D infrastructure, live CRM synchronization, performance optimization, and compliance integration.<br /><br />We focus specifically on building sales infrastructure for real estate developers.</p>
-                  </div>
-                </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
-              </a>
-              <a data-w-tab="Tab 9" className="single-faq-accordion-wrap w-inline-block w-tab-link">
-                <div className="faq-accordion-question-wrap">
-                  <h3 className="faq-question">Is this overkill for a smaller project?</h3>
-                  <div className="faq-icon-wrapper"><img loading="lazy" src="/images/Faq-Icon.svg" alt="" className="faq-icon" /><img loading="lazy" src="/images/Faq-Icon-Shape.svg" alt="" className="faq-icon-shape" /></div>
-                </div>
-                <div className="faq-accordion-answer-wrap">
-                  <div className="faq-answer">
-                    <p className="faq-answer-text">Our systems are designed specifically for 10–50 unit developments.<br /><br />Our presales system requires digital twin infrastructure, live CRM synchronization, performance optimization, and compliance integration.</p>
-                  </div>
-                </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
-              </a>
-            </div>
-            <div className="display-none w-tab-content">
-              <div data-w-tab="Tab 1" className="w-tab-pane w--tab-active"></div>
-              <div data-w-tab="Tab 2" className="w-tab-pane"></div>
-              <div data-w-tab="Tab 3" className="w-tab-pane"></div>
-              <div data-w-tab="Tab 4" className="w-tab-pane"></div>
-              <div data-w-tab="Tab 5" className="w-tab-pane"></div>
-              <div data-w-tab="Tab 6" className="w-tab-pane"></div>
-              <div data-w-tab="Tab 7" className="w-tab-pane"></div>
-              <div data-w-tab="Tab 8" className="w-tab-pane"></div>
-              <div data-w-tab="Tab 9" className="w-tab-pane"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <FaqAccordion items={CALC_FAQS} />
     <section className="section footer">
       <div className="footer-container">
         <div className="footer-content">
@@ -390,7 +269,7 @@ export default function CarryCostCalculatorPage() {
           </div>
           <div className="footer-bottom-content">
             <div className="footer-details-wrapper">
-              <div className="footer-details-text">© Copyright 2026 - wowdesign LLC</div>
+              <div className="footer-details-text">Â© Copyright 2026 - wowdesign LLC</div>
             </div>
           </div>
         </div>

@@ -5,6 +5,8 @@ import PageCta from '@/components/PageCta'
 import FounderStory from '@/components/FounderStory'
 import TeamMembers from '@/components/TeamMembers'
 import ToolsIntegrations from '@/components/ToolsIntegrations'
+import JsonLd from '@/components/JsonLd'
+import { personAndy } from '@/lib/schema'
 import '../how-it-works-headings.css'
 
 export const metadata: Metadata = {
@@ -17,6 +19,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={personAndy()} />
 <div className="page-wrapper">
     <div className="global-styles">
       <div className="style-overrides w-embed">
