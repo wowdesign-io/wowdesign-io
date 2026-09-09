@@ -228,20 +228,16 @@ export const HOW_IT_WORKS_FAQS: FaqItem[] = [
 
 export const CALC_FAQS: FaqItem[] = [
   {
-    q: 'How do you calculate monthly construction-loan interest?',
-    a: 'Monthly interest is loan amount × (annual rate ÷ 100) ÷ 12. On a $12M loan at 8% that is $80,000 a month to the bank. The calculator then multiplies by the months you could save, and adds marketing and ops burn for those months.',
-  },
-  {
-    q: 'Does this include marketing and ops, or only interest?',
-    a: 'Both if you enter monthly burn. Carry is not interest alone. Ads, brokers, and ops keep running until units are gone. Leave burn at 0 to see interest only.',
+    q: 'What numbers should I enter?',
+    a: 'Your construction loan, the rate on the term sheet, how many months faster you could sell out (often 2–6), and what you actually spend each month on marketing and ops until sell-out. Leave burn at 0 for interest only.',
   },
   {
     q: 'Is this the same as a draw-schedule construction loan calculator?',
     a: 'No. Lender calculators model interest on money as you draw it during the build. This tool models extra months of sell-out delay — interest plus burn — on a boutique 10–50 unit project.',
   },
   {
-    q: 'What numbers should a 10–50 unit developer enter?',
-    a: 'Use your construction loan, the rate on the term sheet, a realistic months-faster number (often 2–6), and what you actually spend each month on marketing and ops until sell-out.',
+    q: 'Where is the method for monthly interest?',
+    a: 'Loan × rate ÷ 12. A $12M loan at 8% is $80,000 a month to the bank. The full write-up is on Insights — this page is the calculator.',
   },
   {
     q: 'What happens after I submit my email?',

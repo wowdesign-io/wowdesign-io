@@ -95,8 +95,8 @@ export default function CarryCostCalculatorPage() {
                 </div>
               </div>
               <div className="inner-banner-title-wrapper">
-                <h1 className="inner-banner-title contact-us">How much does an extra month of a construction loan cost?</h1>
-                <p className="inner-banner-description about-us">On a typical boutique $10M-$15M loan at about 8%, the bank takes $67k-$100k a month. Marketing and ops keep running until units are gone. Enter your loan, rate, months saved, and monthly burn.</p>
+                <h1 className="inner-banner-title contact-us">See what extra months cost on your loan.</h1>
+                <p className="inner-banner-description about-us">A typical boutique $10M–$15M construction loan at about 8% is $67k–$100k a month to the bank. Enter your loan, rate, months saved, and monthly burn.</p>
               </div>
               <div className="banner-button-wrapper">
                 <div className="primary-button-wrapper">

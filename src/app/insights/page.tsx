@@ -69,14 +69,13 @@ export default function InsightsIndexPage() {
       <SiteChrome current="insights">
         <PageHero
           tagline="Insights"
-          title="What a digital twin is, what follow-up should do, and what extra months cost."
-          description="People say digital twin and mean three different things. Follow-up is the night a buyer shows interest — or the week of silence after. An extra month of a typical boutique construction loan is $67k–$100k to the bank."
+          title="Selling units before they exist."
           ctaLabel="Start reading"
           ctaHref="#insights"
           ctaData="Insights index - Read"
           taglineIcon={<InsightsIcon />}
           wide
-          timeline={<>Seven reads.</>}
+          timeline={null}
         />
         <div className="spacer-xhuge"></div>
         <section id="insights" className="section features">

@@ -4,7 +4,7 @@ import InnerButton from '@/components/InnerButton'
 type PageHeroProps = {
   tagline: string
   title: ReactNode
-  description: ReactNode
+  description?: ReactNode
   ctaLabel?: string
   ctaHref?: string
   ctaData?: string
@@ -55,7 +55,7 @@ export default function PageHero({
               </div>
               <div className="inner-banner-title-wrapper">
                 <h1 className={wide ? 'inner-banner-title blog-details' : 'inner-banner-title contact-us'}>{title}</h1>
-                <p className="inner-banner-description about-us">{description}</p>
+                {description ? <p className="inner-banner-description about-us">{description}</p> : null}
               </div>
               {ctaLabel && ctaHref ? (
                 <div className="banner-button-wrapper">
