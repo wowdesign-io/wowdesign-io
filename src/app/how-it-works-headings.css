@@ -164,3 +164,6 @@
 #insights .insights-card-date {
   margin-bottom: 12px;
 }
+#insights h2.features-title {
+  line-height: 1.1em;
+}
