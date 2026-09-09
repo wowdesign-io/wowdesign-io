@@ -161,3 +161,6 @@
   max-width: 100%;
   min-height: auto;
 }
+#insights .insights-card-date {
+  margin-top: 12px;
+}

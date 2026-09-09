@@ -6,6 +6,7 @@ import PageCta from '@/components/PageCta'
 import SiteChrome from '@/components/SiteChrome'
 import InnerButton from '@/components/InnerButton'
 import InsightsIcon from '@/components/InsightsIcon'
+import InsightsTagIcon from '@/components/InsightsTagIcon'
 import { INSIGHTS, type InsightArticle } from '@/lib/insights'
 import { SITE } from '@/lib/site'
 import '@/app/how-it-works-headings.css'
@@ -28,7 +29,10 @@ function InsightCard({ article }: { article: InsightArticle }) {
       <div className="features-typography-card-single">
         <div className="features-subtitle-wrapper">
           <div className="tagline-container">
-            <div className="text-style-tagline">{article.datePublished}</div>
+            <div className="icon-embed-xsmall text-color-primary w-embed">
+              <InsightsTagIcon slug={article.slug} />
+            </div>
+            <div className="text-style-tagline">{article.tag}</div>
           </div>
         </div>
         <div className="features-title-description">
@@ -40,6 +44,7 @@ function InsightCard({ article }: { article: InsightArticle }) {
             <InnerButton href={`/insights/${article.slug}`} label="Read this" cta={`Insights index - ${article.slug}`} />
           </div>
         </div>
+        <div className="blog-post-date-text insights-card-date">{article.datePublished}</div>
       </div>
       <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" />
       <img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" />

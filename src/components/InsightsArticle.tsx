@@ -5,7 +5,7 @@ import PageHero from '@/components/PageHero'
 import PageCta from '@/components/PageCta'
 import FaqAccordion from '@/components/FaqAccordion'
 import SiteChrome from '@/components/SiteChrome'
-import InsightsIcon from '@/components/InsightsIcon'
+import InsightsTagIcon from '@/components/InsightsTagIcon'
 import { articleSchema, faqPage } from '@/lib/schema'
 import type { InsightArticle } from '@/lib/insights'
 import { SITE } from '@/lib/site'
@@ -33,10 +33,10 @@ export default function InsightsArticle({
       <JsonLd data={faqPage(url, article.faqs)} />
       <SiteChrome current="insights">
         <PageHero
-          tagline="Insights"
+          tagline={article.tag}
           title={article.h1}
           description={article.answer}
-          taglineIcon={<InsightsIcon />}
+          taglineIcon={<InsightsTagIcon slug={article.slug} />}
           wide
           timeline={
             <div className="testimonial-single-card two insights-author-card">

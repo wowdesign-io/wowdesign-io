@@ -8,6 +8,7 @@ export function getInsight(slug: string) {
 
 export type InsightArticle = {
   slug: string
+  tag: string
   h1: string
   title: string
   description: string
@@ -20,6 +21,7 @@ export type InsightArticle = {
 export const INSIGHTS: InsightArticle[] = [
   {
     slug: 'construction-loan-extra-month',
+    tag: 'Construction loan',
     h1: 'How much does an extra month of a construction loan cost?',
     title: 'Extra month of construction-loan cost',
     description:
@@ -45,6 +47,7 @@ export const INSIGHTS: InsightArticle[] = [
   },
   {
     slug: 'digital-twin-pre-construction',
+    tag: 'Digital twin',
     h1: 'What is a digital twin for pre-construction?',
     title: 'Digital twin for pre-construction',
     description:
@@ -70,6 +73,7 @@ export const INSIGHTS: InsightArticle[] = [
   },
   {
     slug: 'follow-up-pre-construction-buyers',
+    tag: 'Follow-up',
     h1: 'What should follow-up look like after a pre-construction buyer shows interest?',
     title: 'Follow-up for pre-construction buyers',
     description:
@@ -95,6 +99,7 @@ export const INSIGHTS: InsightArticle[] = [
   },
   {
     slug: 'construction-loan-presale-requirement',
+    tag: 'Presale',
     h1: 'How many units do you need to pre-sell before a construction lender funds?',
     title: 'Construction loan presale requirement',
     description:
@@ -120,6 +125,7 @@ export const INSIGHTS: InsightArticle[] = [
   },
   {
     slug: 'virtual-showroom-pre-construction',
+    tag: 'Virtual showroom',
     h1: 'What is a virtual showroom for pre-construction?',
     title: 'Virtual showroom for pre-construction',
     description:
@@ -145,6 +151,7 @@ export const INSIGHTS: InsightArticle[] = [
   },
   {
     slug: 'interactive-floor-plan-vs-pdf',
+    tag: 'Floor plan',
     h1: 'Interactive floor plan vs a PDF',
     title: 'Interactive floor plan vs PDF',
     description:
@@ -170,6 +177,7 @@ export const INSIGHTS: InsightArticle[] = [
   },
   {
     slug: 'sell-pre-construction-condos-faster',
+    tag: 'Sell-out',
     h1: 'How to sell pre-construction condos faster',
     title: 'How to sell pre-construction condos faster',
     description:
