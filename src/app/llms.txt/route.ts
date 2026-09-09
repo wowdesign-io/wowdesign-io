@@ -18,12 +18,13 @@ wowdesign LLC. Miami Beach, Florida. Founder: Andy Bittner (CEO).
 - [Home](${SITE}/): Sell out faster. $400k+ kept vs the bank on a typical boutique timeline.
 - [How it works](${SITE}/how-it-works): 50% bank draw, extra months of interest and marketing burn, sales team only calls people who are ready.
 - [Features](${SITE}/features): Website + live building + follow-up, in buyer language.
-- [Construction loan extra-month calculator](${SITE}/carry-cost-calculator): Enter loan, rate, months saved, monthly burn. Monthly interest = loan × rate ÷ 12. Plus marketing/ops.
+- [Carry Cost Calculator](${SITE}/carry-cost-calculator): Enter loan, rate, months saved, monthly burn. Monthly interest = loan × rate ÷ 12. Plus marketing/ops.
 - [About](${SITE}/about): Andy Bittner — German founder, 8 years building websites that sell.
 - [Book a demo](${SITE}/book-a-demo): After the calculator. CRM / sales-team view / follow-up.
 
 ## Insights
 
+- [Insights](${SITE}/insights): Digital twin, follow-up, extra months of a construction loan — seven reads.
 - [What is a digital twin for pre-construction?](${SITE}/insights/digital-twin-pre-construction)
 - [What should follow-up look like after a pre-construction buyer shows interest?](${SITE}/insights/follow-up-pre-construction-buyers)
 - [How much does an extra month of a construction loan cost?](${SITE}/insights/construction-loan-extra-month)

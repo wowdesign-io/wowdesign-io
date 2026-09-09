@@ -77,7 +77,7 @@ export function webApplicationCalc() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'Construction loan extra-month calculator',
+    name: 'Carry Cost Calculator',
     url: `${SITE}/carry-cost-calculator`,
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web',

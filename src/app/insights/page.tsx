@@ -12,7 +12,7 @@ import { SITE } from '@/lib/site'
 import '@/app/how-it-works-headings.css'
 
 export const metadata: Metadata = {
-  title: 'Digital twin, follow-up, and extra months of the construction loan',
+  title: 'Insights',
   description:
     'What a digital twin is on a building that is not built yet. What follow-up should do the night a buyer shows interest. How much an extra month of a construction loan costs.',
   alternates: { canonical: `${SITE}/insights` },
@@ -37,6 +37,7 @@ function InsightCard({ article }: { article: InsightArticle }) {
         </div>
         <div className="features-title-description">
           <h2 className="features-title">{article.h1}</h2>
+          <p className="features-description-text insights-card-date">{article.datePublished}</p>
           <p className="features-description-text">{article.answer}</p>
         </div>
         <div className="features-button-wrapper">
@@ -44,7 +45,6 @@ function InsightCard({ article }: { article: InsightArticle }) {
             <InnerButton href={`/insights/${article.slug}`} label="Read this" cta={`Insights index - ${article.slug}`} />
           </div>
         </div>
-        <div className="blog-post-date-text insights-card-date">{article.datePublished}</div>
       </div>
       <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" />
       <img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" />
@@ -61,7 +61,7 @@ export default function InsightsIndexPage() {
         data={{
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
-          name: 'Digital twin, follow-up, and extra months of the construction loan',
+          name: 'Insights',
           url: `${SITE}/insights`,
           publisher: { '@id': `${SITE}/#org` },
         }}
@@ -78,6 +78,7 @@ export default function InsightsIndexPage() {
           wide
           timeline={<>Seven reads.</>}
         />
+        <div className="spacer-xhuge"></div>
         <section id="insights" className="section features">
           <div className="container">
             <div className="features-content">

@@ -6,7 +6,7 @@ import { SITE } from '@/lib/site'
 const article = getInsight('construction-loan-extra-month')
 
 export const metadata: Metadata = {
-  title: article.title,
+  title: article.h1,
   description: article.description,
   alternates: { canonical: `${SITE}/insights/${article.slug}` },
 }

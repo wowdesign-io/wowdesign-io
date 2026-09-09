@@ -10,7 +10,6 @@ export type InsightArticle = {
   slug: string
   tag: string
   h1: string
-  title: string
   description: string
   answer: string
   datePublished: string
@@ -23,7 +22,6 @@ export const INSIGHTS: InsightArticle[] = [
     slug: 'construction-loan-extra-month',
     tag: 'Construction loan',
     h1: 'How much does an extra month of a construction loan cost?',
-    title: 'Extra month of construction-loan cost',
     description:
       'On a typical boutique $10M–$15M construction loan at about 8%, the bank takes $67k–$100k a month in interest. Marketing and ops keep running until units are gone. Run your numbers.',
     answer:
@@ -49,7 +47,6 @@ export const INSIGHTS: InsightArticle[] = [
     slug: 'digital-twin-pre-construction',
     tag: 'Digital twin',
     h1: 'What is a digital twin for pre-construction?',
-    title: 'Digital twin for pre-construction',
     description:
       'In pre-construction sales, a digital twin is the live building on the project website: every unit, live price, live availability — before anything is built. It is not a BIM model for the construction team, and it is not a scan of a finished space.',
     answer:
@@ -75,7 +72,6 @@ export const INSIGHTS: InsightArticle[] = [
     slug: 'follow-up-pre-construction-buyers',
     tag: 'Follow-up',
     h1: 'What should follow-up look like after a pre-construction buyer shows interest?',
-    title: 'Follow-up for pre-construction buyers',
     description:
       'After a pre-construction buyer shows interest, follow-up should go out the same night with the unit they looked at — not a generic pack on Monday. During the build they need something to come back to. The sales team should already know which unit before they call.',
     answer:
@@ -101,7 +97,6 @@ export const INSIGHTS: InsightArticle[] = [
     slug: 'construction-loan-presale-requirement',
     tag: 'Presale',
     h1: 'How many units do you need to pre-sell before a construction lender funds?',
-    title: 'Construction loan presale requirement',
     description:
       'US construction lenders commonly want 50–70% of project revenue under contract before they fund. That is not the same as Fannie Mae’s 50% conveyed test for unit-buyer mortgages.',
     answer:
@@ -127,7 +122,6 @@ export const INSIGHTS: InsightArticle[] = [
     slug: 'virtual-showroom-pre-construction',
     tag: 'Virtual showroom',
     h1: 'What is a virtual showroom for pre-construction?',
-    title: 'Virtual showroom for pre-construction',
     description:
       'A virtual showroom for pre-construction is the sales gallery on the website: every unit from a phone, live price and availability, then the sales team only calls people who are ready.',
     answer:
@@ -153,7 +147,6 @@ export const INSIGHTS: InsightArticle[] = [
     slug: 'interactive-floor-plan-vs-pdf',
     tag: 'Floor plan',
     h1: 'Interactive floor plan vs a PDF',
-    title: 'Interactive floor plan vs PDF',
     description:
       'A PDF floor plan is a static file. An interactive floor plan lets a buyer click a unit, see live availability and price, and leave a trail your sales team can use before they call.',
     answer:
@@ -179,7 +172,6 @@ export const INSIGHTS: InsightArticle[] = [
     slug: 'sell-pre-construction-condos-faster',
     tag: 'Sell-out',
     h1: 'How to sell pre-construction condos faster',
-    title: 'How to sell pre-construction condos faster',
     description:
       'Sell pre-construction faster by letting buyers pick a unit tonight, sending follow-up automatically, and giving the sales team the picture before they call. Extra months of loan interest plus marketing burn are the cost of delay.',
     answer:
