@@ -69,8 +69,8 @@ export default function InsightsIndexPage() {
       <SiteChrome current="insights">
         <PageHero
           tagline="Insights"
-          title="The questions, written down."
-          description="For boutique developers selling units that are not built yet."
+          title="Every slow month costs."
+          description="Straight answers for boutique developers before the building exists."
           ctaLabel="Start reading"
           ctaHref="#insights"
           ctaData="Insights index - Read"
