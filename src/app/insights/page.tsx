@@ -6,14 +6,47 @@ import PageCta from '@/components/PageCta'
 import SiteChrome from '@/components/SiteChrome'
 import InnerButton from '@/components/InnerButton'
 import InsightsIcon from '@/components/InsightsIcon'
-import { INSIGHTS } from '@/lib/insights'
+import { INSIGHTS, type InsightArticle } from '@/lib/insights'
 import { SITE } from '@/lib/site'
+import '@/app/how-it-works-headings.css'
 
 export const metadata: Metadata = {
   title: 'Digital twin, follow-up, and extra months of the construction loan',
   description:
     'What a digital twin is on a building that is not built yet. What follow-up should do the night a buyer shows interest. How much an extra month of a construction loan costs.',
   alternates: { canonical: `${SITE}/insights` },
+}
+
+const ROWS: InsightArticle[][] = []
+for (let i = 0; i < INSIGHTS.length; i += 2) {
+  ROWS.push(INSIGHTS.slice(i, i + 2))
+}
+
+function InsightCard({ article }: { article: InsightArticle }) {
+  return (
+    <div className="features-typography-card top-border-none">
+      <div className="features-typography-card-single">
+        <div className="features-subtitle-wrapper">
+          <div className="tagline-container">
+            <div className="text-style-tagline">{article.datePublished}</div>
+          </div>
+        </div>
+        <div className="features-title-description">
+          <h2 className="features-title">{article.h1}</h2>
+          <p className="features-description-text">{article.answer}</p>
+        </div>
+        <div className="features-button-wrapper">
+          <div className="primary-button-wrapper">
+            <InnerButton href={`/insights/${article.slug}`} label="Read this" cta={`Insights index - ${article.slug}`} />
+          </div>
+        </div>
+      </div>
+      <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" />
+      <img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" />
+      <img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" />
+      <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" />
+    </div>
+  )
 }
 
 export default function InsightsIndexPage() {
@@ -43,30 +76,14 @@ export default function InsightsIndexPage() {
         <section id="insights" className="section features">
           <div className="container">
             <div className="features-content">
-              {INSIGHTS.map((article) => (
-                <div key={article.slug} className="features-flex" style={{ marginBottom: '2rem' }}>
-                  <div className="features-typography-card top-border-none">
-                    <div className="features-typography-card-single">
-                      <div className="features-subtitle-wrapper">
-                        <div className="tagline-container">
-                          <div className="text-style-tagline">{article.datePublished}</div>
-                        </div>
-                      </div>
-                      <div className="features-title-description">
-                        <h2 className="features-title">{article.h1}</h2>
-                        <p className="features-description-text">{article.answer}</p>
-                      </div>
-                      <div className="features-button-wrapper">
-                        <div className="primary-button-wrapper">
-                          <InnerButton href={`/insights/${article.slug}`} label="Read this" cta={`Insights index - ${article.slug}`} />
-                        </div>
-                      </div>
-                    </div>
-                    <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" />
-                    <img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" />
-                    <img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" />
-                    <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" />
-                  </div>
+              {ROWS.map((pair) => (
+                <div
+                  key={pair[0].slug}
+                  className={pair.length === 1 ? 'features-flex insights-flex-single' : 'features-flex'}
+                >
+                  {pair.map((article) => (
+                    <InsightCard key={article.slug} article={article} />
+                  ))}
                 </div>
               ))}
             </div>

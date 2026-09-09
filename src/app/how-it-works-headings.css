@@ -150,3 +150,14 @@
   text-align: left;
   vertical-align: top;
 }
+
+#insights .features-flex {
+  margin-bottom: 2rem;
+}
+#insights .features-flex:last-child {
+  margin-bottom: 0;
+}
+#insights .insights-flex-single .features-typography-card {
+  max-width: 100%;
+  min-height: auto;
+}
