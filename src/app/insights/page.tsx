@@ -69,8 +69,8 @@ export default function InsightsIndexPage() {
       <SiteChrome current="insights">
         <PageHero
           tagline="Insights"
-          title="Before a brick is laid."
-          description="On digital twins, follow-up, and selling units that are not built yet."
+          title="Pre-construction, explained."
+          description="Digital twins, follow-up, showrooms, floor plans, and how units sell before they exist."
           ctaLabel="Start reading"
           ctaHref="#insights"
           ctaData="Insights index - Read"
