@@ -70,6 +70,7 @@ export default function InsightsIndexPage() {
         <PageHero
           tagline="Insights"
           title="Selling units before they exist."
+          description="An extra month of a typical boutique construction loan is $67k–$100k to the bank. A digital twin is the live building on a phone before anything is built. Follow-up is that night, not Monday."
           ctaLabel="Start reading"
           ctaHref="#insights"
           ctaData="Insights index - Read"
