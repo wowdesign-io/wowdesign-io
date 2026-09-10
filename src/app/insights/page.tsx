@@ -70,7 +70,7 @@ export default function InsightsIndexPage() {
         <PageHero
           tagline="Insights"
           title="Pre-construction, explained."
-          description="Digital twins, follow-up, showrooms, floor plans, and how units sell before they exist."
+          description="Digital twins, follow-up, showrooms, floor plans, software comparisons, and how units sell before they exist."
           ctaLabel="Start reading"
           ctaHref="#insights"
           ctaData="Insights index - Read"
