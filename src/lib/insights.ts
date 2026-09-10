@@ -218,4 +218,29 @@ export const INSIGHTS: InsightArticle[] = [
       },
     ],
   },
+  {
+    slug: 'best-software-pre-construction-condos',
+    tag: 'Software',
+    h1: 'Best software for selling condo units before construction',
+    description:
+      'For a 10–50 unit pre-construction project, selling software is a stack: live units on the project website, follow-up the same night, and a sales team that already knows who is ready. One CRM or one gallery app is a different job.',
+    answer:
+      'For a 10–50 unit pre-construction project, the software that sells units is not one CRM or one 3D app. Buyers need a project website with live units they can pick tonight. The sales team needs that trail in the tools they already use. Gallery stacks and generic CRMs are different jobs.',
+    datePublished: '2026-09-10',
+    dateModified: '2026-09-10',
+    faqs: [
+      {
+        q: 'Is Spark.re the software that sells units to buyers?',
+        a: 'No. Spark.re is inventory and CRM for the sales team. Buyers need the project website with live units they can pick tonight. Keep Spark.re if you already use it. It does not replace the buyer site.',
+      },
+      {
+        q: 'Do 10–50 unit projects need enterprise sales-gallery software?',
+        a: 'Usually not. Those stacks are built for presentation centers and large launches. A boutique project needs a phone-first unit pick, follow-up the same night, and a sales team that already knows who is ready.',
+      },
+      {
+        q: 'What should a boutique developer buy besides renderings?',
+        a: 'A project website buyers trust, a live twin they can pick a unit from, and follow-up so the sales team only calls people who are ready. Renderings without that do not tell your sales team who is ready.',
+      },
+    ],
+  },
 ]
