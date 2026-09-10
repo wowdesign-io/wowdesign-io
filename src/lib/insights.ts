@@ -193,29 +193,4 @@ export const INSIGHTS: InsightArticle[] = [
       },
     ],
   },
-  {
-    slug: 'livesite-vs-planpoint-vs-custom-website',
-    tag: 'Comparison',
-    h1: 'NEEZO LiveSite vs Planpoint vs a custom developer website',
-    description:
-      'LiveSite is a full-studio sales platform for presentation centers and large launches. Planpoint is the interactive inventory layer on a website. A custom site alone is branding without live units. Boutique 10–50 unit projects need the site, twin, and follow-up.',
-    answer:
-      'NEEZO LiveSite is a full-studio sales platform for presentation centers and big launches. Planpoint is the interactive inventory you embed on a site. A custom website alone is branding without live units. A 10–50 unit boutique project needs the site, a twin buyers can pick from, and follow-up — not an enterprise gallery stack.',
-    datePublished: '2026-09-10',
-    dateModified: '2026-09-10',
-    faqs: [
-      {
-        q: 'Is Planpoint the same as NEEZO LiveSite?',
-        a: 'No. Planpoint is the interactive inventory layer buyers use on your project website. LiveSite is a broader studio platform built for immersive sales galleries and large creative builds.',
-      },
-      {
-        q: 'Can a custom developer website replace the digital twin?',
-        a: 'No. Branding and renderings sell the look. The twin answers which unit, at what price, and whether it is still open — on the buyer’s phone before Monday.',
-      },
-      {
-        q: 'What should a boutique 10–50 unit project buy?',
-        a: 'A project website buyers trust, a live twin they can pick a unit from, and follow-up so the sales team only calls people who are ready. That is the stack — not a Toll Brothers-scale gallery build.',
-      },
-    ],
-  },
 ]
