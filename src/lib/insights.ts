@@ -193,4 +193,29 @@ export const INSIGHTS: InsightArticle[] = [
       },
     ],
   },
+  {
+    slug: 'boutique-website-besides-renderings',
+    tag: 'Website',
+    h1: 'What does a boutique developer website need besides renderings?',
+    description:
+      'A boutique developer website still needs renderings for the look. It also needs live units, live price, a way to pick one tonight, and a path into the tools the sales team already uses.',
+    answer:
+      'Renderings sell the look. A boutique 10–50 unit project website also needs live units, live price, a way to pick one tonight, and a path into the tools the sales team already uses. Pictures without that do not tell anyone who is ready — and extra months of the loan keep running.',
+    datePublished: '2026-09-13',
+    dateModified: '2026-09-13',
+    faqs: [
+      {
+        q: 'What does a boutique developer website need besides renderings?',
+        a: 'Live units, live price, a way to pick one tonight, and a path into the tools the sales team already uses. Renderings still sell the look. They do not tell anyone who is ready.',
+      },
+      {
+        q: 'Do renderings still matter on a 10–50 unit project site?',
+        a: 'Yes. They sell the look of a building that does not exist yet. The site still has to answer which unit, at what price, and whether it is still open.',
+      },
+      {
+        q: 'Is this the same as a digital twin or a virtual showroom?',
+        a: 'Close, but not the same phrase. The showroom is the gallery they land on. The twin is the live building inside it. This page is the checklist for the website around both — not only the pictures.',
+      },
+    ],
+  },
 ]

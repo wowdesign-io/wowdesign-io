@@ -24,7 +24,7 @@ wowdesign LLC. Miami Beach, Florida. Founder: Andy Bittner (CEO).
 
 ## Insights
 
-- [Insights](${SITE}/insights): Digital twin, follow-up, extra months of a construction loan — seven reads.
+- [Insights](${SITE}/insights): Digital twins, follow-up, showrooms, floor plans, what a project website needs besides renderings, and how units sell before they exist.
 - [What is a digital twin for pre-construction?](${SITE}/insights/digital-twin-pre-construction)
 - [What should follow-up look like after a pre-construction buyer shows interest?](${SITE}/insights/follow-up-pre-construction-buyers)
 - [How much does an extra month of a construction loan cost?](${SITE}/insights/construction-loan-extra-month)
@@ -32,6 +32,7 @@ wowdesign LLC. Miami Beach, Florida. Founder: Andy Bittner (CEO).
 - [What is a virtual showroom for pre-construction?](${SITE}/insights/virtual-showroom-pre-construction)
 - [Interactive floor plan vs a PDF](${SITE}/insights/interactive-floor-plan-vs-pdf)
 - [How to sell pre-construction condos faster](${SITE}/insights/sell-pre-construction-condos-faster)
+- [What does a boutique developer website need besides renderings?](${SITE}/insights/boutique-website-besides-renderings)
 
 ## Live buyer-site glimpse
 
