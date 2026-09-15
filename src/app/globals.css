@@ -266,10 +266,41 @@ html.wwd-first.wwd-ready #wwd-page-loader {
   pointer-events: none !important;
 }
 
-/* CTA corners = same Features-Card-Shape marks + same -2px sit as Insights/Features cards.
-   miami .cta-content overflow:hidden was clipping them (looked like a different corner set). */
-.cta-content {
+/* CTA / Features glass lives on ::before — backdrop-filter on the same node as the
+   corner imgs clips them in Chrome even when overflow:visible. Marks stay siblings
+   of the glass layer so Features-Card-Shape L's render fully at -2px. */
+.cta-content,
+.section.features .features-typography-card {
+  background-color: transparent !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  border-color: transparent !important;
   overflow: visible !important;
+  box-shadow: none !important;
+}
+.cta-content::before,
+.section.features .features-typography-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: var(--surface-30);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border: 1px solid #ffffff14;
+}
+.cta-content::before {
+  box-shadow: 0 20px 40px #0006;
+}
+.cta-top-left-element,
+.cta-top-right-element,
+.cta-bottom-left-element,
+.cta-bottom-right-element,
+.section.features .features-typography-card-shape,
+.section.features .features-card-shape-bottom-right {
+  z-index: 2;
+  pointer-events: none;
 }
 .cta-top-left-element {
   inset: -2px auto auto -2px !important;
