@@ -292,6 +292,14 @@ html.wwd-first.wwd-ready #wwd-page-loader {
 .section.features .features-card-image-wrapper {
   overflow: visible;
 }
+/* Features typography cards — translucent so per-row sky blooms through (same idea as Insights). */
+.section.features .features-typography-card {
+  background-color: rgba(21, 28, 44, 0.38);
+  border-color: var(--light-border);
+  -webkit-backdrop-filter: blur(28px) saturate(1.25);
+  backdrop-filter: blur(28px) saturate(1.25);
+  box-shadow: 0 24px 60px var(--dark-50);
+}
 .section.features > .container {
   position: relative;
   z-index: 1;
