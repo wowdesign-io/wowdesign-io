@@ -296,6 +296,12 @@ html.wwd-first.wwd-ready #wwd-page-loader {
 .section.features .features-typography-card::before {
   box-shadow: 0 20px 40px #0006;
 }
+/* Content + corners above the glass ::before (otherwise text paints behind it). */
+.cta-typography,
+.section.features .features-typography-card > .features-typography-card-single {
+  position: relative;
+  z-index: 1;
+}
 .cta-top-left-element,
 .cta-top-right-element,
 .cta-bottom-left-element,
