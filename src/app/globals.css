@@ -290,7 +290,8 @@ html.wwd-first.wwd-ready #wwd-page-loader {
   backdrop-filter: blur(5px);
   border: 1px solid #ffffff14;
 }
-.cta-content::before {
+.cta-content::before,
+.section.features .features-typography-card::before {
   box-shadow: 0 20px 40px #0006;
 }
 .cta-top-left-element,
@@ -342,14 +343,7 @@ html.wwd-first.wwd-ready #wwd-page-loader {
 .section.features .features-card-image-wrapper {
   overflow: visible;
 }
-/* Same glass as home Features (.solving-card) + Comparison (.pricing-single). */
-.section.features .features-typography-card {
-  background-color: var(--surface-30);
-  border-color: var(--light-border);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  box-shadow: 0 20px 40px #0006;
-}
+/* Glass for Features cards is on ::before above (same tokens as solving-card). */
 .section.features > .container {
   position: relative;
   z-index: 1;
