@@ -270,7 +270,8 @@ html.wwd-first.wwd-ready #wwd-page-loader {
   padding-top: 0;
   padding-bottom: 7rem;
   position: relative;
-  overflow: hidden;
+  /* visible so first-row Features-Card-Shape top corners are not clipped */
+  overflow: visible;
 }
 
 /* Per-row sky (same primary/secondary glow as How it works), full row behind content. */
@@ -303,6 +304,7 @@ html.wwd-first.wwd-ready #wwd-page-loader {
 .section.features > .container {
   position: relative;
   z-index: 1;
+  padding-top: 2px;
 }
 
 /* How it works card titles — h3 + heading-style-h6 inherits display-heading
