@@ -268,13 +268,15 @@ html.wwd-first.wwd-ready #wwd-page-loader {
 
 /* CTA / Features glass lives on ::before — backdrop-filter on the same node as the
    corner imgs clips them in Chrome even when overflow:visible. Marks stay siblings
-   of the glass layer so Features-Card-Shape L's render fully at -2px. */
+   of the glass layer so Features-Card-Shape L's render fully at -2px.
+   border:none (not transparent) so padding-box == border-box; otherwise miami's
+   1px + top-border-none shifts ::before vs the corner imgs and the glass floats. */
 .cta-content,
 .section.features .features-typography-card {
   background-color: transparent !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  border-color: transparent !important;
+  border: none !important;
   overflow: visible !important;
   box-shadow: none !important;
 }
