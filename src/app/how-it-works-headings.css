@@ -170,9 +170,11 @@
 }
 
 #insights.section.features {
-  overflow: hidden;
+  /* Don't clip Features-Card-Shape top corners on the first row. */
+  overflow: visible;
 }
 #insights .features-content {
   position: relative;
   z-index: 1;
+  padding-top: 2px;
 }
