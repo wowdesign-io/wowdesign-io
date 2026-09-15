@@ -266,6 +266,24 @@ html.wwd-first.wwd-ready #wwd-page-loader {
   pointer-events: none !important;
 }
 
+/* CTA corners = same Features-Card-Shape marks + same -2px sit as Insights/Features cards.
+   miami .cta-content overflow:hidden was clipping them (looked like a different corner set). */
+.cta-content {
+  overflow: visible !important;
+}
+.cta-top-left-element {
+  inset: -2px auto auto -2px !important;
+}
+.cta-top-right-element {
+  inset: -2px -2px auto auto !important;
+}
+.cta-bottom-left-element {
+  inset: auto auto -2px -2px !important;
+}
+.cta-bottom-right-element {
+  inset: auto -2px -2px auto !important;
+}
+
 .section.features {
   padding-top: 0;
   padding-bottom: 7rem;
