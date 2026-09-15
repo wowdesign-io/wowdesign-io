@@ -7,7 +7,7 @@ import SiteChrome from '@/components/SiteChrome'
 import InnerButton from '@/components/InnerButton'
 import InsightsIcon from '@/components/InsightsIcon'
 import InsightsTagIcon from '@/components/InsightsTagIcon'
-import { INSIGHTS, type InsightArticle } from '@/lib/insights'
+import { insightsByNewest, type InsightArticle } from '@/lib/insights'
 import { SITE } from '@/lib/site'
 import '@/app/how-it-works-headings.css'
 
@@ -19,8 +19,9 @@ export const metadata: Metadata = {
 }
 
 const ROWS: InsightArticle[][] = []
-for (let i = 0; i < INSIGHTS.length; i += 2) {
-  ROWS.push(INSIGHTS.slice(i, i + 2))
+const ORDERED = insightsByNewest()
+for (let i = 0; i < ORDERED.length; i += 2) {
+  ROWS.push(ORDERED.slice(i, i + 2))
 }
 
 function InsightCard({ article }: { article: InsightArticle }) {

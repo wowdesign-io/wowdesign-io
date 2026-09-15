@@ -17,6 +17,17 @@ export type InsightArticle = {
   faqs: FaqItem[]
 }
 
+/** Hub / lists: newest first (datePublished, then dateModified). */
+export function insightsByNewest(): InsightArticle[] {
+  return [...INSIGHTS].sort((a, b) => {
+    const byPublished = b.datePublished.localeCompare(a.datePublished)
+    if (byPublished !== 0) return byPublished
+    const byModified = b.dateModified.localeCompare(a.dateModified)
+    if (byModified !== 0) return byModified
+    return a.slug.localeCompare(b.slug)
+  })
+}
+
 export const INSIGHTS: InsightArticle[] = [
   {
     slug: 'construction-loan-extra-month',
