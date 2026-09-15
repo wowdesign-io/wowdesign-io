@@ -172,6 +172,8 @@
 #insights.section.features {
   /* Don't clip Features-Card-Shape top corners on the first row. */
   overflow: visible;
+  /* CTA already has 9rem top — don't stack another 7rem under the last row. */
+  padding-bottom: 0;
 }
 #insights .features-content {
   position: relative;
