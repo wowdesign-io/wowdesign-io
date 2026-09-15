@@ -167,3 +167,20 @@
 #insights h2.features-title {
   line-height: 1.1em;
 }
+
+/* Insights cards — same glass language as hero-card (--surface-90 + blur).
+   Sky glow behind shows through; solid --dark-bg cards blocked that. */
+#insights.section.features {
+  overflow: hidden;
+}
+#insights .features-typography-card {
+  background-color: var(--surface-90);
+  border-color: var(--light-border);
+  -webkit-backdrop-filter: blur(36px) saturate(1.15);
+  backdrop-filter: blur(36px) saturate(1.15);
+  box-shadow: 0 24px 60px var(--dark-50);
+}
+#insights .features-content {
+  position: relative;
+  z-index: 1;
+}

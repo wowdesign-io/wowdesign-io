@@ -640,6 +640,10 @@ export default function FeaturesDeepDive() {
           </div>
         </div>
       </div>
+      <div className="sky-container" aria-hidden="true">
+        <div className="primary-sky-circle"></div>
+        <div className="secondary-sky-circle"></div>
+      </div>
     </section>
   )
 }

@@ -270,6 +270,20 @@ html.wwd-first.wwd-ready #wwd-page-loader {
   padding-top: 0;
   padding-bottom: 7rem;
   position: relative;
+  overflow: hidden;
+}
+
+/* Let per-row feature skies bloom (home Features section uses section-level sky;
+   /features nests skies in image wrappers that were clipping the blur). */
+.section.features .features-card-image-wrapper {
+  overflow: visible;
+}
+.section.features .features-flex {
+  overflow: visible;
+}
+.section.features > .container {
+  position: relative;
+  z-index: 1;
 }
 
 /* How it works card titles — h3 + heading-style-h6 inherits display-heading

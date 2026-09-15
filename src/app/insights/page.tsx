@@ -95,6 +95,10 @@ export default function InsightsIndexPage() {
               ))}
             </div>
           </div>
+          <div className="sky-container" aria-hidden="true">
+            <div className="primary-sky-circle"></div>
+            <div className="secondary-sky-circle"></div>
+          </div>
         </section>
         <PageCta ctaData="Insights index CTA - Calc" />
       </SiteChrome>
