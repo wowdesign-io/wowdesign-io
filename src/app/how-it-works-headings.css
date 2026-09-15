@@ -152,6 +152,7 @@
 }
 
 #insights .features-flex {
+  position: relative;
   margin-bottom: 2rem;
 }
 #insights .features-flex:last-child {
@@ -169,7 +170,7 @@
 }
 
 /* Insights cards — same glass language as hero-card (--surface-90 + blur).
-   Sky glow behind shows through; solid --dark-bg cards blocked that. */
+   Per-row sky glow shows through. */
 #insights.section.features {
   overflow: hidden;
 }

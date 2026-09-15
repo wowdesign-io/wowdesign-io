@@ -7,6 +7,7 @@ import SiteChrome from '@/components/SiteChrome'
 import InnerButton from '@/components/InnerButton'
 import InsightsIcon from '@/components/InsightsIcon'
 import InsightsTagIcon from '@/components/InsightsTagIcon'
+import SkyGlow from '@/components/SkyGlow'
 import { insightsByNewest, type InsightArticle } from '@/lib/insights'
 import { SITE } from '@/lib/site'
 import '@/app/how-it-works-headings.css'
@@ -88,16 +89,13 @@ export default function InsightsIndexPage() {
                   key={pair[0].slug}
                   className={pair.length === 1 ? 'features-flex insights-flex-single' : 'features-flex'}
                 >
+                  <SkyGlow />
                   {pair.map((article) => (
                     <InsightCard key={article.slug} article={article} />
                   ))}
                 </div>
               ))}
             </div>
-          </div>
-          <div className="sky-container" aria-hidden="true">
-            <div className="primary-sky-circle"></div>
-            <div className="secondary-sky-circle"></div>
           </div>
         </section>
         <PageCta ctaData="Insights index CTA - Calc" />

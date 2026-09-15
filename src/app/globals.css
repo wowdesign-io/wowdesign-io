@@ -273,12 +273,23 @@ html.wwd-first.wwd-ready #wwd-page-loader {
   overflow: hidden;
 }
 
-/* Let per-row feature skies bloom (home Features section uses section-level sky;
-   /features nests skies in image wrappers that were clipping the blur). */
-.section.features .features-card-image-wrapper {
+/* Per-row sky (same primary/secondary glow as How it works), full row behind content. */
+.section.features .features-flex {
+  position: relative;
   overflow: visible;
 }
-.section.features .features-flex {
+.section.features .features-flex > .sky-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.section.features .features-typography-card,
+.section.features .features-card-image-wrapper {
+  position: relative;
+  z-index: 1;
+}
+.section.features .features-card-image-wrapper {
   overflow: visible;
 }
 .section.features > .container {
