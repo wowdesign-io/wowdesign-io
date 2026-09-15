@@ -152,6 +152,7 @@
 }
 
 #insights .features-flex {
+  position: relative;
   margin-bottom: 2rem;
 }
 #insights .features-flex:last-child {
@@ -166,4 +167,16 @@
 }
 #insights h2.features-title {
   line-height: 1.1em;
+}
+
+#insights.section.features {
+  /* Don't clip Features-Card-Shape top corners on the first row. */
+  overflow: visible;
+  /* CTA already has 9rem top — don't stack another 7rem under the last row. */
+  padding-bottom: 0;
+}
+#insights .features-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 2px;
 }

@@ -60,7 +60,7 @@ export default function LinksPage() {
                     <div className="links10_item-content">
                       <div className="text-size-medium text-weight-semibold heading-gradient">Carry Cost Calculator</div>
                       <div className="text-size-regular">Calculate your project's real holding costs in 60 seconds</div>
-                    </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="cta-top-left-element" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="cta-top-right-element" /><img src="/images/CTA-Botton-Left-Element.svg" loading="lazy" alt="" className="cta-bottom-left-element" /><img src="/images/CTA-Botton-Right-Element.svg" loading="lazy" alt="" className="cta-bottom-right-element" />
+                    </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="cta-top-left-element" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="cta-top-right-element" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="cta-bottom-left-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="cta-bottom-right-element" />
                   </a>
                   <a href="https://www.youtube.com/@Andy_Bittner" target="_blank" className="links10_item-link w-inline-block">
                     <div className="links10_icon-wrapper">
@@ -74,7 +74,7 @@ export default function LinksPage() {
                     <div className="links10_item-content">
                       <div className="text-size-medium text-weight-semibold heading-gradient">Latest YouTube video</div>
                       <div className="text-size-regular">Watch how boutique developers sell units faster</div>
-                    </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="cta-top-left-element" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="cta-top-right-element" /><img src="/images/CTA-Botton-Left-Element.svg" loading="lazy" alt="" className="cta-bottom-left-element" /><img src="/images/CTA-Botton-Right-Element.svg" loading="lazy" alt="" className="cta-bottom-right-element" />
+                    </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="cta-top-left-element" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="cta-top-right-element" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="cta-bottom-left-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="cta-bottom-right-element" />
                   </a>
                 </div>
                 <div className="links10_category-wrapper">
@@ -91,7 +91,7 @@ export default function LinksPage() {
                     <div id="w-node-_91be27b6-a9c3-a889-c5b8-dbfdf756946a-f896b363" className="links10_newsletter-link-content">
                       <div className="text-size-medium text-weight-semibold">Join our newsletter</div>
                       <div className="text-size-small">Weekly strategies for boutique real estate developers.</div>
-                    </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="cta-top-left-element" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="cta-top-right-element" /><img src="/images/CTA-Botton-Left-Element.svg" loading="lazy" alt="" className="cta-bottom-left-element" /><img src="/images/CTA-Botton-Right-Element.svg" loading="lazy" alt="" className="cta-bottom-right-element" />
+                    </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="cta-top-left-element" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="cta-top-right-element" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="cta-bottom-left-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="cta-bottom-right-element" />
                   </a>
                 </div>
                 <div className="links10_social-list">
@@ -116,7 +116,7 @@ export default function LinksPage() {
                   <a href="/terms-of-service" className="text-size-tiny">Terms of Service</a>
                   <a href="/disclaimer" className="text-size-tiny">Disclaimer</a>
                 </div>
-              </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="cta-top-left-element" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="cta-top-right-element" /><img src="/images/CTA-Botton-Left-Element.svg" loading="lazy" alt="" className="cta-bottom-left-element" /><img src="/images/CTA-Botton-Right-Element.svg" loading="lazy" alt="" className="cta-bottom-right-element" />
+              </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="cta-top-left-element" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="cta-top-right-element" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="cta-bottom-left-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="cta-bottom-right-element" />
             </div>
           </div>
         </div>

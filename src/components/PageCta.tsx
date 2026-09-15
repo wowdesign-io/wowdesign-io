@@ -31,10 +31,11 @@ export default function PageCta({ ctaData = 'CTA - Calc' }: PageCtaProps) {
               $45k–$75k per project · Launched in 6–8 weeks.
             </div>
           </div>
+          {/* Same Features-Card-Shape L-marks as Insights/Features; glass is on ::before so these aren't clipped by backdrop-filter */}
           <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="cta-top-left-element" />
           <img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="cta-top-right-element" />
-          <img src="/images/CTA-Botton-Left-Element.svg" loading="lazy" alt="" className="cta-bottom-left-element" />
-          <img src="/images/CTA-Botton-Right-Element.svg" loading="lazy" alt="" className="cta-bottom-right-element" />
+          <img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="cta-bottom-left-element" />
+          <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="cta-bottom-right-element" />
         </div>
       </div>
       <div className="sky-container">
