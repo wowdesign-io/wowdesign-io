@@ -229,4 +229,29 @@ export const INSIGHTS: InsightArticle[] = [
       },
     ],
   },
+  {
+    slug: 'how-long-sell-out-20-40-unit-condo',
+    tag: 'Timeline',
+    h1: 'How long does it take to sell out a 20–40 unit condo building?',
+    description:
+      'There is no honest single month-count for every 20–40 unit condo. Time two clocks: 50–70% of revenue under contract so the lender funds, then the last unit so the loan comes off. Extra months are about $67k–$100k of interest on a typical boutique loan.',
+    answer:
+      'There is no honest single month-count for every 20–40 unit condo. Price, location, and whether buyers can commit before a sales office exists all move it. Time two clocks: the lender’s 50–70% under contract, then the last unit. Extra months cost about $67k–$100k in interest on a typical boutique loan.',
+    datePublished: '2026-09-20',
+    dateModified: '2026-09-20',
+    faqs: [
+      {
+        q: 'How long does it take to sell out a 20–40 unit condo building?',
+        a: 'There is no honest single month-count. Time two clocks: 50–70% of revenue under contract so the lender funds, then the last unit. Extra months cost about $67k–$100k of interest on a typical boutique $10M–$15M loan at about 8%. Method: loan × rate ÷ 12.',
+      },
+      {
+        q: 'What is the difference between the lender’s presale line and selling out?',
+        a: 'The presale line is usually 50–70% of project revenue under contract — that is when many construction lenders fund. Selling out is the last unit. Both clocks burn extra months if they slip. Fannie Mae’s 50% test is a third clock, for unit-buyer mortgages.',
+      },
+      {
+        q: 'Can you use a published units-per-month rate instead?',
+        a: 'Not as a rule for your building. Comps in your submarket are evidence for your lender. A number copied from a different project is a guess. Use extra months of interest on your loan as the scoreboard — run the calculator.',
+      },
+    ],
+  },
 ]
