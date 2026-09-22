@@ -38,7 +38,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'On a typical boutique $10M–$15M construction loan at about 8%, monthly interest is about $67k–$100k. That is loan × rate ÷ 12. Extra months also burn marketing and ops. Three extra months on a $12M loan at 8% is $240k in interest before you add burn.',
     datePublished: '2026-09-08',
-    dateModified: '2026-09-08',
+    dateModified: '2026-09-22',
     faqs: [
       {
         q: 'How do you calculate monthly construction-loan interest?',
@@ -113,7 +113,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'US construction lenders commonly want 50–70% of project revenue under contract before they fund. Count dollars under contract, not a round unit count. Fannie Mae’s 50% conveyed / under-contract test is about unit-buyer mortgages — not the same as the construction draw.',
     datePublished: '2026-09-08',
-    dateModified: '2026-09-08',
+    dateModified: '2026-09-22',
     faqs: [
       {
         q: 'What is the typical presale percentage for a construction loan in Florida?',
