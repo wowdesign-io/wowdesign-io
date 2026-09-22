@@ -61,7 +61,8 @@ export default function Page() {
       <h2>What faster sell-out keeps</h2>
       <p>
         Three to six extra months on a typical boutique loan is how you get to $400k+ kept — interest plus marketing that does not go to the bank. Hit{' '}
-        <a href="/insights/construction-loan-presale-requirement">the lender’s presale line</a> faster and the build starts sooner. Sell out faster after completion and the loan comes off sooner.
+        <a href="/insights/construction-loan-presale-requirement">the lender’s presale line</a> faster and the build starts sooner. Sell out faster after completion and the loan comes off sooner. For the two clocks (draw, then last unit), see{' '}
+        <a href="/insights/how-long-sell-out-20-40-unit-condo">how long a 20–40 unit sell-out takes</a>.
       </p>
       <p>
         Two places the months show up. Until you hit the lender’s presale line, you keep paying interest and marketing with no construction draw. After completion, unsold units keep the loan on. Faster sell-out hits both. Planpoint platform data on comparable pre-construction developments: 31% faster unit sell-through, 49% more qualified leads, 3x buyer engagement. Supporting numbers, not a promise on your project. Run the calculator on your loan — that is the method for your month, not a slogan.

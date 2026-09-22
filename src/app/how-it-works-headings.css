@@ -114,6 +114,15 @@
 .insights-article + .section.cta {
   padding-top: 2.5rem;
 }
+/* webflow-inline.css sets a { color/text-decoration: inherit } — body links vanish. */
+.insights-article .w-richtext a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.insights-article .w-richtext a:hover {
+  color: #fff;
+}
 .section.team-member .team-member-typography {
   background: transparent;
   padding: 0;

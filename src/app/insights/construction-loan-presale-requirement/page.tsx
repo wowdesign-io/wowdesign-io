@@ -51,7 +51,8 @@ export default function Page() {
       </p>
       <h2>Why extra months still matter once you know the line</h2>
       <p>
-        Until the construction lender funds, you keep paying interest and marketing with no draw. After completion, unsold units keep the loan and the burn running. Hit the presale line faster and you start the build sooner. Sell out faster after that and you keep the months. On a typical boutique $10M–$15M loan at about 8%, each extra month is about $67k–$100k to the bank. Method: loan × rate ÷ 12.
+        Until the construction lender funds, you keep paying interest and marketing with no draw. After completion, unsold units keep the loan and the burn running. Hit the presale line faster and you start the build sooner. Sell out faster after that and you keep the months. Those are two clocks — see{' '}
+        <a href="/insights/how-long-sell-out-20-40-unit-condo">how long a 20–40 unit sell-out takes</a>. On a typical boutique $10M–$15M loan at about 8%, each extra month is about $67k–$100k to the bank. Method: loan × rate ÷ 12.
       </p>
       <p>
         Three extra months of interest on a $12M loan at 8% is $240,000 before ads. See{' '}
