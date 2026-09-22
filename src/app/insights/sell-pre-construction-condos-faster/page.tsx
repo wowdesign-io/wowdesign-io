@@ -40,7 +40,8 @@ export default function Page() {
       </p>
       <h2>How long to sell out a 20–40 unit building</h2>
       <p>
-        There is no honest single month-count for every 20–40 unit condo. Price, location, and whether buyers can commit before a sales office exists all move it. Anyone publishing “6 months” as a rule is guessing. Use extra months of interest as the scoreboard instead: each month you still have unsold units is a month the bank and the ads keep taking.
+        There is no honest single month-count for every 20–40 unit condo. Price, location, and whether buyers can commit before a sales office exists all move it. Anyone publishing “6 months” as a rule is guessing. Use extra months of interest as the scoreboard instead: each month you still have unsold units is a month the bank and the ads keep taking. See{' '}
+        <a href="/insights/how-long-sell-out-20-40-unit-condo">how long a 20–40 unit sell-out takes</a> for the two clocks — the lender’s draw, then the last unit.
       </p>
       <p>
         Planpoint platform data on comparable pre-construction developments: 31% faster unit sell-through, 49% more qualified leads, 3x buyer engagement. That is platform data on comparable projects, not a promise that your 24-unit building sells in a set number of months. Your loan, your rate, and what you actually spend until the last unit is gone is the number. Run the calculator.
