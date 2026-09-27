@@ -16,10 +16,10 @@ export default function Page() {
     <InsightsArticle article={article}>
       <h2>Construction-lender presales vs Fannie’s 50%</h2>
       <p>
-        Construction lenders are deciding whether to fund the build. They commonly want 50–70% of project revenue under contract before they will. That range is a market pattern, not a statute. Your term sheet is the number that counts. Fannie Mae’s 50% conveyed or under-contract test is a different job: whether unit-buyers can get those mortgages on the project. Mixing the two is how you “hit 50%” and still do not have a construction draw.
+        Construction lenders are deciding whether to fund the build. They commonly want 50–70% of project revenue under contract before they will. That range is a market pattern, not a statute. Your term sheet is the number that counts. Fannie Mae’s 50% test is a different job: whether unit-buyers can get those mortgages on the project. For new projects, Fannie looks at share of units conveyed or under contract to principal-residence or second-home purchasers. Investor contracts do not fill that 50%. Mixing the two clocks is how you “hit 50%” and still do not have a construction draw.
       </p>
       <p>
-        Count dollars under contract, not a round unit count, when you are talking to the construction lender. A penthouse and a studio are not the same revenue. Fannie’s test is about share of units conveyed or under contract — not your construction draw. Keep them on separate lines in your own head, and in anything you send a partner.
+        Count dollars under contract, not a round unit count, when you are talking to the construction lender. A penthouse and a studio are not the same revenue. Fannie’s test is a unit share — and only certain buyers. Keep them on separate lines in your own head, and in anything you send a partner.
       </p>
       <table>
         <thead>
@@ -33,21 +33,28 @@ export default function Page() {
           <tr>
             <td>Construction-loan presale</td>
             <td>The bank funding the build</td>
-            <td>Often 50–70% of project revenue under contract</td>
+            <td>Often 50–70% of project revenue under qualifying contracts</td>
           </tr>
           <tr>
             <td>Fannie 50% conveyed / under contract</td>
             <td>Unit-buyer mortgage eligibility</td>
-            <td>Share of units conveyed or under contract — not your construction draw</td>
+            <td>Share of units to principal-residence or second-home purchasers — not your construction draw</td>
           </tr>
         </tbody>
       </table>
-      <h2>How many units is that?</h2>
+      <h2>What counts as a qualifying presale?</h2>
       <p>
-        Convert the percent to dollars first, then to units. If the lender wants 60% of revenue under contract on a $20M sell-out, that is $12M in contracts. It is not “60% of the unit count” if penthouses and studios are different prices. A 30-unit building can hit the unit-count percent and still miss the revenue line, or the other way around.
+        The percent only helps if the contracts actually count. Construction lenders are not counting every handshake. A reservation, a letter of intent, or a hold with no deposit is usually not a presale on the term sheet. Ask the lender in writing what they will take: a binding purchase contract, a deposit that is actually held, and whether a reservation without that deposit is in or out.
       </p>
       <p>
-        Florida term sheets still vary. Many still look for roughly 50–70% of revenue under contract. That is a pattern, not a law. Ask the lender for the test in writing: percent of revenue, which contracts count, and whether reservations without a hard deposit are in or out. Then map your stack — which units at which prices — to that dollar line. Guessing “half the units” is how the draw slips a month.
+        They also filter who is on the other side. Related-party sales, insider units, and one buyer taking a bulk of the stack are often excluded or haircut — those are not the same demand as an unrelated buyer putting money down. That is a term-sheet filter, not a statute. Your sheet is the list that counts. Get the definition before you brief the sales team on “we are at 50%.” Ten contracts on paper can be six after that filter.
+      </p>
+      <h2>How many units is that?</h2>
+      <p>
+        Convert the percent to dollars first, then to units — and only from contracts the lender will count. If the lender wants 60% of revenue under contract on a $20M sell-out, that is $12M in qualifying contracts. It is not “60% of the unit count” if penthouses and studios are different prices. A 30-unit building can hit the unit-count percent and still miss the revenue line, or the other way around. Soft holds do not close that gap.
+      </p>
+      <p>
+        Florida term sheets still vary. Many still look for roughly 50–70% of revenue under contract. That is a pattern, not a law. Some non-bank lenders will fund with fewer presales and price the extra risk. Ask the lender for the test in writing: percent of revenue, which contracts count, and whether reservations without a hard deposit are in or out. Then map your stack — which units at which prices — to that dollar line. Guessing “half the units” is how the draw slips a month.
       </p>
       <h2>Why extra months still matter once you know the line</h2>
       <p>
@@ -56,7 +63,7 @@ export default function Page() {
       </p>
       <p>
         Three extra months of interest on a $12M loan at 8% is $240,000 before ads. See{' '}
-        <a href="/insights/construction-loan-extra-month">how to run that month</a>. The presale line is why lenders care: presales prove demand and reduce the chance they are financing unsold inventory. Faster contracts move the draw. The calculator is the month on your loan, not a slogan.
+        <a href="/insights/construction-loan-extra-month">how to run that month</a>. The presale line is why lenders care: qualifying presales prove demand and reduce the chance they are financing unsold inventory. Faster qualifying contracts move the draw. The calculator is the month on your loan, not a slogan.
       </p>
     </InsightsArticle>
   )
