@@ -27,7 +27,7 @@ export default function Page() {
       </p>
       <h2>Two clocks — the draw and the last unit</h2>
       <p>
-        Selling out is not one date. The first clock is the construction lender. US lenders commonly want 50–70% of project revenue under contract before they fund. Count dollars under contract, not a round unit count. Until that line is hit you keep paying interest and marketing with no draw. That range is a market pattern, not a statute. Your term sheet is the number that counts. See{' '}
+        Selling out is not one date. The first clock is the construction lender. US lenders commonly want 50–70% of project revenue under qualifying contracts before they fund. Count dollars the lender will take — not a round unit count, and not a reservation without a deposit. Until that line is hit you keep paying interest and marketing with no draw. Your term sheet is the number that counts. See{' '}
         <a href="/insights/construction-loan-presale-requirement">how many units you need to pre-sell</a>.
       </p>
       <p>
@@ -44,7 +44,7 @@ export default function Page() {
         <tbody>
           <tr>
             <td>The draw</td>
-            <td>50–70% of revenue under contract</td>
+            <td>50–70% of revenue under qualifying contracts</td>
             <td>The lender funds. The build can start.</td>
           </tr>
           <tr>
