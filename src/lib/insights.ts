@@ -109,11 +109,11 @@ export const INSIGHTS: InsightArticle[] = [
     tag: 'Presale',
     h1: 'How many units do you need to pre-sell before a construction lender funds?',
     description:
-      'US construction lenders commonly want 50–70% of project revenue under contract before they fund. That is not the same as Fannie Mae’s 50% conveyed test for unit-buyer mortgages.',
+      'US construction lenders commonly want 50–70% of project revenue under qualifying contracts before they fund. That is not a unit count, and not Fannie Mae’s 50% test for unit-buyer mortgages.',
     answer:
-      'US construction lenders commonly want 50–70% of project revenue under contract before they fund. Count dollars under contract, not a round unit count. Fannie Mae’s 50% conveyed / under-contract test is about unit-buyer mortgages — not the same as the construction draw.',
+      'US construction lenders commonly want 50–70% of project revenue under contract before they fund. Count dollars from contracts the lender will take — not a round unit count, and not a reservation without a deposit. Fannie Mae’s 50% conveyed or under-contract test is about unit-buyer mortgages. It is not the construction draw.',
     datePublished: '2026-09-08',
-    dateModified: '2026-09-22',
+    dateModified: '2026-09-27',
     faqs: [
       {
         q: 'What is the typical presale percentage for a construction loan in Florida?',
@@ -121,11 +121,15 @@ export const INSIGHTS: InsightArticle[] = [
       },
       {
         q: 'Is Fannie Mae’s 50% the same test as a construction lender’s presale?',
-        a: 'No. Fannie’s 50% conveyed or under-contract test is about whether unit-buyers can get those mortgages. Construction lenders are deciding whether to fund the build. Keep them separate.',
+        a: 'No. Fannie’s 50% is share of units conveyed or under contract to principal-residence or second-home purchasers — so unit-buyers can get those mortgages. Construction lenders want a share of project revenue under qualifying contracts. Keep them separate.',
+      },
+      {
+        q: 'What counts as a qualifying presale for a construction loan?',
+        a: 'Usually a binding purchase contract with a deposit the lender will recognize — not a reservation or a letter of intent. Related-party and bulk contracts are often excluded. Ask the lender in writing. The 50–70% line is percent of revenue from those contracts, not a unit count.',
       },
       {
         q: 'Why do construction lenders care about presales?',
-        a: 'Presales prove demand and reduce the chance they are financing unsold inventory. Until that line is hit you keep paying interest and marketing with no draw.',
+        a: 'Qualifying presales prove demand and reduce the chance they are financing unsold inventory. Until that line is hit you keep paying interest and marketing with no draw.',
       },
     ],
   },
@@ -238,7 +242,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'There is no honest single month-count for every 20–40 unit condo. Price, location, and whether buyers can commit before a sales office exists all move it. Time two clocks: the lender’s 50–70% under contract, then the last unit. Extra months cost about $67k–$100k in interest on a typical boutique loan.',
     datePublished: '2026-09-20',
-    dateModified: '2026-09-20',
+    dateModified: '2026-09-27',
     faqs: [
       {
         q: 'How long does it take to sell out a 20–40 unit condo building?',
@@ -246,7 +250,7 @@ export const INSIGHTS: InsightArticle[] = [
       },
       {
         q: 'What is the difference between the lender’s presale line and selling out?',
-        a: 'The presale line is usually 50–70% of project revenue under contract — that is when many construction lenders fund. Selling out is the last unit. Both clocks burn extra months if they slip. Fannie Mae’s 50% test is a third clock, for unit-buyer mortgages.',
+        a: 'The presale line is usually 50–70% of project revenue under qualifying contracts — that is when many construction lenders fund. Selling out is the last unit. Both clocks burn extra months if they slip. Fannie Mae’s 50% test is a third clock, for unit-buyer mortgages.',
       },
       {
         q: 'Can you use a published units-per-month rate instead?',
