@@ -24,7 +24,7 @@ wowdesign LLC. Miami Beach, Florida. Founder: Andy Bittner (CEO).
 
 ## Insights
 
-- [Insights](${SITE}/insights): Digital twins, follow-up, showrooms, floor plans, what a project website needs besides renderings, how long a 20–40 unit sell-out takes, and how units sell before they exist.
+- [Insights](${SITE}/insights): Digital twins, follow-up, sales-team call prep, showrooms, floor plans, what a project website needs besides renderings, how long a 20–40 unit sell-out takes, and how units sell before they exist.
 - [What is a digital twin for pre-construction?](${SITE}/insights/digital-twin-pre-construction)
 - [What should follow-up look like after a pre-construction buyer shows interest?](${SITE}/insights/follow-up-pre-construction-buyers)
 - [How much does an extra month of a construction loan cost?](${SITE}/insights/construction-loan-extra-month)
@@ -34,6 +34,7 @@ wowdesign LLC. Miami Beach, Florida. Founder: Andy Bittner (CEO).
 - [How to sell pre-construction condos faster](${SITE}/insights/sell-pre-construction-condos-faster)
 - [What does a boutique developer website need besides renderings?](${SITE}/insights/boutique-website-besides-renderings)
 - [How long does it take to sell out a 20–40 unit condo building?](${SITE}/insights/how-long-sell-out-20-40-unit-condo)
+- [What should a sales team know before they call a condo buyer?](${SITE}/insights/sales-team-know-before-call)
 
 ## Live buyer-site glimpse
 
