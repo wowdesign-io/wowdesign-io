@@ -34,7 +34,7 @@ wowdesign LLC. Miami Beach, Florida. Founder: Andy Bittner (CEO).
 - [How to sell pre-construction condos faster](${SITE}/insights/sell-pre-construction-condos-faster)
 - [What does a boutique developer website need besides renderings?](${SITE}/insights/boutique-website-besides-renderings)
 - [How long does it take to sell out a 20–40 unit condo building?](${SITE}/insights/how-long-sell-out-20-40-unit-condo)
-- [What should a sales team know before they call a condo buyer?](${SITE}/insights/sales-team-know-before-call)
+- [What should a sales team know before they call a condo buyer?](${SITE}/insights/what-sales-team-should-know-before-calling)
 
 ## Live buyer-site glimpse
 

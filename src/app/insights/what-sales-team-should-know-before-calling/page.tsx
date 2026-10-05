@@ -3,7 +3,7 @@ import InsightsArticle from '@/components/InsightsArticle'
 import { getInsight } from '@/lib/insights'
 import { SITE } from '@/lib/site'
 
-const article = getInsight('sales-team-know-before-call')
+const article = getInsight('what-sales-team-should-know-before-calling')
 
 export const metadata: Metadata = {
   title: article.h1,

@@ -259,7 +259,7 @@ export const INSIGHTS: InsightArticle[] = [
     ],
   },
   {
-    slug: 'sales-team-know-before-call',
+    slug: 'what-sales-team-should-know-before-calling',
     tag: 'Sales team',
     h1: 'What should a sales team know before they call a condo buyer?',
     description:
