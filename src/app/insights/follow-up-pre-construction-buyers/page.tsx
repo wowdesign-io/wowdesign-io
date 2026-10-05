@@ -54,7 +54,8 @@ export default function Page() {
       </table>
       <h2>What the sales team needs before they call</h2>
       <p>
-        Which unit. How far the buyer went. Whether they came back. Calling without that is a cold call with a nicer calendar invite. The follow-up is what builds that picture — if it actually ran the night they showed interest, not after someone remembered to export a list. A CRM row with a name and a phone number is not the picture. The sales team needs the unit in the tools they already use before they pick up.
+        Which unit. How far the buyer went. Whether they came back. Calling without that is a cold call with a nicer calendar invite. The follow-up is what builds that picture — if it actually ran the night they showed interest, not after someone remembered to export a list. A CRM row with a name and a phone number is not the picture. See{' '}
+        <a href="/insights/what-sales-team-should-know-before-calling">what the sales team should know before they call</a>.
       </p>
       <p>
         The tools the sales team already uses should show the unit, not a blank contact. That is the difference between a call that closes and a call that asks “so what were you looking at?” See{' '}
