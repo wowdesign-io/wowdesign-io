@@ -88,7 +88,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'Follow-up is what happens after a buyer shows interest — the same night, not Monday. They should get the unit they looked at, not a generic pack. During the build they need that unit to still be there. Your sales team should already know which one before they call.',
     datePublished: '2026-09-08',
-    dateModified: '2026-09-08',
+    dateModified: '2026-10-04',
     faqs: [
       {
         q: 'When should follow-up go out after a unit request?',
@@ -255,6 +255,31 @@ export const INSIGHTS: InsightArticle[] = [
       {
         q: 'Can you use a published units-per-month rate instead?',
         a: 'Not as a rule for your building. Comps in your submarket are evidence for your lender. A number copied from a different project is a guess. Use extra months of interest on your loan as the scoreboard — run the calculator.',
+      },
+    ],
+  },
+  {
+    slug: 'sales-team-know-before-call',
+    tag: 'Sales team',
+    h1: 'What should a sales team know before they call a condo buyer?',
+    description:
+      'Before they pick up, the sales team should already know which unit the buyer looked at, whether it is still open and at what price, how far they went, and whether they came back. A name and a phone number is not that briefing.',
+    answer:
+      'Before they pick up, the sales team should already know which unit the buyer looked at, whether it is still open and at what price, how far they went, and whether they came back. A name and a phone number is not that picture. Calling without it is a cold call.',
+    datePublished: '2026-10-04',
+    dateModified: '2026-10-04',
+    faqs: [
+      {
+        q: 'What should a sales team know before they call a condo buyer?',
+        a: 'Which unit they looked at, whether it is still open and at what price, how far they went, and whether they came back. A name and a phone number is not that picture.',
+      },
+      {
+        q: 'Is a CRM contact enough before the call?',
+        a: 'No. A CRM row with a name and “interested” is a contact. The sales team still needs the unit in the tools they already use. Otherwise the first minute is “so what were you looking at?”',
+      },
+      {
+        q: 'Why does this matter on a 10–50 unit project?',
+        a: 'Cold calls stretch sell-out. Extra months on a typical boutique $10M–$15M loan at about 8% are about $67k–$100k of interest. Method: loan × rate ÷ 12.',
       },
     ],
   },
