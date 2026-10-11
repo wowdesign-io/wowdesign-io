@@ -88,7 +88,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'Follow-up is what happens after a buyer shows interest — the same night, not Monday. They should get the unit they looked at, not a generic pack. During the build they need that unit to still be there. Your sales team should already know which one before they call.',
     datePublished: '2026-09-08',
-    dateModified: '2026-10-04',
+    dateModified: '2026-10-11',
     faqs: [
       {
         q: 'When should follow-up go out after a unit request?',
@@ -192,7 +192,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'Sell pre-construction condos faster by letting buyers pick a unit from their phone, running follow-up the same night, and giving your sales team the picture before they call. Extra months cost loan interest plus marketing burn — about $67k–$100k a month to the bank on a typical boutique loan.',
     datePublished: '2026-09-08',
-    dateModified: '2026-09-08',
+    dateModified: '2026-10-11',
     faqs: [
       {
         q: 'How long does it take to sell out a 20–40 unit condo building?',
@@ -280,6 +280,31 @@ export const INSIGHTS: InsightArticle[] = [
       {
         q: 'Why does this matter on a 10–50 unit project?',
         a: 'Cold calls stretch sell-out. Extra months on a typical boutique $10M–$15M loan at about 8% are about $67k–$100k of interest. Method: loan × rate ÷ 12.',
+      },
+    ],
+  },
+  {
+    slug: 'keep-pre-construction-buyers-from-backing-out',
+    tag: 'During the build',
+    h1: 'How to keep pre-construction buyers from backing out during the build',
+    description:
+      'A reserved buyer still has to live through the build. They stay if they can come back to their unit — live price, live availability — and a sales team that already knows which one. A PDF from week one will not hold them.',
+    answer:
+      'A buyer who reserved in month one still has to live through the build. They stay if they can come back to their unit — live price, live availability — and a sales team that already knows which one. A PDF from the first week will not hold them. A cancellation is another month of the loan.',
+    datePublished: '2026-10-11',
+    dateModified: '2026-10-11',
+    faqs: [
+      {
+        q: 'How to keep pre-construction buyers from backing out during the build?',
+        a: 'Their unit stays on the site — live price, still open. Follow-up does not stop after the first night. The sales team already knows which unit before they call. A PDF from week one will not hold them.',
+      },
+      {
+        q: 'Is same-night follow-up enough to hold them through the build?',
+        a: 'It starts the picture. The months of the build still need the live unit and a sales team that knows which one. Follow-up that dies after night one is how they go cold in month four.',
+      },
+      {
+        q: 'What does a cancellation cost on a boutique construction loan?',
+        a: 'You spend the month again. On a typical boutique $10M–$15M loan at about 8%, monthly interest is loan × rate ÷ 12 — about $67k–$100k. A walk-away that was in the 50–70% revenue count is a hole in the draw.',
       },
     ],
   },
