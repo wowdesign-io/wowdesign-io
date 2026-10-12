@@ -19,7 +19,8 @@ export default function Page() {
         A buyer looks at a unit at 11pm. They are in. If the first thing they get is a generic pack on Monday, they already looked at someone else over the weekend. Follow-up is not a drip you set once and forget. It is what happens in the hours after they showed their hand — the unit they looked at, sent back while they still care. A weekend of silence is enough to lose them.
       </p>
       <p>
-        Pre-construction makes this worse than a finished listing. The building is not there. The sales office may not be open. The only thing holding them is whatever you sent, and whether they can come back to that same unit in month four. Silence is not neutral. It is extra months of the loan.
+        Pre-construction makes this worse than a finished listing. The building is not there. The sales office may not be open. The only thing holding them is whatever you sent, and whether they can come back to that same unit in month four. Silence is not neutral. It is extra months of the loan. Same-night follow-up starts that picture — the months after are{' '}
+        <a href="/insights/keep-pre-construction-buyers-from-backing-out">how you keep them from backing out during the build</a>.
       </p>
       <table>
         <thead>
