@@ -22,7 +22,9 @@ export default function Page() {
         <li>Buyers pick a unit tonight from their phone. Not a PDF they wait on.</li>
         <li>
           Follow-up goes out the same night so they do not go cold during the build. See{' '}
-          <a href="/insights/follow-up-pre-construction-buyers">what that follow-up should include</a>.
+          <a href="/insights/follow-up-pre-construction-buyers">what that follow-up should include</a>
+          , and{' '}
+          <a href="/insights/keep-pre-construction-buyers-from-backing-out">how to keep buyers from backing out during the build</a>.
         </li>
         <li>Your sales team only calls people who are ready, with the unit already in the tools you use.</li>
       </ol>
