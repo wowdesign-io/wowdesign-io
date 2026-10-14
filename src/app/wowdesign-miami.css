@@ -17527,7 +17527,7 @@ figure {
   }
 }
 
-/* —— Mobile nav: fullscreen centered (webflow-mobile-defaults.md §1) —— */
+/* —— Mobile nav: fullscreen centered (SOP: Phosphor List/X + menu CTA) —— */
 .nav-toggle-icon {
   color: #fff;
   display: block;
@@ -17561,6 +17561,11 @@ figure {
     cursor: pointer;
   }
 
+  /* Closed: stay hidden — do not force .nav-menu visible */
+  .w-nav[data-collapse='medium'] .nav-menu {
+    display: none !important;
+  }
+
   .w-nav-overlay {
     position: fixed !important;
     inset: 0 !important;
@@ -17573,8 +17578,9 @@ figure {
     z-index: 55;
   }
 
-  .nav-menu,
-  .w-nav-overlay .nav-menu {
+  /* Open only: fullscreen centered panel */
+  .w-nav-overlay .nav-menu,
+  .nav-menu[data-nav-menu-open] {
     background-color: transparent !important;
     border: none !important;
     max-height: none !important;
@@ -17591,7 +17597,8 @@ figure {
     overflow: auto;
   }
 
-  .nav-menu-link {
+  .w-nav-overlay .nav-menu-link,
+  .nav-menu[data-nav-menu-open] .nav-menu-link {
     font-size: 1.5rem !important;
     line-height: 1.35 !important;
     margin-bottom: 0 !important;
@@ -17601,26 +17608,12 @@ figure {
     text-align: center;
   }
 
-  .nav-menu-cta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  /* Same primary-button chrome as desktop nav — layout only */
+  .w-nav-overlay .nav-menu-cta,
+  .nav-menu[data-nav-menu-open] .nav-menu-cta {
+    display: block;
     width: min(100%, 18rem);
     margin-top: 1.5rem;
-    padding: 0.95rem 1.25rem;
-    background-color: var(--primary);
-    color: #fff;
-    font-family: Outfit, sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    text-decoration: none;
-    text-align: center;
-    transition: opacity 0.3s ease;
-  }
-
-  .nav-menu-cta:hover {
-    opacity: 0.9;
-    color: #fff;
   }
 }
 
