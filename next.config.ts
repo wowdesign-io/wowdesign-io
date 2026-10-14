@@ -12,6 +12,14 @@ const nextConfig: NextConfig = {
     return [
       { source: '/blog', destination: '/insights', permanent: true },
       { source: '/blog/:path*', destination: '/insights', permanent: true },
+      // Print QR / offline links — temporary so destination can change without
+      // browsers caching an old 301. Update destination only; QR stays /gasc.
+      {
+        source: '/gasc',
+        destination:
+          '/carry-cost-calculator?utm_source=gasc&utm_medium=newsletter&utm_campaign=2026-10',
+        permanent: false,
+      },
     ]
   },
   async rewrites() {
