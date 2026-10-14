@@ -4206,7 +4206,6 @@ figure {
   margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
 }
 
 .not-found-description-button {
@@ -10953,6 +10952,11 @@ figure {
     margin-bottom: 30px;
   }
 
+  ._404-heading {
+    font-size: 9rem;
+    line-height: 0.85;
+  }
+
   .not-found-description-button {
     margin-bottom: 30px;
   }
@@ -13053,6 +13057,11 @@ figure {
     margin-bottom: 20px;
   }
 
+  ._404-heading {
+    font-size: 6.5rem;
+    line-height: 0.85;
+  }
+
   .not-found-description-button {
     margin-bottom: 20px;
   }
@@ -15077,6 +15086,11 @@ figure {
   .not-found-image-wrap {
     max-width: 220px;
     margin-bottom: 15px;
+  }
+
+  ._404-heading {
+    font-size: 5rem;
+    line-height: 0.85;
   }
 
   .not-found-description-button {
