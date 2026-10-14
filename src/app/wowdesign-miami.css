@@ -4206,6 +4206,7 @@ figure {
   margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden;
 }
 
 .not-found-description-button {
@@ -9571,8 +9572,11 @@ figure {
   background-image: linear-gradient(125deg, #fff 30%, #999);
   -webkit-background-clip: text;
   background-clip: text;
-  font-size: 17rem;
-  line-height: 14rem;
+  /* 17rem overflows ~300px mobile wraps; scale with viewport */
+  font-size: clamp(4.5rem, 28vw, 17rem);
+  line-height: 0.82;
+  max-width: 100%;
+  margin: 0;
 }
 
 .process-timeline {
