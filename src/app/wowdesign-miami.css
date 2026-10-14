@@ -17561,8 +17561,8 @@ figure {
     cursor: pointer;
   }
 
-  /* Closed: stay hidden — do not force .nav-menu visible */
-  .w-nav[data-collapse='medium'] .nav-menu {
+  /* Closed only (still in header). Open menu is moved into .w-nav-overlay. */
+  .w-nav[data-collapse='medium'] .navbar-container > .nav-menu {
     display: none !important;
   }
 
@@ -17574,13 +17574,14 @@ figure {
     right: 0 !important;
     width: 100% !important;
     height: 100dvh !important;
+    max-height: 100dvh !important;
     background-color: #05040b;
     z-index: 55;
+    overflow: hidden;
   }
 
-  /* Open only: fullscreen centered panel */
-  .w-nav-overlay .nav-menu,
-  .nav-menu[data-nav-menu-open] {
+  /* Open panel inside overlay */
+  .w-nav-overlay .nav-menu {
     background-color: transparent !important;
     border: none !important;
     max-height: none !important;
@@ -17597,8 +17598,7 @@ figure {
     overflow: auto;
   }
 
-  .w-nav-overlay .nav-menu-link,
-  .nav-menu[data-nav-menu-open] .nav-menu-link {
+  .w-nav-overlay .nav-menu-link {
     font-size: 1.5rem !important;
     line-height: 1.35 !important;
     margin-bottom: 0 !important;
@@ -17609,8 +17609,7 @@ figure {
   }
 
   /* Same primary-button chrome as desktop nav — layout only */
-  .w-nav-overlay .nav-menu-cta,
-  .nav-menu[data-nav-menu-open] .nav-menu-cta {
+  .w-nav-overlay .nav-menu-cta {
     display: block;
     width: min(100%, 18rem);
     margin-top: 1.5rem;
