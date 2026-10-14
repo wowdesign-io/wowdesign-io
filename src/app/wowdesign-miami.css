@@ -17575,12 +17575,11 @@ figure {
     width: 100% !important;
     height: 100dvh !important;
     max-height: 100dvh !important;
-    /* Same brand radials as 404 / CTA — blue + purple lights on ink */
+    /* Soft corner lights only — match 404 restraint, not a full wash */
     background-color: #05040b;
     background-image:
-      radial-gradient(circle at 0% 0%, var(--radial-primary), transparent 42%),
-      radial-gradient(circle farthest-corner at 100% 100%, var(--radial-secondary), transparent 58%),
-      radial-gradient(circle at 50% 110%, #2e77fa55, transparent 45%);
+      radial-gradient(circle at 0% 0%, #2e77fa40, transparent 28%),
+      radial-gradient(circle at 100% 100%, #a044ff28, transparent 32%);
     z-index: 55;
     overflow: hidden;
   }
