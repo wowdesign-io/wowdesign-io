@@ -17527,4 +17527,101 @@ figure {
   }
 }
 
+/* —— Mobile nav: fullscreen centered (webflow-mobile-defaults.md §1) —— */
+.nav-toggle-icon {
+  color: #fff;
+  display: block;
+  pointer-events: none;
+}
+
+.menu-button .nav-toggle-icon.is-close {
+  display: none;
+}
+
+.menu-button.w--open .nav-toggle-icon.is-list {
+  display: none;
+}
+
+.menu-button.w--open .nav-toggle-icon.is-close {
+  display: block;
+}
+
+.nav-menu-cta {
+  display: none;
+}
+
+@media screen and (max-width: 991px) {
+  .navbar {
+    z-index: 60;
+  }
+
+  .menu-button {
+    z-index: 61;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .w-nav-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 100dvh !important;
+    background-color: #05040b;
+    z-index: 55;
+  }
+
+  .nav-menu,
+  .w-nav-overlay .nav-menu {
+    background-color: transparent !important;
+    border: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 5rem 20px !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 0.35rem;
+    overflow: auto;
+  }
+
+  .nav-menu-link {
+    font-size: 1.5rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 0 !important;
+    padding: 0.7rem 1rem !important;
+    width: 100%;
+    max-width: 18rem;
+    text-align: center;
+  }
+
+  .nav-menu-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 18rem);
+    margin-top: 1.5rem;
+    padding: 0.95rem 1.25rem;
+    background-color: var(--primary);
+    color: #fff;
+    font-family: Outfit, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-menu-cta:hover {
+    opacity: 0.9;
+    color: #fff;
+  }
+}
+
 
