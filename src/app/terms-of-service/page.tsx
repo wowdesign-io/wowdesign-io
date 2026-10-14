@@ -1,6 +1,8 @@
 import Script from 'next/script'
 
 import type { Metadata } from 'next'
+import NavMenuToggle from '@/components/NavMenuToggle'
+import NavMenuCta from '@/components/NavMenuCta'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
@@ -32,6 +34,7 @@ export default function TermsOfServicePage() {
             <a href="/how-it-works" className="nav-menu-link w-nav-link">How it works</a>
             <a href="/about" className="nav-menu-link w-nav-link">about</a>
             <a data-cta="Nav - Calc" href="/carry-cost-calculator" className="nav-menu-link w-nav-link">Carry Cost Calc</a>
+            <NavMenuCta />
           </nav>
           <div className="navbar-button-wrapper">
             <div className="primary-button-wrapper desktop">
@@ -63,9 +66,7 @@ export default function TermsOfServicePage() {
                 </div>
               </a>
             </div>
-            <div className="menu-button w-nav-button">
-              <div data-is-ix2-target="1" className="hamburger-menu-icon" data-w-id="b58e0106-6be1-80f9-2e9e-29cc3a30b8aa" data-animation-type="lottie" data-src="https://uploads-ssl.webflow.com/64d728cd40ba078bc56626e6/64d728cd40ba078bc566288f_Hamburger%20menu.lottie" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-duration="0" data-loading="eager" data-ix2-initial-state="0"></div>
-            </div>
+            <NavMenuToggle />
           </div>
         </div>
       </div>
