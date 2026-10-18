@@ -63,7 +63,8 @@ export default function Page() {
       </p>
       <p>
         Three extra months of interest on a $12M loan at 8% is $240,000 before ads. See{' '}
-        <a href="/insights/construction-loan-extra-month">how to run that month</a>. The presale line is why lenders care: qualifying presales prove demand and reduce the chance they are financing unsold inventory. Faster qualifying contracts move the draw. The calculator is the month on your loan, not a slogan.
+        <a href="/insights/construction-loan-extra-month">how to run that month</a>. See{' '}
+        <a href="/insights/why-construction-lenders-care-about-presales">why construction lenders care about presales</a> — qualifying contracts prove demand and reduce the chance they are financing unsold inventory. Faster qualifying contracts move the draw. The calculator is the month on your loan, not a slogan.
       </p>
     </InsightsArticle>
   )
