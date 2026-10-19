@@ -254,7 +254,7 @@ export default function BrandGuide() {
           id="basics"
           kicker="Identity"
           title="Brand basics"
-          lead="Voice stays plain and human. Lead with money and months for developers. Say Sell Out Faster. Say your sales team. No dashes in public copy."
+          lead="Voice stays plain and human. Lead with money and months for developers. Say Sell Out Faster. Say your sales team. No dashes in published copy."
         >
           <div className="sg-grid sg-grid-2">
             <div className="sg-card">
@@ -266,7 +266,7 @@ export default function BrandGuide() {
                 <li>Audience is the boutique developer, not their unit buyer.</li>
                 <li>Always say sales team, never team alone.</li>
                 <li>No em dashes or pause hyphens in published copy.</li>
-                <li>Do not name third party pricing tools on this site.</li>
+                <li>Do not name competing pricing tools in brand copy.</li>
               </ul>
             </div>
             <div className="sg-card">
@@ -294,7 +294,7 @@ export default function BrandGuide() {
           id="color"
           kicker="Tokens"
           title="Color"
-          lead="Live UI reads these CSS variables. Swatches below mirror wowdesign-miami.css and globals.css. Body text uses --paragraph on --dark-bg."
+          lead="Use these CSS variables. Body text uses --paragraph on --dark-bg."
         >
           <div className="sg-dl-row" style={{ marginBottom: '1.5rem' }}>
             <DownloadLink href="/brand/tokens/tokens.json" label="JSON" />
@@ -381,7 +381,7 @@ export default function BrandGuide() {
           id="spacing"
           kicker="Layout"
           title="Spacing and layout"
-          lead="Webflow section paddings and containers drive the rhythm. Prefer existing padding-section-* classes."
+          lead="Section padding and container widths set the page rhythm."
         >
           <div className="sg-grid sg-grid-3">
             <div className="sg-card">
@@ -420,7 +420,7 @@ export default function BrandGuide() {
             ))}
           </ul>
           <p className="sg-lead">
-            Containers use Relume width utilities (.container, .container-large, .max-width-*). Grid gaps often sit at 16px via .w-layout-grid.
+            Main content width uses .container. Grid gaps are usually 16px.
           </p>
         </Section>
 
@@ -428,7 +428,7 @@ export default function BrandGuide() {
           id="effects"
           kicker="Signature"
           title="Effects"
-          lead="Sky glows, glass, corner marks, gradient text, and calm motion. Decorative sky sits behind content with pointer-events none."
+          lead="Sky glows, glass, corner marks, gradient text, and calm motion. Decorative sky sits behind content and never blocks clicks."
         >
           <div className="sg-grid sg-grid-2">
             <div>
@@ -462,14 +462,13 @@ export default function BrandGuide() {
               <div className="sg-sky-demo">
                 <SkyGlow />
               </div>
-              <CopyChip value="SkyGlow · .sky-container" />
+              <CopyChip value=".sky-container" />
             </div>
             <div>
               <div className="tagline-container" style={{ marginBottom: '0.75rem' }}>
-                <div className="text-style-tagline">Mobile menu corners</div>
+                <div className="text-style-tagline">Corner glow · mobile</div>
               </div>
               <div className="sg-sky-demo is-mobile-corners" />
-              <CopyChip value=".w-nav-overlay corner radials" />
               <div className="sg-dl-row">
                 <DownloadLink href="/brand/sky/sky-mobile-corners-16x9.png" label="Corner PNG 16:9" />
               </div>
@@ -516,27 +515,25 @@ export default function BrandGuide() {
           id="atoms"
           kicker="UI atoms"
           title="Atoms"
-          lead="Buttons, chips, inputs, links. Nav keeps primary-button. Body CTAs use InnerButton."
+          lead="Buttons, chips, inputs, and links. Nav uses the outlined primary button. Body CTAs use the solid blue button."
         >
           <div className="sg-grid sg-grid-2">
             <div className="sg-card">
               <div className="tagline-container" style={{ marginBottom: '1rem' }}>
-                <div className="text-style-tagline">InnerButton primary</div>
+                <div className="text-style-tagline">Primary CTA</div>
               </div>
               <InnerButton href="#downloads" label="Primary CTA" />
-              <CopyChip value="InnerButton variant=primary" />
             </div>
             <div className="sg-card">
               <div className="tagline-container" style={{ marginBottom: '1rem' }}>
-                <div className="text-style-tagline">InnerButton secondary</div>
+                <div className="text-style-tagline">Secondary CTA</div>
               </div>
               <InnerButton href="#downloads" label="Secondary CTA" variant="secondary" />
-              <CopyChip value="InnerButton variant=secondary" />
             </div>
           </div>
           <div className="sg-card" style={{ marginTop: '1.25rem' }}>
             <div className="tagline-container" style={{ marginBottom: '1rem' }}>
-              <div className="text-style-tagline">Nav primary-button</div>
+              <div className="text-style-tagline">Nav button</div>
             </div>
             <div className="primary-button-wrapper">
               <a href="/book-a-demo" className="primary-button w-inline-block">
@@ -569,14 +566,13 @@ export default function BrandGuide() {
                 </div>
               </a>
             </div>
-            <CopyChip value=".primary-button" />
           </div>
           <div className="sg-card sg-form-demo" style={{ marginTop: '1.25rem' }}>
             <div className="tagline-container" style={{ marginBottom: '1rem' }}>
               <div className="text-style-tagline">Inputs</div>
             </div>
             <input className="footer-form-input-field w-input" placeholder="Email" type="email" readOnly />
-            <p className="sg-lead">Reuse footer and contact form field classes. Hard edges, dark fill, hairline border.</p>
+            <p className="sg-lead">Hard edges, dark fill, hairline border.</p>
             <div className="sg-inline-links">
               <a href="mailto:info@wowdesign.io">Text link example</a>
               <span style={{ color: 'var(--light-border)' }}>|</span>
@@ -589,14 +585,14 @@ export default function BrandGuide() {
           id="molecules"
           kicker="Composed"
           title="Molecules and organisms"
-          lead="Live miami shells. Features and CTA glass sit on a ::before layer (surface-30 + blur 5px) so Features-Card-Shape corners stay sharp. SkyGlow behind the row makes the frost read."
+          lead="Composed cards and sections. Glass uses --surface-30 with blur 5px. Corner marks sit outside the frost so they stay sharp. Sky glow behind the row makes the glass read."
         >
           <div className="sg-molecule-label">
             <div className="tagline-container">
-              <div className="text-style-tagline">Features row · features-flex</div>
+              <div className="text-style-tagline">Features row</div>
             </div>
             <p className="sg-lead" style={{ marginBottom: '1rem' }}>
-              Same organism as homepage Features: SkyGlow in the row, glass typography card, four L-marks, media beside it.
+              Glass typography card, four corner marks, media beside it, sky glow behind the row.
             </p>
           </div>
           <section className="section features sg-features-demo" aria-label="Features card demo">
@@ -614,7 +610,7 @@ export default function BrandGuide() {
                       <div className="features-title-description">
                         <h3 className="features-title">Glass panel with corner marks.</h3>
                         <p className="features-description-text">
-                          Transparent card, frosted ::before, hairline border, four Features-Card-Shape SVGs. Matches Interactive Digital Twin and the rest of Features.
+                          Frosted glass panel, hairline border, and four corner marks. Use this shell next to product media.
                         </p>
                       </div>
                     </div>
@@ -652,16 +648,14 @@ export default function BrandGuide() {
               </div>
             </div>
           </section>
-          <CopyChip value=".section.features · .features-flex · ::before glass" />
-
           <div className="sg-molecule-stage" style={{ marginTop: '2.5rem' }}>
             <SkyGlow />
             <div className="sg-molecule-label">
               <div className="tagline-container">
-                <div className="text-style-tagline">Glass process card · layout237_item</div>
+                <div className="text-style-tagline">Glass process card</div>
               </div>
               <p className="sg-lead" style={{ marginBottom: '1rem' }}>
-                --surface-30 · blur 5px · border --light-border · shadow · two L-marks
+                --surface-30 · blur 5px · light border · soft shadow · two corner marks
               </p>
             </div>
             <div className="sg-molecule-glass-row">
@@ -671,7 +665,7 @@ export default function BrandGuide() {
                   <h3 className="heading-style-h6">Frosted glass card</h3>
                 </div>
                 <p>
-                  How it works process cards. Corner SVGs sit outside the blur so marks stay sharp.
+                  Process cards. Corner marks sit outside the blur so they stay sharp.
                 </p>
                 <img
                   src="/images/Features-Card-Shape-Top-Left.svg"
@@ -690,7 +684,7 @@ export default function BrandGuide() {
                   <h3 className="heading-style-h6">Sky makes glass visible</h3>
                 </div>
                 <p>
-                  Without glow behind content, frost reads as a flat dark panel. Stage cards over SkyGlow.
+                  Without glow behind content, frost reads as a flat dark panel. Stage cards over sky.
                 </p>
                 <img
                   src="/images/Features-Card-Shape-Top-Left.svg"
@@ -704,14 +698,12 @@ export default function BrandGuide() {
                 />
               </div>
             </div>
-            <CopyChip value=".layout237_item · Features-Card-Shape" />
-
             <div className="sg-molecule-label" style={{ marginTop: '2.5rem' }}>
               <div className="tagline-container">
-                <div className="text-style-tagline">CTA organism · glass + four corners</div>
+                <div className="text-style-tagline">CTA · glass + four corners</div>
               </div>
               <p className="sg-lead" style={{ marginBottom: '1rem' }}>
-                Same ::before glass recipe as Features cards · .cta-*-element marks
+                Same glass recipe as Features cards, with four corner marks.
               </p>
             </div>
             <div className="cta-content sg-cta-demo">
@@ -719,7 +711,7 @@ export default function BrandGuide() {
                 <div className="cta-title-description">
                   <h2 className="cta-title">Glass CTA shell</h2>
                   <p className="cta-description-text">
-                    PageCta pattern: frosted panel, four L-marks, sky behind.
+                    Frosted panel, four corner marks, sky behind.
                   </p>
                 </div>
                 <div className="cta-button-wrapper">
@@ -749,15 +741,14 @@ export default function BrandGuide() {
                 className="cta-bottom-right-element"
               />
             </div>
-            <CopyChip value=".cta-content · .cta-*-element · SkyGlow" />
           </div>
 
           <div className="sg-molecule-label" style={{ marginTop: '2.5rem' }}>
             <div className="tagline-container">
-              <div className="text-style-tagline">FAQ organism</div>
+              <div className="text-style-tagline">FAQ</div>
             </div>
             <p className="sg-lead" style={{ marginBottom: '1rem' }}>
-              FaqAccordion — same component as site FAQs.
+              Accordion pattern used across the site.
             </p>
           </div>
           <FaqAccordion items={FAQ_SAMPLE} />
