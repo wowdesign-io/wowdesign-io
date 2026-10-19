@@ -13,9 +13,12 @@ const NAV = [
 
 export default function SiteChrome({
   current = 'none',
+  bare = false,
   children,
 }: {
   current?: NavKey
+  /** Skip site nav and footer (partner surfaces like /brand). */
+  bare?: boolean
   children: ReactNode
 }) {
   return (
@@ -25,6 +28,7 @@ export default function SiteChrome({
         <div className="color-schemes w-embed"></div>
         <div className="custom-code w-embed w-script"></div>
       </div>
+      {!bare && (
       <div
         data-w-id="3af1c84f-ff74-c014-cb3b-40446b73b1e3"
         data-animation="default"
@@ -67,7 +71,9 @@ export default function SiteChrome({
                   <div className="primary-button-border-wrap">
                     <div className="primary-button-wrap">
                       <div className="primary-button-text">Book A Demo</div>
-                      <div className="primary-button-hover-text">Book A Demo</div>
+                      <div className="primary-button-hover-text" aria-hidden="true">
+                        Book A Demo
+                      </div>
                       <div className="primary-button-hover-bg"></div>
                     </div>
                   </div>
@@ -96,7 +102,9 @@ export default function SiteChrome({
           </div>
         </div>
       </div>
+      )}
       {children}
+      {!bare && (
       <section className="section footer">
         <div className="footer-container">
           <div className="footer-content">
@@ -288,6 +296,7 @@ export default function SiteChrome({
         </div>
         <div className="footer-bottom-line"></div>
       </section>
+      )}
     </div>
   )
 }

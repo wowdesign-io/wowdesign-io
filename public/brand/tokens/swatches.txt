@@ -1,0 +1,20 @@
+--dark-bg	#0b0f19	background	Page background
+--surface-bg	#151c2c	surfaces	Card surface
+--surface-30	#151c2c4d	surfaces	Glass card fill
+--surface-90	#151c2ce6	surfaces	Nav and hero glass
+--primary	#2d68ff	brand	Brand blue, CTAs, proof numbers
+--secondary	#a044ff	brand	Violet
+--tertiary	#eb32ab	accents	Magenta
+--tertiary-2	#ff2c55	accents	Red-pink
+--radial-primary	#2e77fa9e	accents	Radial glow blue
+--radial-secondary	#a044ff80	accents	Radial glow violet
+--light	#ffffff	text	White
+--white-74	#ffffffbd	text	Soft white
+--paragraph	#bebec1	text	Body text
+--grey	#94a3b8	text	Muted text, gradient end
+--light-border	#ffffff0f	borders	Hairline borders
+--border-card	#ffffff14	borders	Card borders
+--border-tagline	#fff3	borders	Tagline chips, primary CTA rim
+--dark	#000000	overlays	Black
+--dark-50	#00000080	overlays	Shadows
+--dark-60	#0009	overlays	Overlays
