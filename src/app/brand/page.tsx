@@ -37,9 +37,9 @@ export default function BrandPage() {
           ctaData="Brand - Downloads"
           timeline={
             <>
-              Shareable by direct link.
+              Partner surface · noindex.
               <br />
-              Not linked in the main nav yet.
+              Share by direct link only.
             </>
           }
           taglineIcon={paletteIcon}

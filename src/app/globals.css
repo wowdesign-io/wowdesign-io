@@ -376,6 +376,51 @@ html.wwd-first.wwd-ready #wwd-page-loader {
   }
 }
 
+/* Button hover — same motion as Webflow IX2 (outQuart 500ms label slide).
+   Nav `.primary-button` IX2 is ELEMENT-bound to one data-w-id, so demos and
+   any extra primary-button need CSS. `.inner-button` is CLASS-bound; keep
+   transforms aligned with IX2 and avoid !important so they do not fight. */
+.primary-button-hover-bg {
+  z-index: -1;
+  background-color: var(--primary);
+  opacity: 0;
+  position: absolute;
+  inset: 0%;
+  transition: opacity 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.primary-button-text,
+.inner-button-text {
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.primary-button-hover-text,
+.inner-button-hover-text {
+  transform: translate3d(0, 200%, 0);
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.primary-button:is(:hover, :focus-visible) .primary-button-text,
+.inner-button:is(:hover, :focus-visible) .inner-button-text {
+  transform: translate3d(0, -200%, 0);
+}
+
+.primary-button:is(:hover, :focus-visible) .primary-button-hover-text,
+.inner-button:is(:hover, :focus-visible) .inner-button-hover-text {
+  transform: translate3d(0, 0, 0);
+}
+
+.primary-button:is(:hover, :focus-visible) .primary-button-hover-bg,
+.inner-button:is(:hover, :focus-visible) .inner-button-hover-bg {
+  opacity: 1;
+}
+
 /* Body InnerButton only (inner-button). Nav Book A Demo stays primary-button — do not target it. */
 .inner-button.is-primary .inner-button-wrap.is-primary {
   background-color: var(--primary);

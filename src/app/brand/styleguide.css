@@ -5,15 +5,6 @@
   color: var(--paragraph);
 }
 
-/* Nav/body button hover layers are normally driven by Webflow IX2.
-   On this page those interactions do not run, so both labels stack. Hide the
-   hover copy at rest so the demo reads as one label. */
-.sg-page .primary-button-hover-text,
-.sg-page .inner-button-hover-text {
-  opacity: 0;
-  pointer-events: none;
-}
-
 .sg-toc {
   display: flex;
   flex-wrap: wrap;
@@ -123,6 +114,14 @@
   min-width: 0;
   max-width: 100%;
   overflow: hidden;
+}
+
+/* Gradient-clipped sample: room for descenders (g, commas) inside overflow:hidden cards. */
+.sg-gradient-sample {
+  font-size: 2rem;
+  margin: 0.75rem 0 0;
+  line-height: 1.35;
+  padding-bottom: 0.2em;
 }
 
 .sg-card-solid {
@@ -351,12 +350,24 @@
     radial-gradient(circle at 100% 100%, #a044ff28, transparent 32%);
 }
 
+/* Solo demos: center the visible orb. Live CSS parks each circle to one side
+   because they always appear as a centered pair. */
 .sg-sky-demo.is-primary-only .secondary-sky-circle {
   display: none;
 }
 
+.sg-sky-demo.is-primary-only .primary-sky-circle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .sg-sky-demo.is-secondary-only .primary-sky-circle {
   display: none;
+}
+
+.sg-sky-demo.is-secondary-only .secondary-sky-circle {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .sg-corner-demo {
@@ -500,4 +511,88 @@
   height: auto;
   margin: 0 auto;
   display: block;
+}
+
+.sg-molecule-label {
+  margin-bottom: 0.25rem;
+}
+
+.sg-molecule-stage {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 1.25rem 2.5rem;
+  border: 1px solid var(--light-border);
+  background: var(--dark-bg);
+}
+
+.sg-molecule-stage > .sky-container {
+  z-index: 0;
+  pointer-events: none;
+}
+
+.sg-molecule-stage > *:not(.sky-container) {
+  position: relative;
+  z-index: 1;
+}
+
+.sg-molecule-glass-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.sg-molecule-glass-row .layout237_item {
+  margin: 0;
+}
+
+/* Compact Features organism demo — keep live .section.features glass rules */
+.sg-features-demo.section.features {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0 -15px 0.75rem;
+}
+
+.sg-features-demo .features-typography-card {
+  min-height: 0;
+  max-width: none;
+  flex: 1 1 50%;
+}
+
+.sg-features-demo .features-card-image-wrapper {
+  flex: 1 1 50%;
+  min-height: 0;
+  max-width: none;
+}
+
+.sg-features-demo .feature-card.is-img {
+  opacity: 1 !important;
+}
+
+.sg-features-demo .feature-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sg-cta-demo {
+  padding: 3rem 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.sg-cta-demo .cta-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.2;
+}
+
+@media screen and (max-width: 991px) {
+  .sg-features-demo .features-flex {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sg-molecule-glass-row {
+    grid-template-columns: 1fr;
+  }
 }

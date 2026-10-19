@@ -87,36 +87,102 @@ function hexToRgba(hex) {
   return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255, a }
 }
 
+/**
+ * Soft gaussian orbs in float → Floyd–Steinberg into 8-bit at final size.
+ * (SVG blur and “dither then downscale” both leave contour rings on dark navy.)
+ */
 async function skyPng(name, width, height, mode) {
-  const bg = '#0b0f19'
+  const bg = hexToRgba('#0b0f19')
   const primary = hexToRgba('#2d68ff')
   const secondary = hexToRgba('#a044ff')
-  const softBlue = hexToRgba('#2e77fa40')
-  const softViolet = hexToRgba('#a044ff28')
+  const softBlue = hexToRgba('#2e77fa')
+  const softViolet = hexToRgba('#a044ff')
 
-  const blobs = []
-  if (mode === 'primary' || mode === 'combined') {
-    blobs.push(`<circle cx="${width * 0.32}" cy="${height * 0.45}" r="${Math.min(width, height) * 0.38}" fill="rgba(${primary.r},${primary.g},${primary.b},0.35)" filter="url(#b)"/>`)
-  }
-  if (mode === 'secondary' || mode === 'combined') {
-    blobs.push(`<circle cx="${width * 0.68}" cy="${height * 0.55}" r="${Math.min(width, height) * 0.38}" fill="rgba(${secondary.r},${secondary.g},${secondary.b},0.35)" filter="url(#b)"/>`)
-  }
-  if (mode === 'mobile-corners') {
-    blobs.push(
-      `<circle cx="0" cy="0" r="${Math.min(width, height) * 0.55}" fill="rgba(${softBlue.r},${softBlue.g},${softBlue.b},${softBlue.a})" filter="url(#b)"/>`,
-      `<circle cx="${width}" cy="${height}" r="${Math.min(width, height) * 0.55}" fill="rgba(${softViolet.r},${softViolet.g},${softViolet.b},${softViolet.a})" filter="url(#b)"/>`,
+  const sigma = Math.min(width, height) * 0.3
+  const peak = 0.42
+  const cy = height * 0.5
+  /** @type {{ cx: number, cy: number, sigma: number, color: {r:number,g:number,b:number}, peak: number }[]} */
+  const orbs = []
+
+  if (mode === 'primary') {
+    orbs.push({ cx: width * 0.5, cy, sigma, color: primary, peak })
+  } else if (mode === 'secondary') {
+    orbs.push({ cx: width * 0.5, cy, sigma, color: secondary, peak })
+  } else if (mode === 'combined') {
+    const spread = Math.min(width, height) * 0.22
+    orbs.push(
+      { cx: width * 0.5 - spread, cy, sigma, color: primary, peak },
+      { cx: width * 0.5 + spread, cy, sigma, color: secondary, peak },
+    )
+  } else if (mode === 'mobile-corners') {
+    const cornerSigma = Math.min(width, height) * 0.45
+    orbs.push(
+      { cx: 0, cy: 0, sigma: cornerSigma, color: softBlue, peak: 0.28 },
+      { cx: width, cy: height, sigma: cornerSigma, color: softViolet, peak: 0.22 },
     )
   }
 
-  const svg = `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
-  <defs><filter id="b"><feGaussianBlur stdDeviation="${Math.round(Math.min(width, height) * 0.12)}"/></filter></defs>
-  <rect width="100%" height="100%" fill="${bg}"/>
-  ${blobs.join('\n  ')}
-</svg>`
+  const fr = new Float32Array(width * height)
+  const fg = new Float32Array(width * height)
+  const fb = new Float32Array(width * height)
+  const invTwoSig2 = orbs.map((o) => 1 / (2 * o.sigma * o.sigma))
+
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      let r = bg.r
+      let g = bg.g
+      let b = bg.b
+      const px = x + 0.5
+      const py = y + 0.5
+      for (let oi = 0; oi < orbs.length; oi++) {
+        const orb = orbs[oi]
+        const dx = px - orb.cx
+        const dy = py - orb.cy
+        const weight = orb.peak * Math.exp(-(dx * dx + dy * dy) * invTwoSig2[oi])
+        r += (orb.color.r - bg.r) * weight
+        g += (orb.color.g - bg.g) * weight
+        b += (orb.color.b - bg.b) * weight
+      }
+      const p = y * width + x
+      fr[p] = r
+      fg[p] = g
+      fb[p] = b
+    }
+  }
+
+  const buf = Buffer.alloc(width * height * 4)
+  const clamp255 = (v) => (v < 0 ? 0 : v > 255 ? 255 : v)
+  const diffuse = (arr, x, y, err) => {
+    if (x + 1 < width) arr[y * width + (x + 1)] += (err * 7) / 16
+    if (y + 1 < height) {
+      if (x > 0) arr[(y + 1) * width + (x - 1)] += (err * 3) / 16
+      arr[(y + 1) * width + x] += (err * 5) / 16
+      if (x + 1 < width) arr[(y + 1) * width + (x + 1)] += err / 16
+    }
+  }
+
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const p = y * width + x
+      const oldR = fr[p]
+      const oldG = fg[p]
+      const oldB = fb[p]
+      const newR = Math.round(clamp255(oldR))
+      const newG = Math.round(clamp255(oldG))
+      const newB = Math.round(clamp255(oldB))
+      diffuse(fr, x, y, oldR - newR)
+      diffuse(fg, x, y, oldG - newG)
+      diffuse(fb, x, y, oldB - newB)
+      const i = p * 4
+      buf[i] = newR
+      buf[i + 1] = newG
+      buf[i + 2] = newB
+      buf[i + 3] = 255
+    }
+  }
 
   const out = path.join(skyDir, name)
-  await sharp(Buffer.from(svg)).png().toFile(out)
+  await sharp(buf, { raw: { width, height, channels: 4 } }).png().toFile(out)
   console.log('sky', name)
 }
 
