@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/hero-lab', '/api/'],
+        disallow: ['/hero-lab', '/brand', '/api/'],
       },
       { userAgent: 'GPTBot', allow: '/' },
       { userAgent: 'OAI-SearchBot', allow: '/' },

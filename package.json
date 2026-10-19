@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prepare-brand": "node scripts/prepare-brand-assets.mjs"
   },
   "dependencies": {
     "@babel/runtime": "^8.0.0",
