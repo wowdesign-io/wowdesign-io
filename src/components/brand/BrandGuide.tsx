@@ -336,7 +336,7 @@ export default function BrandGuide() {
           id="type"
           kicker="Type ramp"
           title="Typography"
-          lead="Outfit for headings. Inter for body. Gradient fill on section titles and several heading-style classes."
+          lead="Outfit for headings. Inter for body and UI."
         >
           <div className="sg-type-row">
             <div className="sg-type-meta">h1 · 80/90 · 500 · -3.2px</div>
@@ -362,46 +362,20 @@ export default function BrandGuide() {
             <div className="sg-type-meta">h6 · 22/32</div>
             <h6>Automated follow up.</h6>
           </div>
-
-          <div style={{ marginTop: '2rem' }}>
-            <div className="tagline-container" style={{ marginBottom: '0.75rem' }}>
-              <div className="text-style-tagline">Class names</div>
-            </div>
-            <h2 className="section-title">.section-title gradient</h2>
-            <h2 className="heading-style-h2" style={{ marginTop: '1rem' }}>
-              .heading-style-h2
-            </h2>
-            <h4 className="heading-style-h4" style={{ marginTop: '0.75rem' }}>
-              .heading-style-h4
-            </h4>
-            <h5 className="heading-style-h5" style={{ marginTop: '0.75rem' }}>
-              .heading-style-h5
-            </h5>
-          </div>
-
-          <div className="sg-card" style={{ marginTop: '2rem' }}>
-            <p className="sg-lead" style={{ marginTop: 0 }}>
-              Body / .paragraph uses Inter and --paragraph. Uppercase labels use .text-style-tagline inside .tagline-container.
+          <div className="sg-type-row">
+            <div className="sg-type-meta">p</div>
+            <p>
+              Your sales team only calls people who are ready. Body copy uses Inter and --paragraph on --dark-bg.
             </p>
-            <div className="tagline-container" style={{ marginTop: '1rem' }}>
-              <div className="text-style-tagline">Tagline chip</div>
-            </div>
-            <div className="hero-proof sg-proof-live">
-              <div className="hero-proof-item">
-                <span className="hero-proof-num">$67k to $100k</span>
-                <span>extra month</span>
-              </div>
-              <div className="hero-proof-item">
-                <span className="hero-proof-num">$400k+</span>
-                <span>kept</span>
-              </div>
-            </div>
-            <p className="sg-lead" style={{ fontSize: '0.85rem' }}>
-              Hero headline on the home card is 4.4rem, tracking -0.02em. Proof strip is Inter 0.8rem uppercase, 0.05em tracking. Numbers are Outfit 500 in --primary.
+          </div>
+          <div className="sg-type-row">
+            <div className="sg-type-meta">a</div>
+            <p>
+              <a href="mailto:info@wowdesign.io">info@wowdesign.io</a>
             </p>
           </div>
           <div className="sg-note">
-            Mobile: h1 drops to 72px / 82px at max-width 991px. Section paddings step down from 7rem toward 100px, 80px, and 60px across breakpoints. Check live CSS for exact section rules.
+            Mobile: h1 drops to 72px / 82px at max-width 991px. Hero proof numbers stay Outfit 500 in --primary.
           </div>
         </Section>
 
