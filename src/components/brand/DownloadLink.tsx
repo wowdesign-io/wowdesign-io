@@ -1,17 +1,29 @@
-/** Static download link styled like InnerButton primary. */
+/** Static download link. Full = InnerButton primary. Compact = chip for tight rows. */
 export default function DownloadLink({
   href,
   label,
   fileName,
+  compact = false,
 }: {
   href: string
   label: string
   fileName?: string
+  compact?: boolean
 }) {
+  const downloadName = fileName || href.split('/').pop() || 'download'
+
+  if (compact) {
+    return (
+      <a href={href} download={downloadName} className="sg-dl-chip">
+        {label}
+      </a>
+    )
+  }
+
   return (
     <a
       href={href}
-      download={fileName || href.split('/').pop() || 'download'}
+      download={downloadName}
       className="inner-button is-primary w-inline-block sg-download-btn"
     >
       <div className="primary-button-border-wrap is-primary">

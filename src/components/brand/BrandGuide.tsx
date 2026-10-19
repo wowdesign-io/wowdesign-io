@@ -239,11 +239,13 @@ export default function BrandGuide() {
             ].map(([label, slug]) => (
               <div key={slug} className="sg-card sg-card-solid">
                 <img src={`/brand/sky/${slug}-16x9.png`} alt="" style={{ width: '100%', display: 'block', marginBottom: '0.75rem' }} />
-                <strong style={{ color: 'var(--light)' }}>{label}</strong>
-                <div className="sg-dl-row">
-                  <DownloadLink href={`/brand/sky/${slug}-16x9.png`} label="16:9" />
-                  <DownloadLink href={`/brand/sky/${slug}-9x16.png`} label="9:16" />
-                  <DownloadLink href={`/brand/sky/${slug}-1x1.png`} label="1:1" />
+                <div className="sg-sky-meta">
+                  <strong>{label}</strong>
+                  <div className="sg-dl-row is-ratios">
+                    <DownloadLink href={`/brand/sky/${slug}-16x9.png`} label="16:9" compact />
+                    <DownloadLink href={`/brand/sky/${slug}-9x16.png`} label="9:16" compact />
+                    <DownloadLink href={`/brand/sky/${slug}-1x1.png`} label="1:1" compact />
+                  </div>
                 </div>
               </div>
             ))}
