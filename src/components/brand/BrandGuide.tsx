@@ -90,8 +90,6 @@ export default function BrandGuide() {
           <a href="#effects">Effects</a>
           <a href="#atoms">Atoms</a>
           <a href="#molecules">Molecules</a>
-          <a href="#media">3D and media</a>
-          <a href="#motion">Motion and video</a>
         </nav>
 
         <Section
@@ -612,75 +610,6 @@ export default function BrandGuide() {
           <p className="sg-lead" style={{ marginTop: '1.5rem' }}>
             Also reference on the live site: PageHero, PageCta, SiteChrome nav and footer, ProblemSection, OfferSection, HowItWorksSection, FeaturesDeepDive, FounderStory, TeamMembers, ToolsIntegrations, SelvaShowcase, InsightsArticle.
           </p>
-        </Section>
-
-        <Section
-          id="media"
-          kicker="Product media"
-          title="3D and media"
-          lead="The hero tower lives under src/components/hero3d and shows on /hero-lab. SELVA phone screens stay framed dark and premium."
-        >
-          <div className="sg-do-dont">
-            <div className="sg-card sg-do">
-              <h4>Do</h4>
-              <ul style={{ margin: 0, paddingLeft: '1.1rem', color: 'var(--paragraph)', lineHeight: 1.5 }}>
-                <li>Dark premium base behind devices.</li>
-                <li>Sky glow lighting, not flat grey.</li>
-                <li>One idea per frame in reels.</li>
-                <li>Real product UI, not mock cartoons.</li>
-              </ul>
-            </div>
-            <div className="sg-card sg-dont">
-              <h4>Don&apos;t</h4>
-              <ul style={{ margin: 0, paddingLeft: '1.1rem', color: 'var(--paragraph)', lineHeight: 1.5 }}>
-                <li>Bright stock office photos as the hero.</li>
-                <li>Neon gradients on UI chrome.</li>
-                <li>Cartoon characters or mascots.</li>
-                <li>Busy type over a busy screen recording.</li>
-              </ul>
-            </div>
-          </div>
-          <div className="sg-media-frame" style={{ marginTop: '1.25rem' }}>
-            <p style={{ color: 'var(--grey)', marginBottom: '1rem' }}>Device framing: keep bezels quiet, screens sharp, background --dark-bg with sky.</p>
-            <img src="/brand/sky/sky-combined-1x1.png" alt="" style={{ maxWidth: 280, opacity: 0.9 }} />
-          </div>
-        </Section>
-
-        <Section
-          id="motion"
-          kicker="Partners"
-          title="Motion and video"
-          lead="Rules for LinkedIn and Instagram reels, and any homepage film. Dark premium base. Restrained color. Sky glow lighting. Outfit headlines. Captions for viewers on mute."
-        >
-          <div className="sg-grid sg-grid-2">
-            <div className="sg-card">
-              <h3 className="heading-style-h5" style={{ marginTop: 0 }}>
-                Look
-              </h3>
-              <ul style={{ margin: '0.5rem 0 0', paddingLeft: '1.1rem', lineHeight: 1.55 }}>
-                <li>Base: --dark-bg ink.</li>
-                <li>Light: primary and secondary sky only.</li>
-                <li>Type: Outfit for titles, Inter for lower thirds.</li>
-                <li>Accent: solid --primary, never a rainbow UI.</li>
-              </ul>
-            </div>
-            <div className="sg-card">
-              <h3 className="heading-style-h5" style={{ marginTop: 0 }}>
-                Edit
-              </h3>
-              <ul style={{ margin: '0.5rem 0 0', paddingLeft: '1.1rem', lineHeight: 1.55 }}>
-                <li>One idea per frame.</li>
-                <li>Money or the buyer scene in the first seconds.</li>
-                <li>Burned captions for mute viewing.</li>
-                <li>Nothing cartoonish. Nothing loud for its own sake.</li>
-              </ul>
-            </div>
-          </div>
-          <div className="sg-dl-row" style={{ marginTop: '1.25rem' }}>
-            <DownloadLink href="/brand/sky/sky-combined-9x16.png" label="Vertical sky 9:16" />
-            <DownloadLink href="/brand/sky/sky-combined-16x9.png" label="Wide sky 16:9" />
-            <DownloadLink href="/brand/wowdesign-brand-kit.zip" label="Full brand kit" />
-          </div>
         </Section>
       </div>
     </div>
