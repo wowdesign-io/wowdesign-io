@@ -504,7 +504,7 @@ export default function BrandGuide() {
             </div>
             <div className="sg-card">
               <strong style={{ color: 'var(--light)' }}>Gradient text</strong>
-              <p className="section-title" style={{ fontSize: '2rem', marginTop: '0.75rem' }}>
+              <p className="section-title sg-gradient-sample">
                 linear-gradient(125deg, #fff 40%, #999 70%)
               </p>
               <CopyChip value="linear-gradient(125deg, #fff 40%, #999 70%)" />
@@ -543,7 +543,9 @@ export default function BrandGuide() {
                 <div className="primary-button-border-wrap">
                   <div className="primary-button-wrap">
                     <div className="primary-button-text">Book A Demo</div>
-                    <div className="primary-button-hover-text">Book A Demo</div>
+                    <div className="primary-button-hover-text" aria-hidden="true">
+                      Book A Demo
+                    </div>
                     <div className="primary-button-hover-bg"></div>
                   </div>
                 </div>
@@ -587,29 +589,178 @@ export default function BrandGuide() {
           id="molecules"
           kicker="Composed"
           title="Molecules and organisms"
-          lead="Compose from existing miami.css classes. Cards, CTA, FAQ, proof strip, nav, and footer already live on the site."
+          lead="Live miami shells. Features and CTA glass sit on a ::before layer (surface-30 + blur 5px) so Features-Card-Shape corners stay sharp. SkyGlow behind the row makes the frost read."
         >
-          <div className="features-typography-card" style={{ marginBottom: '1.5rem' }}>
-            <div className="features-typography-card-single">
-              <div className="features-subtitle-wrapper">
-                <div className="tagline-container">
-                  <div className="text-style-tagline">Features card</div>
+          <div className="sg-molecule-label">
+            <div className="tagline-container">
+              <div className="text-style-tagline">Features row · features-flex</div>
+            </div>
+            <p className="sg-lead" style={{ marginBottom: '1rem' }}>
+              Same organism as homepage Features: SkyGlow in the row, glass typography card, four L-marks, media beside it.
+            </p>
+          </div>
+          <section className="section features sg-features-demo" aria-label="Features card demo">
+            <div className="container">
+              <div className="features-content">
+                <div className="features-flex">
+                  <SkyGlow />
+                  <div className="features-typography-card top-border-none">
+                    <div className="features-typography-card-single">
+                      <div className="features-subtitle-wrapper">
+                        <div className="tagline-container">
+                          <div className="text-style-tagline">Features card</div>
+                        </div>
+                      </div>
+                      <div className="features-title-description">
+                        <h3 className="features-title">Glass panel with corner marks.</h3>
+                        <p className="features-description-text">
+                          Transparent card, frosted ::before, hairline border, four Features-Card-Shape SVGs. Matches Interactive Digital Twin and the rest of Features.
+                        </p>
+                      </div>
+                    </div>
+                    <img
+                      src="/images/Features-Card-Shape-Top-Left.svg"
+                      alt=""
+                      className="features-typography-card-shape top-left"
+                    />
+                    <img
+                      src="/images/Features-Card-Shape-Top-Right.svg"
+                      alt=""
+                      className="features-typography-card-shape top-right"
+                    />
+                    <img
+                      src="/images/Features-Card-Shape-Bottom-Left.svg"
+                      alt=""
+                      className="features-typography-card-shape bottom-left"
+                    />
+                    <img
+                      src="/images/Features-Card-Shape-Bottom-Right.svg"
+                      alt=""
+                      className="features-card-shape-bottom-right"
+                    />
+                  </div>
+                  <div className="features-card-image-wrapper is-img-right">
+                    <div className="feature-card is-img">
+                      <img
+                        src="/images/digital-twin-screenshot.avif"
+                        alt=""
+                        className="feature-image"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="features-title-description">
-                <h3 className="features-title">.features-typography-card</h3>
-                <p className="features-description-text">Live glass card used across Features, Insights, and How it works.</p>
+            </div>
+          </section>
+          <CopyChip value=".section.features · .features-flex · ::before glass" />
+
+          <div className="sg-molecule-stage" style={{ marginTop: '2.5rem' }}>
+            <SkyGlow />
+            <div className="sg-molecule-label">
+              <div className="tagline-container">
+                <div className="text-style-tagline">Glass process card · layout237_item</div>
+              </div>
+              <p className="sg-lead" style={{ marginBottom: '1rem' }}>
+                --surface-30 · blur 5px · border --light-border · shadow · two L-marks
+              </p>
+            </div>
+            <div className="sg-molecule-glass-row">
+              <div className="layout237_item">
+                <div className="margin-bottom margin-xsmall">
+                  <div className="text-style-tagline">Molecule</div>
+                  <h3 className="heading-style-h6">Frosted glass card</h3>
+                </div>
+                <p>
+                  How it works process cards. Corner SVGs sit outside the blur so marks stay sharp.
+                </p>
+                <img
+                  src="/images/Features-Card-Shape-Top-Left.svg"
+                  alt=""
+                  className="process-card-top-element"
+                />
+                <img
+                  src="/images/Features-Card-Shape-Bottom-Right.svg"
+                  alt=""
+                  className="process-card-bottom-element"
+                />
+              </div>
+              <div className="layout237_item">
+                <div className="margin-bottom margin-xsmall">
+                  <div className="text-style-tagline">Same shell</div>
+                  <h3 className="heading-style-h6">Sky makes glass visible</h3>
+                </div>
+                <p>
+                  Without glow behind content, frost reads as a flat dark panel. Stage cards over SkyGlow.
+                </p>
+                <img
+                  src="/images/Features-Card-Shape-Top-Left.svg"
+                  alt=""
+                  className="process-card-top-element"
+                />
+                <img
+                  src="/images/Features-Card-Shape-Bottom-Right.svg"
+                  alt=""
+                  className="process-card-bottom-element"
+                />
               </div>
             </div>
-            <img src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="features-typography-card-shape top-left" />
-            <img src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="features-typography-card-shape top-right" />
-            <img src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="features-typography-card-shape bottom-left" />
-            <img src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="features-card-shape-bottom-right" />
+            <CopyChip value=".layout237_item · Features-Card-Shape" />
+
+            <div className="sg-molecule-label" style={{ marginTop: '2.5rem' }}>
+              <div className="tagline-container">
+                <div className="text-style-tagline">CTA organism · glass + four corners</div>
+              </div>
+              <p className="sg-lead" style={{ marginBottom: '1rem' }}>
+                Same ::before glass recipe as Features cards · .cta-*-element marks
+              </p>
+            </div>
+            <div className="cta-content sg-cta-demo">
+              <div className="cta-typography">
+                <div className="cta-title-description">
+                  <h2 className="cta-title">Glass CTA shell</h2>
+                  <p className="cta-description-text">
+                    PageCta pattern: frosted panel, four L-marks, sky behind.
+                  </p>
+                </div>
+                <div className="cta-button-wrapper">
+                  <div className="primary-button-wrapper">
+                    <InnerButton href="#downloads" label="Jump to downloads" cta="Brand - Molecules CTA" />
+                  </div>
+                </div>
+              </div>
+              <img
+                src="/images/Features-Card-Shape-Top-Left.svg"
+                alt=""
+                className="cta-top-left-element"
+              />
+              <img
+                src="/images/Features-Card-Shape-Top-Right.svg"
+                alt=""
+                className="cta-top-right-element"
+              />
+              <img
+                src="/images/Features-Card-Shape-Bottom-Left.svg"
+                alt=""
+                className="cta-bottom-left-element"
+              />
+              <img
+                src="/images/Features-Card-Shape-Bottom-Right.svg"
+                alt=""
+                className="cta-bottom-right-element"
+              />
+            </div>
+            <CopyChip value=".cta-content · .cta-*-element · SkyGlow" />
+          </div>
+
+          <div className="sg-molecule-label" style={{ marginTop: '2.5rem' }}>
+            <div className="tagline-container">
+              <div className="text-style-tagline">FAQ organism</div>
+            </div>
+            <p className="sg-lead" style={{ marginBottom: '1rem' }}>
+              FaqAccordion — same component as site FAQs.
+            </p>
           </div>
           <FaqAccordion items={FAQ_SAMPLE} />
-          <p className="sg-lead" style={{ marginTop: '1.5rem' }}>
-            Also reference on the live site: PageHero, PageCta, SiteChrome nav and footer, ProblemSection, OfferSection, HowItWorksSection, FeaturesDeepDive, FounderStory, TeamMembers, ToolsIntegrations, SelvaShowcase, InsightsArticle.
-          </p>
         </Section>
       </div>
     </div>

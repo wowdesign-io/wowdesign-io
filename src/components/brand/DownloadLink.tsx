@@ -30,7 +30,9 @@ export default function DownloadLink({
         <div className="inner-button-wrap is-primary">
           <div className="inner-button-text-wrap">
             <div className="inner-button-text">{label}</div>
-            <div className="inner-button-hover-text">{label}</div>
+            <div className="inner-button-hover-text" aria-hidden="true">
+              {label}
+            </div>
           </div>
           <div className="inner-button-star-wrap">
             <img loading="lazy" src="/images/inner-button-arrow.svg" alt="" className="inner-button-star" />
