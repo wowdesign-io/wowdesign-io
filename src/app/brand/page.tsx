@@ -35,13 +35,7 @@ export default function BrandPage() {
           ctaLabel="Jump to downloads"
           ctaHref="#downloads"
           ctaData="Brand - Downloads"
-          timeline={
-            <>
-              Partner surface · noindex.
-              <br />
-              Share by direct link only.
-            </>
-          }
+          timeline={null}
           taglineIcon={paletteIcon}
         />
         <div className="spacer-xhuge"></div>
