@@ -5,6 +5,15 @@
   color: var(--paragraph);
 }
 
+/* Nav/body button hover layers are normally driven by Webflow IX2.
+   On this page those interactions do not run, so both labels stack. Hide the
+   hover copy at rest so the demo reads as one label. */
+.sg-page .primary-button-hover-text,
+.sg-page .inner-button-hover-text {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .sg-toc {
   display: flex;
   flex-wrap: wrap;
