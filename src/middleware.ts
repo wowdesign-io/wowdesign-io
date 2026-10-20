@@ -24,6 +24,21 @@ export function middleware(req: NextRequest) {
   const host = (req.headers.get('host') ?? '').split(':')[0].toLowerCase()
   const { pathname } = req.nextUrl
 
+  // /en and /en/ → / in one hop. Requires skipTrailingSlashRedirect in next.config
+  // (otherwise Next 308s /en/ → /en before this runs).
+  if (pathname === '/en' || pathname === '/en/') {
+    const url = req.nextUrl.clone()
+    url.pathname = '/'
+    return NextResponse.redirect(url, 308)
+  }
+
+  // Recreate default no-trailing-slash behavior for everything else.
+  if (pathname.length > 1 && pathname.endsWith('/')) {
+    const url = req.nextUrl.clone()
+    url.pathname = pathname.slice(0, -1)
+    return NextResponse.redirect(url, 308)
+  }
+
   if (PROD_HOSTS.has(host) && pathname.startsWith('/hero-lab')) {
     return new NextResponse(null, { status: 404 })
   }
@@ -40,6 +55,13 @@ export function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
+    /*
+     * Trailing-slash + /en handling for page routes.
+     * Skip Next internals and static files (have a dot in the last segment).
+     */
+    '/((?!_next/static|_next/image|favicon.ico|.*\\..*).*)',
+    '/en',
+    '/en/',
     '/hero-lab',
     '/hero-lab/:path*',
     '/product',
