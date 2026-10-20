@@ -54,7 +54,8 @@ export default function Page() {
         Convert the percent to dollars first, then to units, and only from contracts the lender will count. If the lender wants 60% of revenue under contract on a $20M sell-out, that is $12M in qualifying contracts. It is not “60% of the unit count” if penthouses and studios are different prices. A 30-unit building can hit the unit-count percent and still miss the revenue line, or the other way around. Soft holds do not close that gap.
       </p>
       <p>
-        Florida term sheets still vary. Many still look for roughly 50–70% of revenue under contract. That is a pattern, not a law. Some non-bank lenders will fund with fewer presales and price the extra risk. Ask the lender for the test in writing: percent of revenue, which contracts count, and whether reservations without a hard deposit are in or out. Then map your stack (which units at which prices) to that dollar line. Guessing “half the units” is how the draw slips a month.
+        Florida term sheets still vary. Many still look for roughly 50–70% of revenue under contract. That is a pattern, not a law. Some non-bank lenders will fund with fewer presales and price the extra risk. Ask the lender for the test in writing: percent of revenue, which contracts count, and whether reservations without a hard deposit are in or out. Then map your stack (which units at which prices) to that dollar line. Guessing “half the units” is how the draw slips a month. Once you have the dollar line, see{' '}
+        <a href="/insights/how-fast-pre-sell-construction-loan-draw">how fast you need to pre-sell to hit the construction draw</a> for the monthly pace.
       </p>
       <h2>Why extra months still matter once you know the line</h2>
       <p>

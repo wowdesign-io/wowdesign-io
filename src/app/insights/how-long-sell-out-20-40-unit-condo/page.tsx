@@ -19,7 +19,8 @@ export default function Page() {
         There is no honest single month-count for every 20–40 unit condo. A 24-unit building next to proven comps is not a 40-unit project at a new price. Anyone publishing “six months” or “eighteen months” as a rule is guessing, or quoting another project’s closings as if they were yours.
       </p>
       <p>
-        What actually moves the clock: price versus nearby inventory, whether buyers can commit before a sales office exists, and how fast contracts reach the lender. If they cannot pick a specific unit from their phone, they wait. Waiting is extra months of the construction loan. The method is not a published units-per-month rate. It is your loan, your rate, and how many months you still have unsold units.
+        What actually moves the clock: price versus nearby inventory, whether buyers can commit before a sales office exists, and how fast contracts reach the lender. If they cannot pick a specific unit from their phone, they wait. Waiting is extra months of the construction loan. The method is not a published units-per-month rate. It is your loan, your rate, and how many months you still have unsold units. See{' '}
+        <a href="/insights/how-fast-pre-sell-construction-loan-draw">how fast you need to pre-sell to hit the construction draw</a> for the monthly pace on that first clock.
       </p>
       <p>
         Boutique 10–50 unit projects feel each slipped month harder than a 200-unit operator. One extra quarter is money out before a brick is laid, and again after completion until the last closing. See{' '}
