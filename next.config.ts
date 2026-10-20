@@ -15,8 +15,7 @@ const nextConfig: NextConfig = {
       { source: '/discovery-call', destination: '/book-a-demo', permanent: true },
       { source: '/free-mini-audit', destination: '/book-a-demo', permanent: true },
       { source: '/roi-calculator', destination: '/carry-cost-calculator', permanent: true },
-      { source: '/en', destination: '/', permanent: true },
-      { source: '/en/', destination: '/', permanent: true },
+      // /en and /en/ → / live in middleware (one hop; next.config /en/ loses to trailing-slash strip)
       // Old Insights slug (Oct 2026 rename)
       {
         source: '/insights/sales-team-know-before-call',
