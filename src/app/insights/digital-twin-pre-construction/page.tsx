@@ -38,7 +38,7 @@ export default function Page() {
           <tr>
             <td>Rendering</td>
             <td>A still of the look</td>
-            <td>See the vibe. Not pick a unit.</td>
+            <td>See the vibe, not pick a unit.</td>
           </tr>
           <tr>
             <td>Finished-space scan</td>
@@ -54,18 +54,20 @@ export default function Page() {
       </table>
       <h2>Twin vs virtual showroom</h2>
       <p>
-        A <a href="/insights/virtual-showroom-pre-construction">virtual showroom</a> is the sales gallery — the website a buyer lands on. The digital twin is the live building inside it. You can have a beautiful site and still have no twin: stills, a PDF, a “request this floor plan” button. You can also have a twin and bury it three clicks down so nobody finds a unit. The words get used as synonyms. They are not.
+        A <a href="/insights/virtual-showroom-pre-construction">virtual showroom</a> is the sales gallery. The website a buyer lands on. The digital twin is the live building inside it. The clickable floor inside that twin is an{' '}
+        <a href="/insights/interactive-floor-plan-vs-pdf">interactive floor plan</a>, not a PDF they wait on. You can have a beautiful site and still have no twin: stills, a PDF, a “request this floor plan” button. You can also have a twin and bury it three clicks down so nobody finds a unit. The words get used as synonyms. They are not.
       </p>
       <p>
         For a 10–50 unit pre-construction project, the test is simple. Can a buyer open the project on their phone, walk a floor that is not built yet, and leave having picked a specific unit at a specific price? If yes, you have a sales twin. If they still have to wait until Monday for someone to tell them what is available, you have pictures.
       </p>
       <h2>Why the distinction costs money</h2>
       <p>
-        If a buyer cannot tell which unit is open, they wait. Waiting is extra months. On a typical boutique $10M–$15M construction loan at about 8%, monthly interest is loan × rate ÷ 12 — about $67k–$100k to the bank, plus ads and ops that keep running until units are gone. See{' '}
+        If a buyer cannot tell which unit is open, they wait. Waiting is extra months. On a typical boutique $10M–$15M construction loan at about 8%, monthly interest is loan × rate ÷ 12. about $67k–$100k to the bank, plus ads and ops that keep running until units are gone. See{' '}
         <a href="/insights/construction-loan-extra-month">how much an extra month costs</a>.
       </p>
       <p>
-        Planpoint platform data on comparable pre-construction developments: 31% faster unit sell-through, 49% more qualified leads, 3x buyer engagement. That is platform data on comparable projects, not a promise on yours. Three extra months of interest alone on a $12M loan at 8% is $240,000 before ads. A live buyer-site glimpse of a twin in a real project: demo.wowdesign.io. Run the calculator on your loan if you want the month in your numbers, not the range.
+        A live buyer-site glimpse of a twin in a real project: demo.wowdesign.io. For what three extra months cost on a typical boutique loan, see{' '}
+        <a href="/insights/construction-loan-extra-month">how much an extra month costs</a>. Run the calculator on your loan if you want the month in your numbers, not the range.
       </p>
     </InsightsArticle>
   )

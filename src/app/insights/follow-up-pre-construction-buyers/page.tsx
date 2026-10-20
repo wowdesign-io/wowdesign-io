@@ -16,10 +16,10 @@ export default function Page() {
     <InsightsArticle article={article}>
       <h2>Monday is already too late</h2>
       <p>
-        A buyer looks at a unit at 11pm. They are in. If the first thing they get is a generic pack on Monday, they already looked at someone else over the weekend. Follow-up is not a drip you set once and forget. It is what happens in the hours after they showed their hand — the unit they looked at, sent back while they still care. A weekend of silence is enough to lose them.
+        A buyer looks at a unit at 11pm. They are in. If the first thing they get is a generic pack on Monday, they already looked at someone else over the weekend. Follow-up is not a drip you set once and forget. It is what happens in the hours after they showed their hand. The unit they looked at, sent back while they still care. A weekend of silence is enough to lose them.
       </p>
       <p>
-        Pre-construction makes this worse than a finished listing. The building is not there. The sales office may not be open. The only thing holding them is whatever you sent, and whether they can come back to that same unit in month four. Silence is not neutral. It is extra months of the loan. Same-night follow-up starts that picture — the months after are{' '}
+        Pre-construction makes this worse than a finished listing. The building is not there. The sales office may not be open. The only thing holding them is whatever you sent, and whether they can come back to that same unit in month four. Silence is not neutral. It is extra months of the loan. Same-night follow-up starts that picture. The months after are{' '}
         <a href="/insights/keep-pre-construction-buyers-from-backing-out">how you keep them from backing out during the build</a>.
       </p>
       <table>
@@ -33,7 +33,7 @@ export default function Page() {
         <tbody>
           <tr>
             <td>When</td>
-            <td>Monday. Or after the sales office opens.</td>
+            <td>Monday, or after the sales office opens.</td>
             <td>The same night.</td>
           </tr>
           <tr>
@@ -55,7 +55,7 @@ export default function Page() {
       </table>
       <h2>What the sales team needs before they call</h2>
       <p>
-        Which unit. How far the buyer went. Whether they came back. Calling without that is a cold call with a nicer calendar invite. The follow-up is what builds that picture — if it actually ran the night they showed interest, not after someone remembered to export a list. A CRM row with a name and a phone number is not the picture. See{' '}
+        Which unit. How far the buyer went. Whether they came back. Calling without that is a cold call with a nicer calendar invite. The follow-up is what builds that picture. If it actually ran the night they showed interest, not after someone remembered to export a list. A CRM row with a name and a phone number is not the picture. See{' '}
         <a href="/insights/what-sales-team-should-know-before-calling">what the sales team should know before they call</a>.
       </p>
       <p>

@@ -16,7 +16,7 @@ export default function Page() {
     <InsightsArticle article={article}>
       <h2>What does a boutique developer website need besides renderings?</h2>
       <p>
-        Renderings still belong on the site. They sell the look — the lobby, the view, the kitchen that does not exist yet. A buyer who cannot see the building will not pick a unit. That job does not go away on a 10–50 unit pre-construction project.
+        Renderings still belong on the site. They sell the look. The lobby, the view, the kitchen that does not exist yet. A buyer who cannot see the building will not pick a unit. That job does not go away on a 10–50 unit pre-construction project.
       </p>
       <p>
         What they cannot do is tell anyone which unit is open, what it costs today, or whether the person who stared at 4B is ready for a call. A rendering pack plus a request button is still pictures. The sales team gets a name and a phone number. They still have to ask what the buyer wanted.
@@ -27,7 +27,7 @@ export default function Page() {
       </p>
       <h2>What the pictures cannot do</h2>
       <p>
-        A still of the look cannot answer which unit, at what price, and whether it is still open. That is the job of live inventory on the project website — the same inventory the sales team uses. A PDF floor plan is a file. An{' '}
+        A still of the look cannot answer which unit, at what price, and whether it is still open. That is the job of live inventory on the project website. The same inventory the sales team uses. A PDF floor plan is a file. An{' '}
         <a href="/insights/interactive-floor-plan-vs-pdf">interactive floor plan</a> lets them click a unit tonight. A{' '}
         <a href="/insights/virtual-showroom-pre-construction">virtual showroom</a> is the gallery they land on. A{' '}
         <a href="/insights/digital-twin-pre-construction">digital twin</a> is the live building inside it. None of those replace the renderings. They are what the renderings sit next to.
@@ -63,12 +63,12 @@ export default function Page() {
       </table>
       <h2>Why this is months on the loan</h2>
       <p>
-        On a typical boutique $10M–$15M construction loan at about 8%, monthly interest is loan × rate ÷ 12 — about $67k–$100k to the bank, plus ads and ops that keep running until units are gone. Three extra months of interest on a $12M loan at 8% is $240,000 before burn. Pictures that cannot take a unit pick do not take those months off. See{' '}
+        On a typical boutique $10M–$15M construction loan at about 8%, monthly interest is loan × rate ÷ 12. about $67k–$100k to the bank, plus ads and ops that keep running until units are gone. Three extra months of interest on a $12M loan at 8% is $240,000 before burn. Pictures that cannot take a unit pick do not take those months off. See{' '}
         <a href="/insights/construction-loan-extra-month">how much an extra month costs</a>.
       </p>
       <p>
         Hit the lender’s{' '}
-        <a href="/insights/construction-loan-presale-requirement">presale line</a> faster and the build starts sooner. Sell out faster after completion and the loan comes off sooner. Both are extra months you either pay or keep. Planpoint platform data on comparable pre-construction developments: 31% faster unit sell-through, 49% more qualified leads, 3x buyer engagement. That is platform data on comparable projects, not a promise on yours. Run the calculator on your loan if you want your month, not the range.
+        <a href="/insights/construction-loan-presale-requirement">presale line</a> faster and the build starts sooner. Sell out faster after completion and the loan comes off sooner. Both are extra months you either pay or keep. Run the calculator on your loan if you want your month, not the range.
       </p>
     </InsightsArticle>
   )
