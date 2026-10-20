@@ -10,6 +10,20 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Legacy lead URLs Google still crawls
+      { source: '/request-briefing', destination: '/book-a-demo', permanent: true },
+      { source: '/discovery-call', destination: '/book-a-demo', permanent: true },
+      { source: '/free-mini-audit', destination: '/book-a-demo', permanent: true },
+      { source: '/roi-calculator', destination: '/carry-cost-calculator', permanent: true },
+      { source: '/en', destination: '/', permanent: true },
+      { source: '/en/', destination: '/', permanent: true },
+      // Old Insights slug (Oct 2026 rename)
+      {
+        source: '/insights/sales-team-know-before-call',
+        destination: '/insights/what-sales-team-should-know-before-calling',
+        permanent: true,
+      },
+      // Old Webflow blog → Insights hub (readers want content; product/category = 410 in middleware)
       { source: '/blog', destination: '/insights', permanent: true },
       { source: '/blog/:path*', destination: '/insights', permanent: true },
       // Print QR / offline links — temporary so destination can change without

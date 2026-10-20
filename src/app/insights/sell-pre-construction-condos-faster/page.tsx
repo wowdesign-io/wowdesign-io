@@ -26,7 +26,10 @@ export default function Page() {
           , and{' '}
           <a href="/insights/keep-pre-construction-buyers-from-backing-out">how to keep buyers from backing out during the build</a>.
         </li>
-        <li>Your sales team only calls people who are ready, with the unit already in the tools you use.</li>
+        <li>
+          Your sales team only calls people who are ready, with the unit already in the tools you use. See{' '}
+          <a href="/insights/what-sales-team-should-know-before-calling">what the sales team should know before they call</a>.
+        </li>
       </ol>
       <p>
         Renderings still sell the look. They do not tell you who is ready. The{' '}

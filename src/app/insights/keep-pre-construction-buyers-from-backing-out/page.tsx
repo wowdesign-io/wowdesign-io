@@ -20,7 +20,8 @@ export default function Page() {
       </p>
       <p>
         Keeping them is not a new brochure. It is three things that stay true every month of the build. Their unit is still on the site. Follow-up did not stop after the first night. The sales team can pick up and already know which unit, whether it is still open, and whether they came back. Same-night follow-up starts that picture. See{' '}
-        <a href="/insights/follow-up-pre-construction-buyers">what follow-up should include</a>. This page is the months after.
+        <a href="/insights/follow-up-pre-construction-buyers">what follow-up should include</a>. When they do talk, the call should already know the unit. See{' '}
+        <a href="/insights/what-sales-team-should-know-before-calling">what the sales team should know before they call</a>. This page is the months after.
       </p>
       <p>
         If any of those three goes dark, you are re-selling a unit you thought you had. On a 10–50 unit stack, that is a month, not a rounding error.
