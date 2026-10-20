@@ -24,13 +24,6 @@ export function middleware(req: NextRequest) {
   const host = (req.headers.get('host') ?? '').split(':')[0].toLowerCase()
   const { pathname } = req.nextUrl
 
-  // Run before Next's trailing-slash strip so /en/ → / in one hop (not /en/ → /en → /).
-  if (pathname === '/en' || pathname === '/en/') {
-    const url = req.nextUrl.clone()
-    url.pathname = '/'
-    return NextResponse.redirect(url, 308)
-  }
-
   if (PROD_HOSTS.has(host) && pathname.startsWith('/hero-lab')) {
     return new NextResponse(null, { status: 404 })
   }
@@ -47,8 +40,6 @@ export function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
-    '/en',
-    '/en/',
     '/hero-lab',
     '/hero-lab/:path*',
     '/product',
