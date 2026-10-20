@@ -27,7 +27,8 @@ export default function Page() {
         People use “virtual showroom” for almost anything with a 3D file in it. A scan of a finished space is a walkthrough of something that already exists. Pre-construction needs units that do not exist yet. A stacking plan in the CRM is inventory for the sales team. The buyer never sees that. A rendering is a still of the look. It does not say whether 4B is still open.
       </p>
       <p>
-        A <a href="/insights/digital-twin-pre-construction">digital twin</a> is the live building inside the showroom. Floors, units, price, availability. The showroom is the gallery they land on. You can have a gallery with no twin (stills and a PDF). You can have a twin buried so deep nobody finds a unit. The words get used as synonyms. They are not. The test is still the same: can they pick a specific unit at a specific price before Monday.
+        A <a href="/insights/digital-twin-pre-construction">digital twin</a> is the live building inside the showroom. Floors, units, price, availability. The showroom is the gallery they land on. A PDF floor plan is a file they wait on. An{' '}
+        <a href="/insights/interactive-floor-plan-vs-pdf">interactive floor plan</a> lets them click the unit tonight. You can have a gallery with no twin (stills and a PDF). You can have a twin buried so deep nobody finds a unit. The words get used as synonyms. They are not. The test is still the same: can they pick a specific unit at a specific price before Monday.
       </p>
       <table>
         <thead>

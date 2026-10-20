@@ -54,7 +54,8 @@ export default function Page() {
       </table>
       <h2>Twin vs virtual showroom</h2>
       <p>
-        A <a href="/insights/virtual-showroom-pre-construction">virtual showroom</a> is the sales gallery. The website a buyer lands on. The digital twin is the live building inside it. You can have a beautiful site and still have no twin: stills, a PDF, a “request this floor plan” button. You can also have a twin and bury it three clicks down so nobody finds a unit. The words get used as synonyms. They are not.
+        A <a href="/insights/virtual-showroom-pre-construction">virtual showroom</a> is the sales gallery. The website a buyer lands on. The digital twin is the live building inside it. The clickable floor inside that twin is an{' '}
+        <a href="/insights/interactive-floor-plan-vs-pdf">interactive floor plan</a>, not a PDF they wait on. You can have a beautiful site and still have no twin: stills, a PDF, a “request this floor plan” button. You can also have a twin and bury it three clicks down so nobody finds a unit. The words get used as synonyms. They are not.
       </p>
       <p>
         For a 10–50 unit pre-construction project, the test is simple. Can a buyer open the project on their phone, walk a floor that is not built yet, and leave having picked a specific unit at a specific price? If yes, you have a sales twin. If they still have to wait until Monday for someone to tell them what is available, you have pictures.

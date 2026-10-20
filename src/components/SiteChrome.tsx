@@ -7,6 +7,7 @@ type NavKey = 'home' | 'features' | 'how-it-works' | 'about' | 'calc' | 'insight
 const NAV = [
   { href: '/features', key: 'features' as const, label: 'Features' },
   { href: '/how-it-works', key: 'how-it-works' as const, label: 'How it works' },
+  { href: '/insights', key: 'insights' as const, label: 'Insights' },
   { href: '/about', key: 'about' as const, label: 'about' },
   { href: '/carry-cost-calculator', key: 'calc' as const, label: 'Carry Cost Calc', cta: 'Nav - Calc' },
 ]

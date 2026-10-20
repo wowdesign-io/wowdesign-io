@@ -111,6 +111,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
           <nav role="navigation" className="nav-menu w-nav-menu">
             <a href="/features" className="nav-menu-link w-nav-link">Features</a>
             <a href="/how-it-works" className="nav-menu-link w-nav-link">How it works</a>
+            <a href="/insights" className="nav-menu-link w-nav-link">Insights</a>
             <a href="/about" className="nav-menu-link w-nav-link">about</a>
             <a data-cta="Nav - Calc" href="/carry-cost-calculator" className="nav-menu-link w-nav-link">Carry Cost Calc</a>
             <NavMenuCta />
