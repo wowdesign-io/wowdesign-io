@@ -28,7 +28,8 @@ export default function Page() {
       <h2>Two clocks — the draw and the last unit</h2>
       <p>
         Selling out is not one date. The first clock is the construction lender. US lenders commonly want 50–70% of project revenue under qualifying contracts before they fund. Count dollars the lender will take — not a round unit count, and not a reservation without a deposit. Until that line is hit you keep paying interest and marketing with no draw. Your term sheet is the number that counts. See{' '}
-        <a href="/insights/construction-loan-presale-requirement">how many units you need to pre-sell</a>.
+        <a href="/insights/construction-loan-presale-requirement">how many units you need to pre-sell</a>. For why they wait on that line, see{' '}
+        <a href="/insights/why-construction-lenders-care-about-presales">why construction lenders care about presales</a>.
       </p>
       <p>
         The second clock is the last unit. After the building is finished, buyers still pay only the staged deposit until closing. The remaining 80–85% arrives when they finalize. Until the last unit is gone, the construction loan and the ads keep running. Hitting the draw early and then sitting with leftover units is still extra months.

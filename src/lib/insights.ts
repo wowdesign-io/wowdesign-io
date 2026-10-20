@@ -113,7 +113,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'US construction lenders commonly want 50–70% of project revenue under contract before they fund. Count dollars from contracts the lender will take — not a round unit count, and not a reservation without a deposit. Fannie Mae’s 50% conveyed or under-contract test is about unit-buyer mortgages. It is not the construction draw.',
     datePublished: '2026-09-08',
-    dateModified: '2026-09-27',
+    dateModified: '2026-10-18',
     faqs: [
       {
         q: 'What is the typical presale percentage for a construction loan in Florida?',
@@ -242,7 +242,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'There is no honest single month-count for every 20–40 unit condo. Price, location, and whether buyers can commit before a sales office exists all move it. Time two clocks: the lender’s 50–70% under contract, then the last unit. Extra months cost about $67k–$100k in interest on a typical boutique loan.',
     datePublished: '2026-09-20',
-    dateModified: '2026-09-27',
+    dateModified: '2026-10-18',
     faqs: [
       {
         q: 'How long does it take to sell out a 20–40 unit condo building?',
@@ -305,6 +305,31 @@ export const INSIGHTS: InsightArticle[] = [
       {
         q: 'What does a cancellation cost on a boutique construction loan?',
         a: 'You spend the month again. On a typical boutique $10M–$15M loan at about 8%, monthly interest is loan × rate ÷ 12 — about $67k–$100k. A walk-away that was in the 50–70% revenue count is a hole in the draw.',
+      },
+    ],
+  },
+  {
+    slug: 'why-construction-lenders-care-about-presales',
+    tag: 'Lenders',
+    h1: 'Why do construction lenders care about presales?',
+    description:
+      'Construction lenders fund the build and get repaid when units close. Qualifying presales prove demand so they are not financing unsold inventory. Until that line you keep paying interest and marketing with no draw.',
+    answer:
+      'Construction lenders fund the build. They get repaid when units close. Qualifying presales — binding contracts with deposits they will count — prove demand so they are not financing unsold inventory. Until that line, you keep paying interest and marketing with no draw. The 50–70% of revenue they often want is that test, not a unit count.',
+    datePublished: '2026-10-18',
+    dateModified: '2026-10-18',
+    faqs: [
+      {
+        q: 'Why do construction lenders care about presales?',
+        a: 'Qualifying presales — contracts and deposits they will count — prove demand so they are not financing unsold inventory. Until that line you keep paying interest and marketing with no draw.',
+      },
+      {
+        q: 'Is this the same as Fannie Mae’s 50%?',
+        a: 'No. Fannie’s 50% is whether unit-buyers can get those mortgages. Construction lenders care about leftover risk on the build: share of project revenue under qualifying contracts. Keep them separate.',
+      },
+      {
+        q: 'What does missing the presale line cost?',
+        a: 'You keep paying the loan and the ads with no draw. On a typical boutique $10M–$15M loan at about 8%, monthly interest is loan × rate ÷ 12 — about $67k–$100k.',
       },
     ],
   },
