@@ -333,4 +333,29 @@ export const INSIGHTS: InsightArticle[] = [
       },
     ],
   },
+  {
+    slug: 'how-fast-pre-sell-construction-loan-draw',
+    tag: 'Presale pace',
+    h1: 'How fast do you need to pre-sell to hit a construction loan draw?',
+    description:
+      'Pace to the draw is remaining qualifying revenue divided by months left on the term sheet. Not a units-per-month sticker from another building. Convert the lender percent to dollars, then to contracts they will count.',
+    answer:
+      'You do not need a published units-per-month rate. You need qualifying contracts, at the prices in your stack, fast enough to hit the lender\'s share of project revenue before the window on the term sheet closes. Convert the percent to dollars, then to contracts they will count. Soft holds do not count.',
+    datePublished: '2026-10-20',
+    dateModified: '2026-10-20',
+    faqs: [
+      {
+        q: 'How fast do you need to pre-sell to hit a construction loan draw?',
+        a: 'Fast enough that qualifying contracts, at the prices in your stack, hit the lender\'s share of project revenue before the window on the term sheet closes. Convert the percent to dollars, then to contracts they will count. Soft holds do not count.',
+      },
+      {
+        q: 'Can you use a units-per-month absorption rate?',
+        a: 'Not as a rule for your building. Comps in your submarket are evidence for your lender. A number copied from a different project is a guess. Pace is remaining qualifying dollars divided by months left on the sheet.',
+      },
+      {
+        q: 'How do you convert the presale percent into a monthly pace?',
+        a: 'Take the percent on your term sheet, multiply by project sell-out revenue, keep only contracts the lender will count, then divide by months left. Example: 50% of a $12M sell-out is $6M. Six months left is about $1M a month in qualifying contracts.',
+      },
+    ],
+  },
 ]
