@@ -4,6 +4,8 @@ const nextConfig: NextConfig = {
   // Pin the workspace root so Turbopack doesn't misinfer it from a parent
   // lockfile (it sits one level up under "Web Projects").
   turbopack: { root: process.cwd() },
+  // Let middleware own /en/ → / in one hop. Without this, Next 308s /en/ → /en first.
+  skipTrailingSlashRedirect: true,
   images: {
     qualities: [75, 85, 90],
     formats: ['image/avif', 'image/webp'],
@@ -15,7 +17,7 @@ const nextConfig: NextConfig = {
       { source: '/discovery-call', destination: '/book-a-demo', permanent: true },
       { source: '/free-mini-audit', destination: '/book-a-demo', permanent: true },
       { source: '/roi-calculator', destination: '/carry-cost-calculator', permanent: true },
-      // /en and /en/ → / live in vercel.json (edge; Next trailing-slash strip beats next.config + middleware)
+      // /en and /en/ → / handled in middleware (see skipTrailingSlashRedirect above)
       // Old Insights slug (Oct 2026 rename)
       {
         source: '/insights/sales-team-know-before-call',
