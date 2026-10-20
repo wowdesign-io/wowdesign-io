@@ -38,7 +38,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'On a typical boutique $10M–$15M construction loan at about 8%, monthly interest is about $67k–$100k. That is loan × rate ÷ 12. Extra months also burn marketing and ops. Three extra months on a $12M loan at 8% is $240k in interest before you add burn.',
     datePublished: '2026-09-08',
-    dateModified: '2026-09-22',
+    dateModified: '2026-10-20',
     faqs: [
       {
         q: 'How do you calculate monthly construction-loan interest?',
@@ -59,11 +59,11 @@ export const INSIGHTS: InsightArticle[] = [
     tag: 'Digital twin',
     h1: 'What is a digital twin for pre-construction?',
     description:
-      'In pre-construction sales, a digital twin is the live building on the project website: every unit, live price, live availability — before anything is built. It is not a BIM model for the construction team, and it is not a scan of a finished space.',
+      'In pre-construction sales, a digital twin is the live building on the project website: every unit, live price, live availability. Before anything is built. It is not a BIM model for the construction team, and it is not a scan of a finished space.',
     answer:
       'In pre-construction sales, a digital twin is the live building a buyer can walk on their phone before a brick is laid. Every unit. Live price. Live availability. Architects often mean a BIM model for the build. That is a different job.',
     datePublished: '2026-09-08',
-    dateModified: '2026-09-08',
+    dateModified: '2026-10-20',
     faqs: [
       {
         q: 'Is a digital twin the same as a 3D rendering?',
@@ -75,7 +75,7 @@ export const INSIGHTS: InsightArticle[] = [
       },
       {
         q: 'Is a digital twin the same as a virtual showroom?',
-        a: 'Close, but not the same phrase. Virtual showroom is the sales gallery on the website. Digital twin is the live building inside it — floors, units, price, availability.',
+        a: 'Close, but not the same phrase. Virtual showroom is the sales gallery on the website. Digital twin is the live building inside it. Floors, units, price, availability.',
       },
     ],
   },
@@ -84,11 +84,11 @@ export const INSIGHTS: InsightArticle[] = [
     tag: 'Follow-up',
     h1: 'What should follow-up look like after a pre-construction buyer shows interest?',
     description:
-      'After a pre-construction buyer shows interest, follow-up should go out the same night with the unit they looked at — not a generic pack on Monday. During the build they need something to come back to. The sales team should already know which unit before they call.',
+      'After a pre-construction buyer shows interest, follow-up should go out the same night with the unit they looked at, not a generic pack on Monday. During the build they need something to come back to. The sales team should already know which unit before they call.',
     answer:
-      'Follow-up is what happens after a buyer shows interest — the same night, not Monday. They should get the unit they looked at, not a generic pack. During the build they need that unit to still be there. Your sales team should already know which one before they call.',
+      'Follow-up is what happens after a buyer shows interest. The same night, not Monday. They should get the unit they looked at, not a generic pack. During the build they need that unit to still be there. Your sales team should already know which one before they call.',
     datePublished: '2026-09-08',
-    dateModified: '2026-10-11',
+    dateModified: '2026-10-20',
     faqs: [
       {
         q: 'When should follow-up go out after a unit request?',
@@ -111,9 +111,9 @@ export const INSIGHTS: InsightArticle[] = [
     description:
       'US construction lenders commonly want 50–70% of project revenue under qualifying contracts before they fund. That is not a unit count, and not Fannie Mae’s 50% test for unit-buyer mortgages.',
     answer:
-      'US construction lenders commonly want 50–70% of project revenue under contract before they fund. Count dollars from contracts the lender will take — not a round unit count, and not a reservation without a deposit. Fannie Mae’s 50% conveyed or under-contract test is about unit-buyer mortgages. It is not the construction draw.',
+      'US construction lenders commonly want 50–70% of project revenue under contract before they fund. Count dollars from contracts the lender will take, not a round unit count, and not a reservation without a deposit. Fannie Mae’s 50% conveyed or under-contract test is about unit-buyer mortgages. It is not the construction draw.',
     datePublished: '2026-09-08',
-    dateModified: '2026-10-18',
+    dateModified: '2026-10-20',
     faqs: [
       {
         q: 'What is the typical presale percentage for a construction loan in Florida?',
@@ -121,11 +121,11 @@ export const INSIGHTS: InsightArticle[] = [
       },
       {
         q: 'Is Fannie Mae’s 50% the same test as a construction lender’s presale?',
-        a: 'No. Fannie’s 50% is share of units conveyed or under contract to principal-residence or second-home purchasers — so unit-buyers can get those mortgages. Construction lenders want a share of project revenue under qualifying contracts. Keep them separate.',
+        a: 'No. Fannie’s 50% is share of units conveyed or under contract to principal-residence or second-home purchasers, so unit-buyers can get those mortgages. Construction lenders want a share of project revenue under qualifying contracts. Keep them separate.',
       },
       {
         q: 'What counts as a qualifying presale for a construction loan?',
-        a: 'Usually a binding purchase contract with a deposit the lender will recognize — not a reservation or a letter of intent. Related-party and bulk contracts are often excluded. Ask the lender in writing. The 50–70% line is percent of revenue from those contracts, not a unit count.',
+        a: 'Usually a binding purchase contract with a deposit the lender will recognize, not a reservation or a letter of intent. Related-party and bulk contracts are often excluded. Ask the lender in writing. The 50–70% line is percent of revenue from those contracts, not a unit count.',
       },
       {
         q: 'Why do construction lenders care about presales?',
@@ -142,7 +142,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'A virtual showroom for pre-construction is the sales gallery on the website. Buyers walk floors and pick a unit from their phone with live price and availability. Follow-up runs so your sales team only calls people who are ready.',
     datePublished: '2026-09-08',
-    dateModified: '2026-09-08',
+    dateModified: '2026-10-20',
     faqs: [
       {
         q: 'How does a virtual showroom work for pre-construction sales?',
@@ -165,9 +165,9 @@ export const INSIGHTS: InsightArticle[] = [
     description:
       'A PDF floor plan is a static file. An interactive floor plan lets a buyer click a unit, see live availability and price, and leave a trail your sales team can use before they call.',
     answer:
-      'A PDF floor plan is a file. An interactive floor plan lets a buyer click a unit, see live availability and price, and leave a trail. Your sales team then calls people who already picked something — not people who only opened a file.',
+      'A PDF floor plan is a file. An interactive floor plan lets a buyer click a unit, see live availability and price, and leave a trail. Your sales team then calls people who already picked something, not people who only opened a file.',
     datePublished: '2026-09-08',
-    dateModified: '2026-09-08',
+    dateModified: '2026-10-20',
     faqs: [
       {
         q: 'What can a buyer do on an interactive floor plan that they cannot do on a PDF?',
@@ -190,13 +190,13 @@ export const INSIGHTS: InsightArticle[] = [
     description:
       'Sell pre-construction faster by letting buyers pick a unit tonight, sending follow-up automatically, and giving the sales team the picture before they call. Extra months of loan interest plus marketing burn are the cost of delay.',
     answer:
-      'Sell pre-construction condos faster by letting buyers pick a unit from their phone, running follow-up the same night, and giving your sales team the picture before they call. Extra months cost loan interest plus marketing burn — about $67k–$100k a month to the bank on a typical boutique loan.',
+      'Sell pre-construction condos faster by letting buyers pick a unit from their phone, running follow-up the same night, and giving your sales team the picture before they call. Extra months cost loan interest plus marketing burn. About $67k–$100k a month to the bank on a typical boutique loan.',
     datePublished: '2026-09-08',
-    dateModified: '2026-10-11',
+    dateModified: '2026-10-20',
     faqs: [
       {
         q: 'How long does it take to sell out a 20–40 unit condo building?',
-        a: 'It depends on price, location, and whether buyers can commit before the sales office is open. The number that matters is extra months of interest and marketing — run the calculator for your loan.',
+        a: 'It depends on price, location, and whether buyers can commit before the sales office is open. The number that matters is extra months of interest and marketing. Run the calculator for your loan.',
       },
       {
         q: 'How do you keep pre-construction buyers from backing out during the build?',
@@ -215,9 +215,9 @@ export const INSIGHTS: InsightArticle[] = [
     description:
       'A boutique developer website still needs renderings for the look. It also needs live units, live price, a way to pick one tonight, and a path into the tools the sales team already uses.',
     answer:
-      'Renderings sell the look. A boutique 10–50 unit project website also needs live units, live price, a way to pick one tonight, and a path into the tools the sales team already uses. Pictures without that do not tell anyone who is ready — and extra months of the loan keep running.',
+      'Renderings sell the look. A boutique 10–50 unit project website also needs live units, live price, a way to pick one tonight, and a path into the tools the sales team already uses. Pictures without that do not tell anyone who is ready, and extra months of the loan keep running.',
     datePublished: '2026-09-13',
-    dateModified: '2026-09-13',
+    dateModified: '2026-10-20',
     faqs: [
       {
         q: 'What does a boutique developer website need besides renderings?',
@@ -229,7 +229,7 @@ export const INSIGHTS: InsightArticle[] = [
       },
       {
         q: 'Is this the same as a digital twin or a virtual showroom?',
-        a: 'Close, but not the same phrase. The showroom is the gallery they land on. The twin is the live building inside it. This page is the checklist for the website around both — not only the pictures.',
+        a: 'Close, but not the same phrase. The showroom is the gallery they land on. The twin is the live building inside it. This page is the checklist for the website around both, not only the pictures.',
       },
     ],
   },
@@ -242,7 +242,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'There is no honest single month-count for every 20–40 unit condo. Price, location, and whether buyers can commit before a sales office exists all move it. Time two clocks: the lender’s 50–70% under contract, then the last unit. Extra months cost about $67k–$100k in interest on a typical boutique loan.',
     datePublished: '2026-09-20',
-    dateModified: '2026-10-18',
+    dateModified: '2026-10-20',
     faqs: [
       {
         q: 'How long does it take to sell out a 20–40 unit condo building?',
@@ -250,11 +250,11 @@ export const INSIGHTS: InsightArticle[] = [
       },
       {
         q: 'What is the difference between the lender’s presale line and selling out?',
-        a: 'The presale line is usually 50–70% of project revenue under qualifying contracts — that is when many construction lenders fund. Selling out is the last unit. Both clocks burn extra months if they slip. Fannie Mae’s 50% test is a third clock, for unit-buyer mortgages.',
+        a: 'The presale line is usually 50–70% of project revenue under qualifying contracts. That is when many construction lenders fund. Selling out is the last unit. Both clocks burn extra months if they slip. Fannie Mae’s 50% test is a third clock, for unit-buyer mortgages.',
       },
       {
         q: 'Can you use a published units-per-month rate instead?',
-        a: 'Not as a rule for your building. Comps in your submarket are evidence for your lender. A number copied from a different project is a guess. Use extra months of interest on your loan as the scoreboard — run the calculator.',
+        a: 'Not as a rule for your building. Comps in your submarket are evidence for your lender. A number copied from a different project is a guess. Use extra months of interest on your loan as the scoreboard. Run the calculator.',
       },
     ],
   },
@@ -267,7 +267,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'Before they pick up, the sales team should already know which unit the buyer looked at, whether it is still open and at what price, how far they went, and whether they came back. A name and a phone number is not that picture. Calling without it is a cold call.',
     datePublished: '2026-10-04',
-    dateModified: '2026-10-04',
+    dateModified: '2026-10-20',
     faqs: [
       {
         q: 'What should a sales team know before they call a condo buyer?',
@@ -288,15 +288,15 @@ export const INSIGHTS: InsightArticle[] = [
     tag: 'During the build',
     h1: 'How to keep pre-construction buyers from backing out during the build',
     description:
-      'A reserved buyer still has to live through the build. They stay if they can come back to their unit — live price, live availability — and a sales team that already knows which one. A PDF from week one will not hold them.',
+      'A reserved buyer still has to live through the build. They stay if they can come back to their unit (live price, live availability) and a sales team that already knows which one. A PDF from week one will not hold them.',
     answer:
-      'A buyer who reserved in month one still has to live through the build. They stay if they can come back to their unit — live price, live availability — and a sales team that already knows which one. A PDF from the first week will not hold them. A cancellation is another month of the loan.',
+      'A buyer who reserved in month one still has to live through the build. They stay if they can come back to their unit (live price, live availability) and a sales team that already knows which one. A PDF from the first week will not hold them. A cancellation is another month of the loan.',
     datePublished: '2026-10-11',
-    dateModified: '2026-10-11',
+    dateModified: '2026-10-20',
     faqs: [
       {
         q: 'How to keep pre-construction buyers from backing out during the build?',
-        a: 'Their unit stays on the site — live price, still open. Follow-up does not stop after the first night. The sales team already knows which unit before they call. A PDF from week one will not hold them.',
+        a: 'Their unit stays on the site. Live price, still open. Follow-up does not stop after the first night. The sales team already knows which unit before they call. A PDF from week one will not hold them.',
       },
       {
         q: 'Is same-night follow-up enough to hold them through the build?',
@@ -304,7 +304,7 @@ export const INSIGHTS: InsightArticle[] = [
       },
       {
         q: 'What does a cancellation cost on a boutique construction loan?',
-        a: 'You spend the month again. On a typical boutique $10M–$15M loan at about 8%, monthly interest is loan × rate ÷ 12 — about $67k–$100k. A walk-away that was in the 50–70% revenue count is a hole in the draw.',
+        a: 'You spend the month again. On a typical boutique $10M–$15M loan at about 8%, monthly interest is loan × rate ÷ 12. about $67k–$100k. A walk-away that was in the 50–70% revenue count is a hole in the draw.',
       },
     ],
   },
@@ -315,13 +315,13 @@ export const INSIGHTS: InsightArticle[] = [
     description:
       'Construction lenders fund the build and get repaid when units close. Qualifying presales prove demand so they are not financing unsold inventory. Until that line you keep paying interest and marketing with no draw.',
     answer:
-      'Construction lenders fund the build. They get repaid when units close. Qualifying presales — binding contracts with deposits they will count — prove demand so they are not financing unsold inventory. Until that line, you keep paying interest and marketing with no draw. The 50–70% of revenue they often want is that test, not a unit count.',
+      'Construction lenders fund the build. They get repaid when units close. Qualifying presales. Binding contracts with deposits they will count. Prove demand so they are not financing unsold inventory. Until that line, you keep paying interest and marketing with no draw. The 50–70% of revenue they often want is that test, not a unit count.',
     datePublished: '2026-10-18',
-    dateModified: '2026-10-18',
+    dateModified: '2026-10-20',
     faqs: [
       {
         q: 'Why do construction lenders care about presales?',
-        a: 'Qualifying presales — contracts and deposits they will count — prove demand so they are not financing unsold inventory. Until that line you keep paying interest and marketing with no draw.',
+        a: 'Qualifying presales. Contracts and deposits they will count. Prove demand so they are not financing unsold inventory. Until that line you keep paying interest and marketing with no draw.',
       },
       {
         q: 'Is this the same as Fannie Mae’s 50%?',
@@ -329,7 +329,7 @@ export const INSIGHTS: InsightArticle[] = [
       },
       {
         q: 'What does missing the presale line cost?',
-        a: 'You keep paying the loan and the ads with no draw. On a typical boutique $10M–$15M loan at about 8%, monthly interest is loan × rate ÷ 12 — about $67k–$100k.',
+        a: 'You keep paying the loan and the ads with no draw. On a typical boutique $10M–$15M loan at about 8%, monthly interest is loan × rate ÷ 12. about $67k–$100k.',
       },
     ],
   },

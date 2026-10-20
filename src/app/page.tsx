@@ -501,7 +501,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
           </div>
         </div>
       </div>
-      <div className="stats-subline text-size-small">31%, 49%, and 3x: Planpoint platform data on comparable pre-construction developments. $400k+ is typical carry kept by selling out faster.</div>
+      <div className="stats-subline text-size-small">31%, 49%, and 3x: supporting proof from comparable pre-construction developments. $400k+ is typical carry kept by selling out faster.</div>
     </section>
     <section className="section_comparison13">
       <div className="padding-global">

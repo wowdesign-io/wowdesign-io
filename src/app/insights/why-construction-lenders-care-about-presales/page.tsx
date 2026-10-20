@@ -19,7 +19,7 @@ export default function Page() {
         The construction loan is not repaid from land sitting idle. It is repaid when buyers close. Until enough units are under contracts the lender will actually take, the bank is looking at a building that might not sell. Presales cut that leftover risk. Qualifying contracts with deposits prove someone other than you believes the stack will move, and they leave a residual loan the bank can live with once those close.
       </p>
       <p>
-        That is why they care — not because a statute says 50%. Banks and credit unions commonly want 50–70% of project revenue under qualifying contracts before they fund. That range is a market pattern. Your term sheet is the number that counts. Some private lenders will fund with fewer presales and price the extra risk. Fannie Mae&apos;s 50% test is a different job: whether unit-buyers can get those mortgages.
+        That is why they care, not because a statute says 50%. Banks and credit unions commonly want 50–70% of project revenue under qualifying contracts before they fund. That range is a market pattern. Your term sheet is the number that counts. Some private lenders will fund with fewer presales and price the extra risk. Fannie Mae&apos;s 50% test is a different job: whether unit-buyers can get those mortgages.
       </p>
       <p>
         On a 10–50 unit boutique project, missing that line is months of interest and marketing with no draw. See{' '}
@@ -59,15 +59,15 @@ export default function Page() {
       </p>
       <h2>What waiting on that test costs</h2>
       <p>
-        Until the line is hit you keep paying interest and marketing with no construction draw. On a typical boutique $10M–$15M loan at about 8%, monthly interest is loan × rate ÷ 12 — about $67k–$100k to the bank. A $12M loan at 8% is $80,000 a month. Three extra months of interest is $240,000 before ads. That is the method. Run the calculator on your loan if you want your month, not the range.
+        Until the line is hit you keep paying interest and marketing with no construction draw. On a typical boutique $10M–$15M loan at about 8%, monthly interest is loan × rate ÷ 12. about $67k–$100k to the bank. A $12M loan at 8% is $80,000 a month. Three extra months of interest is $240,000 before ads. That is the method. Run the calculator on your loan if you want your month, not the range.
       </p>
       <p>
-        Hit the presale line faster and the build starts sooner. That is one clock. After completion, leftover units keep the loan running — the other clock. See{' '}
+        Hit the presale line faster and the build starts sooner. That is one clock. After completion, leftover units keep the loan running. That is the other clock. See{' '}
         <a href="/insights/how-long-sell-out-20-40-unit-condo">how long a 20–40 unit sell-out takes</a>. Missing the line is how you pay an extra month before a brick is laid. See{' '}
         <a href="/insights/construction-loan-extra-month">how much an extra month costs</a>.
       </p>
       <p>
-        Planpoint platform data on comparable pre-construction developments: 31% faster unit sell-through, 49% more qualified leads, 3x buyer engagement. That is platform data on comparable projects, not a promise that your term sheet moves. Your scoreboard is extra months on your loan.
+        Your scoreboard is extra months on your loan until that line moves. The calculator is the method for your month, not a promise that the term sheet changes overnight.
       </p>
     </InsightsArticle>
   )

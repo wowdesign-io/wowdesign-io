@@ -16,7 +16,7 @@ export default function Page() {
     <InsightsArticle article={article}>
       <h2>How long does it take to sell out a 20–40 unit condo building?</h2>
       <p>
-        There is no honest single month-count for every 20–40 unit condo. A 24-unit building next to proven comps is not a 40-unit project at a new price. Anyone publishing “six months” or “eighteen months” as a rule is guessing — or quoting another project’s closings as if they were yours.
+        There is no honest single month-count for every 20–40 unit condo. A 24-unit building next to proven comps is not a 40-unit project at a new price. Anyone publishing “six months” or “eighteen months” as a rule is guessing, or quoting another project’s closings as if they were yours.
       </p>
       <p>
         What actually moves the clock: price versus nearby inventory, whether buyers can commit before a sales office exists, and how fast contracts reach the lender. If they cannot pick a specific unit from their phone, they wait. Waiting is extra months of the construction loan. The method is not a published units-per-month rate. It is your loan, your rate, and how many months you still have unsold units.
@@ -25,9 +25,9 @@ export default function Page() {
         Boutique 10–50 unit projects feel each slipped month harder than a 200-unit operator. One extra quarter is money out before a brick is laid, and again after completion until the last closing. See{' '}
         <a href="/insights/sell-pre-construction-condos-faster">how to sell pre-construction condos faster</a> for the sequence that takes months off. This page is the scoreboard, not that playbook.
       </p>
-      <h2>Two clocks — the draw and the last unit</h2>
+      <h2>Two clocks: the draw and the last unit</h2>
       <p>
-        Selling out is not one date. The first clock is the construction lender. US lenders commonly want 50–70% of project revenue under qualifying contracts before they fund. Count dollars the lender will take — not a round unit count, and not a reservation without a deposit. Until that line is hit you keep paying interest and marketing with no draw. Your term sheet is the number that counts. See{' '}
+        Selling out is not one date. The first clock is the construction lender. US lenders commonly want 50–70% of project revenue under qualifying contracts before they fund. Count dollars the lender will take, not a round unit count, and not a reservation without a deposit. Until that line is hit you keep paying interest and marketing with no draw. Your term sheet is the number that counts. See{' '}
         <a href="/insights/construction-loan-presale-requirement">how many units you need to pre-sell</a>. For why they wait on that line, see{' '}
         <a href="/insights/why-construction-lenders-care-about-presales">why construction lenders care about presales</a>.
       </p>
@@ -65,11 +65,11 @@ export default function Page() {
       </p>
       <h2>What extra months cost</h2>
       <p>
-        On a typical boutique $10M–$15M construction loan at about 8%, monthly interest is loan × rate ÷ 12 — about $67k–$100k to the bank. A $12M loan at 8% is $80,000 a month, $240,000 across three extra months, before ads and ops. That is the $400k+ when burn is included on a typical timeline that slipped. Run the calculator on your loan if you want your month, not the range. See{' '}
+        On a typical boutique $10M–$15M construction loan at about 8%, monthly interest is loan × rate ÷ 12. about $67k–$100k to the bank. A $12M loan at 8% is $80,000 a month, $240,000 across three extra months, before ads and ops. That is the $400k+ when burn is included on a typical timeline that slipped. Run the calculator on your loan if you want your month, not the range. See{' '}
         <a href="/insights/construction-loan-extra-month">how much an extra month costs</a>.
       </p>
       <p>
-        Planpoint platform data on comparable pre-construction developments: 31% faster unit sell-through, 49% more qualified leads, 3x buyer engagement. That is platform data on comparable projects, not a promise that your 24-unit building sells in a set number of months. Comps in your submarket are what a lender will read. A number copied from a different city is a guess.
+        Comps in your submarket are what a lender will read. A number copied from a different city is a guess. There is no honest month-count sticker for every 20–40 unit building.
       </p>
       <p>
         The sales team still has to close. Extra months are what you pay when they are calling people who never picked a unit, or when contracts stall before the draw. The calculator is the method for your number.

@@ -16,10 +16,10 @@ export default function Page() {
     <InsightsArticle article={article}>
       <h2>What actually shortens sell-out</h2>
       <p>
-        Faster sell-out on a 10–50 unit pre-construction project is not more renderings. It is whether a buyer can pick a unit tonight from their phone — live price, live availability — then get that unit back the same night, and a call from a sales team that already knows which one. If any of those three is missing, they wait. Waiting is extra months of the loan.
+        Faster sell-out on a 10–50 unit pre-construction project is not more renderings. It is whether a buyer can pick a unit tonight from their phone. Live price, live availability. Then get that unit back the same night, and a call from a sales team that already knows which one. If any of those three is missing, they wait. Waiting is extra months of the loan.
       </p>
       <ol>
-        <li>Buyers pick a unit tonight from their phone. Not a PDF they wait on.</li>
+        <li>Buyers pick a unit tonight from their phone, not a PDF they wait on.</li>
         <li>
           Follow-up goes out the same night so they do not go cold during the build. See{' '}
           <a href="/insights/follow-up-pre-construction-buyers">what that follow-up should include</a>
@@ -38,15 +38,16 @@ export default function Page() {
       </p>
       <p>
         Hit{' '}
-        <a href="/insights/construction-loan-presale-requirement">the lender’s presale line</a> faster and the build starts sooner. Sell out faster after completion and the loan comes off sooner. Both are extra months you either pay or keep. Run the calculator on your loan — that is the method for your number, not the range on this page.
+        <a href="/insights/construction-loan-presale-requirement">the lender’s presale line</a> faster and the build starts sooner. Sell out faster after completion and the loan comes off sooner. Both are extra months you either pay or keep. Run the calculator on your loan. That is the method for your number, not the range on this page.
       </p>
       <h2>How long to sell out a 20–40 unit building</h2>
       <p>
         There is no honest single month-count for every 20–40 unit condo. Price, location, and whether buyers can commit before a sales office exists all move it. Anyone publishing “6 months” as a rule is guessing. Use extra months of interest as the scoreboard instead: each month you still have unsold units is a month the bank and the ads keep taking. See{' '}
-        <a href="/insights/how-long-sell-out-20-40-unit-condo">how long a 20–40 unit sell-out takes</a> for the two clocks — the lender’s draw, then the last unit.
+        <a href="/insights/how-long-sell-out-20-40-unit-condo">how long a 20–40 unit sell-out takes</a> for the two clocks. The lender’s draw, then the last unit.
       </p>
       <p>
-        Planpoint platform data on comparable pre-construction developments: 31% faster unit sell-through, 49% more qualified leads, 3x buyer engagement. That is platform data on comparable projects, not a promise that your 24-unit building sells in a set number of months. Your loan, your rate, and what you actually spend until the last unit is gone is the number. Run the calculator.
+        Your loan, your rate, and what you actually spend until the last unit is gone is the number. See{' '}
+        <a href="/insights/how-long-sell-out-20-40-unit-condo">how long a 20–40 unit sell-out takes</a> for the clocks. The calculator is the method for your month.
       </p>
     </InsightsArticle>
   )
