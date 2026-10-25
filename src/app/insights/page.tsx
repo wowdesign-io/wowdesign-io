@@ -15,7 +15,7 @@ import '@/app/how-it-works-headings.css'
 export const metadata: Metadata = {
   title: 'Insights',
   description:
-    'What a digital twin is on a building that is not built yet. What follow-up should do the night a buyer shows interest. What the sales team should know before they call. How buyers stay through the build. Why construction lenders care about presales. How fast you need to pre-sell to hit the construction draw. What a project website needs besides renderings. How long a 20–40 unit sell-out takes. How much an extra month of a construction loan costs.',
+    'What a digital twin is on a building that is not built yet. What follow-up should do the night a buyer shows interest. What the sales team should know before they call. How buyers stay through the build. Why construction lenders care about presales. How fast you need to pre-sell to hit the construction draw. How you sell the last leftover units. What a project website needs besides renderings. How long a 20–40 unit sell-out takes. How much an extra month of a construction loan costs.',
   alternates: { canonical: `${SITE}/insights` },
 }
 
@@ -72,7 +72,7 @@ export default function InsightsIndexPage() {
         <PageHero
           tagline="Insights"
           title="Pre-construction, explained."
-          description="Digital twins, follow-up, what the sales team should know before they call, how buyers stay through the build, why construction lenders care about presales, how fast you need to pre-sell to hit the construction draw, showrooms, floor plans, what a project website needs besides renderings, how long a 20–40 unit sell-out takes, and how units sell before they exist."
+          description="Digital twins, follow-up, what the sales team should know before they call, how buyers stay through the build, why construction lenders care about presales, how fast you need to pre-sell to hit the construction draw, how you sell the last leftover units, showrooms, floor plans, what a project website needs besides renderings, how long a 20–40 unit sell-out takes, and how units sell before they exist."
           ctaLabel="Start reading"
           ctaHref="#insights"
           ctaData="Insights index - Read"

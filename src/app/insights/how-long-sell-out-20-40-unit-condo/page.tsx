@@ -33,7 +33,9 @@ export default function Page() {
         <a href="/insights/why-construction-lenders-care-about-presales">why construction lenders care about presales</a>.
       </p>
       <p>
-        The second clock is the last unit. After the building is finished, buyers still pay only the staged deposit until closing. The remaining 80–85% arrives when they finalize. Until the last unit is gone, the construction loan and the ads keep running. Hitting the draw early and then sitting with leftover units is still extra months.
+        The second clock is the last unit. After the building is finished, buyers still pay only the staged deposit until closing. The remaining 80–85% arrives when they finalize. Until the last unit is gone, the construction loan and the ads keep running. Hitting the draw early and then sitting with leftover units is still extra months. See{' '}
+        <a href="/insights/sell-last-units-pre-construction-condo">how you sell those last units</a>{' '}
+        once the first wave is gone.
       </p>
       <table>
         <thead>
