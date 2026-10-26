@@ -242,7 +242,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'There is no honest single month-count for every 20–40 unit condo. Price, location, and whether buyers can commit before a sales office exists all move it. Time two clocks: the lender’s 50–70% under contract, then the last unit. Extra months cost about $67k–$100k in interest on a typical boutique loan.',
     datePublished: '2026-09-20',
-    dateModified: '2026-10-20',
+    dateModified: '2026-10-25',
     faqs: [
       {
         q: 'How long does it take to sell out a 20–40 unit condo building?',
@@ -355,6 +355,31 @@ export const INSIGHTS: InsightArticle[] = [
       {
         q: 'How do you convert the presale percent into a monthly pace?',
         a: 'Take the percent on your term sheet, multiply by project sell-out revenue, keep only contracts the lender will count, then divide by months left. Example: 50% of a $12M sell-out is $6M. Six months left is about $1M a month in qualifying contracts.',
+      },
+    ],
+  },
+  {
+    slug: 'sell-last-units-pre-construction-condo',
+    tag: 'Last units',
+    h1: 'How do you sell the last units in a pre-construction condo?',
+    description:
+      'The last units are leftover views and leftover prices after the first wave is gone. They sell when what is still open stays live on the site, and the sales team calls people who already looked at those leftovers.',
+    answer:
+      'The last units are leftover views and leftover prices after the first wave is gone. They do not sell from a PDF of floors that already closed. Keep what is still open live on the site. The sales team should call people who already looked at those leftovers, not a month-one list.',
+    datePublished: '2026-10-25',
+    dateModified: '2026-10-25',
+    faqs: [
+      {
+        q: 'How do you sell the last units in a pre-construction condo?',
+        a: 'Keep what is still open live on the site at today’s price. The ones that closed stay closed. The sales team calls people who already looked at a leftover unit, not a list from the launch party.',
+      },
+      {
+        q: 'Why do the last units stall after the first wave?',
+        a: 'The first wave takes the best views, friends and family, and early prices. A PDF from month one still shows floors that already closed. A buyer in month seven cannot tell what is actually open.',
+      },
+      {
+        q: 'What do leftover units still cost after the construction draw?',
+        a: 'After the lender funds, leftover revenue is still on the loan. Method: (1 − lender percent) × project revenue. A $12M sell-out with a 50% line still has $6M to close.',
       },
     ],
   },
