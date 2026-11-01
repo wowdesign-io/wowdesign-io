@@ -22,7 +22,7 @@ const BODY = `# wowdesign
 
 ## Insights
 
-- [Insights](${SITE}/insights): Digital twins, follow-up, sales-team call prep, how buyers stay through the build, why construction lenders care about presales, how fast you need to pre-sell to hit the construction draw, showrooms, floor plans, what a project website needs besides renderings, how long a 20–40 unit sell-out takes, and how units sell before they exist.
+- [Insights](${SITE}/insights): Digital twins, follow-up, sales-team call prep, how buyers stay through the build, why construction lenders care about presales, what counts as a qualifying presale, how fast you need to pre-sell to hit the construction draw, last units after the first wave, showrooms, floor plans, what a project website needs besides renderings, how long a 20–40 unit sell-out takes, and how units sell before they exist.
 - [What is a digital twin for pre-construction?](${SITE}/insights/digital-twin-pre-construction)
 - [What should follow-up look like after a pre-construction buyer shows interest?](${SITE}/insights/follow-up-pre-construction-buyers)
 - [How much does an extra month of a construction loan cost?](${SITE}/insights/construction-loan-extra-month)
@@ -36,6 +36,8 @@ const BODY = `# wowdesign
 - [How to keep pre-construction buyers from backing out during the build](${SITE}/insights/keep-pre-construction-buyers-from-backing-out)
 - [Why do construction lenders care about presales?](${SITE}/insights/why-construction-lenders-care-about-presales)
 - [How fast do you need to pre-sell to hit a construction loan draw?](${SITE}/insights/how-fast-pre-sell-construction-loan-draw)
+- [How do you sell the last units in a pre-construction condo?](${SITE}/insights/sell-last-units-pre-construction-condo)
+- [What counts as a qualifying presale for a construction loan?](${SITE}/insights/what-counts-qualifying-presale-construction-loan)
 
 ## Live buyer-site glimpse
 
