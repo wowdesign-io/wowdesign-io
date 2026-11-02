@@ -2,21 +2,35 @@ import InnerButton from '@/components/InnerButton'
 
 type PageCtaProps = {
   ctaData?: string
+  /** Per-post one-line lead-in above the button. */
+  lead?: string
+  /** Per-post headline. Falls back to the shared bank line. */
+  title?: string
 }
 
-export default function PageCta({ ctaData = 'CTA - Calc' }: PageCtaProps) {
+const DEFAULT_TITLE = (
+  <>
+    Stop Funding the Bank. <br />
+    Start Selling Units.
+  </>
+)
+
+const DEFAULT_LEAD = 'Every extra month is loan interest plus marketing burn. Run your numbers.'
+
+export default function PageCta({
+  ctaData = 'CTA - Calc',
+  lead = DEFAULT_LEAD,
+  title,
+}: PageCtaProps) {
   return (
     <section data-w-id="1c3f6ead-2444-a223-fec9-b2e0c543d72e" className="section cta">
       <div className="container">
         <div className="cta-content">
           <div data-w-id="1c3f6ead-2444-a223-fec9-b2e0c543d731" className="cta-typography">
             <div className="cta-title-description">
-              <h2 className="cta-title">
-                Stop Funding the Bank. <br />
-                Start Selling Units.
-              </h2>
+              <h2 className="cta-title">{title ?? DEFAULT_TITLE}</h2>
               <p className="cta-description-text">
-                Every extra month is loan interest plus marketing burn. Run your numbers.
+                {lead}
                 <br />
               </p>
             </div>

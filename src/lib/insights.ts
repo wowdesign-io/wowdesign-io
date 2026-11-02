@@ -6,6 +6,26 @@ export function getInsight(slug: string) {
   return article
 }
 
+export type InsightFigure = {
+  src: string
+  alt: string
+  caption: string
+  width: number
+  height: number
+}
+
+export type InsightSource = {
+  label: string
+  url: string
+  note?: string
+}
+
+export type InsightWorkedExample = {
+  title: string
+  rows: string[]
+  note: string
+}
+
 export type InsightArticle = {
   slug: string
   tag: string
@@ -15,6 +35,20 @@ export type InsightArticle = {
   datePublished: string
   dateModified: string
   faqs: FaqItem[]
+  /** ≤3 bullets, ≤60 words total. Renders nothing when empty. */
+  takeaways?: string[]
+  pullQuote?: string
+  figures?: InsightFigure[]
+  workedExample?: InsightWorkedExample
+  sources?: InsightSource[]
+  /** Per-post CTA lead-in. Falls back to shared calc copy. */
+  ctaLead?: string
+  /** Per-post CTA headline. Falls back to “Stop Funding the Bank…”. */
+  ctaTitle?: string
+  /** Override related-questions module; else defaults in insights-related.ts */
+  related?: string[]
+  /** Absolute or site-path OG image. Falls back to default OG. */
+  ogImage?: string
 }
 
 /** Hub / lists: newest first (datePublished, then dateModified). */
@@ -114,6 +148,8 @@ export const INSIGHTS: InsightArticle[] = [
       'US construction lenders commonly want 50–70% of project revenue under contract before they fund. Count dollars from contracts the lender will take, not a round unit count, and not a reservation without a deposit. Fannie Mae’s 50% conveyed or under-contract test is about unit-buyer mortgages. It is not the construction draw.',
     datePublished: '2026-09-08',
     dateModified: '2026-11-01',
+    ctaLead: 'See what extra months of interest cost on your construction loan before the draw.',
+    ctaTitle: 'Run the months against your loan.',
     faqs: [
       {
         q: 'What is the typical presale percentage for a construction loan in Florida?',
@@ -318,6 +354,8 @@ export const INSIGHTS: InsightArticle[] = [
       'Construction lenders fund the build. They get repaid when units close. Qualifying presales. Binding contracts with deposits they will count. Prove demand so they are not financing unsold inventory. Until that line, you keep paying interest and marketing with no draw. The 50–70% of revenue they often want is that test, not a unit count.',
     datePublished: '2026-10-18',
     dateModified: '2026-10-20',
+    ctaLead: 'Leftover inventory is months of interest. Put your loan numbers on the calculator.',
+    ctaTitle: 'What does waiting on the draw cost you?',
     faqs: [
       {
         q: 'Why do construction lenders care about presales?',

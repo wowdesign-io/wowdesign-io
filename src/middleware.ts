@@ -24,6 +24,14 @@ export function middleware(req: NextRequest) {
   const host = (req.headers.get('host') ?? '').split(':')[0].toLowerCase()
   const { pathname } = req.nextUrl
 
+  // Apex → www (canonical host). Staging / Vercel previews keep their host.
+  if (host === 'wowdesign.io') {
+    const url = req.nextUrl.clone()
+    url.host = 'www.wowdesign.io'
+    url.protocol = 'https'
+    return NextResponse.redirect(url, 308)
+  }
+
   // /en and /en/ → / in one hop. Requires skipTrailingSlashRedirect in next.config
   // (otherwise Next 308s /en/ → /en before this runs).
   if (pathname === '/en' || pathname === '/en/') {
