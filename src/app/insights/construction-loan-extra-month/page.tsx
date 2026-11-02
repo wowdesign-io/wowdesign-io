@@ -21,7 +21,7 @@ export default function Page() {
       <p>
         A $12M loan at 8% is $80,000 a month to the bank. Your term sheet is still the rate that counts. Use the table to size the month. Then add whatever you still spend on ads, brokers, and ops until the last unit is gone.
       </p>
-      <table>
+      <div className="table-scroll"><table>
         <thead>
           <tr>
             <th>Loan</th>
@@ -50,7 +50,7 @@ export default function Page() {
             <td>$300,000</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
       <h2>Interest is not the whole extra month</h2>
       <p>
         Interest is the bank line. Ads, brokers, and ops keep running until units are gone. Leave burn at 0 in the calculator if you only want the bank line. Enter what you actually spend if you want the real extra month. A project that “only” pays $80k to the bank still burns marketing every month sell-out slips. The extra month is both lines added together. Skip either and you understate it.

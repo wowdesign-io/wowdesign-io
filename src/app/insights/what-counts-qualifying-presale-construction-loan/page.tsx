@@ -26,7 +26,7 @@ export default function Page() {
       <p>
         Reservations and letters of intent are useful. They are not usually qualifying presales. A hold with no deposit, a related-party contract, and a bulk take of the stack by one buyer are the three filters that most often cut a &quot;we are at 50%&quot; briefing down. Ask whether those are in or out. Do not guess from last year&apos;s project.
       </p>
-      <table>
+      <div className="table-scroll"><table>
         <thead>
           <tr>
             <th></th>
@@ -51,7 +51,7 @@ export default function Page() {
             <td>Related-party, insider, or bulk haircut</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
       <p>
         Related-party and insider units are not the same demand as an unrelated buyer putting money down. Bulk contracts are often haircut or excluded because one walk-away takes a hole the size of several units. A reservation can convert. Until it is a binding contract with a held deposit, it does not move the construction draw. Ten contracts on paper can be six after that filter. See{' '}
         <a href="/insights/why-construction-lenders-care-about-presales">why construction lenders care about presales</a> if you want the leftover-inventory reason. This table is the filter, not a statute.

@@ -38,6 +38,7 @@ export default function InsightsArticle({
           description={article.answer}
           taglineIcon={<InsightsTagIcon slug={article.slug} />}
           wide
+          motion={false}
           timeline={
             <div className="testimonial-single-card two insights-author-card">
               <a href="/about" className="testimonial-author-wrapper">
@@ -78,14 +79,12 @@ export default function InsightsArticle({
             </div>
           </div>
         </section>
-        <PageCta ctaData={`Insights CTA - ${article.slug}`} />
+        {/* FAQ before CTA so Q&A stays with the article; author box lands in PR 2 */}
         <FaqAccordion items={article.faqs} />
+        <PageCta ctaData={`Insights CTA - ${article.slug}`} />
       </SiteChrome>
       <Script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js" strategy="afterInteractive" />
       <Script src="/webflow.js" strategy="afterInteractive" />
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" strategy="afterInteractive" />
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" strategy="afterInteractive" />
-      <Script src="https://cdn.jsdelivr.net/npm/goo-motion-library@latest/dist/goo.bundle.js" strategy="afterInteractive" />
     </>
   )
 }

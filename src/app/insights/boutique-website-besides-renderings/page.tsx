@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <InsightsArticle article={article}>
-      <h2>What does a boutique developer website need besides renderings?</h2>
       <p>
         Renderings still belong on the site. They sell the look. The lobby, the view, the kitchen that does not exist yet. A buyer who cannot see the building will not pick a unit. That job does not go away on a 10–50 unit pre-construction project.
       </p>
@@ -35,7 +34,7 @@ export default function Page() {
       <p>
         If the site is only pictures, the buyer waits until Monday. Waiting is extra months of the construction loan. The sales team also waits: they call a list of people who liked the project and guess which unit. That is not a briefing. That is a cold call with a nicer title. The table is the split. Pictures sell the look. The rest of the site has to do the job the pictures cannot.
       </p>
-      <table>
+      <div className="table-scroll"><table>
         <thead>
           <tr>
             <th></th>
@@ -60,7 +59,7 @@ export default function Page() {
             <td>Which unit, how far they went, whether they are ready</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
       <h2>Why this is months on the loan</h2>
       <p>
         On a typical boutique $10M–$15M construction loan at about 8%, monthly interest is loan × rate ÷ 12. about $67k–$100k to the bank, plus ads and ops that keep running until units are gone. Three extra months of interest on a $12M loan at 8% is $240,000 before burn. Pictures that cannot take a unit pick do not take those months off. See{' '}

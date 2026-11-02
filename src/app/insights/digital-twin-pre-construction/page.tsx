@@ -21,7 +21,7 @@ export default function Page() {
       <p>
         In sales, people use the same two words for something else: the live building on the project website. Every floor. Every unit. Live price. Live availability. On a phone. No app. That is the sales digital twin. If you mix the two jobs, you buy a construction model and still have nothing a buyer can commit to before the building exists. The table is the split. Construction tools stay on the job. Sales has to answer which unit is open, at what price, tonight.
       </p>
-      <table>
+      <div className="table-scroll"><table>
         <thead>
           <tr>
             <th></th>
@@ -51,7 +51,7 @@ export default function Page() {
             <td>Click a unit, see the price, see if it is still open</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
       <h2>Twin vs virtual showroom</h2>
       <p>
         A <a href="/insights/virtual-showroom-pre-construction">virtual showroom</a> is the sales gallery. The website a buyer lands on. The digital twin is the live building inside it. The clickable floor inside that twin is an{' '}

@@ -30,7 +30,7 @@ export default function Page() {
         A <a href="/insights/digital-twin-pre-construction">digital twin</a> is the live building inside the showroom. Floors, units, price, availability. The showroom is the gallery they land on. A PDF floor plan is a file they wait on. An{' '}
         <a href="/insights/interactive-floor-plan-vs-pdf">interactive floor plan</a> lets them click the unit tonight. You can have a gallery with no twin (stills and a PDF). You can have a twin buried so deep nobody finds a unit. The words get used as synonyms. They are not. The test is still the same: can they pick a specific unit at a specific price before Monday.
       </p>
-      <table>
+      <div className="table-scroll"><table>
         <thead>
           <tr>
             <th></th>
@@ -55,7 +55,7 @@ export default function Page() {
             <td>Which unit, at what price, whether it is still open</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
       <h2>Why this is money</h2>
       <p>
         Buyers who cannot tell which unit is open wait. Waiting is extra months of the construction loan. On a typical boutique $10M–$15M loan at about 8%, monthly interest is loan × rate ÷ 12. about $67k–$100k to the bank, plus ads and ops that keep running until units are gone. See{' '}

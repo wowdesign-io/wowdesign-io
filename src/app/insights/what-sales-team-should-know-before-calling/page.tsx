@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <InsightsArticle article={article}>
-      <h2>What should a sales team know before they call a condo buyer?</h2>
       <p>
         The briefing is four things: which unit they looked at (the actual stack number, not “a two-bed”); whether that unit is still open, and at what price, on the same inventory the sales team uses; how far they went (pricing, a floor plan, a gallery, or leave after the look); and whether they came back. A return visit is a different call than a one-pass browse.
       </p>
@@ -25,7 +24,7 @@ export default function Page() {
         This is not a script. It is what has to be in the tools they already use before they pick up. Follow-up the same night is how that picture gets built. See{' '}
         <a href="/insights/follow-up-pre-construction-buyers">what follow-up should include</a>. This page is the call, not the email.
       </p>
-      <table>
+      <div className="table-scroll"><table>
         <thead>
           <tr>
             <th>Before they pick up</th>
@@ -50,7 +49,7 @@ export default function Page() {
             <td>Treat a one-pass like a return</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
       <h2>A name and a phone number is not the briefing</h2>
       <p>
         A CRM row with a name, a phone, and “interested” is a contact. It is not a briefing. The sales team still has to ask which floor, which view, what they thought it cost. Buyers who already picked a unit hang up on that. Buyers who did not pick one were never ready. And the call still burned an hour.
