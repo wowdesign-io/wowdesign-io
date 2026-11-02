@@ -8,6 +8,10 @@ const CLARITY_ID = 'xblutmy6s9'
  * Single gtag ID — do not add a second tag.
  *
  * Mark as Key events in GA4 Admin: generate_lead, book_demo_click, calculator_calculate.
+ *
+ * 2026-11-02 PR4: click events that navigate must use transport_type beacon
+ * or the hit dies on unload. calculator_calculate watches #wwd-results visibility.
+ * Cal lead binding retries until the embed API is ready.
  */
 export default function SiteAnalytics() {
   return (
@@ -19,8 +23,14 @@ export default function SiteAnalytics() {
       <Script id="ga4-init" strategy="afterInteractive">{`
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
         gtag('js', new Date());
-        gtag('config', '${GA_ID}');
+        gtag('config', '${GA_ID}', {
+          send_page_view: true,
+          ...(location.search.indexOf('gtm_debug=') !== -1 || location.search.indexOf('debug_mode=1') !== -1
+            ? { debug_mode: true }
+            : {})
+        });
       `}</Script>
       <Script id="clarity-init" strategy="afterInteractive">{`
         (function(c,l,a,r,i,t,y){
@@ -35,9 +45,30 @@ export default function SiteAnalytics() {
         dangerouslySetInnerHTML={{
           __html: `
 (function () {
-  function track(name, params) {
-    if (typeof gtag === 'function') gtag('event', name, params || {});
+  var pending = [];
+
+  function flushPending() {
+    if (typeof window.gtag !== 'function') return;
+    while (pending.length) {
+      var item = pending.shift();
+      window.gtag('event', item.name, item.params);
+    }
   }
+
+  function track(name, params, opts) {
+    var payload = Object.assign({}, params || {});
+    if (!opts || opts.beacon !== false) {
+      payload.transport_type = 'beacon';
+    }
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', name, payload);
+      return;
+    }
+    pending.push({ name: name, params: payload });
+    setTimeout(flushPending, 500);
+    setTimeout(flushPending, 2000);
+  }
+
   function path() { return window.location.pathname || '/'; }
   function cleanNum(v) {
     return parseFloat(String(v || '').replace(/[$,%\\s,]/g, '')) || 0;
@@ -56,6 +87,20 @@ export default function SiteAnalytics() {
     var cta = el.getAttribute('data-cta') || '';
     if (/Insights CTA/i.test(cta) || /\\/insights\\//.test(path())) return 'insights_article';
     return 'page_cta';
+  }
+
+  function fireCalculate() {
+    var results = document.getElementById('wwd-results');
+    if (!results) return;
+    if (results.style.display === 'none' || results.getAttribute('hidden') !== null) return;
+    if (results.getAttribute('data-wwd-ga-calc-fired')) return;
+    results.setAttribute('data-wwd-ga-calc-fired', '1');
+    var loanEl = document.getElementById('wwd-loan');
+    var monthsEl = document.getElementById('wwd-months');
+    track('calculator_calculate', {
+      loan_amount_bucket: loanBucket(cleanNum(loanEl && loanEl.value)),
+      months_delay: parseInt(monthsEl && monthsEl.value, 10) || 0
+    }, { beacon: false });
   }
 
   document.addEventListener('click', function (e) {
@@ -92,36 +137,48 @@ export default function SiteAnalytics() {
   document.addEventListener('click', function (e) {
     var t = e.target;
     if (!t || !t.closest || !t.closest('#wwd-gate-btn')) return;
-    setTimeout(function () {
-      var results = document.getElementById('wwd-results');
-      if (!results || results.style.display === 'none') return;
-      if (results.getAttribute('data-wwd-ga-calc-fired')) return;
-      results.setAttribute('data-wwd-ga-calc-fired', '1');
-      var loanEl = document.getElementById('wwd-loan');
-      var monthsEl = document.getElementById('wwd-months');
-      track('calculator_calculate', {
-        loan_amount_bucket: loanBucket(cleanNum(loanEl && loanEl.value)),
-        months_delay: parseInt(monthsEl && monthsEl.value, 10) || 0
-      });
-    }, 250);
+    // reveal() is sync after validation; also observe in case timing shifts
+    setTimeout(fireCalculate, 0);
+    setTimeout(fireCalculate, 250);
+    setTimeout(fireCalculate, 1000);
   }, true);
+
+  function watchResults() {
+    var root = document.getElementById('wwd-calc-root') || document.body;
+    if (!root || root.getAttribute('data-wwd-ga-obs')) return;
+    root.setAttribute('data-wwd-ga-obs', '1');
+    try {
+      var obs = new MutationObserver(function () { fireCalculate(); });
+      obs.observe(root, { attributes: true, childList: true, subtree: true, attributeFilter: ['style', 'class', 'hidden'] });
+    } catch (err) {}
+  }
+  watchResults();
+  setTimeout(watchResults, 1500);
+  setTimeout(watchResults, 4000);
 
   function bindCal() {
     try {
-      if (typeof Cal === 'undefined' || window.__wwdCalLeadBound) return;
+      if (typeof Cal === 'undefined') return false;
+      if (window.__wwdCalLeadBound) return true;
       var api = (Cal.ns && Cal.ns['book-a-demo']) || Cal;
-      if (!api) return;
+      if (!api || typeof api !== 'function') return false;
       window.__wwdCalLeadBound = true;
       api('on', {
         action: 'bookingSuccessful',
         callback: function () {
-          track('generate_lead', { method: 'cal_com', page_path: path() });
+          track('generate_lead', { method: 'cal_com', page_path: path() }, { beacon: false });
         }
       });
-    } catch (err) {}
+      return true;
+    } catch (err) {
+      return false;
+    }
   }
-  setTimeout(bindCal, 1500);
-  setTimeout(bindCal, 4000);
+  var calTries = 0;
+  var calTimer = setInterval(function () {
+    calTries += 1;
+    if (bindCal() || calTries > 40) clearInterval(calTimer);
+  }, 500);
 })();
 `,
         }}
