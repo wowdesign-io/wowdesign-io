@@ -113,7 +113,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'US construction lenders commonly want 50–70% of project revenue under contract before they fund. Count dollars from contracts the lender will take, not a round unit count, and not a reservation without a deposit. Fannie Mae’s 50% conveyed or under-contract test is about unit-buyer mortgages. It is not the construction draw.',
     datePublished: '2026-09-08',
-    dateModified: '2026-10-20',
+    dateModified: '2026-11-01',
     faqs: [
       {
         q: 'What is the typical presale percentage for a construction loan in Florida?',
@@ -342,7 +342,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'You do not need a published units-per-month rate. You need qualifying contracts, at the prices in your stack, fast enough to hit the lender\'s share of project revenue before the window on the term sheet closes. Convert the percent to dollars, then to contracts they will count. Soft holds do not count.',
     datePublished: '2026-10-20',
-    dateModified: '2026-10-20',
+    dateModified: '2026-11-01',
     faqs: [
       {
         q: 'How fast do you need to pre-sell to hit a construction loan draw?',
@@ -380,6 +380,31 @@ export const INSIGHTS: InsightArticle[] = [
       {
         q: 'What do leftover units still cost after the construction draw?',
         a: 'After the lender funds, leftover revenue is still on the loan. Method: (1 − lender percent) × project revenue. A $12M sell-out with a 50% line still has $6M to close.',
+      },
+    ],
+  },
+  {
+    slug: 'what-counts-qualifying-presale-construction-loan',
+    tag: 'Qualifying presale',
+    h1: 'What counts as a qualifying presale for a construction loan?',
+    description:
+      'A qualifying presale is a binding purchase contract with a deposit the construction lender will recognize, from a buyer they will count. Reservations and related-party deals usually drop out. The 50–70% line is percent of revenue from those contracts.',
+    answer:
+      'A qualifying presale is a binding purchase contract with a deposit the construction lender will recognize, from a buyer they will count. Reservations, letters of intent, and related-party deals usually drop out. Ask the lender in writing. The 50–70% line is percent of revenue from those contracts, not a unit count.',
+    datePublished: '2026-11-01',
+    dateModified: '2026-11-01',
+    faqs: [
+      {
+        q: 'What counts as a qualifying presale for a construction loan?',
+        a: 'Usually a binding purchase contract with a deposit the lender will recognize, from a buyer they will count. Reservations, letters of intent, and related-party deals usually drop out. Ask the lender in writing. The 50–70% line is percent of revenue from those contracts, not a unit count.',
+      },
+      {
+        q: 'Do reservations count toward the construction loan presale?',
+        a: 'Usually not. A reservation or letter of intent can convert. Until it is a binding contract with a held deposit, it does not move the construction draw. Ask whether those are in or out on your sheet.',
+      },
+      {
+        q: 'How do you score qualifying presales against the revenue line?',
+        a: 'Keep only contracts that survive the filter, sum those prices, and divide by project sell-out revenue. Example: ten qualifying contracts at $4.2M on a $12M sell-out is 35%, not a unit count.',
       },
     ],
   },
