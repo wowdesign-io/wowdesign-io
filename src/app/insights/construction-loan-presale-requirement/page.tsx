@@ -21,7 +21,7 @@ export default function Page() {
       <p>
         Count dollars under contract, not a round unit count, when you are talking to the construction lender. A penthouse and a studio are not the same revenue. Fannie’s test is a unit share, and only certain buyers. Keep them on separate lines in your own head, and in anything you send a partner.
       </p>
-      <table>
+      <div className="table-scroll"><table>
         <thead>
           <tr>
             <th>Test</th>
@@ -41,7 +41,7 @@ export default function Page() {
             <td>Share of units to principal-residence or second-home purchasers, not your construction draw</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
       <h2>What counts as a qualifying presale?</h2>
       <p>
         The percent only helps if the contracts actually count. This page is the percent and the two clocks. See{' '}

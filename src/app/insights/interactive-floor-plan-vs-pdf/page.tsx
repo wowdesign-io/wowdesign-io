@@ -21,7 +21,7 @@ export default function Page() {
       <p>
         That is the whole comparison. One is a document. The other is live inventory the buyer can use at 11pm. Renderings still sell the look on both. They do not tell you who is ready. The floor has to answer which unit, at what price, and whether it is still open. Without a Monday email.
       </p>
-      <table>
+      <div className="table-scroll"><table>
         <thead>
           <tr>
             <th></th>
@@ -46,7 +46,7 @@ export default function Page() {
             <td>Which unit, how far they went, whether they are ready</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
       <h2>What boutique 10–50 actually needs</h2>
       <p>
         The floor plan lives on the project website, not in a CRM the buyer cannot open. Spark.re and tools like it are inventory and CRM for the sales team. That is a different job. The buyer needs the clickable floor on the site. Your sales team then calls with the unit already in the tools they already use, not a blank contact who “downloaded the brochure.” That briefing is{' '}

@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <InsightsArticle article={article}>
-      <h2>Why do construction lenders care about presales?</h2>
       <p>
         The construction loan is not repaid from land sitting idle. It is repaid when buyers close. Until enough units are under contracts the lender will actually take, the bank is looking at a building that might not sell. Presales cut that leftover risk. Qualifying contracts with deposits prove someone other than you believes the stack will move, and they leave a residual loan the bank can live with once those close.
       </p>
@@ -32,7 +31,7 @@ export default function Page() {
       <p>
         Two questions sit under that filter. First: will enough of those buyers actually close so the loan gets paid down. Second: after they close, is the leftover inventory a size the bank can live with. Investor contracts can fail the first test if the buyer is only in for a flip. Your construction sheet is its own list.
       </p>
-      <table>
+      <div className="table-scroll"><table>
         <thead>
           <tr>
             <th>They fund against</th>
@@ -53,7 +52,7 @@ export default function Page() {
             <td>A stack that only looks sold on a spreadsheet</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
       <p>
         On a boutique 10–50 unit stack, six contracts that do not qualify is not a paperwork issue. It is the draw slipping a month.
       </p>

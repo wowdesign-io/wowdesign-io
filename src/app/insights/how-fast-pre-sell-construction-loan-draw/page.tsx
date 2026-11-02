@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <InsightsArticle article={article}>
-      <h2>How fast do you need to pre-sell to hit a construction loan draw?</h2>
       <p>
         The speed that matters is not a units-per-month sticker copied from another building. It is how fast qualifying contracts, at the prices in your stack, reach the share of project revenue your construction lender wrote on the term sheet. US lenders commonly want 50–70% of revenue under those contracts before they fund. That range is a market pattern, not a statute. Your sheet is the number that counts. See{' '}
         <a href="/insights/construction-loan-presale-requirement">how many units you need to pre-sell</a> for the percent. See{' '}

@@ -34,7 +34,7 @@ export default function Page() {
         The sales team needs the same picture. A name from the launch list is a first-wave leftover. The call that works is the person who already clicked a remaining unit, saw the price, and came back. That briefing lives in the tools the sales team already uses. See{' '}
         <a href="/insights/what-sales-team-should-know-before-calling">what the sales team should know before they call</a>.
       </p>
-      <table>
+      <div className="table-scroll"><table>
         <thead>
           <tr>
             <th></th>
@@ -59,7 +59,7 @@ export default function Page() {
             <td>People who looked at a leftover</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
       <p>
         Follow-up has to keep pointing at the live leftover, not the PDF from week one. A buyer who reserved a first-wave unit and walks is a hole in both clocks. A buyer who never saw what is left never reserved. See{' '}
         <a href="/insights/keep-pre-construction-buyers-from-backing-out">how to keep buyers from backing out during the build</a>.
