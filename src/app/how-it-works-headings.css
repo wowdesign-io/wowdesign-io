@@ -335,8 +335,13 @@
   flex: 1 1 auto;
 }
 #insights .features-button-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-self: flex-start;
   margin-top: auto;
   padding-top: 1.5rem;
+  /* InnerButton frame is padding: 5px — pull so the blue face shares the text left edge */
+  margin-left: -5px;
 }
 #insights .insights-card-meta {
   margin-bottom: 12px;
