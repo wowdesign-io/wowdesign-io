@@ -9,9 +9,9 @@ const CLARITY_ID = 'xblutmy6s9'
  *
  * Mark as Key events in GA4 Admin: generate_lead, book_demo_click, calculator_calculate.
  *
- * 2026-11-02 PR4: click events that navigate must use transport_type beacon
- * or the hit dies on unload. calculator_calculate watches #wwd-results visibility.
- * Cal lead binding retries until the embed API is ready.
+ * 2026-11-02: internal-link clicks delay navigation ~400ms so GA4 can flush
+ * (transport_type beacon does not work for GA4). calculator_calculate watches
+ * #wwd-results. Cal lead binding retries until the embed API is ready.
  */
 export default function SiteAnalytics() {
   return (
@@ -46,6 +46,7 @@ export default function SiteAnalytics() {
           __html: `
 (function () {
   var pending = [];
+  var NAV_DELAY_MS = 400;
 
   function flushPending() {
     if (typeof window.gtag !== 'function') return;
@@ -55,11 +56,8 @@ export default function SiteAnalytics() {
     }
   }
 
-  function track(name, params, opts) {
+  function track(name, params) {
     var payload = Object.assign({}, params || {});
-    if (!opts || opts.beacon !== false) {
-      payload.transport_type = 'beacon';
-    }
     if (typeof window.gtag === 'function') {
       window.gtag('event', name, payload);
       return;
@@ -89,6 +87,25 @@ export default function SiteAnalytics() {
     return 'page_cta';
   }
 
+  function sameOriginNav(a, href) {
+    if (!href || href.charAt(0) === '#') return false;
+    if (a.target && a.target !== '_self') return false;
+    if (a.hasAttribute('download')) return false;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return false;
+    if (/^https?:\\/\\//i.test(href)) {
+      try {
+        return new URL(href).origin === window.location.origin;
+      } catch (err) {
+        return false;
+      }
+    }
+    return href.charAt(0) === '/';
+  }
+
+  function go(href) {
+    window.location.href = href;
+  }
+
   function fireCalculate() {
     var results = document.getElementById('wwd-results');
     if (!results) return;
@@ -100,7 +117,7 @@ export default function SiteAnalytics() {
     track('calculator_calculate', {
       loan_amount_bucket: loanBucket(cleanNum(loanEl && loanEl.value)),
       months_delay: parseInt(monthsEl && monthsEl.value, 10) || 0
-    }, { beacon: false });
+    });
   }
 
   document.addEventListener('click', function (e) {
@@ -108,11 +125,17 @@ export default function SiteAnalytics() {
     if (!t || !t.closest) return;
     var a = t.closest('a');
     if (!a) return;
+    if (e.defaultPrevented) return;
+    if (e.button !== 0) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
     var href = a.getAttribute('href') || '';
     var cta = a.getAttribute('data-cta') || '';
+    var tracked = false;
 
     if (href.indexOf('/book-a-demo') !== -1 || href.indexOf('cal.com/wowdesign') !== -1) {
       track('book_demo_click', { location: demoLocation(a), page_path: path() });
+      tracked = true;
     }
 
     if (/Insights CTA/i.test(cta) && href.indexOf('carry-cost-calculator') !== -1) {
@@ -123,21 +146,29 @@ export default function SiteAnalytics() {
         slug = path().replace(/^\\/insights\\//, '').replace(/\\/$/, '');
       }
       track('insights_cta_click', { slug: slug || 'unknown', page_path: path() });
+      tracked = true;
     }
 
     if (a.id === 'wwd-cta-link' || (a.classList && a.classList.contains('wwd-cta-btn'))) {
       track('calculator_cta_click', { page_path: path() });
+      tracked = true;
     }
 
     if (href.indexOf('carry-cost-calculator') !== -1 || href.indexOf('cal.com/wowdesign') !== -1 || href.indexOf('/book-a-demo') !== -1) {
       track('cta_click', { cta_name: cta || (a.innerText || '').trim() });
+      tracked = true;
+    }
+
+    // Same-origin navigations: hold the page ~400ms so GA4 can send the hit
+    if (tracked && sameOriginNav(a, href)) {
+      e.preventDefault();
+      setTimeout(function () { go(href); }, NAV_DELAY_MS);
     }
   }, true);
 
   document.addEventListener('click', function (e) {
     var t = e.target;
     if (!t || !t.closest || !t.closest('#wwd-gate-btn')) return;
-    // reveal() is sync after validation; also observe in case timing shifts
     setTimeout(fireCalculate, 0);
     setTimeout(fireCalculate, 250);
     setTimeout(fireCalculate, 1000);
@@ -166,7 +197,7 @@ export default function SiteAnalytics() {
       api('on', {
         action: 'bookingSuccessful',
         callback: function () {
-          track('generate_lead', { method: 'cal_com', page_path: path() }, { beacon: false });
+          track('generate_lead', { method: 'cal_com', page_path: path() });
         }
       });
       return true;

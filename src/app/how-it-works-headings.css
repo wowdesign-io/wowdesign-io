@@ -206,15 +206,22 @@
 .section.faq + .section.cta {
   padding-top: 2.5rem;
 }
-/* Body readability — denser Webflow defaults were ~16px / tight margins */
+/* Body readability — miami `p { font-size: 1rem }` overrides inheritance; pin px */
 .insights-article .w-richtext {
-  font-size: 1.125rem; /* 18px */
+  font-size: clamp(17px, 1.125rem, 19px);
+  line-height: 1.7;
+  color: #d4d4d8;
+}
+.insights-article .w-richtext > p,
+.insights-article .w-richtext > ul,
+.insights-article .w-richtext > ol,
+.insights-article .w-richtext li {
+  font-size: clamp(17px, 1.125rem, 19px);
   line-height: 1.7;
   color: #d4d4d8;
 }
 .insights-article .w-richtext > p {
   margin-bottom: 1.1em;
-  color: #d4d4d8;
 }
 .insights-article .w-richtext > h2 {
   color: #fff;
