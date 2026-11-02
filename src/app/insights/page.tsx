@@ -8,25 +8,34 @@ import InnerButton from '@/components/InnerButton'
 import InsightsIcon from '@/components/InsightsIcon'
 import InsightsTagIcon from '@/components/InsightsTagIcon'
 import SkyGlow from '@/components/SkyGlow'
-import { insightsByNewest, type InsightArticle } from '@/lib/insights'
+import {
+  insightsForHub,
+  insightsReadMinutes,
+  type InsightArticle,
+} from '@/lib/insights'
 import { breadcrumbList } from '@/lib/schema'
 import { SITE } from '@/lib/site'
 import '@/app/how-it-works-headings.css'
 
+const HUB_INTRO =
+  'What construction lenders need, what an extra month costs, and how buyers stay through the build.'
+
 export const metadata: Metadata = {
   title: 'Insights',
-  description:
-    'What a digital twin is on a building that is not built yet. What follow-up should do the night a buyer shows interest. What the sales team should know before they call. How buyers stay through the build. Why construction lenders care about presales. How fast you need to pre-sell to hit the construction draw. How you sell the last leftover units. What a project website needs besides renderings. How long a 20–40 unit sell-out takes. How much an extra month of a construction loan costs.',
+  description: HUB_INTRO,
   alternates: { canonical: `${SITE}/insights` },
 }
 
 const ROWS: InsightArticle[][] = []
-const ORDERED = insightsByNewest()
+const ORDERED = insightsForHub()
 for (let i = 0; i < ORDERED.length; i += 2) {
   ROWS.push(ORDERED.slice(i, i + 2))
 }
 
 function InsightCard({ article }: { article: InsightArticle }) {
+  const minutes = insightsReadMinutes(article)
+  const excerpt = article.takeaways?.[0] ?? article.answer
+
   return (
     <div className="features-typography-card top-border-none">
       <div className="features-typography-card-single">
@@ -40,8 +49,8 @@ function InsightCard({ article }: { article: InsightArticle }) {
         </div>
         <div className="features-title-description">
           <h2 className="features-title">{article.h1}</h2>
-          <p className="features-description-text insights-card-date">{article.datePublished}</p>
-          <p className="features-description-text">{article.answer}</p>
+          <p className="features-description-text insights-card-meta">{minutes} min read</p>
+          <p className="features-description-text insights-card-excerpt">{excerpt}</p>
         </div>
         <div className="features-button-wrapper">
           <div className="primary-button-wrapper">
@@ -66,6 +75,7 @@ export default function InsightsIndexPage() {
           '@type': 'CollectionPage',
           name: 'Insights',
           url: `${SITE}/insights`,
+          description: HUB_INTRO,
           publisher: { '@id': `${SITE}/#org` },
         }}
       />
@@ -79,7 +89,7 @@ export default function InsightsIndexPage() {
         <PageHero
           tagline="Insights"
           title="Pre-construction, explained."
-          description="Digital twins, follow-up, what the sales team should know before they call, how buyers stay through the build, why construction lenders care about presales, how fast you need to pre-sell to hit the construction draw, how you sell the last leftover units, showrooms, floor plans, what a project website needs besides renderings, how long a 20–40 unit sell-out takes, and how units sell before they exist."
+          description={HUB_INTRO}
           ctaLabel="Start reading"
           ctaHref="#insights"
           ctaData="Insights index - Read"

@@ -305,19 +305,62 @@
 #insights .features-flex {
   position: relative;
   margin-bottom: 2rem;
+  align-items: stretch;
 }
 #insights .features-flex:last-child {
   margin-bottom: 0;
 }
 #insights .insights-flex-single .features-typography-card {
   max-width: 100%;
-  min-height: auto;
 }
-#insights .insights-card-date {
+/* Hub cards are short answers — kill How-it-works 690px min-height (was empty void) */
+#insights .features-typography-card,
+#insights .features-typography-card.top-border-none {
+  min-height: 0;
+  height: auto;
+  align-self: stretch;
+}
+#insights .features-typography-card-single {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+}
+#insights .features-title-description {
+  width: 100%;
+  align-items: flex-start;
+  margin-bottom: 0;
+  flex: 1 1 auto;
+}
+#insights .features-button-wrapper {
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+#insights .insights-card-meta {
   margin-bottom: 12px;
+  opacity: 0.75;
+  font-size: 0.9rem;
+}
+#insights .insights-card-excerpt {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  margin-bottom: 0;
 }
 #insights h2.features-title {
   line-height: 1.1em;
+}
+/* Keep tag SVGs crisp: card glass blur was muddying filled Regular paths */
+#insights .icon-embed-xsmall {
+  flex-shrink: 0;
+  isolation: isolate;
+}
+#insights .icon-embed-xsmall svg {
+  display: block;
+  overflow: visible;
 }
 
 #insights.section.features {

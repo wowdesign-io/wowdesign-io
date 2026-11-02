@@ -62,6 +62,56 @@ export function insightsByNewest(): InsightArticle[] {
   })
 }
 
+/**
+ * Hub card order: construction-loan / presale cluster first, then sales process, then product.
+ * Unlisted slugs append newest-first at the end.
+ */
+const HUB_ORDER: string[] = [
+  'construction-loan-extra-month',
+  'construction-loan-presale-requirement',
+  'why-construction-lenders-care-about-presales',
+  'how-fast-pre-sell-construction-loan-draw',
+  'what-counts-qualifying-presale-construction-loan',
+  'how-long-sell-out-20-40-unit-condo',
+  'sell-pre-construction-condos-faster',
+  'sell-last-units-pre-construction-condo',
+  'keep-pre-construction-buyers-from-backing-out',
+  'follow-up-pre-construction-buyers',
+  'what-sales-team-should-know-before-calling',
+  'interactive-floor-plan-vs-pdf',
+  'virtual-showroom-pre-construction',
+  'digital-twin-pre-construction',
+  'boutique-website-besides-renderings',
+]
+
+export function insightsForHub(): InsightArticle[] {
+  const bySlug = new Map(INSIGHTS.map((a) => [a.slug, a]))
+  const ordered: InsightArticle[] = []
+  for (const slug of HUB_ORDER) {
+    const article = bySlug.get(slug)
+    if (article) {
+      ordered.push(article)
+      bySlug.delete(slug)
+    }
+  }
+  for (const article of insightsByNewest()) {
+    if (bySlug.has(article.slug)) ordered.push(article)
+  }
+  return ordered
+}
+
+/** Approximate minutes from meta copy (body is ~2–3×). Floor 3. */
+export function insightsReadMinutes(article: InsightArticle): number {
+  const parts = [
+    article.answer,
+    article.description,
+    ...(article.takeaways ?? []),
+    ...article.faqs.flatMap((f) => [f.q, f.a]),
+  ]
+  const words = parts.reduce((n, text) => n + text.trim().split(/\s+/).filter(Boolean).length, 0)
+  return Math.max(3, Math.round((words * 2.5) / 200))
+}
+
 export const INSIGHTS: InsightArticle[] = [
   {
     slug: 'construction-loan-extra-month',
