@@ -353,6 +353,15 @@
 #insights h2.features-title {
   line-height: 1.1em;
 }
+/* Keep tag SVGs crisp: card glass blur was muddying filled Regular paths */
+#insights .icon-embed-xsmall {
+  flex-shrink: 0;
+  isolation: isolate;
+}
+#insights .icon-embed-xsmall svg {
+  display: block;
+  overflow: visible;
+}
 
 #insights.section.features {
   /* Don't clip Features-Card-Shape top corners on the first row. */
