@@ -125,10 +125,13 @@
   color: #d4d4d8;
   max-width: 36rem;
 }
-/* Related uses padding-section-large (7rem) like other sections — FAQ has padding-top: 0 */
+/* Related: same rhythm as FAQ — previous section’s padding-section-large bottom is the gap */
 .insights-related {
   padding-top: 0;
   padding-bottom: 0;
+}
+.insights-related .padding-section-large {
+  padding-top: 0;
 }
 .insights-related-heading {
   color: #fff;
@@ -198,11 +201,8 @@
   line-height: 1.45;
 }
 
-.insights-article .padding-section-large {
-  /* Keep article bottom tighter; Related below uses full padding-section-large */
-  padding-bottom: 2.5rem;
-}
-/* FAQ has padding-top: 0 in miami.css — Related’s padding-section-large supplies the gap */
+/* Article keeps full padding-section-large (incl. bottom) so author → Related = 7rem */
+/* Related / FAQ both use padding-top: 0 — air from the section above */
 .section.faq + .section.cta {
   padding-top: 2.5rem;
 }
