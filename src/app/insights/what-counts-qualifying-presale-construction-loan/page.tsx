@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <InsightsArticle article={article}>
-      <h2>What counts as a qualifying presale for a construction loan?</h2>
       <p>
         A name on a list is not a presale. A construction lender wants a contract they can take to the credit committee: binding, signed, with a deposit they will recognize, from a buyer they will count. Soft holds, letters of intent, and &quot;coming in next week&quot; do not fill that line. The 50–70% of revenue they often want is only as good as the contracts inside it.
       </p>
@@ -67,7 +66,7 @@ export default function Page() {
         <li>Divide by project sell-out revenue.</li>
       </ol>
       <p>
-        Worked example. Eighteen names on a list. Twelve have a signed contract and a held deposit. Two of those twelve are related-party. Ten count. Those ten are $4.2M on a $12M sell-out. You are at 35%, not eighteen of thirty units. Method: qualifying contract revenue ÷ project sell-out revenue. Once you have that share, see{' '}
+        Worked example (illustrative numbers). Eighteen names on a list. Twelve have a signed contract and a held deposit. Two of those twelve are related-party. Ten count. Those ten are $4.2M on a $12M sell-out. You are at 35%, not eighteen of thirty units. Method: qualifying contract revenue ÷ project sell-out revenue. Once you have that share, see{' '}
         <a href="/insights/how-fast-pre-sell-construction-loan-draw">how fast you need to pre-sell to hit the construction draw</a> for the monthly pace. Soft holds do not close the gap. If the line slips a month, size it from your loan. See{' '}
         <a href="/insights/construction-loan-extra-month">how much an extra month costs</a>. Run the calculator on your numbers.
       </p>

@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <InsightsArticle article={article}>
-      <h2>How do you sell the last units in a pre-construction condo?</h2>
       <p>
         The first wave is the easy stack. Best views, friends and family, early prices. Those units leave. What is left is the leftover view, the leftover floor, the leftover price. A PDF from month one still shows the penthouse that already closed. A buyer in month seven cannot tell what is actually open.
       </p>
@@ -66,7 +65,7 @@ export default function Page() {
       </p>
       <h2>What leftover units still cost after the draw</h2>
       <p>
-        Hitting the construction draw does not take the loan off. The lender funded because qualifying contracts covered their share of project revenue. The rest of the stack is still unsold. Method: leftover revenue = (1 − lender percent) × project sell-out revenue. A $12M sell-out with a 50% line still has $6M to close after the draw. That $6M is the last-unit clock. It is not a unit count.
+        Hitting the construction draw does not take the loan off. The lender funded because qualifying contracts covered their share of project revenue. The rest of the stack is still unsold. Worked example (illustrative numbers): leftover revenue = (1 − lender percent) × project sell-out revenue. A $12M sell-out with a 50% line still has $6M to close after the draw. That $6M is the last-unit clock. It is not a unit count.
       </p>
       <p>
         Those leftover dollars sit on the construction loan until they close. Extra months on that remainder are still extra months. Size them from your leftover revenue, then from how many months those last contracts still have to take. See{' '}
