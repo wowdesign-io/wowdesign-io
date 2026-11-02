@@ -100,16 +100,31 @@ export function insightsForHub(): InsightArticle[] {
   return ordered
 }
 
-/** Approximate minutes from meta copy (body is ~2–3×). Floor 3. */
+/** Body word counts from page.tsx (JSX stripped). Hub read time = body + answer + FAQs ÷ 200. */
+const INSIGHT_BODY_WORDS: Record<string, number> = {
+  'construction-loan-extra-month': 402,
+  'construction-loan-presale-requirement': 700,
+  'digital-twin-pre-construction': 492,
+  'follow-up-pre-construction-buyers': 482,
+  'interactive-floor-plan-vs-pdf': 454,
+  'sell-pre-construction-condos-faster': 453,
+  'virtual-showroom-pre-construction': 465,
+  'boutique-website-besides-renderings': 510,
+  'how-long-sell-out-20-40-unit-condo': 605,
+  'what-sales-team-should-know-before-calling': 535,
+  'keep-pre-construction-buyers-from-backing-out': 553,
+  'why-construction-lenders-care-about-presales': 557,
+  'how-fast-pre-sell-construction-loan-draw': 574,
+  'sell-last-units-pre-construction-condo': 568,
+  'what-counts-qualifying-presale-construction-loan': 530,
+}
+
+/** Minutes at ~200 wpm. Floor 3. */
 export function insightsReadMinutes(article: InsightArticle): number {
-  const parts = [
-    article.answer,
-    article.description,
-    ...(article.takeaways ?? []),
-    ...article.faqs.flatMap((f) => [f.q, f.a]),
-  ]
-  const words = parts.reduce((n, text) => n + text.trim().split(/\s+/).filter(Boolean).length, 0)
-  return Math.max(3, Math.round((words * 2.5) / 200))
+  const meta = [article.answer, ...(article.takeaways ?? []), ...article.faqs.flatMap((f) => [f.q, f.a])]
+  const metaWords = meta.reduce((n, text) => n + text.trim().split(/\s+/).filter(Boolean).length, 0)
+  const bodyWords = INSIGHT_BODY_WORDS[article.slug] ?? 500
+  return Math.max(3, Math.round((bodyWords + metaWords) / 200))
 }
 
 export const INSIGHTS: InsightArticle[] = [

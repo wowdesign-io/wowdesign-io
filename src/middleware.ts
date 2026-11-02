@@ -25,10 +25,14 @@ export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
 
   // Apex → www (canonical host). Staging / Vercel previews keep their host.
+  // Strip trailing slash in the same hop so wowdesign.io/insights/ is one 308, not two.
   if (host === 'wowdesign.io') {
     const url = req.nextUrl.clone()
     url.host = 'www.wowdesign.io'
     url.protocol = 'https'
+    if (url.pathname.length > 1 && url.pathname.endsWith('/')) {
+      url.pathname = url.pathname.slice(0, -1)
+    }
     return NextResponse.redirect(url, 308)
   }
 

@@ -22,7 +22,7 @@ export default function Page() {
       </p>
       <p>
         That is a different job from the clocks. See{' '}
-        <a href="/insights/how-long-sell-out-20-40-unit-condo">how long a 20–40 unit sell-out takes</a> for the draw, then the last unit. This page is what you do when the best units are gone and the construction loan is still on. See{' '}
+        <a href="/insights/how-long-sell-out-20-40-unit-condo">how long a 20–40 unit sell-out takes</a> for the draw, then the last unit. When the best units are gone and the construction loan is still on, see{' '}
         <a href="/insights/sell-pre-construction-condos-faster">how to sell pre-construction condos faster</a> for the first-wave sequence. Leftovers need that sequence on today&apos;s stack, not last quarter&apos;s brochure.
       </p>
       <h2>What has to be live for leftovers</h2>
@@ -70,7 +70,7 @@ export default function Page() {
       <p>
         Those leftover dollars sit on the construction loan until they close. Extra months on that remainder are still extra months. Size them from your leftover revenue, then from how many months those last contracts still have to take. See{' '}
         <a href="/insights/construction-loan-extra-month">how much an extra month costs</a> if you want the interest method. Run the calculator on your loan if you want the month in your numbers. Pace to the draw lives on{' '}
-        <a href="/insights/how-fast-pre-sell-construction-loan-draw">how fast you need to pre-sell to hit the construction draw</a>. This page is the second clock: what is left after that line.
+        <a href="/insights/how-fast-pre-sell-construction-loan-draw">how fast you need to pre-sell to hit the construction draw</a>. What is left after that line is the second clock.
       </p>
     </InsightsArticle>
   )
