@@ -25,9 +25,10 @@ export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
 
   // Apex → www (canonical host). Staging / Vercel previews keep their host.
-  // Strip trailing slash in the same hop so wowdesign.io/insights/ is one 308, not two.
+  // Plain URL — nextUrl.clone() keeps a sticky trailingSlash flag (see 063cccc),
+  // so wowdesign.io/insights/ would still Location to www…/insights/ (two hops).
   if (host === 'wowdesign.io') {
-    const url = req.nextUrl.clone()
+    const url = new URL(req.url)
     url.host = 'www.wowdesign.io'
     url.protocol = 'https'
     if (url.pathname.length > 1 && url.pathname.endsWith('/')) {
@@ -38,15 +39,17 @@ export function middleware(req: NextRequest) {
 
   // /en and /en/ → / in one hop. Requires skipTrailingSlashRedirect in next.config
   // (otherwise Next 308s /en/ → /en before this runs).
+  // Use plain URL — NextURL keeps a sticky trailingSlash flag from the request,
+  // so clone()+pathname='/insights' still serializes href as /insights/ (loop).
   if (pathname === '/en' || pathname === '/en/') {
-    const url = req.nextUrl.clone()
+    const url = new URL(req.url)
     url.pathname = '/'
     return NextResponse.redirect(url, 308)
   }
 
   // Recreate default no-trailing-slash behavior for everything else.
   if (pathname.length > 1 && pathname.endsWith('/')) {
-    const url = req.nextUrl.clone()
+    const url = new URL(req.url)
     url.pathname = pathname.slice(0, -1)
     return NextResponse.redirect(url, 308)
   }
