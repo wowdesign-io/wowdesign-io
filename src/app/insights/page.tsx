@@ -9,6 +9,7 @@ import InsightsIcon from '@/components/InsightsIcon'
 import InsightsTagIcon from '@/components/InsightsTagIcon'
 import SkyGlow from '@/components/SkyGlow'
 import { insightsByNewest, type InsightArticle } from '@/lib/insights'
+import { breadcrumbList } from '@/lib/schema'
 import { SITE } from '@/lib/site'
 import '@/app/how-it-works-headings.css'
 
@@ -67,6 +68,12 @@ export default function InsightsIndexPage() {
           url: `${SITE}/insights`,
           publisher: { '@id': `${SITE}/#org` },
         }}
+      />
+      <JsonLd
+        data={breadcrumbList([
+          { name: 'Home', url: SITE },
+          { name: 'Insights', url: `${SITE}/insights` },
+        ])}
       />
       <SiteChrome current="insights">
         <PageHero

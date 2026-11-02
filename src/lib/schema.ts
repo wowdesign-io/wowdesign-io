@@ -132,25 +132,35 @@ export function articleSchema(opts: {
   description: string
   datePublished: string
   dateModified: string
+  image?: string
 }) {
+  const image = opts.image ?? `${SITE}/images/open-graph-img-en.png`
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: opts.headline,
     description: opts.description,
     url: opts.url,
+    image,
     datePublished: opts.datePublished,
     dateModified: opts.dateModified,
     inLanguage: 'en-US',
-    author: {
-      '@type': 'Person',
-      name: ANDY.name,
-      jobTitle: ANDY.jobTitle,
-      url: `${SITE}/about`,
-      image: ANDY.image,
-    },
+    author: { '@id': `${SITE}/about#andy` },
     publisher: { '@id': `${SITE}/#org` },
     mainEntityOfPage: opts.url,
+  }
+}
+
+export function breadcrumbList(items: { name: string; url: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: item.url,
+    })),
   }
 }
 
