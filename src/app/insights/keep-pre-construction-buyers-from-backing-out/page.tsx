@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <InsightsArticle article={article}>
-      <h2>How to keep pre-construction buyers from backing out during the build</h2>
       <p>
         A reservation in month one is not a closed unit at occupancy. The building is not there. Between those two dates, the buyer is living with a PDF, a competing project, and whatever they last heard from you. If they cannot open their unit again. Same stack number, live price, still available. They start shopping the one that will let them.
       </p>
@@ -34,7 +33,7 @@ export default function Page() {
         The site has to answer the same three questions every time they come back: which unit, at what price, is it still open. That is the job of the live building. See{' '}
         <a href="/insights/digital-twin-pre-construction">what a digital twin is for pre-construction</a>, not a new rendering drop. If the only thing they have is the first PDF, they will use someone else&apos;s site to check.
       </p>
-      <table>
+      <div className="table-scroll"><table>
         <thead>
           <tr>
             <th>Through the build</th>
@@ -55,7 +54,7 @@ export default function Page() {
             <td>&ldquo;So what were you looking at?&rdquo;</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
       <p>
         A 10–50 unit project cannot treat a reservation as finished work. The months of the build are when they decide whether they still want it. Give them their unit to reopen, or they will reopen someone else&apos;s.
       </p>

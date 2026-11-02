@@ -131,7 +131,7 @@ export default function LinksPage() {
       <Script src="/webflow.js" strategy="afterInteractive" />
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" strategy="afterInteractive" />
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" strategy="afterInteractive" />
-      <Script src="https://cdn.jsdelivr.net/npm/goo-motion-library@latest/dist/goo.bundle.js" strategy="afterInteractive" />
+      <Script src="https://cdn.jsdelivr.net/npm/goo-motion-library@1.0.1/dist/goo.bundle.js" strategy="afterInteractive" />
     </>
   )
 }

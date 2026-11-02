@@ -22,7 +22,7 @@ export default function Page() {
         Pre-construction makes this worse than a finished listing. The building is not there. The sales office may not be open. The only thing holding them is whatever you sent, and whether they can come back to that same unit in month four. Silence is not neutral. It is extra months of the loan. Same-night follow-up starts that picture. The months after are{' '}
         <a href="/insights/keep-pre-construction-buyers-from-backing-out">how you keep them from backing out during the build</a>.
       </p>
-      <table>
+      <div className="table-scroll"><table>
         <thead>
           <tr>
             <th></th>
@@ -52,7 +52,7 @@ export default function Page() {
             <td>They already know which unit before they pick up.</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
       <h2>What the sales team needs before they call</h2>
       <p>
         Which unit. How far the buyer went. Whether they came back. Calling without that is a cold call with a nicer calendar invite. The follow-up is what builds that picture. If it actually ran the night they showed interest, not after someone remembered to export a list. A CRM row with a name and a phone number is not the picture. See{' '}

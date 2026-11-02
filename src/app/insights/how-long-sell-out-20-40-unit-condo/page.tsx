@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <InsightsArticle article={article}>
-      <h2>How long does it take to sell out a 20–40 unit condo building?</h2>
       <p>
         There is no honest single month-count for every 20–40 unit condo. A 24-unit building next to proven comps is not a 40-unit project at a new price. Anyone publishing “six months” or “eighteen months” as a rule is guessing, or quoting another project’s closings as if they were yours.
       </p>
@@ -33,9 +32,11 @@ export default function Page() {
         <a href="/insights/why-construction-lenders-care-about-presales">why construction lenders care about presales</a>.
       </p>
       <p>
-        The second clock is the last unit. After the building is finished, buyers still pay only the staged deposit until closing. The remaining 80–85% arrives when they finalize. Until the last unit is gone, the construction loan and the ads keep running. Hitting the draw early and then sitting with leftover units is still extra months.
+        The second clock is the last unit. After the building is finished, buyers still pay only the staged deposit until closing. The remaining 80–85% arrives when they finalize. Until the last unit is gone, the construction loan and the ads keep running. Hitting the draw early and then sitting with leftover units is still extra months. See{' '}
+        <a href="/insights/sell-last-units-pre-construction-condo">how you sell those last units</a>{' '}
+        once the first wave is gone.
       </p>
-      <table>
+      <div className="table-scroll"><table>
         <thead>
           <tr>
             <th>Clock</th>
@@ -60,7 +61,7 @@ export default function Page() {
             <td>Not your construction draw. Not sell-out.</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
       <p>
         Fannie Mae’s 50% conveyed or under-contract test is about whether unit-buyers can get those mortgages. It is not the same as your construction draw, and it is not sell-out. Keep the three tests separate or you will brief the sales team on the wrong clock.
       </p>

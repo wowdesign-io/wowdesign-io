@@ -6,6 +6,26 @@ export function getInsight(slug: string) {
   return article
 }
 
+export type InsightFigure = {
+  src: string
+  alt: string
+  caption: string
+  width: number
+  height: number
+}
+
+export type InsightSource = {
+  label: string
+  url: string
+  note?: string
+}
+
+export type InsightWorkedExample = {
+  title: string
+  rows: string[]
+  note: string
+}
+
 export type InsightArticle = {
   slug: string
   tag: string
@@ -15,6 +35,20 @@ export type InsightArticle = {
   datePublished: string
   dateModified: string
   faqs: FaqItem[]
+  /** ≤3 bullets, ≤60 words total. Renders nothing when empty. */
+  takeaways?: string[]
+  pullQuote?: string
+  figures?: InsightFigure[]
+  workedExample?: InsightWorkedExample
+  sources?: InsightSource[]
+  /** Per-post CTA lead-in. Falls back to shared calc copy. */
+  ctaLead?: string
+  /** Per-post CTA headline. Falls back to “Stop Funding the Bank…”. */
+  ctaTitle?: string
+  /** Override related-questions module; else defaults in insights-related.ts */
+  related?: string[]
+  /** Absolute or site-path OG image. Falls back to default OG. */
+  ogImage?: string
 }
 
 /** Hub / lists: newest first (datePublished, then dateModified). */
@@ -113,7 +147,9 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'US construction lenders commonly want 50–70% of project revenue under contract before they fund. Count dollars from contracts the lender will take, not a round unit count, and not a reservation without a deposit. Fannie Mae’s 50% conveyed or under-contract test is about unit-buyer mortgages. It is not the construction draw.',
     datePublished: '2026-09-08',
-    dateModified: '2026-10-20',
+    dateModified: '2026-11-01',
+    ctaLead: 'See what extra months of interest cost on your construction loan before the draw.',
+    ctaTitle: 'Run the months against your loan.',
     faqs: [
       {
         q: 'What is the typical presale percentage for a construction loan in Florida?',
@@ -242,7 +278,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'There is no honest single month-count for every 20–40 unit condo. Price, location, and whether buyers can commit before a sales office exists all move it. Time two clocks: the lender’s 50–70% under contract, then the last unit. Extra months cost about $67k–$100k in interest on a typical boutique loan.',
     datePublished: '2026-09-20',
-    dateModified: '2026-10-20',
+    dateModified: '2026-10-25',
     faqs: [
       {
         q: 'How long does it take to sell out a 20–40 unit condo building?',
@@ -318,6 +354,8 @@ export const INSIGHTS: InsightArticle[] = [
       'Construction lenders fund the build. They get repaid when units close. Qualifying presales. Binding contracts with deposits they will count. Prove demand so they are not financing unsold inventory. Until that line, you keep paying interest and marketing with no draw. The 50–70% of revenue they often want is that test, not a unit count.',
     datePublished: '2026-10-18',
     dateModified: '2026-10-20',
+    ctaLead: 'Leftover inventory is months of interest. Put your loan numbers on the calculator.',
+    ctaTitle: 'What does waiting on the draw cost you?',
     faqs: [
       {
         q: 'Why do construction lenders care about presales?',
@@ -342,7 +380,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'You do not need a published units-per-month rate. You need qualifying contracts, at the prices in your stack, fast enough to hit the lender\'s share of project revenue before the window on the term sheet closes. Convert the percent to dollars, then to contracts they will count. Soft holds do not count.',
     datePublished: '2026-10-20',
-    dateModified: '2026-10-20',
+    dateModified: '2026-11-01',
     faqs: [
       {
         q: 'How fast do you need to pre-sell to hit a construction loan draw?',
@@ -355,6 +393,56 @@ export const INSIGHTS: InsightArticle[] = [
       {
         q: 'How do you convert the presale percent into a monthly pace?',
         a: 'Take the percent on your term sheet, multiply by project sell-out revenue, keep only contracts the lender will count, then divide by months left. Example: 50% of a $12M sell-out is $6M. Six months left is about $1M a month in qualifying contracts.',
+      },
+    ],
+  },
+  {
+    slug: 'sell-last-units-pre-construction-condo',
+    tag: 'Last units',
+    h1: 'How do you sell the last units in a pre-construction condo?',
+    description:
+      'The last units are leftover views and leftover prices after the first wave is gone. They sell when what is still open stays live on the site, and the sales team calls people who already looked at those leftovers.',
+    answer:
+      'The last units are leftover views and leftover prices after the first wave is gone. They do not sell from a PDF of floors that already closed. Keep what is still open live on the site. The sales team should call people who already looked at those leftovers, not a month-one list.',
+    datePublished: '2026-10-25',
+    dateModified: '2026-10-25',
+    faqs: [
+      {
+        q: 'How do you sell the last units in a pre-construction condo?',
+        a: 'Keep what is still open live on the site at today’s price. The ones that closed stay closed. The sales team calls people who already looked at a leftover unit, not a list from the launch party.',
+      },
+      {
+        q: 'Why do the last units stall after the first wave?',
+        a: 'The first wave takes the best views, friends and family, and early prices. A PDF from month one still shows floors that already closed. A buyer in month seven cannot tell what is actually open.',
+      },
+      {
+        q: 'What do leftover units still cost after the construction draw?',
+        a: 'After the lender funds, leftover revenue is still on the loan. Method: (1 − lender percent) × project revenue. A $12M sell-out with a 50% line still has $6M to close.',
+      },
+    ],
+  },
+  {
+    slug: 'what-counts-qualifying-presale-construction-loan',
+    tag: 'Qualifying presale',
+    h1: 'What counts as a qualifying presale for a construction loan?',
+    description:
+      'A qualifying presale is a binding purchase contract with a deposit the construction lender will recognize, from a buyer they will count. Reservations and related-party deals usually drop out. The 50–70% line is percent of revenue from those contracts.',
+    answer:
+      'A qualifying presale is a binding purchase contract with a deposit the construction lender will recognize, from a buyer they will count. Reservations, letters of intent, and related-party deals usually drop out. Ask the lender in writing. The 50–70% line is percent of revenue from those contracts, not a unit count.',
+    datePublished: '2026-11-01',
+    dateModified: '2026-11-01',
+    faqs: [
+      {
+        q: 'What counts as a qualifying presale for a construction loan?',
+        a: 'Usually a binding purchase contract with a deposit the lender will recognize, from a buyer they will count. Reservations, letters of intent, and related-party deals usually drop out. Ask the lender in writing. The 50–70% line is percent of revenue from those contracts, not a unit count.',
+      },
+      {
+        q: 'Do reservations count toward the construction loan presale?',
+        a: 'Usually not. A reservation or letter of intent can convert. Until it is a binding contract with a held deposit, it does not move the construction draw. Ask whether those are in or out on your sheet.',
+      },
+      {
+        q: 'How do you score qualifying presales against the revenue line?',
+        a: 'Keep only contracts that survive the filter, sum those prices, and divide by project sell-out revenue. Example: ten qualifying contracts at $4.2M on a $12M sell-out is 35%, not a unit count.',
       },
     ],
   },

@@ -9,13 +9,14 @@ import InsightsIcon from '@/components/InsightsIcon'
 import InsightsTagIcon from '@/components/InsightsTagIcon'
 import SkyGlow from '@/components/SkyGlow'
 import { insightsByNewest, type InsightArticle } from '@/lib/insights'
+import { breadcrumbList } from '@/lib/schema'
 import { SITE } from '@/lib/site'
 import '@/app/how-it-works-headings.css'
 
 export const metadata: Metadata = {
   title: 'Insights',
   description:
-    'What a digital twin is on a building that is not built yet. What follow-up should do the night a buyer shows interest. What the sales team should know before they call. How buyers stay through the build. Why construction lenders care about presales. How fast you need to pre-sell to hit the construction draw. What a project website needs besides renderings. How long a 20–40 unit sell-out takes. How much an extra month of a construction loan costs.',
+    'What a digital twin is on a building that is not built yet. What follow-up should do the night a buyer shows interest. What the sales team should know before they call. How buyers stay through the build. Why construction lenders care about presales. How fast you need to pre-sell to hit the construction draw. How you sell the last leftover units. What a project website needs besides renderings. How long a 20–40 unit sell-out takes. How much an extra month of a construction loan costs.',
   alternates: { canonical: `${SITE}/insights` },
 }
 
@@ -68,16 +69,23 @@ export default function InsightsIndexPage() {
           publisher: { '@id': `${SITE}/#org` },
         }}
       />
+      <JsonLd
+        data={breadcrumbList([
+          { name: 'Home', url: SITE },
+          { name: 'Insights', url: `${SITE}/insights` },
+        ])}
+      />
       <SiteChrome current="insights">
         <PageHero
           tagline="Insights"
           title="Pre-construction, explained."
-          description="Digital twins, follow-up, what the sales team should know before they call, how buyers stay through the build, why construction lenders care about presales, how fast you need to pre-sell to hit the construction draw, showrooms, floor plans, what a project website needs besides renderings, how long a 20–40 unit sell-out takes, and how units sell before they exist."
+          description="Digital twins, follow-up, what the sales team should know before they call, how buyers stay through the build, why construction lenders care about presales, how fast you need to pre-sell to hit the construction draw, how you sell the last leftover units, showrooms, floor plans, what a project website needs besides renderings, how long a 20–40 unit sell-out takes, and how units sell before they exist."
           ctaLabel="Start reading"
           ctaHref="#insights"
           ctaData="Insights index - Read"
           taglineIcon={<InsightsIcon />}
           wide
+          motion={false}
           timeline={null}
         />
         <div className="spacer-xhuge"></div>
@@ -104,7 +112,7 @@ export default function InsightsIndexPage() {
       <Script src="/webflow.js" strategy="afterInteractive" />
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" strategy="afterInteractive" />
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" strategy="afterInteractive" />
-      <Script src="https://cdn.jsdelivr.net/npm/goo-motion-library@latest/dist/goo.bundle.js" strategy="afterInteractive" />
+      <Script src="https://cdn.jsdelivr.net/npm/goo-motion-library@1.0.1/dist/goo.bundle.js" strategy="afterInteractive" />
     </>
   )
 }

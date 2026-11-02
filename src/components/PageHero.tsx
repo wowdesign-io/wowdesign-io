@@ -11,6 +11,8 @@ type PageHeroProps = {
   timeline?: ReactNode
   taglineIcon?: ReactNode
   wide?: boolean
+  /** When false, skip goo fade-up so hero text is visible without JS (Insights). */
+  motion?: boolean
 }
 
 const buildingIcon = (
@@ -38,34 +40,47 @@ export default function PageHero({
   ),
   taglineIcon = buildingIcon,
   wide = false,
+  motion = true,
 }: PageHeroProps) {
+  const typography = (
+    <>
+      <div className="inner-banner-subtitle-wrap">
+        <div className="tagline-container">
+          <div className="icon-embed-xsmall text-color-primary w-embed">
+            {taglineIcon}
+          </div>
+          <div className="text-style-tagline">{tagline}</div>
+        </div>
+      </div>
+      <div className="inner-banner-title-wrapper">
+        <h1 className={wide ? 'inner-banner-title blog-details' : 'inner-banner-title contact-us'}>{title}</h1>
+        {description ? <p className="inner-banner-description about-us">{description}</p> : null}
+      </div>
+      {ctaLabel && ctaHref ? (
+        <div className="banner-button-wrapper">
+          <div className="primary-button-wrapper">
+            <InnerButton href={ctaHref} label={ctaLabel} cta={ctaData} />
+          </div>
+        </div>
+      ) : null}
+      {timeline ? <div className="subhero-timeline text-size-small">{timeline}</div> : null}
+    </>
+  )
+
   return (
     <section className={wide ? 'section inner-banner insights-hero' : 'section inner-banner'}>
       <div className="inner-banner-content">
         <div className="inner-banner-wrapper">
           <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-            <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="inner-banner-typography">
-              <div className="inner-banner-subtitle-wrap">
-                <div className="tagline-container">
-                  <div className="icon-embed-xsmall text-color-primary w-embed">
-                    {taglineIcon}
-                  </div>
-                  <div className="text-style-tagline">{tagline}</div>
-                </div>
+            {motion ? (
+              <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="inner-banner-typography">
+                {typography}
               </div>
-              <div className="inner-banner-title-wrapper">
-                <h1 className={wide ? 'inner-banner-title blog-details' : 'inner-banner-title contact-us'}>{title}</h1>
-                {description ? <p className="inner-banner-description about-us">{description}</p> : null}
+            ) : (
+              <div className="inner-banner-typography">
+                {typography}
               </div>
-              {ctaLabel && ctaHref ? (
-                <div className="banner-button-wrapper">
-                  <div className="primary-button-wrapper">
-                    <InnerButton href={ctaHref} label={ctaLabel} cta={ctaData} />
-                  </div>
-                </div>
-              ) : null}
-              {timeline ? <div className="subhero-timeline text-size-small">{timeline}</div> : null}
-            </div>
+            )}
           </div>
           <img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="inner-banner-pluse-icon top-left" />
           <img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="inner-banner-pluse-icon top-right" />

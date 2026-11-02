@@ -21,7 +21,7 @@ export default function Page() {
       <p>
         Count dollars under contract, not a round unit count, when you are talking to the construction lender. A penthouse and a studio are not the same revenue. Fannie’s test is a unit share, and only certain buyers. Keep them on separate lines in your own head, and in anything you send a partner.
       </p>
-      <table>
+      <div className="table-scroll"><table>
         <thead>
           <tr>
             <th>Test</th>
@@ -41,10 +41,11 @@ export default function Page() {
             <td>Share of units to principal-residence or second-home purchasers, not your construction draw</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
       <h2>What counts as a qualifying presale?</h2>
       <p>
-        The percent only helps if the contracts actually count. Construction lenders are not counting every handshake. A reservation, a letter of intent, or a hold with no deposit is usually not a presale on the term sheet. Ask the lender in writing what they will take: a binding purchase contract, a deposit that is actually held, and whether a reservation without that deposit is in or out.
+        The percent only helps if the contracts actually count. This page is the percent and the two clocks. See{' '}
+        <a href="/insights/what-counts-qualifying-presale-construction-loan">what counts as a qualifying presale</a> for the filter: binding contract, deposit they will recognize, buyers they will count. Construction lenders are not counting every handshake. A reservation, a letter of intent, or a hold with no deposit is usually not a presale on the term sheet. Ask the lender in writing what they will take.
       </p>
       <p>
         They also filter who is on the other side. Related-party sales, insider units, and one buyer taking a bulk of the stack are often excluded or haircut. Those are not the same demand as an unrelated buyer putting money down. That is a term-sheet filter, not a statute. Your sheet is the list that counts. Get the definition before you brief the sales team on “we are at 50%.” Ten contracts on paper can be six after that filter.
