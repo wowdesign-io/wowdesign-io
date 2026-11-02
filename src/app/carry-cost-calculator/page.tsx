@@ -291,7 +291,8 @@ export default function CarryCostCalculatorPage() {
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" strategy="afterInteractive" />
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" strategy="afterInteractive" />
       <Script src="https://cdn.jsdelivr.net/npm/goo-motion-library@1.0.1/dist/goo.bundle.js" strategy="afterInteractive" />
-      <Script src="https://cdn.jsdelivr.net/gh/wowdesign-io/carry-cost-calc@main/carry-cost-calculator.js" strategy="afterInteractive" />
+      {/* Pin commit so jsDelivr picks up CTA copy without @main cache lag */}
+      <Script src="https://cdn.jsdelivr.net/gh/wowdesign-io/carry-cost-calc@504f92a/carry-cost-calculator.js" strategy="afterInteractive" />
     </>
   )
 }

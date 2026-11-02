@@ -44,7 +44,7 @@ export default function Page() {
       </table></div>
       <h2>What counts as a qualifying presale?</h2>
       <p>
-        The percent only helps if the contracts actually count. This page is the percent and the two clocks. See{' '}
+        The percent only helps if the contracts actually count. See{' '}
         <a href="/insights/what-counts-qualifying-presale-construction-loan">what counts as a qualifying presale</a> for the filter: binding contract, deposit they will recognize, buyers they will count. Construction lenders are not counting every handshake. A reservation, a letter of intent, or a hold with no deposit is usually not a presale on the term sheet. Ask the lender in writing what they will take.
       </p>
       <p>

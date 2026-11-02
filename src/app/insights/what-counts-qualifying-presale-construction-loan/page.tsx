@@ -19,7 +19,7 @@ export default function Page() {
       </p>
       <p>
         Ask the lender in writing before you brief the sales team that you are at 50%. Get three things: what document they will take, what deposit they will recognize, and which buyers they exclude. Your term sheet is the list that counts. A pattern from another building is a guess. Until those contracts exist, you are not on the line. You are on a list. See{' '}
-        <a href="/insights/construction-loan-presale-requirement">how many units you need to pre-sell</a> for the percent. This page is the filter.
+        <a href="/insights/construction-loan-presale-requirement">how many units you need to pre-sell</a> for the percent.
       </p>
       <h2>What usually does not count</h2>
       <p>
