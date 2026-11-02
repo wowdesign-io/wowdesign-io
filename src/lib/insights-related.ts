@@ -79,6 +79,22 @@ const RELATED_DEFAULTS: Record<string, string[]> = {
   ],
 }
 
+/** Labels for related list — must read as questions even when H1 is a statement. */
+const RELATED_QUESTION_LABEL: Record<string, string> = {
+  'interactive-floor-plan-vs-pdf': 'Interactive floor plan vs a PDF: which do buyers need?',
+  'sell-pre-construction-condos-faster': 'How do you sell pre-construction condos faster?',
+  'keep-pre-construction-buyers-from-backing-out':
+    'How do you keep pre-construction buyers from backing out during the build?',
+}
+
+export function relatedQuestionLabel(article: InsightArticle): string {
+  if (RELATED_QUESTION_LABEL[article.slug]) return RELATED_QUESTION_LABEL[article.slug]
+  if (article.h1.trim().endsWith('?')) return article.h1
+  const fromFaq = article.faqs.find((f) => f.q.trim().endsWith('?'))
+  if (fromFaq) return fromFaq.q
+  return `${article.h1}?`
+}
+
 export function relatedInsights(article: InsightArticle): InsightArticle[] {
   const slugs = article.related ?? RELATED_DEFAULTS[article.slug] ?? []
   const out: InsightArticle[] = []

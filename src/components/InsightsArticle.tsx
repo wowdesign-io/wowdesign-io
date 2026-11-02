@@ -8,7 +8,7 @@ import SiteChrome from '@/components/SiteChrome'
 import InsightsTagIcon from '@/components/InsightsTagIcon'
 import { articleSchema, breadcrumbList, faqPage, personAndy } from '@/lib/schema'
 import type { InsightArticle } from '@/lib/insights'
-import { relatedInsights } from '@/lib/insights-related'
+import { relatedInsights, relatedQuestionLabel } from '@/lib/insights-related'
 import { ANDY_INSIGHTS_BIO } from '@/lib/andy-bio'
 import { ANDY, SITE } from '@/lib/site'
 import '@/app/how-it-works-headings.css'
@@ -136,6 +136,27 @@ export default function InsightsArticle({
                           </div>
                         ) : null}
                       </div>
+
+                      {/* End of body — before related / FAQ */}
+                      <div className="insights-author-in-body">
+                        <a href="/about" className="testimonial-author-wrapper insights-author-footer-link">
+                          <div className="testimonial-author-image-wrap">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              src="/images/founder/andy-miami-square.webp"
+                              alt={`${ANDY.name}, ${ANDY.jobTitle} of wowdesign`}
+                              className="testimonial-author-image"
+                              width={64}
+                              height={64}
+                            />
+                          </div>
+                          <div className="testimonial-author-name-bio-wrapper">
+                            <div className="testimonial-author-name">{ANDY.name}</div>
+                            <div className="testimonial-author-bio">Founder, wowdesign</div>
+                            <p className="insights-author-bio-text">{ANDY_INSIGHTS_BIO}</p>
+                          </div>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -148,18 +169,20 @@ export default function InsightsArticle({
           <section className="section insights-related" aria-label="Related questions">
             <div className="padding-global">
               <div className="container-large">
-                <div className="max-width-large align-center">
-                  <h2 className="insights-related-heading">Related questions</h2>
-                  <ul className="insights-related-list">
-                    {related.map((item) => (
-                      <li key={item.slug}>
-                        <a href={`/insights/${item.slug}`}>
-                          <span className="insights-related-tag">{item.tag}</span>
-                          <span className="insights-related-q">{item.h1}</span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="padding-section-large">
+                  <div className="max-width-large align-center">
+                    <h2 className="insights-related-heading">Related questions</h2>
+                    <ul className="insights-related-list">
+                      {related.map((item) => (
+                        <li key={item.slug}>
+                          <a href={`/insights/${item.slug}`}>
+                            <span className="insights-related-tag">{item.tag}</span>
+                            <span className="insights-related-q">{relatedQuestionLabel(item)}</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -167,30 +190,6 @@ export default function InsightsArticle({
         ) : null}
 
         <FaqAccordion items={article.faqs} />
-
-        <section className="section insights-author-box" aria-label="About the author">
-          <div className="container">
-            <div className="testimonial-single-card two insights-author-footer">
-              <a href="/about" className="testimonial-author-wrapper">
-                <div className="testimonial-author-image-wrap">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/images/founder/andy-miami-square.webp"
-                    alt={`${ANDY.name}, ${ANDY.jobTitle} of wowdesign`}
-                    className="testimonial-author-image"
-                    width={64}
-                    height={64}
-                  />
-                </div>
-                <div className="testimonial-author-name-bio-wrapper">
-                  <div className="testimonial-author-name">{ANDY.name}</div>
-                  <div className="testimonial-author-bio">Founder, wowdesign</div>
-                  <p className="insights-author-bio-text">{ANDY_INSIGHTS_BIO}</p>
-                </div>
-              </a>
-            </div>
-          </div>
-        </section>
 
         <PageCta
           ctaData={`Insights CTA - ${article.slug}`}
