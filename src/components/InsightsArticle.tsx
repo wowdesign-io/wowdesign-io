@@ -145,32 +145,22 @@ export default function InsightsArticle({
         </section>
 
         {related.length > 0 ? (
-          <section className="section features insights-related" aria-label="Related questions">
-            <div className="container">
-              <div className="section-title-single" style={{ marginBottom: '1.5rem' }}>
-                <h2 className="section-title">Related questions</h2>
-              </div>
-              <div className="features-flex">
-                {related.map((item) => (
-                  <div key={item.slug} className="features-typography-card top-border-none">
-                    <div className="features-typography-card-single">
-                      <div className="features-subtitle-wrapper">
-                        <div className="tagline-container">
-                          <div className="icon-embed-xsmall text-color-primary w-embed">
-                            <InsightsTagIcon slug={item.slug} />
-                          </div>
-                          <div className="text-style-tagline">{item.tag}</div>
-                        </div>
-                      </div>
-                      <div className="features-title-description">
-                        <h3 className="features-title">
-                          <a href={`/insights/${item.slug}`}>{item.h1}</a>
-                        </h3>
-                        <p className="features-description-text">{item.answer}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+          <section className="section insights-related" aria-label="Related questions">
+            <div className="padding-global">
+              <div className="container-large">
+                <div className="max-width-large align-center">
+                  <h2 className="insights-related-heading">Related questions</h2>
+                  <ul className="insights-related-list">
+                    {related.map((item) => (
+                      <li key={item.slug}>
+                        <a href={`/insights/${item.slug}`}>
+                          <span className="insights-related-tag">{item.tag}</span>
+                          <span className="insights-related-q">{item.h1}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </section>
@@ -196,7 +186,6 @@ export default function InsightsArticle({
                   <div className="testimonial-author-name">{ANDY.name}</div>
                   <div className="testimonial-author-bio">Founder, wowdesign</div>
                   <p className="insights-author-bio-text">{ANDY_INSIGHTS_BIO}</p>
-                  <div className="blog-post-date-text">Last reviewed: {article.dateModified}</div>
                 </div>
               </a>
             </div>
