@@ -199,9 +199,10 @@
 }
 
 .insights-article .padding-section-large {
+  /* Keep article bottom tighter; Related below uses full padding-section-large */
   padding-bottom: 2.5rem;
 }
-.insights-article + .section.faq,
+/* FAQ has padding-top: 0 in miami.css — Related’s padding-section-large supplies the gap */
 .section.faq + .section.cta {
   padding-top: 2.5rem;
 }
