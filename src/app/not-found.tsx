@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Script from 'next/script'
+import WebflowScripts from '@/components/WebflowScripts'
 import SiteChrome from '@/components/SiteChrome'
 import InnerButton from '@/components/InnerButton'
 
@@ -37,11 +37,7 @@ export default function NotFound() {
         </section>
       </SiteChrome>
       {/* Same IX2 stack as InsightsArticle — SiteChrome buttons need webflow.js */}
-      <Script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js" strategy="afterInteractive" />
-      <Script src="/webflow.js" strategy="afterInteractive" />
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" strategy="afterInteractive" />
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" strategy="afterInteractive" />
-      <Script src="https://cdn.jsdelivr.net/npm/goo-motion-library@1.0.1/dist/goo.bundle.js" strategy="afterInteractive" />
+      <WebflowScripts />
     </>
   )
 }

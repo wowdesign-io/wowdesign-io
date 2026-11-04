@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import Script from 'next/script'
 import './globals.css'
 import NewsletterFormHandler from '@/components/NewsletterFormHandler'
 import SiteAnalytics from '@/components/SiteAnalytics'
@@ -78,6 +79,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="body">
+        {/* Self-hosted + beforeInteractive so webflow/goo never race CloudFront jQuery. */}
+        <Script src="/js/jquery-3.5.1.min.js" strategy="beforeInteractive" />
         <div id="wwd-page-loader" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/wow-design-color-logo-dark.svg" alt="" />
