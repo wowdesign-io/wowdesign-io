@@ -265,7 +265,11 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
     <HowItWorksSection cta="Home How it works - Page" ctaHref="/how-it-works" ctaLabel="How it works" />
     <SelvaShowcase />
     <section className="section historical-numbers">
-      <div className="stats-subline text-size-small">Supporting proof from comparable pre-construction developments. $400k+ is typical carry kept by selling out faster.</div>
+      <div className="stats-subline text-size-small">
+        Supporting proof from comparable developments.
+        <br />
+        $400k+ is typical carry kept by selling out faster.
+      </div>
       <div className="historical-numbers-content">
         <div className="historical-ticker top">
           <div className="historical-ticker-single left">

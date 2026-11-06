@@ -269,6 +269,14 @@ html.wwd-first.wwd-ready #wwd-page-loader {
   margin-top: 0;
   margin-bottom: 1rem;
   padding: 0 1.25rem;
+  line-height: 1.4;
+}
+
+@media screen and (max-width: 767px) {
+  .page-home .section.historical-numbers > .stats-subline {
+    padding: 0 1rem;
+    font-size: 0.75rem;
+  }
 }
 
 /* Decorative sky glows sit behind content — never block clicks or clip buttons. */
