@@ -9,14 +9,14 @@ export default function ProposalDemos() {
       id="open-the-demos"
       tagline="Your options"
       title="Open each building. Live."
-      description="Same website and follow-up on every option. The interactive building is what moves the number. Pick the depth that fits the project."
+      description="Website and follow-up on every option. You choose the interactive building — 360, 3D Lite, or Immersive 3D."
       showLiveButtons
       ctaHref={STRATEGY}
       ctaLabel="Strategy Call"
       cta="Proposal - Options Strategy"
       ctaTarget="_blank"
       ctaRel="noopener noreferrer"
-      timeline="Plus $2,500/mo. We keep it running. Your sales team sells."
+      timeline="Website and follow-up included. Plus $2,500/mo. We keep it running. Your sales team sells."
     />
   )
 }

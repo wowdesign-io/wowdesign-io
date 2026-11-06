@@ -25,7 +25,8 @@ export default function TwinOptionCards({
   id = 'your-options',
   tagline = 'Your options',
   title = 'What a project costs.',
-  description = 'Same website and follow-up on every option. The interactive building is what moves the number. Pick the depth that fits the project.',
+  description =
+    'Website and follow-up on every option. You choose the interactive building — 360, 3D Lite, or Immersive 3D.',
   showLiveButtons = false,
   ctaHref = '/carry-cost-calculator',
   ctaLabel = 'Carry Cost Calc',
@@ -75,10 +76,10 @@ export default function TwinOptionCards({
                     loading="lazy"
                   />
                   <div className="margin-bottom margin-xsmall">
-                    <div className="text-style-tagline">Website + 360</div>
+                    <div className="text-style-tagline">360</div>
                     <h3 className="heading-style-h6">$45k</h3>
                   </div>
-                  <p>Full site with interactive building. Every floor and unit from a phone, live price and availability.</p>
+                  <p>Every floor and unit from a phone — live price and availability.</p>
                   {showLiveButtons ? (
                     <div className="margin-top margin-small">
                       <div className="primary-button-wrapper">
