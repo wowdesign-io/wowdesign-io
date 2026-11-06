@@ -4,9 +4,9 @@
    Consecutive sections each had padding-section-large top+bottom (14rem).
    Keep the previous section's bottom; drop the next section's top.
    Same rhythm on /proposal (how-it-works → demos → features → CTA). */
+/* Home #the-problem keeps top pad — ticker above it is not a padded section. */
 .page-how-it-works #how-it-works .padding-section-large,
 .page-how-it-works #the-offer .padding-section-large,
-.page-home #the-problem .padding-section-large,
 .page-home #how-it-works .padding-section-large,
 .page-home #live-project .padding-section-large,
 .page-proposal #how-it-works .padding-section-large,
