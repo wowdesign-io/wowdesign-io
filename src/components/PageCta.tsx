@@ -9,6 +9,8 @@ type PageCtaProps = {
   title?: ReactNode
   href?: string
   label?: string
+  target?: string
+  rel?: string
   timeline?: ReactNode
 }
 
@@ -35,6 +37,8 @@ export default function PageCta({
   title,
   href = '/carry-cost-calculator',
   label = 'Carry Cost Calc',
+  target,
+  rel,
   timeline = DEFAULT_TIMELINE,
 }: PageCtaProps) {
   return (
@@ -51,7 +55,7 @@ export default function PageCta({
             </div>
             <div className="cta-button-wrapper">
               <div className="primary-button-wrapper">
-                <InnerButton href={href} label={label} cta={ctaData} />
+                <InnerButton href={href} label={label} cta={ctaData} target={target} rel={rel} />
               </div>
             </div>
             <div className="cta-timeline text-size-small">{timeline}</div>

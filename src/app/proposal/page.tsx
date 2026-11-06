@@ -46,6 +46,8 @@ export default function ProposalPage() {
           ctaLabel="Strategy Call"
           ctaHref={STRATEGY}
           ctaData="Proposal - Hero Strategy"
+          ctaTarget="_blank"
+          ctaRel="noopener noreferrer"
           timeline={
             <>
               $45k–$65k + $2,500/mo.
@@ -63,6 +65,8 @@ export default function ProposalPage() {
           cta="Proposal - System Strategy"
           ctaHref={STRATEGY}
           ctaLabel="Strategy Call"
+          ctaTarget="_blank"
+          ctaRel="noopener noreferrer"
         />
         <ProposalDemos />
         <FeaturesDeepDive calcNewTab hideTwinFeature />
@@ -70,6 +74,8 @@ export default function ProposalPage() {
           ctaData="Proposal CTA - Strategy"
           href={STRATEGY}
           label="Strategy Call"
+          target="_blank"
+          rel="noopener noreferrer"
           title={
             <>
               Next step: Strategy Call.
