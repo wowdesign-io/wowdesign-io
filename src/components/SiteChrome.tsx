@@ -15,15 +15,25 @@ const NAV = [
 export default function SiteChrome({
   current = 'none',
   bare = false,
+  pageClass,
+  calcNewTab = false,
   children,
 }: {
   current?: NavKey
   /** Skip site nav and footer (partner surfaces like /brand). */
   bare?: boolean
+  /** Extra class on page-wrapper (e.g. page-proposal). */
+  pageClass?: string
+  /** Open Carry Cost Calc from nav/footer in a new tab (leave-behind pages). */
+  calcNewTab?: boolean
   children: ReactNode
 }) {
+  const calcLinkProps = calcNewTab
+    ? { target: '_blank' as const, rel: 'noopener noreferrer' }
+    : {}
+
   return (
-    <div className="page-wrapper">
+    <div className={['page-wrapper', pageClass].filter(Boolean).join(' ')}>
       <div className="global-styles">
         <div className="style-overrides w-embed"></div>
         <div className="color-schemes w-embed"></div>
@@ -52,6 +62,7 @@ export default function SiteChrome({
             <nav role="navigation" className="nav-menu w-nav-menu">
               {NAV.map((item) => {
                 const on = current === item.key
+                const isCalc = item.key === 'calc'
                 return (
                   <a
                     key={item.href}
@@ -59,6 +70,7 @@ export default function SiteChrome({
                     data-cta={item.cta}
                     aria-current={on ? 'page' : undefined}
                     className={on ? 'nav-menu-link w-nav-link w--current' : 'nav-menu-link w-nav-link'}
+                    {...(isCalc ? calcLinkProps : {})}
                   >
                     {item.label}
                   </a>
@@ -221,7 +233,7 @@ export default function SiteChrome({
                           </a>
                         </li>
                         <li className="footer-menu-list-item">
-                          <a href="/carry-cost-calculator" className="footer-menu-text-link">
+                          <a href="/carry-cost-calculator" className="footer-menu-text-link" {...calcLinkProps}>
                             Carry Cost Calculator
                           </a>
                         </li>

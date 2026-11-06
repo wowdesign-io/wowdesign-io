@@ -1,6 +1,15 @@
 import InnerButton from '@/components/InnerButton'
 import SkyGlow from '@/components/SkyGlow'
-export default function FeaturesDeepDive() {
+
+type FeaturesDeepDiveProps = {
+  /** Leave-behind pages: open calc without dumping the current page. */
+  calcNewTab?: boolean
+}
+
+export default function FeaturesDeepDive({ calcNewTab = false }: FeaturesDeepDiveProps) {
+  const calcTarget = calcNewTab ? '_blank' : undefined
+  const calcRel = calcNewTab ? 'noopener noreferrer' : undefined
+
   return (
     <section id="features" className="section features">
       <div data-w-id="55692835-ec59-ff32-dc75-62ba954b11b2" className="container">
@@ -67,19 +76,19 @@ export default function FeaturesDeepDive() {
                 </div>
                 <div className="features-button-wrapper">
                   <div className="primary-button-wrapper">
-                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Digital Twin - Calc" />
+                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Digital Twin - Calc" target={calcTarget} rel={calcRel} />
                   </div>
                 </div>
               </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" />
             </div>
             <div className="features-card-image-wrapper is-img-right">
-              <div data-w-id="a202ce4a-5e35-d5f5-2be0-ab58c0d0077c" style={{ opacity: "0" }} className="feature-card is-img"><img src="/images/digital-twin-screenshot.avif" loading="lazy" alt="" className="feature-image" /></div>
+              <div data-w-id="a202ce4a-5e35-d5f5-2be0-ab58c0d0077c" style={{ opacity: "0" }} className="feature-card is-img"><img src="/images/digital-twin-screenshot.avif" loading="lazy" alt="" className="feature-image" /></div>
             </div>
           </div>
           <div data-w-id="ebd5f07d-eafe-59e0-f034-e156826266d1" className="features-flex">
             <SkyGlow />
             <div className="features-card-image-wrapper is-img-left">
-              <div data-w-id="28e89ac4-77b9-0431-08a4-05002c844b00" style={{ opacity: "0" }} className="feature-card is-img"><img src="/images/crm-sync-v9.avif" loading="lazy" alt="" className="feature-image" /></div>
+              <div data-w-id="28e89ac4-77b9-0431-08a4-05002c844b00" style={{ opacity: "0" }} className="feature-card is-img"><img src="/images/crm-sync-v9.avif" loading="lazy" alt="" className="feature-image" /></div>
             </div>
             <div className="features-typography-card">
               <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="features-typography-card-single">
@@ -140,7 +149,7 @@ export default function FeaturesDeepDive() {
                 </div>
                 <div className="features-button-wrapper">
                   <div className="primary-button-wrapper">
-                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="CRM - Calc" />
+                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="CRM - Calc" target={calcTarget} rel={calcRel} />
                   </div>
                 </div>
               </div><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" /><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" />
@@ -205,19 +214,19 @@ export default function FeaturesDeepDive() {
                 </div>
                 <div className="features-button-wrapper">
                   <div className="primary-button-wrapper">
-                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Unit-Specific - Calc" />
+                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Unit-Specific - Calc" target={calcTarget} rel={calcRel} />
                   </div>
                 </div>
               </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" />
             </div>
             <div className="features-card-image-wrapper is-img-right">
-              <div data-w-id="3f282790-4b02-6f90-2ea8-57469b4e2a1b" style={{ opacity: "0" }} className="feature-card is-img"><img src="/images/leads-screenshot.avif" loading="lazy" alt="" className="feature-image" /></div>
+              <div data-w-id="3f282790-4b02-6f90-2ea8-57469b4e2a1b" style={{ opacity: "0" }} className="feature-card is-img"><img src="/images/leads-screenshot.avif" loading="lazy" alt="" className="feature-image" /></div>
             </div>
           </div>
           <div data-w-id="9b51addb-87d6-74b6-befd-d478bccc56a5" className="features-flex">
             <SkyGlow />
             <div className="features-card-image-wrapper is-img-left">
-              <div data-w-id="b0b350bf-9e4f-7b40-1b72-6b6f8835e8e3" style={{ opacity: "0" }} className="feature-card is-img"><img src="/images/65e2250341631373794d20d2_6564d517cc477ac6d22cd256_Devices2023.avif" loading="lazy" alt="" className="feature-image" /></div>
+              <div data-w-id="b0b350bf-9e4f-7b40-1b72-6b6f8835e8e3" style={{ opacity: "0" }} className="feature-card is-img"><img src="/images/65e2250341631373794d20d2_6564d517cc477ac6d22cd256_Devices2023.avif" loading="lazy" alt="" className="feature-image" /></div>
             </div>
             <div className="features-typography-card">
               <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="features-typography-card-single">
@@ -276,7 +285,7 @@ export default function FeaturesDeepDive() {
                 </div>
                 <div className="features-button-wrapper">
                   <div className="primary-button-wrapper">
-                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Speed - Calc" />
+                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Speed - Calc" target={calcTarget} rel={calcRel} />
                   </div>
                 </div>
               </div><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" /><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" />
@@ -343,7 +352,7 @@ export default function FeaturesDeepDive() {
                 </div>
                 <div className="features-button-wrapper">
                   <div className="primary-button-wrapper">
-                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Analytics - Calc" />
+                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Analytics - Calc" target={calcTarget} rel={calcRel} />
                   </div>
                 </div>
               </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" />
@@ -544,7 +553,7 @@ export default function FeaturesDeepDive() {
                     <g>
                     </g>
                   </svg></div>
-              </div>
+              </div>
             </div>
           </div>
           <div data-w-id="e9747994-564d-829d-c6d7-6006be2c22af" className="features-flex">
@@ -554,7 +563,7 @@ export default function FeaturesDeepDive() {
                 <div style={{ opacity: "0", WebkitTransform: "translate3d(0, 200px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", MozTransform: "translate3d(0, 200px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", msTransform: "translate3d(0, 200px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)", transform: "translate3d(0, 200px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" }} className="icon-1x1-features w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--heroicons" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                     <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12.75L11.25 15L15 9.75m-3-7.036A11.96 11.96 0 0 1 3.598 6A12 12 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623c5.176-1.332 9-6.03 9-11.622c0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285"></path>
                   </svg></div>
-              </div>
+              </div>
             </div>
             <div className="features-typography-card">
               <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="features-typography-card-single">
@@ -615,14 +624,14 @@ export default function FeaturesDeepDive() {
                 </div>
                 <div className="features-button-wrapper">
                   <div className="primary-button-wrapper">
-                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Compliance - Calc" />
+                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Compliance - Calc" target={calcTarget} rel={calcRel} />
                   </div>
                 </div>
               </div><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" /><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" />
             </div>
           </div>
         </div>
-      </div>
+      </div>
     </section>
   )
 }

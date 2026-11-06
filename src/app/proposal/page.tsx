@@ -4,8 +4,8 @@ import PageHero from '@/components/PageHero'
 import PageCta from '@/components/PageCta'
 import ProblemSection from '@/components/ProblemSection'
 import HowItWorksSection from '@/components/HowItWorksSection'
+import FeaturesDeepDive from '@/components/FeaturesDeepDive'
 import ProposalDemos from '@/components/ProposalDemos'
-import ProposalTimeline from '@/components/ProposalTimeline'
 import SiteChrome from '@/components/SiteChrome'
 import { SITE } from '@/lib/site'
 import '@/app/how-it-works-headings.css'
@@ -34,19 +34,19 @@ const proposalIcon = (
 export default function ProposalPage() {
   return (
     <>
-      <SiteChrome current="none">
+      <SiteChrome current="none" pageClass="page-proposal" calcNewTab>
         <PageHero
           tagline="Proposal"
           title="Sell Out Faster."
-          description="Boutique 10–50 unit projects. Every extra month is $67k–$100k — loan interest plus marketing burn. Buyers pick a unit tonight. Your sales team knows who's ready."
+          description="Every extra month is $67k–$100k — loan interest plus marketing burn. Buyers pick a unit tonight. Your sales team knows who's ready."
           ctaLabel="Strategy Call"
           ctaHref={STRATEGY}
           ctaData="Proposal - Hero Strategy"
           timeline={
             <>
-              Built for 10–50 unit developments.
+              $45k / $55k / $65k + $2,500/mo.
               <br />
-              $45k / $55k / $65k · Live in 6–8 weeks.
+              Live in 6–8 weeks.
             </>
           }
           taglineIcon={proposalIcon}
@@ -60,8 +60,8 @@ export default function ProposalPage() {
           ctaHref={STRATEGY}
           ctaLabel="Strategy Call"
         />
+        <FeaturesDeepDive calcNewTab />
         <ProposalDemos />
-        <ProposalTimeline />
         <PageCta
           ctaData="Proposal CTA - Strategy"
           href={STRATEGY}
@@ -76,9 +76,9 @@ export default function ProposalPage() {
           lead="You've seen the system. We'll map investment and timeline to your building."
           timeline={
             <>
-              Built for 10–50 unit developments.
+              $45k / $55k / $65k + $2,500/mo.
               <br />
-              $45k / $55k / $65k + $2,500/mo · Live in 6–8 weeks.
+              Live in 6–8 weeks.
             </>
           }
         />
