@@ -264,86 +264,6 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
     <ProblemSection />
     <HowItWorksSection cta="Home How it works - Page" ctaHref="/how-it-works" ctaLabel="How it works" />
     <SelvaShowcase />
-    <section className={heroVisual ? 'section solving hero3d-topgap' : 'section solving'}>
-      <div className="container">
-        <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="solving-section-title-wrapper">
-          <div className="section-subtitle-wrapper">
-            <div className="tagline-container">
-              <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ic" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                  <path fill="currentColor" d="M6.26 9L12 13.47L17.74 9L12 4.53z" opacity=".3"></path>
-                  <path fill="currentColor" d="m19.37 12.8l-7.38 5.74l-7.37-5.73L3 14.07l9 7l9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9zm0 11.47L6.26 9L12 4.53L17.74 9z"></path>
-                </svg></div>
-              <div className="text-style-tagline">Features</div>
-            </div>
-          </div>
-          <div className="margin-bottom margin-small">
-            <h2 className="solving-section-title">Your Presales System. <br />Built to Close.</h2>
-          </div>
-          <p className="text-size-medium">The website. The digital twin. The automated follow-up. One presales system built for boutique developers.</p>
-        </div>
-        <div className="solving-content">
-          <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="w-layout-grid solving-grid">
-            <div className="solving-grid-single _1st">
-              <div className="solving-card one">
-                <div className="solving-card-icon-wrapper"><img src="/images/digital-twin.svg" loading="lazy" alt="" className="solving-card-icon" /></div>
-                <div className="solving-card-title-description">
-                  <h4 className="solving-card-title">Interactive Digital Twin</h4>
-                  <p className="solving-card-description-text">Buyers explore your development from any device — rotating the building, clicking into units, and seeing live availability — before they ever call your sales team.</p>
-                </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="solving-card-top-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="solving-card-bottom-element" />
-              </div>
-              <div className="solving-card four">
-                <div className="solving-card-icon-wrapper"><img src="/images/instant-mobile-access.svg" loading="lazy" alt="" className="solving-card-icon" /></div>
-                <div className="solving-card-title-description">
-                  <h4 className="solving-card-title">Instant Mobile Performance</h4>
-                  <p className="solving-card-description-text">Runs instantly on any smartphone. No apps. No pixel streaming. Just smooth performance.</p>
-                </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="solving-card-top-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="solving-card-bottom-element" />
-              </div>
-            </div>
-            <div id="w-node-baf75690-0ea3-b0ee-d453-3abf3d4b5846-9046bfc6" className="solving-grid-single _2nd">
-              <div className="solving-card two">
-                <div className="solving-card-icon-wrapper"><img src="/images/live-inventory-sync.svg" loading="lazy" alt="" className="solving-card-icon" /></div>
-                <div className="solving-card-title-description">
-                  <h4 className="solving-card-title">Two-Way CRM Sync</h4>
-                  <p className="solving-card-description-text">Live unit data syncs out to buyers in real time. Every buyer interaction syncs back to your sales team automatically. No manual updates. No duplicate entry.</p>
-                </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="solving-card-top-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="solving-card-bottom-element" />
-              </div>
-              <div className="solving-card five">
-                <div className="solving-card-icon-wrapper"><img src="/images/unit-specific-leads.svg" loading="lazy" alt="" className="solving-card-icon" /></div>
-                <div className="solving-card-title-description">
-                  <h4 className="solving-card-title">Unit-Level Buyer Intent</h4>
-                  <p className="solving-card-description-text">Know exactly which unit a buyer explored before your sales team ever calls. No generic leads. No guesswork.</p>
-                </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="solving-card-top-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="solving-card-bottom-element" />
-              </div>
-            </div>
-            <div className="solving-grid-single _3rd">
-              <div className="solving-card three">
-                <div className="solving-card-icon-wrapper"><img src="/images/dashboard.svg" loading="lazy" alt="" className="solving-card-icon" /></div>
-                <div className="solving-card-title-description">
-                  <h4 className="solving-card-title">Buyer Intelligence & Heatmaps</h4>
-                  <p className="solving-card-description-text">See which units are generating the most interest, which floors are hottest, and where demand is concentrated.</p>
-                </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="solving-card-top-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="solving-card-bottom-element" />
-              </div>
-              <div className="solving-card six">
-                <div className="solving-card-icon-wrapper"><img src="/images/ada-compliance.svg" loading="lazy" alt="" className="solving-card-icon" /></div>
-                <div className="solving-card-title-description">
-                  <h4 className="solving-card-title">Built-In ADA Protection</h4>
-                  <p className="solving-card-description-text">An accessibility mode instantly converts the experience into a compliant, screen-reader-friendly format.</p>
-                </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="solving-card-top-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="solving-card-bottom-element" />
-              </div>
-            </div>
-          </div>
-          <div className="process-button-wrapper">
-            <div className="primary-button-wrapper">
-              <InnerButton href="/features" label="Explore features" cta="Home Features - Explore" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="sky-container">
-        <div className="primary-sky-circle"></div>
-        <div className="secondary-sky-circle"></div>
-      </div>
-    </section>
     <section className="section historical-numbers">
       <div className="historical-numbers-content">
         <div className="historical-ticker top">
@@ -512,6 +432,86 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
         </div>
       </div>
       <div className="stats-subline text-size-small">31%, 49%, and 3x: supporting proof from comparable pre-construction developments. $400k+ is typical carry kept by selling out faster.</div>
+    </section>
+    <section className={heroVisual ? 'section solving hero3d-topgap' : 'section solving'}>
+      <div className="container">
+        <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="solving-section-title-wrapper">
+          <div className="section-subtitle-wrapper">
+            <div className="tagline-container">
+              <div className="icon-embed-xsmall text-color-primary w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="iconify iconify--ic" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M6.26 9L12 13.47L17.74 9L12 4.53z" opacity=".3"></path>
+                  <path fill="currentColor" d="m19.37 12.8l-7.38 5.74l-7.37-5.73L3 14.07l9 7l9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9zm0 11.47L6.26 9L12 4.53L17.74 9z"></path>
+                </svg></div>
+              <div className="text-style-tagline">Features</div>
+            </div>
+          </div>
+          <div className="margin-bottom margin-small">
+            <h2 className="solving-section-title">Your Presales System. <br />Built to Close.</h2>
+          </div>
+          <p className="text-size-medium">The website. The digital twin. The automated follow-up. One presales system built for boutique developers.</p>
+        </div>
+        <div className="solving-content">
+          <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="w-layout-grid solving-grid">
+            <div className="solving-grid-single _1st">
+              <div className="solving-card one">
+                <div className="solving-card-icon-wrapper"><img src="/images/digital-twin.svg" loading="lazy" alt="" className="solving-card-icon" /></div>
+                <div className="solving-card-title-description">
+                  <h4 className="solving-card-title">Interactive Digital Twin</h4>
+                  <p className="solving-card-description-text">Buyers explore your development from any device — rotating the building, clicking into units, and seeing live availability — before they ever call your sales team.</p>
+                </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="solving-card-top-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="solving-card-bottom-element" />
+              </div>
+              <div className="solving-card four">
+                <div className="solving-card-icon-wrapper"><img src="/images/instant-mobile-access.svg" loading="lazy" alt="" className="solving-card-icon" /></div>
+                <div className="solving-card-title-description">
+                  <h4 className="solving-card-title">Instant Mobile Performance</h4>
+                  <p className="solving-card-description-text">Runs instantly on any smartphone. No apps. No pixel streaming. Just smooth performance.</p>
+                </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="solving-card-top-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="solving-card-bottom-element" />
+              </div>
+            </div>
+            <div id="w-node-baf75690-0ea3-b0ee-d453-3abf3d4b5846-9046bfc6" className="solving-grid-single _2nd">
+              <div className="solving-card two">
+                <div className="solving-card-icon-wrapper"><img src="/images/live-inventory-sync.svg" loading="lazy" alt="" className="solving-card-icon" /></div>
+                <div className="solving-card-title-description">
+                  <h4 className="solving-card-title">Two-Way CRM Sync</h4>
+                  <p className="solving-card-description-text">Live unit data syncs out to buyers in real time. Every buyer interaction syncs back to your sales team automatically. No manual updates. No duplicate entry.</p>
+                </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="solving-card-top-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="solving-card-bottom-element" />
+              </div>
+              <div className="solving-card five">
+                <div className="solving-card-icon-wrapper"><img src="/images/unit-specific-leads.svg" loading="lazy" alt="" className="solving-card-icon" /></div>
+                <div className="solving-card-title-description">
+                  <h4 className="solving-card-title">Unit-Level Buyer Intent</h4>
+                  <p className="solving-card-description-text">Know exactly which unit a buyer explored before your sales team ever calls. No generic leads. No guesswork.</p>
+                </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="solving-card-top-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="solving-card-bottom-element" />
+              </div>
+            </div>
+            <div className="solving-grid-single _3rd">
+              <div className="solving-card three">
+                <div className="solving-card-icon-wrapper"><img src="/images/dashboard.svg" loading="lazy" alt="" className="solving-card-icon" /></div>
+                <div className="solving-card-title-description">
+                  <h4 className="solving-card-title">Buyer Intelligence & Heatmaps</h4>
+                  <p className="solving-card-description-text">See which units are generating the most interest, which floors are hottest, and where demand is concentrated.</p>
+                </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="solving-card-top-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="solving-card-bottom-element" />
+              </div>
+              <div className="solving-card six">
+                <div className="solving-card-icon-wrapper"><img src="/images/ada-compliance.svg" loading="lazy" alt="" className="solving-card-icon" /></div>
+                <div className="solving-card-title-description">
+                  <h4 className="solving-card-title">Built-In ADA Protection</h4>
+                  <p className="solving-card-description-text">An accessibility mode instantly converts the experience into a compliant, screen-reader-friendly format.</p>
+                </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="solving-card-top-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="solving-card-bottom-element" />
+              </div>
+            </div>
+          </div>
+          <div className="process-button-wrapper">
+            <div className="primary-button-wrapper">
+              <InnerButton href="/features" label="Explore features" cta="Home Features - Explore" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="sky-container">
+        <div className="primary-sky-circle"></div>
+        <div className="secondary-sky-circle"></div>
+      </div>
     </section>
     <section className="section_comparison13">
       <div className="padding-global">

@@ -21,10 +21,7 @@
   padding-top: 0;
 }
 
-/* Home: twins already keep bottom pad — don't stack solving's 7rem top. */
-.page-home .section.solving {
-  padding-top: 0;
-}
+/* Home: stats marquee sits between twins and Features — Features keeps normal top pad. */
 
 .problem-band,
 .offer-band {
