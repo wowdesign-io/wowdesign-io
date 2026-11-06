@@ -48,7 +48,7 @@ export default function ProposalPage() {
           ctaData="Proposal - Hero Strategy"
           timeline={
             <>
-              $45k / $55k / $65k + $2,500/mo.
+              $45k–$65k + $2,500/mo.
               <br />
               Live in 6–8 weeks.
             </>
@@ -80,7 +80,7 @@ export default function ProposalPage() {
           lead="You've seen the system. We'll map investment and timeline to your building."
           timeline={
             <>
-              $45k / $55k / $65k + $2,500/mo.
+              $45k–$65k + $2,500/mo.
               <br />
               Live in 6–8 weeks.
             </>

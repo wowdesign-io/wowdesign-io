@@ -1,0 +1,26 @@
+/* Shared twin option cards — layout237 + shot (proposal + how-it-works) */
+.twin-option-cards .layout237_item.is-2,
+.twin-option-cards .layout237_item.is-3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.twin-option-cards .twin-option-shot {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 1rem;
+  border: 1px solid var(--light-border);
+}
+
+.twin-option-cards .layout237_item h3.heading-style-h6 {
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  background-image: none;
+  -webkit-text-fill-color: #fff;
+  color: #fff;
+}

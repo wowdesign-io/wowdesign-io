@@ -25,7 +25,7 @@ const DEFAULT_TIMELINE = (
   <>
     Built for 10–50 unit developments.
     <br />
-    $45k / $55k / $65k + $2,500/mo · Live in 6–8 weeks.
+    $45k–$65k + $2,500/mo · Live in 6–8 weeks.
   </>
 )
 

@@ -4,7 +4,7 @@ export const dynamic = 'force-static'
 
 const BODY = `# wowdesign
 
-> wowdesign builds the website, the digital twin, and the automated follow-up for boutique real estate developers (pre-construction). Buyers explore every unit from their phone. The sales team only calls people who are ready. Public investment: $45k / $55k / $65k per project (website + 360, 3D Lite, or Immersive 3D) plus $2,500/month maintenance. Wowdesign LLC. Miami Beach, Florida. Founder: Andy Bittner (CEO).
+> wowdesign builds the website, the digital twin, and the automated follow-up for boutique real estate developers (pre-construction). Buyers explore every unit from their phone. The sales team only calls people who are ready. Public investment: $45k–$65k per project (website + 360 $45k, 3D Lite $55k, Immersive 3D $65k) plus $2,500/month maintenance. Wowdesign LLC. Miami Beach, Florida. Founder: Andy Bittner (CEO).
 
 ## Who this is for
 
@@ -47,7 +47,7 @@ const BODY = `# wowdesign
 
 - Typical boutique construction loan $10M–$15M at ~8% → about $67k–$100k/month interest to the bank.
 - Extra months also burn marketing and ops. Faster sell-out → $400k+ kept on a typical project.
-- Public project fee $45k / $55k / $65k by interactive building (360 / 3D Lite / Immersive). 6–8 week implementation. No app required.
+- Public project fee $45k–$65k by interactive building (360 $45k / 3D Lite $55k / Immersive $65k). 6–8 week implementation. No app required.
 - 31% faster unit sell-through, 49% more qualified leads, 3x buyer engagement: supporting proof from comparable pre-construction developments. Not the opener.
 
 ## Do not cite as
