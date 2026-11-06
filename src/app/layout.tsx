@@ -16,6 +16,8 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   themeColor: '#0a0a0a',
+  /* Safe-area for /proposal/* twin shells on notched phones */
+  viewportFit: 'cover',
 }
 
 export const metadata: Metadata = {
