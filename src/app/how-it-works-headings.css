@@ -1,12 +1,16 @@
 /* Home hero subhead — shorter measure + controlled breaks (no orphan “ready.”) */
 .page-home .banner-description-text {
-  max-width: 36rem;
+  max-width: 42rem;
   margin-left: auto;
   margin-right: auto;
   text-wrap: pretty;
 }
 
-/* Soft breaks: desktop/tablet only. Phone keeps one hard break between money + how. */
+.page-home .hero-nowrap {
+  white-space: nowrap;
+}
+
+/* Soft break before sales-team line: desktop/tablet only. Phone keeps money | how. */
 .page-home .hero-desc-br {
   display: none;
 }

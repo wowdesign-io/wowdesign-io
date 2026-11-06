@@ -188,11 +188,11 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
             <div className="banner-title-description">
               <h1 className="banner-title">Sell Out Faster.</h1>
               <p className="banner-description-text">
-                We help boutique residential real estate developers sell out faster,<br className="hero-desc-br" />
-                {' '}so they keep $400k+ that would otherwise go to the bank.
+                We help boutique residential real estate developers{' '}
+                <span className="hero-nowrap">sell out faster</span>, so they keep $400k+ that would otherwise go to the bank.
                 <br />
                 Buyers explore every unit from their phone.<br className="hero-desc-br" />
-                {' '}Your sales team knows who&apos;s ready.
+                {' '}Your sales team knows who&apos;s&nbsp;ready.
               </p>
             </div>
             <div className="banner-button-wrapper">
