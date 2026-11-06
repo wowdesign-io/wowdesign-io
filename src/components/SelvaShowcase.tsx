@@ -1,7 +1,7 @@
 import TwinOptionCards from '@/components/TwinOptionCards'
 
 /**
- * Home: three digital twin depths — what buyers get.
+ * Home: three ways to show the building — what buyers get.
  * No prices / no live links. Investment lives on /how-it-works.
  */
 export default function SelvaShowcase() {

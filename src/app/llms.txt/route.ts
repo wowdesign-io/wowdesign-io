@@ -47,7 +47,7 @@ const BODY = `# wowdesign
 
 - Typical boutique construction loan $10M–$15M at ~8% → about $67k–$100k/month interest to the bank.
 - Extra months also burn marketing and ops. Faster sell-out → $400k+ kept on a typical project.
-- Public project fee $45k–$65k by digital twin depth (360 $45k / 3D Lite $55k / Immersive $65k). 6–8 week implementation. No app required.
+- Public project fee $45k–$65k by which digital twin you pick (360 $45k / 3D Lite $55k / Immersive $65k). 6–8 week implementation. No app required.
 - 31% faster unit sell-through, 49% more qualified leads, 3x buyer engagement: supporting proof from comparable pre-construction developments. Not the opener.
 
 ## Do not cite as
