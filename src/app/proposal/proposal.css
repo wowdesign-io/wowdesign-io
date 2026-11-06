@@ -40,4 +40,30 @@
   }
 }
 
+/* Mobile: keep funnel nav + twin option cards from horizontal overflow */
+@media screen and (max-width: 767px) {
+  .page-proposal.page-funnel .navbar-logo-left-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .page-proposal .twin-option-cards .layout237_item {
+    min-width: 0;
+  }
+
+  .page-proposal .twin-option-cards .twin-option-shot {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .page-proposal .twin-option-cards .process-button-wrapper .primary-button-wrapper,
+  .page-proposal .twin-option-cards .margin-top .primary-button-wrapper {
+    width: 100%;
+  }
+
+  .page-proposal .twin-option-cards .inner-button {
+    width: 100%;
+  }
+}
+
 /* Shot + price card styles live in twin-option-cards.css */

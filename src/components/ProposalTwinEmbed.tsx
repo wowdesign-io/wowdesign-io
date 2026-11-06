@@ -12,7 +12,9 @@ export type ProposalTwinEmbedProps = {
 
 /**
  * Full-viewport twin shell for /proposal/3d-lite and /proposal/immersive.
- * High-contrast chrome — miami body color must not win on the bar.
+ * Immersive fixed height (flex fill) — UTM + fullscreen only.
+ * Never apply Planpoint get_size / resize to the parent (boot jump on mobile).
+ * See references/sops/planpoint-embed.md.
  */
 export default function ProposalTwinEmbed({
   projectUrl,
@@ -28,7 +30,6 @@ export default function ProposalTwinEmbed({
     const container = containerRef.current
     if (!iframe || !container) return
 
-    let enableResize = true
     let onFullscreen = false
     let savedScrollY = 0
 
@@ -62,12 +63,21 @@ export default function ProposalTwinEmbed({
       parentURL: window.location.href || document.referrer,
     }
 
+    /* UTM only — immersive shell stays locked to the flex frame (no get_size poll). */
     const poll = window.setInterval(() => {
-      if (iframe.contentWindow && enableResize) {
-        iframe.contentWindow.postMessage('get_size', '*')
-      }
       iframe.contentWindow?.postMessage({ type: 'utm', data: utmParams }, '*')
     }, 1000)
+
+    function resetInlineLayout() {
+      container!.style.position = ''
+      container!.style.top = ''
+      container!.style.left = ''
+      container!.style.zIndex = ''
+      container!.style.height = ''
+      container!.style.width = ''
+      iframe!.style.height = ''
+      iframe!.style.width = ''
+    }
 
     function openFullscreen() {
       const el = container as HTMLElement & {
@@ -101,13 +111,9 @@ export default function ProposalTwinEmbed({
       if (!onFullscreen) {
         iframe!.contentWindow?.postMessage({ type: 'close-fs' }, '*')
         setTimeout(() => {
-          document.documentElement.style.overflow = 'auto'
-          container!.style.position = 'relative'
-          container!.style.top = 'auto'
-          container!.style.left = 'auto'
-          container!.style.zIndex = 'auto'
+          document.documentElement.style.overflow = ''
+          resetInlineLayout()
           window.scrollTo({ top: savedScrollY, behavior: 'instant' as ScrollBehavior })
-          enableResize = true
         }, 500)
       } else {
         document.documentElement.scrollTop = 0
@@ -115,12 +121,11 @@ export default function ProposalTwinEmbed({
         container!.style.position = 'fixed'
         container!.style.top = '0'
         container!.style.left = '0'
-        container!.style.height = '100vh'
+        container!.style.height = '100dvh'
         container!.style.width = '100%'
         container!.style.zIndex = '999999999'
-        iframe!.style.height = '100vh'
+        iframe!.style.height = '100dvh'
         iframe!.style.width = '100%'
-        enableResize = false
       }
     }
 
@@ -133,16 +138,8 @@ export default function ProposalTwinEmbed({
         } else {
           closeFullscreen()
         }
-      } else if (data && data.type === 'resize') {
-        iframe!.style.height = data.h + 'px'
-        container!.style.height = data.h + 'px'
-      } else if (typeof data === 'string') {
-        const h = parseInt(data.split('x')[0], 10)
-        if (!isNaN(h)) {
-          iframe!.style.height = h + 'px'
-          container!.style.height = h + 'px'
-        }
       }
+      /* Intentionally ignore resize / "HxW" size strings — immersive fill only. */
     }
 
     window.addEventListener('message', onMessage)
@@ -158,6 +155,8 @@ export default function ProposalTwinEmbed({
       document.removeEventListener('webkitfullscreenchange', fullscreenHandler)
       document.removeEventListener('mozfullscreenchange', fullscreenHandler)
       document.removeEventListener('MSFullscreenChange', fullscreenHandler)
+      document.documentElement.style.overflow = ''
+      resetInlineLayout()
     }
   }, [projectUrl])
 
@@ -173,14 +172,24 @@ export default function ProposalTwinEmbed({
             height={28}
           />
         </a>
-        <p className="proposal-twin__title">{title}</p>
-        {note ? <p className="proposal-twin__note">{note}</p> : null}
+        <div className="proposal-twin__meta">
+          <p className="proposal-twin__title">{title}</p>
+          {note ? <p className="proposal-twin__note">{note}</p> : null}
+        </div>
         <a className="proposal-twin__back" href={backHref}>
           ← Back to demos
         </a>
       </header>
       <div ref={containerRef} className="proposal-twin__frameWrap">
-        <iframe ref={frameRef} className="proposal-twin__frame" frameBorder={0} allowFullScreen title={title} />
+        <iframe
+          ref={frameRef}
+          className="proposal-twin__frame"
+          frameBorder={0}
+          allowFullScreen
+          allow="fullscreen; xr-spatial-tracking; accelerometer; gyroscope"
+          referrerPolicy="strict-origin-when-cross-origin"
+          title={title}
+        />
       </div>
     </div>
   )
