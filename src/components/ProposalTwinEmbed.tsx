@@ -172,13 +172,13 @@ export default function ProposalTwinEmbed({
             height={28}
           />
         </a>
-        <a className="proposal-twin__back" href={backHref}>
-          ← Back to demos
-        </a>
         <div className="proposal-twin__meta">
           <p className="proposal-twin__title">{title}</p>
           {note ? <p className="proposal-twin__note">{note}</p> : null}
         </div>
+        <a className="proposal-twin__back" href={backHref}>
+          ← Back to demos
+        </a>
       </header>
       <div ref={containerRef} className="proposal-twin__frameWrap">
         <iframe
