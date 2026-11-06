@@ -41,7 +41,7 @@ body:has([data-proposal-twin]) {
 .proposal-twin__brand {
   display: flex;
   align-items: center;
-  justify-self: start;
+  justify-self: end;
   text-decoration: none;
 }
 
@@ -79,7 +79,7 @@ body:has([data-proposal-twin]) {
 }
 
 .proposal-twin__back {
-  justify-self: end;
+  justify-self: start;
   margin: 0;
   font-size: 0.8125rem;
   font-weight: 500;
@@ -130,20 +130,24 @@ body:has([data-proposal-twin]) {
     padding: 0.65rem 1rem;
   }
 
-  .proposal-twin__logo {
-    height: 24px;
+  .proposal-twin__back {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .proposal-twin__brand {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .proposal-twin__meta {
     grid-column: 1 / -1;
     grid-row: 2;
     max-width: none;
-    order: unset;
   }
 
-  .proposal-twin__back {
-    grid-column: 2;
-    grid-row: 1;
+  .proposal-twin__logo {
+    height: 24px;
   }
 
   .proposal-twin__title {

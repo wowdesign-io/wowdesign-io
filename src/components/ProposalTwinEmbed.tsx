@@ -163,6 +163,13 @@ export default function ProposalTwinEmbed({
   return (
     <div className="proposal-twin" data-proposal-twin>
       <header className="proposal-twin__bar">
+        <a className="proposal-twin__back" href={backHref}>
+          ← Back to demos
+        </a>
+        <div className="proposal-twin__meta">
+          <p className="proposal-twin__title">{title}</p>
+          {note ? <p className="proposal-twin__note">{note}</p> : null}
+        </div>
         <a className="proposal-twin__brand" href={backHref} aria-label="Back to proposal demos">
           <img
             src="/images/wow-design-color-logo-dark.svg"
@@ -171,13 +178,6 @@ export default function ProposalTwinEmbed({
             width={132}
             height={28}
           />
-        </a>
-        <div className="proposal-twin__meta">
-          <p className="proposal-twin__title">{title}</p>
-          {note ? <p className="proposal-twin__note">{note}</p> : null}
-        </div>
-        <a className="proposal-twin__back" href={backHref}>
-          ← Back to demos
         </a>
       </header>
       <div ref={containerRef} className="proposal-twin__frameWrap">
