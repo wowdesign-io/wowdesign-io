@@ -20,7 +20,7 @@ export default function FeaturesPage() {
   return (
     <>
       <JsonLd data={faqPage(`${SITE}/features`, FEATURES_FAQS)} />
-<div className="page-wrapper">
+<div className="page-wrapper page-features">
     <div className="global-styles">
       <div className="style-overrides w-embed">
         

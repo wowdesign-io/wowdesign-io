@@ -6,6 +6,7 @@
    Same rhythm on /proposal (how-it-works → demos → features → CTA). */
 .page-how-it-works #how-it-works .padding-section-large,
 .page-how-it-works #the-offer .padding-section-large,
+.page-home #the-problem .padding-section-large,
 .page-home #how-it-works .padding-section-large,
 .page-home #live-project .padding-section-large,
 .page-proposal #how-it-works .padding-section-large,
@@ -15,7 +16,8 @@
 
 .page-how-it-works .section.cta,
 .page-home .section.cta,
-.page-proposal .section.cta {
+.page-proposal .section.cta,
+.page-features .section.cta {
   padding-top: 0;
 }
 
