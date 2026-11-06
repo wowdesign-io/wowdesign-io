@@ -1,4 +1,4 @@
-/** How we work — 6–8 weeks. layout237 strip, not a new section skin. */
+/** How we work — 6–8 weeks. layout237 strip. */
 export default function ProposalTimeline() {
   return (
     <section id="how-we-work" className="section_layout237">
@@ -28,7 +28,7 @@ export default function ProposalTimeline() {
                       <h2 className="section-title">Live in 6–8 weeks.</h2>
                     </div>
                     <p className="text-size-medium">
-                      Approved 3D model in. Site, interactive building, and follow-up live. You never log into a separate viewer — we build it and keep it running.
+                      Approved model in. Website, interactive building, and follow-up live. We build it and keep it running — your sales team sells.
                     </p>
                   </div>
                 </div>
@@ -49,7 +49,7 @@ export default function ProposalTimeline() {
                     <div className="text-style-tagline">We run</div>
                     <h3 className="heading-style-h6">Build + keep it live</h3>
                   </div>
-                  <p>Website, interactive building, follow-up, and monthly Analyze + Optimize. Your sales team sells.</p>
+                  <p>Website, interactive building, follow-up, and ongoing ops so nothing goes stale after launch.</p>
                   <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
                   <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
                 </div>

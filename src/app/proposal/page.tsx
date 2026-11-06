@@ -4,20 +4,22 @@ import PageHero from '@/components/PageHero'
 import PageCta from '@/components/PageCta'
 import ProblemSection from '@/components/ProblemSection'
 import HowItWorksSection from '@/components/HowItWorksSection'
-import ProposalSignals from '@/components/ProposalSignals'
 import ProposalDemos from '@/components/ProposalDemos'
 import ProposalTimeline from '@/components/ProposalTimeline'
 import SiteChrome from '@/components/SiteChrome'
 import { SITE } from '@/lib/site'
 import '@/app/how-it-works-headings.css'
+import './proposal.css'
 
 export const metadata: Metadata = {
   title: 'Proposal',
   description:
-    "Sell out faster. Buyers pick a unit tonight. Your sales team knows who's ready. Live demos and investment for partners.",
+    "Sell out faster. Buyers pick a unit tonight. Your sales team knows who's ready. Investment and live building options.",
   robots: { index: false, follow: false },
   alternates: { canonical: `${SITE}/proposal` },
 }
+
+const STRATEGY = 'https://cal.com/wowdesign/strategy-call'
 
 /** Phosphor clipboard-text duotone — Relume Phosphor set */
 const proposalIcon = (
@@ -36,15 +38,15 @@ export default function ProposalPage() {
         <PageHero
           tagline="Proposal"
           title="Sell Out Faster."
-          description={"For boutique 10–50 unit projects. Every extra month is $67k–$100k — loan interest plus marketing burn. Buyers pick a unit tonight. Your sales team knows who's ready. Share this page with partners who weren't on the call."}
-          ctaLabel="Open the demos"
-          ctaHref="#open-the-demos"
-          ctaData="Proposal - Hero demos"
+          description="Boutique 10–50 unit projects. Every extra month is $67k–$100k — loan interest plus marketing burn. Buyers pick a unit tonight. Your sales team knows who's ready."
+          ctaLabel="Strategy Call"
+          ctaHref={STRATEGY}
+          ctaData="Proposal - Hero Strategy"
           timeline={
             <>
-              Private handoff — not in the public nav.
+              Built for 10–50 unit developments.
               <br />
-              Live demos · $45k / $55k / $65k · 6–8 weeks.
+              $45k / $55k / $65k · Live in 6–8 weeks.
             </>
           }
           taglineIcon={proposalIcon}
@@ -53,29 +55,28 @@ export default function ProposalPage() {
         <HowItWorksSection
           tagline="What you get"
           title="Website. Interactive building. Follow-up."
-          description="One system so buyers can pick a unit tonight and your sales team only calls people who are ready."
-          cta="Proposal - System demos"
-          ctaHref="#open-the-demos"
-          ctaLabel="Open the demos"
+          description="One system — buyers pick a unit tonight, follow-up runs, your sales team only calls people who are ready."
+          cta="Proposal - System Strategy"
+          ctaHref={STRATEGY}
+          ctaLabel="Strategy Call"
         />
-        <ProposalSignals />
         <ProposalDemos />
         <ProposalTimeline />
         <PageCta
-          ctaData="Proposal CTA - Demo"
-          href="/book-a-demo"
-          label="Book A Demo"
+          ctaData="Proposal CTA - Strategy"
+          href={STRATEGY}
+          label="Strategy Call"
           title={
             <>
-              Ready to talk next steps?
+              Next step: Strategy Call.
               <br />
-              Book a demo — or reply Andy.
+              Lock the fit for your project.
             </>
           }
-          lead="Questions from partners? Send them this page, then book time."
+          lead="You've seen the system. We'll map investment and timeline to your building."
           timeline={
             <>
-              info@wowdesign.io
+              Built for 10–50 unit developments.
               <br />
               $45k / $55k / $65k + $2,500/mo · Live in 6–8 weeks.
             </>

@@ -1,0 +1,26 @@
+/* Tiny scoped fixes for /proposal demo cards — reuse layout237, flat row + shot */
+#open-the-demos .layout237_item.is-2,
+#open-the-demos .layout237_item.is-3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#open-the-demos .proposal-demo-shot {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 1rem;
+  border: 1px solid var(--light-border);
+}
+
+#open-the-demos .layout237_item h3.heading-style-h6 {
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  background-image: none;
+  -webkit-text-fill-color: #fff;
+  color: #fff;
+}

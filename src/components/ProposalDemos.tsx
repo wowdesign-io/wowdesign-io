@@ -3,8 +3,9 @@ import InnerButton from '@/components/InnerButton'
 const DEMO_A = 'https://demo.wowdesign.io'
 const DEMO_B = 'https://demo.wowdesign.io/showcase/3d-lite'
 const DEMO_C = 'https://demo.wowdesign.io/showcase/immersive'
+const STRATEGY = 'https://cal.com/wowdesign/strategy-call'
 
-/** Three live showcases with investment labels — layout237, not pricing-grid. */
+/** Three live showcases with twin screenshots + investment — layout237, not pricing-grid. */
 export default function ProposalDemos() {
   return (
     <section id="open-the-demos" className="section_layout237">
@@ -26,15 +27,15 @@ export default function ProposalDemos() {
                               </g>
                             </svg>
                           </div>
-                          <div className="text-style-tagline">Open the demos</div>
+                          <div className="text-style-tagline">Your options</div>
                         </div>
                       </div>
                     </div>
                     <div className="margin-bottom margin-small">
-                      <h2 className="section-title">See what you get. Live.</h2>
+                      <h2 className="section-title">Open each building. Live.</h2>
                     </div>
                     <p className="text-size-medium">
-                      Three options for a 10–50 unit project. Same website and follow-up. The building experience is what moves the number.
+                      Same website and follow-up on every option. The interactive building is what moves the number — pick the depth that fits the project.
                     </p>
                   </div>
                 </div>
@@ -42,26 +43,20 @@ export default function ProposalDemos() {
 
               <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="w-layout-grid layout237_list">
                 <div className="layout237_item">
-                  <div className="margin-bottom margin-small">
-                    <div className="layout237_item-icon-wrapper">
-                      <div className="icon-embed-medium w-embed">
-                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="100%" height="100%" viewBox="0 0 256 256">
-                          <g fill="currentColor">
-                            <path d="M216 48v160a8 8 0 0 1-8 8H48a8 8 0 0 1-8-8V48a8 8 0 0 1 8-8h160a8 8 0 0 1 8 8" opacity=".2"></path>
-                            <path d="M208 32H48a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16m0 176H48V48h160zM140 80v96a8 8 0 0 1-16 0V95l-11.56 7.71a8 8 0 1 1-8.88-13.32l24-16A8 8 0 0 1 140 80"></path>
-                          </g>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
+                  <img
+                    src="/images/proposal/twin-360.png"
+                    alt="Interactive building — floors and units from a phone"
+                    className="proposal-demo-shot"
+                    loading="lazy"
+                  />
                   <div className="margin-bottom margin-xsmall">
                     <div className="text-style-tagline">Website + 360</div>
                     <h3 className="heading-style-h6">$45k</h3>
                   </div>
-                  <p>Full site with interactive building — every floor and unit from a phone. The SELVA demo.</p>
+                  <p>Full site with interactive building — every floor and unit from a phone, live price and availability.</p>
                   <div className="margin-top margin-small">
                     <div className="primary-button-wrapper">
-                      <InnerButton href={DEMO_A} label="Open demo" cta="Proposal - Demo SELVA" target="_blank" rel="noopener noreferrer" />
+                      <InnerButton href={DEMO_A} label="Open live" cta="Proposal - Open 360" target="_blank" rel="noopener noreferrer" />
                     </div>
                   </div>
                   <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
@@ -69,26 +64,20 @@ export default function ProposalDemos() {
                 </div>
 
                 <div className="layout237_item is-2">
-                  <div className="margin-bottom margin-small">
-                    <div className="layout237_item-icon-wrapper">
-                      <div className="icon-embed-medium w-embed">
-                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="100%" height="100%" viewBox="0 0 256 256">
-                          <g fill="currentColor">
-                            <path d="M216 48v160a8 8 0 0 1-8 8H48a8 8 0 0 1-8-8V48a8 8 0 0 1 8-8h160a8 8 0 0 1 8 8" opacity=".2"></path>
-                            <path d="M208 32H48a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16m0 176H48V48h160zm-48-32a8 8 0 0 1-8 8h-48a8 8 0 0 1-6.4-12.8l43.17-57.56a16 16 0 1 0-27.86-15a8 8 0 0 1-15.09-5.34a32.4 32.4 0 0 1 4.62-8.59a32 32 0 1 1 51.11 38.52L120 168h32a8 8 0 0 1 8 8"></path>
-                          </g>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
+                  <img
+                    src="/images/proposal/twin-3d-lite.png"
+                    alt="3D Lite interactive building"
+                    className="proposal-demo-shot"
+                    loading="lazy"
+                  />
                   <div className="margin-bottom margin-xsmall">
                     <div className="text-style-tagline">3D Lite</div>
                     <h3 className="heading-style-h6">$55k</h3>
                   </div>
-                  <p>Lighter 3D walk of the building — more depth than 360, faster to ship than full Immersive.</p>
+                  <p>More depth than 360 — buyers walk the massing and units without the full Immersive build.</p>
                   <div className="margin-top margin-small">
                     <div className="primary-button-wrapper">
-                      <InnerButton href={DEMO_B} label="Open demo" cta="Proposal - Demo 3D Lite" target="_blank" rel="noopener noreferrer" />
+                      <InnerButton href={DEMO_B} label="Open live" cta="Proposal - Open 3D Lite" target="_blank" rel="noopener noreferrer" />
                     </div>
                   </div>
                   <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
@@ -96,26 +85,20 @@ export default function ProposalDemos() {
                 </div>
 
                 <div className="layout237_item is-3">
-                  <div className="margin-bottom margin-small">
-                    <div className="layout237_item-icon-wrapper">
-                      <div className="icon-embed-medium w-embed">
-                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="100%" height="100%" viewBox="0 0 256 256">
-                          <g fill="currentColor">
-                            <path d="M216 48v160a8 8 0 0 1-8 8H48a8 8 0 0 1-8-8V48a8 8 0 0 1 8-8h160a8 8 0 0 1 8 8" opacity=".2"></path>
-                            <path d="M208 32H48a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16m0 176H48V48h160zm-48-60a36 36 0 0 1-61.71 25.19A8 8 0 1 1 109.71 162A20 20 0 1 0 124 128a8 8 0 0 1-6.55-12.59L136.63 88H104a8 8 0 0 1 0-16h48a8 8 0 0 1 6.55 12.59l-21 30A36.07 36.07 0 0 1 160 148"></path>
-                          </g>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
+                  <img
+                    src="/images/proposal/twin-immersive.png"
+                    alt="Immersive 3D interactive building"
+                    className="proposal-demo-shot"
+                    loading="lazy"
+                  />
                   <div className="margin-bottom margin-xsmall">
                     <div className="text-style-tagline">Immersive 3D</div>
                     <h3 className="heading-style-h6">$65k</h3>
                   </div>
-                  <p>Full 3D presence for buyers who need to feel the space before they commit.</p>
+                  <p>Full 3D presence — for projects where buyers need to feel the space before they commit.</p>
                   <div className="margin-top margin-small">
                     <div className="primary-button-wrapper">
-                      <InnerButton href={DEMO_C} label="Open demo" cta="Proposal - Demo Immersive" target="_blank" rel="noopener noreferrer" />
+                      <InnerButton href={DEMO_C} label="Open live" cta="Proposal - Open Immersive" target="_blank" rel="noopener noreferrer" />
                     </div>
                   </div>
                   <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
@@ -124,7 +107,12 @@ export default function ProposalDemos() {
               </div>
 
               <div className="process-timeline text-size-small">
-                Plus $2,500/mo retainer — Analyze + Optimize included. We run it; your sales team sells.
+                Plus $2,500/mo — we keep it running. Your sales team sells.
+              </div>
+              <div className="process-button-wrapper">
+                <div className="primary-button-wrapper">
+                  <InnerButton href={STRATEGY} label="Strategy Call" cta="Proposal - Options Strategy" target="_blank" rel="noopener noreferrer" />
+                </div>
               </div>
             </div>
           </div>
