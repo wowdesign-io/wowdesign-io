@@ -1,9 +1,6 @@
 /* Shared twin option cards — layout237 + shot (home / proposal / how-it-works) */
 
-/* Home: flush under How it works (same consecutive-section rhythm). */
-.page-home #live-project .padding-section-large {
-  padding-top: 0;
-}
+/* Home offer flush is in problem-offer.css with how-it-works / proposal. */
 .twin-option-cards .layout237_item.is-2,
 .twin-option-cards .layout237_item.is-3 {
   margin-top: 0;

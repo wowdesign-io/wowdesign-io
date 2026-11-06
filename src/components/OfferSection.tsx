@@ -1,13 +1,20 @@
 import TwinOptionCards from '@/components/TwinOptionCards'
 
-/** How it works: same option cards as /proposal, no live demo buttons. */
+/** Home + How it works: priced twin depths, no live demo links. */
 export default function OfferSection() {
   return (
     <TwinOptionCards
       id="the-offer"
       tagline="The offer"
       title="What a project costs."
-      description="$45k–$65k per project, plus $2,500/mo. Website, follow-up, and the full sales system on every option. Choose the digital twin: 360, 3D Lite, or Immersive 3D."
+      description={
+        <>
+          $45k–$65k per project, plus $2,500/mo. Website, follow-up, and the full sales system on every option.
+          <br />
+          Choose the digital twin: 360, 3D Lite, or Immersive 3D.
+        </>
+      }
+      showPrices
       showLiveButtons={false}
       ctaHref="/carry-cost-calculator"
       ctaLabel="Carry Cost Calc"
