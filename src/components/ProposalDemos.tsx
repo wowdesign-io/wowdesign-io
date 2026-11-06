@@ -1,8 +1,8 @@
 import InnerButton from '@/components/InnerButton'
 
 const DEMO_A = 'https://demo.wowdesign.io'
-const DEMO_B = 'https://demo.wowdesign.io/showcase/3d-lite'
-const DEMO_C = 'https://demo.wowdesign.io/showcase/immersive'
+const DEMO_B = '/proposal/3d-lite'
+const DEMO_C = '/proposal/immersive'
 const STRATEGY = 'https://cal.com/wowdesign/strategy-call'
 
 /** Three live showcases with twin screenshots + investment — layout237, not pricing-grid. */

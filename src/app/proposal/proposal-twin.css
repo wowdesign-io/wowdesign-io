@@ -1,0 +1,74 @@
+/* Full-viewport twin shells under /proposal/* — contrast locked against miami body color */
+html:has([data-proposal-twin]),
+body:has([data-proposal-twin]) {
+  overflow: hidden !important;
+  background: #0b0b0b !important;
+}
+
+.proposal-twin {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  background: #0b0b0b;
+}
+
+.proposal-twin__bar {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.25rem;
+  padding: 0.85rem 1.25rem;
+  background: #0b0b0b;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.proposal-twin__back {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #ffffff !important;
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.proposal-twin__back:hover {
+  opacity: 1;
+  color: #ffffff !important;
+}
+
+.proposal-twin__title {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff !important;
+}
+
+.proposal-twin__note {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.proposal-twin__frameWrap {
+  flex: 1 1 auto;
+  position: relative;
+  width: 100%;
+  min-height: 0;
+  background: #111;
+}
+
+.proposal-twin__frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
