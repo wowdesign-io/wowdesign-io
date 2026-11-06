@@ -249,15 +249,19 @@ html.wwd-first.wwd-ready #wwd-page-loader {
   opacity: 1 !important;
 }
 
-/* Stats ticker: overflow:clip was eating the bottom 1px border on mobile. */
+/* Stats ticker: overflow:clip was eating the mid seam on mobile.
+   Separator lives ABOVE the marquee (into Features has no hairline). */
 .historical-numbers-content {
   overflow-x: clip;
   overflow-y: visible;
-  padding-bottom: 1px;
 }
 
-.historical-ticker {
-  border-bottom-color: rgba(255, 255, 255, 0.08);
+.historical-ticker.top {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.historical-ticker.bottom {
+  border-bottom: none;
 }
 
 /* Decorative sky glows sit behind content — never block clicks or clip buttons. */

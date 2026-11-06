@@ -273,19 +273,19 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 <div className="historical-ticker-number-wrap">
                   <div className="historical-ticker-number">31%</div>
                 </div>
-                <div className="historical-ticker-title">Faster Unit Absorption</div>
+                <div className="historical-ticker-title">Faster Sell-Out</div>
               </div>
               <div className="historical-ticker-card">
                 <div className="historical-ticker-number-wrap">
                   <div className="historical-ticker-number">49%</div>
                 </div>
-                <div className="historical-ticker-title">More Qualified Leads</div>
+                <div className="historical-ticker-title">Ready Buyers</div>
               </div>
               <div className="historical-ticker-card">
                 <div className="historical-ticker-number-wrap">
                   <div className="historical-ticker-number">3x</div>
                 </div>
-                <div className="historical-ticker-title">Buyer Engagement</div>
+                <div className="historical-ticker-title">Deeper Engagement</div>
               </div>
               <div className="historical-ticker-card">
                 <div className="historical-ticker-number-wrap">
@@ -299,19 +299,19 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 <div className="historical-ticker-number-wrap">
                   <div className="historical-ticker-number">31%</div>
                 </div>
-                <div className="historical-ticker-title">Faster Unit Absorption</div>
+                <div className="historical-ticker-title">Faster Sell-Out</div>
               </div>
               <div className="historical-ticker-card">
                 <div className="historical-ticker-number-wrap">
                   <div className="historical-ticker-number">49%</div>
                 </div>
-                <div className="historical-ticker-title">More Qualified Leads</div>
+                <div className="historical-ticker-title">Ready Buyers</div>
               </div>
               <div className="historical-ticker-card">
                 <div className="historical-ticker-number-wrap">
                   <div className="historical-ticker-number">3x</div>
                 </div>
-                <div className="historical-ticker-title">Buyer Engagement</div>
+                <div className="historical-ticker-title">Deeper Engagement</div>
               </div>
               <div className="historical-ticker-card">
                 <div className="historical-ticker-number-wrap">
@@ -325,19 +325,19 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 <div className="historical-ticker-number-wrap">
                   <div className="historical-ticker-number">31%</div>
                 </div>
-                <div className="historical-ticker-title">Faster Unit Absorption</div>
+                <div className="historical-ticker-title">Faster Sell-Out</div>
               </div>
               <div className="historical-ticker-card">
                 <div className="historical-ticker-number-wrap">
                   <div className="historical-ticker-number">49%</div>
                 </div>
-                <div className="historical-ticker-title">More Qualified Leads</div>
+                <div className="historical-ticker-title">Ready Buyers</div>
               </div>
               <div className="historical-ticker-card">
                 <div className="historical-ticker-number-wrap">
                   <div className="historical-ticker-number">3x</div>
                 </div>
-                <div className="historical-ticker-title">Buyer Engagement</div>
+                <div className="historical-ticker-title">Deeper Engagement</div>
               </div>
               <div className="historical-ticker-card">
                 <div className="historical-ticker-number-wrap">
@@ -355,19 +355,19 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 <div className="historical-ticker-number-wrap">
                   <div className="historical-ticker-number">31%</div>
                 </div>
-                <div className="historical-ticker-title">Faster Unit Absorption</div>
+                <div className="historical-ticker-title">Faster Sell-Out</div>
               </div>
               <div className="historical-ticker-card">
                 <div className="historical-ticker-number-wrap">
                   <div className="historical-ticker-number">49%</div>
                 </div>
-                <div className="historical-ticker-title">More Qualified Leads</div>
+                <div className="historical-ticker-title">Ready Buyers</div>
               </div>
               <div className="historical-ticker-card">
                 <div className="historical-ticker-number-wrap">
                   <div className="historical-ticker-number">3x</div>
                 </div>
-                <div className="historical-ticker-title">Buyer Engagement</div>
+                <div className="historical-ticker-title">Deeper Engagement</div>
               </div>
               <div className="historical-ticker-card">
                 <div className="historical-ticker-number-wrap">
@@ -381,19 +381,19 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 <div className="historical-ticker-number-wrap">
                   <div className="historical-ticker-number">31%</div>
                 </div>
-                <div className="historical-ticker-title">Faster Unit Absorption</div>
+                <div className="historical-ticker-title">Faster Sell-Out</div>
               </div>
               <div className="historical-ticker-card">
                 <div className="historical-ticker-number-wrap">
                   <div className="historical-ticker-number">49%</div>
                 </div>
-                <div className="historical-ticker-title">More Qualified Leads</div>
+                <div className="historical-ticker-title">Ready Buyers</div>
               </div>
               <div className="historical-ticker-card">
                 <div className="historical-ticker-number-wrap">
                   <div className="historical-ticker-number">3x</div>
                 </div>
-                <div className="historical-ticker-title">Buyer Engagement</div>
+                <div className="historical-ticker-title">Deeper Engagement</div>
               </div>
               <div className="historical-ticker-card">
                 <div className="historical-ticker-number-wrap">
@@ -407,19 +407,19 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 <div className="historical-ticker-number-wrap">
                   <div className="historical-ticker-number">31%</div>
                 </div>
-                <div className="historical-ticker-title">Faster Unit Absorption</div>
+                <div className="historical-ticker-title">Faster Sell-Out</div>
               </div>
               <div className="historical-ticker-card">
                 <div className="historical-ticker-number-wrap">
                   <div className="historical-ticker-number">49%</div>
                 </div>
-                <div className="historical-ticker-title">More Qualified Leads</div>
+                <div className="historical-ticker-title">Ready Buyers</div>
               </div>
               <div className="historical-ticker-card">
                 <div className="historical-ticker-number-wrap">
                   <div className="historical-ticker-number">3x</div>
                 </div>
-                <div className="historical-ticker-title">Buyer Engagement</div>
+                <div className="historical-ticker-title">Deeper Engagement</div>
               </div>
               <div className="historical-ticker-card">
                 <div className="historical-ticker-number-wrap">
@@ -431,7 +431,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
           </div>
         </div>
       </div>
-      <div className="stats-subline text-size-small">31%, 49%, and 3x: supporting proof from comparable pre-construction developments. $400k+ is typical carry kept by selling out faster.</div>
+      <div className="stats-subline text-size-small">Supporting proof from comparable pre-construction developments. $400k+ is typical carry kept by selling out faster.</div>
     </section>
     <section className={heroVisual ? 'section solving hero3d-topgap' : 'section solving'}>
       <div className="container">
