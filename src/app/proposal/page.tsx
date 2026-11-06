@@ -51,7 +51,7 @@ export default function ProposalPage() {
           }
           taglineIcon={proposalIcon}
         />
-        <ProblemSection />
+        <ProblemSection calcNewTab />
         <HowItWorksSection
           tagline="What you get"
           title="Website. Interactive building. Follow-up."

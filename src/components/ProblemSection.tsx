@@ -12,7 +12,16 @@ const check = (
   </div>
 )
 
-export default function ProblemSection() {
+type ProblemSectionProps = {
+  calcNewTab?: boolean
+  /** Override the $400k+ card caption (proposal omits unit-band wording). */
+  keepCaption?: string
+}
+
+export default function ProblemSection({
+  calcNewTab = false,
+  keepCaption = 'What a boutique project keeps when sell-out happens months earlier.',
+}: ProblemSectionProps) {
   return (
     <section id="the-problem" className="section problem-band">
       <div className="padding-global">
@@ -78,7 +87,7 @@ export default function ProblemSection() {
                 <div className="pricing-single is-wowdesign problem-card">
                   <div className="text-style-tagline">What you keep</div>
                   <div className="pricing-price">$400k+</div>
-                  <p className="pricing-short-details-text">What a 10–50 unit project keeps when sell-out happens months earlier.</p>
+                  <p className="pricing-short-details-text">{keepCaption}</p>
                   <ul role="list" className="pricing-features-list">
                     <li className="pricing-features-list-item">
                       {check}
@@ -101,7 +110,13 @@ export default function ProblemSection() {
 
             <div className="process-button-wrapper">
               <div className="primary-button-wrapper">
-                <InnerButton href="/carry-cost-calculator" label="See your number" cta="Problem - Calc" />
+                <InnerButton
+                  href="/carry-cost-calculator"
+                  label="See your number"
+                  cta="Problem - Calc"
+                  target={calcNewTab ? '_blank' : undefined}
+                  rel={calcNewTab ? 'noopener noreferrer' : undefined}
+                />
               </div>
             </div>
           </div>
