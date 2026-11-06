@@ -16,7 +16,7 @@ type TwinOptionCardsProps = {
   timeline?: string
 }
 
-const DEMO_A = 'https://demo.wowdesign.io'
+const DEMO_A = 'https://demo.wowdesign.io/residences#digital-twin'
 const DEMO_B = '/proposal/3d-lite'
 const DEMO_C = '/proposal/immersive'
 
