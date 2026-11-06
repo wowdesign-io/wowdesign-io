@@ -6,7 +6,7 @@ export default function OfferSection() {
     <TwinOptionCards
       id="the-offer"
       tagline="Your options"
-      title="Same system. Three twin depths."
+      title="Same system. Three ways to show the building."
       description={
         <>
           Website, follow-up, and the full sales system
