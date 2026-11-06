@@ -11,12 +11,16 @@ import { SITE } from '@/lib/site'
 import '@/app/how-it-works-headings.css'
 import './proposal.css'
 
+const PROPOSAL_DESC =
+  "Sell out faster. Buyers pick a unit tonight. Your sales team knows who's ready. Investment and live building options."
+
 export const metadata: Metadata = {
   title: 'Proposal',
-  description:
-    "Sell out faster. Buyers pick a unit tonight. Your sales team knows who's ready. Investment and live building options.",
+  description: PROPOSAL_DESC,
   robots: { index: false, follow: false },
   alternates: { canonical: `${SITE}/proposal` },
+  openGraph: { description: PROPOSAL_DESC },
+  twitter: { description: PROPOSAL_DESC },
 }
 
 const STRATEGY = 'https://cal.com/wowdesign/strategy-call'
