@@ -1,17 +1,17 @@
 import TwinOptionCards from '@/components/TwinOptionCards'
 
-/** Home + How it works: priced twin depths, no live demo links. */
+/** How it works: same options angle as proposal, with prices, no live links. */
 export default function OfferSection() {
   return (
     <TwinOptionCards
       id="the-offer"
-      tagline="The offer"
-      title="What a project costs."
+      tagline="Your options"
+      title="Open each building. Live."
       description={
         <>
-          $45k–$65k per project, plus $2,500/mo. Website, follow-up, and the full sales system on every option.
+          Website, follow-up, and the full sales system on every option.
           <br />
-          Choose the digital twin: 360, 3D Lite, or Immersive 3D.
+          Choose 360, 3D Lite, or Immersive 3D.
         </>
       }
       showPrices

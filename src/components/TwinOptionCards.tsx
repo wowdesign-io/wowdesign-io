@@ -85,9 +85,9 @@ const OPTIONS = [
 export default function TwinOptionCards({
   id = 'your-options',
   tagline = 'Your options',
-  title = 'What a project costs.',
+  title = 'Open each building. Live.',
   description =
-    'Website, follow-up, and the full sales system on every option. Choose the digital twin: 360, 3D Lite, or Immersive 3D.',
+    'Website, follow-up, and the full sales system on every option. Choose 360, 3D Lite, or Immersive 3D.',
   showLiveButtons = false,
   showPrices = true,
   ctaHref = '/carry-cost-calculator',
