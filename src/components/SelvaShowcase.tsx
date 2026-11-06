@@ -10,13 +10,19 @@ export default function SelvaShowcase() {
       id="live-project"
       tagline="Digital twin"
       title="This is what buyers get."
-      description="Website, follow-up, and the full sales system on every option. The digital twin is 360, 3D Lite, or Immersive 3D."
+      description={
+        <>
+          Website, follow-up, and the full sales system on every option.
+          <br />
+          The digital twin is 360, 3D Lite, or Immersive 3D.
+        </>
+      }
       showPrices={false}
       showLiveButtons={false}
       timeline=""
-      ctaHref="/how-it-works"
-      ctaLabel="How it works"
-      cta="Home - Twins How it works"
+      ctaHref="/book-a-demo"
+      ctaLabel="Book a Demo"
+      cta="Home - Twins Book a Demo"
     />
   )
 }
