@@ -25,15 +25,12 @@
   color: #fff;
 }
 
-/* Default miami process-timeline is 130px (for staggered step cards).
-   Flat option row + how-it-works (3 equal cards, no stagger) need less —
-   otherwise the 130px stacks on section bottom pad and gaps look uneven. */
-.twin-option-cards .process-timeline,
-#how-it-works .process-timeline {
+/* Flat option row: miami’s 130px timeline is for staggered step cards
+   (#how-it-works keeps that). Zeroing it here clears the gap under shots. */
+.twin-option-cards .process-timeline {
   margin-top: 2rem;
 }
 
-.twin-option-cards .process-button-wrapper,
-#how-it-works .process-button-wrapper {
+.twin-option-cards .process-button-wrapper {
   margin-top: 1.25rem;
 }
