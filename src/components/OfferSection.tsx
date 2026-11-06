@@ -16,9 +16,9 @@ export default function OfferSection() {
       }
       showPrices
       showLiveButtons={false}
-      ctaHref="/carry-cost-calculator"
-      ctaLabel="Carry Cost Calc"
-      cta="Offer - Calc"
+      ctaHref="/book-a-demo"
+      ctaLabel="Book a Demo"
+      cta="Offer - Book a Demo"
       timeline="Full system included. Plus $2,500/mo. We keep it running. Your sales team sells. Live in 6–8 weeks."
     />
   )
