@@ -189,7 +189,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
               <h1 className="banner-title">Sell Out Faster.</h1>
               <p className="banner-description-text">
                 We help boutique residential real estate developers{' '}
-                <span className="hero-nowrap">sell out faster</span>, so they keep $400k+ that would otherwise go to the bank.
+                <span className="hero-nowrap">sell out faster,</span> so they keep $400k+ that would otherwise go to the bank.
                 <br />
                 Buyers explore every unit from their phone.<br className="hero-desc-br" />
                 {' '}Your sales team knows who&apos;s&nbsp;ready.
