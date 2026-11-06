@@ -1,0 +1,69 @@
+/* Funnel leave-behind: logo + Strategy Call only (no hamburger / site links) */
+.page-proposal.page-funnel .nav-menu,
+.page-proposal.page-funnel .menu-button {
+  display: none !important;
+}
+
+.page-proposal.page-funnel .navbar-button-wrapper .primary-button-wrapper {
+  display: block;
+}
+
+/* miami capitalize turns info@… into Info@… */
+.footer-email-link {
+  text-transform: none;
+}
+
+/* Demo hash from twin shells — clear fixed nav */
+.page-proposal #open-the-demos {
+  scroll-margin-top: 96px;
+}
+
+/* Proposal-only: larger hero H1 (home uses ~7rem; other inner pages stay 54px) */
+.page-proposal .inner-banner-title {
+  font-size: 72px;
+  line-height: 82px;
+  letter-spacing: -1.8px;
+  max-width: 920px;
+}
+
+@media screen and (max-width: 991px) {
+  .page-proposal .inner-banner-title {
+    font-size: 56px;
+    line-height: 66px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .page-proposal .inner-banner-title {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+
+/* Mobile: keep funnel nav + twin option cards from horizontal overflow */
+@media screen and (max-width: 767px) {
+  .page-proposal.page-funnel .navbar-logo-left-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .page-proposal .twin-option-cards .layout237_item {
+    min-width: 0;
+  }
+
+  .page-proposal .twin-option-cards .twin-option-shot {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .page-proposal .twin-option-cards .process-button-wrapper .primary-button-wrapper,
+  .page-proposal .twin-option-cards .margin-top .primary-button-wrapper {
+    width: 100%;
+  }
+
+  .page-proposal .twin-option-cards .inner-button {
+    width: 100%;
+  }
+}
+
+/* Shot + price card styles live in twin-option-cards.css */

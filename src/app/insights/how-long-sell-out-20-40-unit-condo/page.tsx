@@ -22,7 +22,7 @@ export default function Page() {
         <a href="/insights/how-fast-pre-sell-construction-loan-draw">how fast you need to pre-sell to hit the construction draw</a> for the monthly pace on that first clock.
       </p>
       <p>
-        Boutique 10–50 unit projects feel each slipped month harder than a 200-unit operator. One extra quarter is money out before a brick is laid, and again after completion until the last closing. See{' '}
+        Boutique residential projects feel each slipped month harder than a 200-unit operator. One extra quarter is money out before a brick is laid, and again after completion until the last closing. See{' '}
         <a href="/insights/sell-pre-construction-condos-faster">how to sell pre-construction condos faster</a> for the sequence that takes months off. This page is the scoreboard, not that playbook.
       </p>
       <h2>Two clocks: the draw and the last unit</h2>

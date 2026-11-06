@@ -2,15 +2,43 @@
 
 /* Hero already has inner-banner bottom pad — no extra spacer.
    Consecutive sections each had padding-section-large top+bottom (14rem).
-   Keep the previous section's bottom; drop the next section's top. */
+   Keep the previous section's bottom; drop the next section's top.
+   Same rhythm on /proposal (how-it-works → demos → features → CTA). */
+/* Home #the-problem keeps top pad — ticker above it is not a padded section. */
 .page-how-it-works #how-it-works .padding-section-large,
-.page-how-it-works #the-offer .padding-section-large {
+.page-how-it-works #the-offer .padding-section-large,
+.page-home #how-it-works .padding-section-large,
+.page-home #live-project .padding-section-large,
+.page-proposal #how-it-works .padding-section-large,
+.page-proposal #open-the-demos .padding-section-large {
   padding-top: 0;
 }
 
-.page-how-it-works .section.cta {
+.page-how-it-works .section.cta,
+.page-home .section.cta,
+.page-proposal .section.cta,
+.page-features .section.cta {
   padding-top: 0;
 }
+
+/* Home: Team only has 3rem bottom — restore CTA air (don't sit flush under last card). */
+.page-home .section.team-member + .section.cta {
+  padding-top: 7rem;
+}
+
+@media screen and (max-width: 991px) {
+  .page-home .section.team-member + .section.cta {
+    padding-top: 5rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .page-home .section.team-member + .section.cta {
+    padding-top: 4rem;
+  }
+}
+
+/* Home: stats marquee sits between twins and Features — Features keeps normal top pad. */
 
 .problem-band,
 .offer-band {

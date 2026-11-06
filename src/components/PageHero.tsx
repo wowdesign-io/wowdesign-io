@@ -8,6 +8,8 @@ type PageHeroProps = {
   ctaLabel?: string
   ctaHref?: string
   ctaData?: string
+  ctaTarget?: string
+  ctaRel?: string
   timeline?: ReactNode
   taglineIcon?: ReactNode
   wide?: boolean
@@ -31,9 +33,11 @@ export default function PageHero({
   ctaLabel,
   ctaHref,
   ctaData,
+  ctaTarget,
+  ctaRel,
   timeline = (
     <>
-      Built for 10–50 unit developments.
+      Built for boutique residential real estate developers.
       <br />
       Launched in 6–8 weeks.
     </>
@@ -59,7 +63,7 @@ export default function PageHero({
       {ctaLabel && ctaHref ? (
         <div className="banner-button-wrapper">
           <div className="primary-button-wrapper">
-            <InnerButton href={ctaHref} label={ctaLabel} cta={ctaData} />
+            <InnerButton href={ctaHref} label={ctaLabel} cta={ctaData} target={ctaTarget} rel={ctaRel} />
           </div>
         </div>
       ) : null}

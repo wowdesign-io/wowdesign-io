@@ -167,7 +167,7 @@ export function breadcrumbList(items: { name: string; url: string }[]) {
 export const HOME_FAQS: FaqItem[] = [
   {
     q: 'What does a project cost?',
-    a: '$45k–$75k per project. Website, digital twin, and follow-up. 6–8 weeks for 10–50 unit buildings. The range is units, how far the twin goes, and how it lands in your sales team’s tools — not three packages. We run it under maintenance. You don’t buy or operate a separate viewer.',
+    a: '$45k–$65k per project, plus $2,500/mo. Website + 360 ($45k), 3D Lite ($55k), or Immersive 3D ($65k). Website, digital twin, and follow-up. Live in 6–8 weeks. Same system on every option; the investment follows which digital twin you pick. We run it under maintenance. You don’t buy or operate a separate viewer.',
   },
   {
     q: 'What is carry cost — and why does it matter?',
@@ -195,7 +195,7 @@ export const HOME_FAQS: FaqItem[] = [
   },
   {
     q: 'Can the system handle multiple phases and complex floorplans?',
-    a: 'Yes. Multi-phase developments, varied floorplans, and live availability across buildings. Built for 10–50 unit boutique projects, not an enterprise stack you have to staff.',
+    a: 'Yes. Multi-phase developments, varied floorplans, and live availability across buildings. Built for boutique residential real estate developers, not an enterprise stack you have to staff.',
   },
   {
     q: 'Do we need all our final 3D renders finished before we start?',
@@ -207,7 +207,7 @@ export const HOME_FAQS: FaqItem[] = [
   },
   {
     q: 'Is this overkill for a smaller project?',
-    a: 'It is built for 10–50 unit developments. Boutique projects feel extra months of interest and marketing burn the hardest. That is who it is for.',
+    a: 'It is built for boutique residential real estate developers. They feel extra months of interest and marketing burn the hardest. That is who it is for.',
   },
 ]
 
@@ -243,7 +243,7 @@ export const CALC_FAQS: FaqItem[] = [
   },
   {
     q: 'Is this the same as a draw-schedule construction loan calculator?',
-    a: 'No. Lender calculators model interest on money as you draw it during the build. This tool models extra months of sell-out delay — interest plus burn — on a boutique 10–50 unit project.',
+    a: 'No. Lender calculators model interest on money as you draw it during the build. This tool models extra months of sell-out delay — interest plus burn — on a boutique residential project.',
   },
   {
     q: 'Where is the method for monthly interest?',

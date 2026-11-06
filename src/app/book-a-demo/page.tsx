@@ -101,7 +101,7 @@ export default function BookADemoPage() {
                   <InnerButton href="/contact" label="Contact Us" cta="Book a Demo - Contact" variant="secondary" />
                 </div>
               </div>
-              <div className="subhero-timeline text-size-small">Built for 10–50 unit developments.<br />Launched in 6–8 weeks.</div>
+              <div className="subhero-timeline text-size-small">Built for boutique residential real estate developers.<br />Launched in 6–8 weeks.</div>
             </div>
           </div><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="inner-banner-pluse-icon top-left" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="inner-banner-pluse-icon top-right" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="inner-banner-pluse-icon bottom-left" /><img src="/images/Inner-Banner-Pluse-Icon.svg" loading="lazy" alt="" className="inner-banner-pluse-icon bottom-right" />
           <div className="cta-radial-gradient1"></div>
@@ -235,7 +235,7 @@ export default function BookADemoPage() {
                 </div>
                 <div className="faq-accordion-answer-wrap">
                   <div className="faq-answer">
-                    <p className="faq-answer-text">Our systems are designed specifically for 10–50 unit developments.<br /><br />Our presales system requires digital twin infrastructure, live CRM synchronization, performance optimization, and compliance integration.</p>
+                    <p className="faq-answer-text">Our systems are designed specifically for boutique residential real estate developers.<br /><br />Our presales system requires digital twin infrastructure, live CRM synchronization, performance optimization, and compliance integration.</p>
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>

@@ -4,6 +4,8 @@ type HowItWorksSectionProps = {
   cta?: string
   ctaHref?: string
   ctaLabel?: string
+  ctaTarget?: string
+  ctaRel?: string
   tagline?: string
   title?: string
   description?: string
@@ -13,6 +15,8 @@ export default function HowItWorksSection({
   cta = 'How to - Page',
   ctaHref = '/how-it-works',
   ctaLabel = 'How it works',
+  ctaTarget,
+  ctaRel,
   tagline = 'How it works',
   title = 'How it works.',
   description = 'Buyers pick a unit tonight. Follow-up is automatic. Your sales team has the picture before they call.',
@@ -104,7 +108,7 @@ export default function HowItWorksSection({
               <div className="process-timeline text-size-small">Built in 6–8 weeks.</div>
               <div className="process-button-wrapper">
                 <div className="primary-button-wrapper">
-                  <InnerButton href={ctaHref} label={ctaLabel} cta={cta} />
+                  <InnerButton href={ctaHref} label={ctaLabel} cta={cta} target={ctaTarget} rel={ctaRel} />
                 </div>
               </div>
             </div>

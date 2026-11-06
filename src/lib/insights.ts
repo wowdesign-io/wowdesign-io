@@ -254,8 +254,8 @@ export const INSIGHTS: InsightArticle[] = [
         a: 'No. A scan is of a space that already exists. Pre-construction needs a live inventory of units that do not exist yet, wired to price and availability.',
       },
       {
-        q: 'Do boutique 10–50 unit projects need enterprise sales-gallery software?',
-        a: 'Usually not. Those stacks are built for bigger operators. A 10–50 unit project needs buyers to pick a unit on the site, and a sales team that already knows who is ready.',
+        q: 'Do boutique residential projects need enterprise sales-gallery software?',
+        a: 'Usually not. Those stacks are built for bigger operators. A boutique residential project needs buyers to pick a unit on the site, and a sales team that already knows who is ready.',
       },
     ],
   },
@@ -316,7 +316,7 @@ export const INSIGHTS: InsightArticle[] = [
     description:
       'A boutique developer website still needs renderings for the look. It also needs live units, live price, a way to pick one tonight, and a path into the tools the sales team already uses.',
     answer:
-      'Renderings sell the look. A boutique 10–50 unit project website also needs live units, live price, a way to pick one tonight, and a path into the tools the sales team already uses. Pictures without that do not tell anyone who is ready, and extra months of the loan keep running.',
+      'Renderings sell the look. A boutique residential project website also needs live units, live price, a way to pick one tonight, and a path into the tools the sales team already uses. Pictures without that do not tell anyone who is ready, and extra months of the loan keep running.',
     datePublished: '2026-09-13',
     dateModified: '2026-10-20',
     faqs: [
@@ -325,7 +325,7 @@ export const INSIGHTS: InsightArticle[] = [
         a: 'Live units, live price, a way to pick one tonight, and a path into the tools the sales team already uses. Renderings still sell the look. They do not tell anyone who is ready.',
       },
       {
-        q: 'Do renderings still matter on a 10–50 unit project site?',
+        q: 'Do renderings still matter on a boutique residential project site?',
         a: 'Yes. They sell the look of a building that does not exist yet. The site still has to answer which unit, at what price, and whether it is still open.',
       },
       {
@@ -379,7 +379,7 @@ export const INSIGHTS: InsightArticle[] = [
         a: 'No. A CRM row with a name and “interested” is a contact. The sales team still needs the unit in the tools they already use. Otherwise the first minute is “so what were you looking at?”',
       },
       {
-        q: 'Why does this matter on a 10–50 unit project?',
+        q: 'Why does this matter on a boutique residential project?',
         a: 'Cold calls stretch sell-out. Extra months on a typical boutique $10M–$15M loan at about 8% are about $67k–$100k of interest. Method: loan × rate ÷ 12.',
       },
     ],

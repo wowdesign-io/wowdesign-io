@@ -47,13 +47,13 @@ export default function Page() {
           </tr>
         </tbody>
       </table></div>
-      <h2>What boutique 10–50 actually needs</h2>
+      <h2>What boutique residential developers actually need</h2>
       <p>
         The floor plan lives on the project website, not in a CRM the buyer cannot open. Spark.re and tools like it are inventory and CRM for the sales team. That is a different job. The buyer needs the clickable floor on the site. Your sales team then calls with the unit already in the tools they already use, not a blank contact who “downloaded the brochure.” That briefing is{' '}
         <a href="/insights/what-sales-team-should-know-before-calling">what the sales team should know before they call</a>.
       </p>
       <p>
-        For 10–50 units you do not need an enterprise gallery stack built for a 400-unit operator. You need the floor on the phone, live price, live availability, and a trail. If they still have to wait for someone to send the right PDF, you have the file version. See a{' '}
+        Boutique residential developers do not need an enterprise gallery stack built for a 400-unit operator. You need the floor on the phone, live price, live availability, and a trail. If they still have to wait for someone to send the right PDF, you have the file version. See a{' '}
         <a href="/insights/digital-twin-pre-construction">digital twin</a> if the question is the live building around that floor, not the file vs click split.
       </p>
       <h2>What this is worth</h2>

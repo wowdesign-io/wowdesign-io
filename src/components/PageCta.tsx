@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import InnerButton from '@/components/InnerButton'
 
 type PageCtaProps = {
@@ -5,7 +6,12 @@ type PageCtaProps = {
   /** Per-post one-line lead-in above the button. */
   lead?: string
   /** Per-post headline. Falls back to the shared bank line. */
-  title?: string
+  title?: ReactNode
+  href?: string
+  label?: string
+  target?: string
+  rel?: string
+  timeline?: ReactNode
 }
 
 const DEFAULT_TITLE = (
@@ -17,10 +23,23 @@ const DEFAULT_TITLE = (
 
 const DEFAULT_LEAD = 'Every extra month is loan interest plus marketing burn. Run your numbers.'
 
+const DEFAULT_TIMELINE = (
+  <>
+    Built for boutique residential real estate developers.
+    <br />
+    $45k–$65k + $2,500/mo · Live in 6–8 weeks.
+  </>
+)
+
 export default function PageCta({
   ctaData = 'CTA - Calc',
   lead = DEFAULT_LEAD,
   title,
+  href = '/carry-cost-calculator',
+  label = 'Carry Cost Calc',
+  target,
+  rel,
+  timeline = DEFAULT_TIMELINE,
 }: PageCtaProps) {
   return (
     <section data-w-id="1c3f6ead-2444-a223-fec9-b2e0c543d72e" className="section cta">
@@ -36,14 +55,10 @@ export default function PageCta({
             </div>
             <div className="cta-button-wrapper">
               <div className="primary-button-wrapper">
-                <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta={ctaData} />
+                <InnerButton href={href} label={label} cta={ctaData} target={target} rel={rel} />
               </div>
             </div>
-            <div className="cta-timeline text-size-small">
-              Built for 10–50 unit developments.
-              <br />
-              $45k–$75k per project · Launched in 6–8 weeks.
-            </div>
+            <div className="cta-timeline text-size-small">{timeline}</div>
           </div>
           {/* Same Features-Card-Shape L-marks as Insights/Features; glass is on ::before so these aren't clipped by backdrop-filter */}
           <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="cta-top-left-element" />

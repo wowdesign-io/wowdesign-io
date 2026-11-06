@@ -20,7 +20,7 @@ export default function FeaturesPage() {
   return (
     <>
       <JsonLd data={faqPage(`${SITE}/features`, FEATURES_FAQS)} />
-<div className="page-wrapper">
+<div className="page-wrapper page-features">
     <div className="global-styles">
       <div className="style-overrides w-embed">
         
@@ -209,7 +209,7 @@ export default function FeaturesPage() {
                 </div>
                 <div className="faq-accordion-answer-wrap">
                   <div className="faq-answer">
-                    <p className="faq-answer-text">It is built for 10–50 unit developments. Boutique projects feel extra months of interest and marketing burn the hardest. That is who it is for.</p>
+                    <p className="faq-answer-text">It is built for boutique residential real estate developers. They feel extra months of interest and marketing burn the hardest. That is who it is for.</p>
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>

@@ -58,7 +58,7 @@ export default function Page() {
         The split is simple. A contact list is everyone who left a number. A ranked list is people who opened a specific unit, saw a live price, and came back. The second list is who the sales team should call first. The first list is what you get when the site is pictures and a form.
       </p>
       <p>
-        Put the unit in the tools they already use, not a separate dashboard they never open. If the sales team has to export a spreadsheet to see 4B, they will not. They will call the newest name and guess. That is how a 10–50 unit project spends an extra month asking people what they wanted.
+        Put the unit in the tools they already use, not a separate dashboard they never open. If the sales team has to export a spreadsheet to see 4B, they will not. They will call the newest name and guess. That is how a boutique residential project spends an extra month asking people what they wanted.
       </p>
       <h2>Why those calls cost months</h2>
       <p>

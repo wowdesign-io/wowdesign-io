@@ -16,7 +16,7 @@ import NavMenuCta from '@/components/NavMenuCta'
 export const metadata: Metadata = {
   title: 'How it works',
   description:
-    'You\'re paying until the last unit sells. Buyers pick a unit tonight. Your sales team only calls people who are ready. $45k–$75k per project.',
+    'You\'re paying until the last unit sells. Buyers pick a unit tonight. Your sales team only calls people who are ready. $45k–$65k + $2,500/mo.',
   alternates: { canonical: 'https://www.wowdesign.io/how-it-works' },
 }
 
@@ -98,7 +98,7 @@ export default function HowItWorksPage() {
         </svg>
       }
     />
-    <ProblemSection />
+    <ProblemSection keepCaption="What boutique residential developers keep when sell-out happens months earlier." />
     <HowItWorksSection
       tagline="The system"
       title="Your sales team only calls people who are ready."

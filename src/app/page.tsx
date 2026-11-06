@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import WebflowScripts from '@/components/WebflowScripts'
 import './how-it-works-headings.css'
 import PageCta from '@/components/PageCta'
+import ProblemSection from '@/components/ProblemSection'
 import HowItWorksSection from '@/components/HowItWorksSection'
 import SelvaShowcase from '@/components/SelvaShowcase'
 import TeamMembers from '@/components/TeamMembers'
@@ -23,7 +24,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
   return (
     <>
       <JsonLd data={faqPage(SITE, HOME_FAQS)} />
-<div className="page-wrapper">
+<div className="page-wrapper page-home">
     <div className="global-styles">
       <div className="style-overrides w-embed">
         <style dangerouslySetInnerHTML={{ __html: `
@@ -186,7 +187,14 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
             </div>
             <div className="banner-title-description">
               <h1 className="banner-title">Sell Out Faster.</h1>
-              <p className="banner-description-text">We help boutique real estate developers with 10–50 unit projects sell out faster, so they keep $400k+ that would otherwise go to the bank. Buyers explore every unit from their phone. Your sales team knows who's ready.</p>
+              <p className="banner-description-text">
+                We help boutique residential real estate developers{' '}
+                <span className="hero-nowrap">sell out faster,</span> so they keep $400k+ that would otherwise go to the bank.
+                <br />
+                Buyers explore every unit from their phone.
+                <br />
+                Your sales team knows who&apos;s&nbsp;ready.
+              </p>
             </div>
             <div className="banner-button-wrapper">
               <div className="primary-button-wrapper">
@@ -253,8 +261,182 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
         </div>
       </div>
     </section>)}
+    <ProblemSection />
     <HowItWorksSection cta="Home How it works - Page" ctaHref="/how-it-works" ctaLabel="How it works" />
     <SelvaShowcase />
+    <section className="section historical-numbers">
+      <div className="stats-subline text-size-small">
+        Supporting proof from comparable developments.
+        <br />
+        $400k+ is typical carry kept by selling out faster.
+      </div>
+      <div className="historical-numbers-content">
+        <div className="historical-ticker top">
+          <div className="historical-ticker-single left">
+            <div className="headline-ticker-inner-ticker left">
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">31%</div>
+                </div>
+                <div className="historical-ticker-title">Faster Sell-Out</div>
+              </div>
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">49%</div>
+                </div>
+                <div className="historical-ticker-title">Ready Buyers</div>
+              </div>
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">3x</div>
+                </div>
+                <div className="historical-ticker-title">Deeper Engagement</div>
+              </div>
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">$400k+</div>
+                </div>
+                <div className="historical-ticker-title">Kept vs the Bank</div>
+              </div>
+            </div>
+            <div className="headline-ticker-inner-ticker left">
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">31%</div>
+                </div>
+                <div className="historical-ticker-title">Faster Sell-Out</div>
+              </div>
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">49%</div>
+                </div>
+                <div className="historical-ticker-title">Ready Buyers</div>
+              </div>
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">3x</div>
+                </div>
+                <div className="historical-ticker-title">Deeper Engagement</div>
+              </div>
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">$400k+</div>
+                </div>
+                <div className="historical-ticker-title">Kept vs the Bank</div>
+              </div>
+            </div>
+            <div className="headline-ticker-inner-ticker left">
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">31%</div>
+                </div>
+                <div className="historical-ticker-title">Faster Sell-Out</div>
+              </div>
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">49%</div>
+                </div>
+                <div className="historical-ticker-title">Ready Buyers</div>
+              </div>
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">3x</div>
+                </div>
+                <div className="historical-ticker-title">Deeper Engagement</div>
+              </div>
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">$400k+</div>
+                </div>
+                <div className="historical-ticker-title">Kept vs the Bank</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="historical-ticker bottom">
+          <div className="historical-ticker-single right">
+            <div className="headline-ticker-inner-ticker right">
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">31%</div>
+                </div>
+                <div className="historical-ticker-title">Faster Sell-Out</div>
+              </div>
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">49%</div>
+                </div>
+                <div className="historical-ticker-title">Ready Buyers</div>
+              </div>
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">3x</div>
+                </div>
+                <div className="historical-ticker-title">Deeper Engagement</div>
+              </div>
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">$400k+</div>
+                </div>
+                <div className="historical-ticker-title">Kept vs the Bank</div>
+              </div>
+            </div>
+            <div className="headline-ticker-inner-ticker right">
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">31%</div>
+                </div>
+                <div className="historical-ticker-title">Faster Sell-Out</div>
+              </div>
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">49%</div>
+                </div>
+                <div className="historical-ticker-title">Ready Buyers</div>
+              </div>
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">3x</div>
+                </div>
+                <div className="historical-ticker-title">Deeper Engagement</div>
+              </div>
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">$400k+</div>
+                </div>
+                <div className="historical-ticker-title">Kept vs the Bank</div>
+              </div>
+            </div>
+            <div className="headline-ticker-inner-ticker right">
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">31%</div>
+                </div>
+                <div className="historical-ticker-title">Faster Sell-Out</div>
+              </div>
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">49%</div>
+                </div>
+                <div className="historical-ticker-title">Ready Buyers</div>
+              </div>
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">3x</div>
+                </div>
+                <div className="historical-ticker-title">Deeper Engagement</div>
+              </div>
+              <div className="historical-ticker-card">
+                <div className="historical-ticker-number-wrap">
+                  <div className="historical-ticker-number">$400k+</div>
+                </div>
+                <div className="historical-ticker-title">Kept vs the Bank</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section className={heroVisual ? 'section solving hero3d-topgap' : 'section solving'}>
       <div className="container">
         <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="solving-section-title-wrapper">
@@ -334,175 +516,6 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
         <div className="primary-sky-circle"></div>
         <div className="secondary-sky-circle"></div>
       </div>
-    </section>
-    <section className="section historical-numbers">
-      <div className="historical-numbers-content">
-        <div className="historical-ticker top">
-          <div className="historical-ticker-single left">
-            <div className="headline-ticker-inner-ticker left">
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">31%</div>
-                </div>
-                <div className="historical-ticker-title">Faster Unit Absorption</div>
-              </div>
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">49%</div>
-                </div>
-                <div className="historical-ticker-title">More Qualified Leads</div>
-              </div>
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">3x</div>
-                </div>
-                <div className="historical-ticker-title">Buyer Engagement</div>
-              </div>
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">$400k+</div>
-                </div>
-                <div className="historical-ticker-title">Kept vs the Bank</div>
-              </div>
-            </div>
-            <div className="headline-ticker-inner-ticker left">
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">31%</div>
-                </div>
-                <div className="historical-ticker-title">Faster Unit Absorption</div>
-              </div>
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">49%</div>
-                </div>
-                <div className="historical-ticker-title">More Qualified Leads</div>
-              </div>
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">3x</div>
-                </div>
-                <div className="historical-ticker-title">Buyer Engagement</div>
-              </div>
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">$400k+</div>
-                </div>
-                <div className="historical-ticker-title">Kept vs the Bank</div>
-              </div>
-            </div>
-            <div className="headline-ticker-inner-ticker left">
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">31%</div>
-                </div>
-                <div className="historical-ticker-title">Faster Unit Absorption</div>
-              </div>
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">49%</div>
-                </div>
-                <div className="historical-ticker-title">More Qualified Leads</div>
-              </div>
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">3x</div>
-                </div>
-                <div className="historical-ticker-title">Buyer Engagement</div>
-              </div>
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">$400k+</div>
-                </div>
-                <div className="historical-ticker-title">Kept vs the Bank</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="historical-ticker bottom">
-          <div className="historical-ticker-single right">
-            <div className="headline-ticker-inner-ticker right">
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">31%</div>
-                </div>
-                <div className="historical-ticker-title">Faster Unit Absorption</div>
-              </div>
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">49%</div>
-                </div>
-                <div className="historical-ticker-title">More Qualified Leads</div>
-              </div>
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">3x</div>
-                </div>
-                <div className="historical-ticker-title">Buyer Engagement</div>
-              </div>
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">$400k+</div>
-                </div>
-                <div className="historical-ticker-title">Kept vs the Bank</div>
-              </div>
-            </div>
-            <div className="headline-ticker-inner-ticker right">
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">31%</div>
-                </div>
-                <div className="historical-ticker-title">Faster Unit Absorption</div>
-              </div>
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">49%</div>
-                </div>
-                <div className="historical-ticker-title">More Qualified Leads</div>
-              </div>
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">3x</div>
-                </div>
-                <div className="historical-ticker-title">Buyer Engagement</div>
-              </div>
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">$400k+</div>
-                </div>
-                <div className="historical-ticker-title">Kept vs the Bank</div>
-              </div>
-            </div>
-            <div className="headline-ticker-inner-ticker right">
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">31%</div>
-                </div>
-                <div className="historical-ticker-title">Faster Unit Absorption</div>
-              </div>
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">49%</div>
-                </div>
-                <div className="historical-ticker-title">More Qualified Leads</div>
-              </div>
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">3x</div>
-                </div>
-                <div className="historical-ticker-title">Buyer Engagement</div>
-              </div>
-              <div className="historical-ticker-card">
-                <div className="historical-ticker-number-wrap">
-                  <div className="historical-ticker-number">$400k+</div>
-                </div>
-                <div className="historical-ticker-title">Kept vs the Bank</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="stats-subline text-size-small">31%, 49%, and 3x: supporting proof from comparable pre-construction developments. $400k+ is typical carry kept by selling out faster.</div>
     </section>
     <section className="section_comparison13">
       <div className="padding-global">
@@ -702,7 +715,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 <div className="margin-bottom margin-small">
                   <h2 className="section-title">What developers say about results, not just websites.</h2>
                 </div>
-                <p className="text-size-medium">Built for boutique developments. Designed for measurable sales impact.</p>
+                <p className="text-size-medium">Built for boutique residential real estate developers. Designed for measurable sales impact.</p>
               </div>
               <div className="testimonial-section-button-wrap">
                 <div className="primary-button-wrapper">
@@ -812,7 +825,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 </div>
                 <div className="faq-accordion-answer-wrap">
                   <div className="faq-answer">
-                    <p className="faq-answer-text">$45k–$75k per project. Website, digital twin, and follow-up. 6–8 weeks for 10–50 unit buildings.<br /><br />The range is units, how far the twin goes, and how it lands in your sales team&apos;s tools — not three packages. We run it under maintenance. You don&apos;t buy or operate a separate viewer.</p>
+                    <p className="faq-answer-text">$45k–$65k per project, plus $2,500/mo. Website + 360 ($45k), 3D Lite ($55k), or Immersive 3D ($65k). Website, digital twin, and follow-up. Live in 6–8 weeks.<br /><br />Same system on every option. The investment follows which digital twin you pick. We run it under maintenance. You don&apos;t buy or operate a separate viewer.</p>
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>
@@ -922,7 +935,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 </div>
                 <div className="faq-accordion-answer-wrap">
                   <div className="faq-answer">
-                    <p className="faq-answer-text">It is built for 10–50 unit developments. Boutique projects feel extra months of interest and marketing burn the hardest. That is who it is for.</p>
+                    <p className="faq-answer-text">It is built for boutique residential real estate developers. They feel extra months of interest and marketing burn the hardest. That is who it is for.</p>
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>

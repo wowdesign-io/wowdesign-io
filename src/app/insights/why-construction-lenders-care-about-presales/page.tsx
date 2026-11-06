@@ -21,7 +21,7 @@ export default function Page() {
         That is why they care, not because a statute says 50%. Banks and credit unions commonly want 50–70% of project revenue under qualifying contracts before they fund. That range is a market pattern. Your term sheet is the number that counts. Some private lenders will fund with fewer presales and price the extra risk. Fannie Mae&apos;s 50% test is a different job: whether unit-buyers can get those mortgages.
       </p>
       <p>
-        On a 10–50 unit boutique project, missing that line is months of interest and marketing with no draw. See{' '}
+        On a boutique residential project, missing that line is months of interest and marketing with no draw. See{' '}
         <a href="/insights/construction-loan-presale-requirement">how many units you need to pre-sell</a> for the percent and what counts.
       </p>
       <h2>What they are actually testing</h2>
@@ -54,7 +54,7 @@ export default function Page() {
         </tbody>
       </table></div>
       <p>
-        On a boutique 10–50 unit stack, six contracts that do not qualify is not a paperwork issue. It is the draw slipping a month.
+        On a boutique residential stack, six contracts that do not qualify is not a paperwork issue. It is the draw slipping a month.
       </p>
       <h2>What waiting on that test costs</h2>
       <p>

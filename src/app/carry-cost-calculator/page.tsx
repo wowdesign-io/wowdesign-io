@@ -7,11 +7,12 @@ import { CALC_FAQS, faqPage, howToRunCalc, webApplicationCalc } from '@/lib/sche
 import { SITE } from '@/lib/site'
 import NavMenuToggle from '@/components/NavMenuToggle'
 import NavMenuCta from '@/components/NavMenuCta'
+import '@/app/how-it-works-headings.css'
 
 export const metadata: Metadata = {
   title: 'Carry Cost Calculator',
   description:
-    'See what extra months of construction-loan interest plus marketing and ops cost. Monthly interest is loan x rate / 12. Free calculator for 10-50 unit developers.',
+    'See what extra months of construction-loan interest plus marketing and ops cost. Monthly interest is loan x rate / 12. Free calculator for boutique residential real estate developers.',
   alternates: { canonical: `${SITE}/carry-cost-calculator` },
 }
 
@@ -21,7 +22,7 @@ export default function CarryCostCalculatorPage() {
       <JsonLd data={webApplicationCalc()} />
       <JsonLd data={howToRunCalc()} />
       <JsonLd data={faqPage(`${SITE}/carry-cost-calculator`, CALC_FAQS)} />
-<div className="page-wrapper">
+<div className="page-wrapper page-calc">
     <div className="global-styles">
       <div className="style-overrides w-embed">
         
@@ -96,8 +97,14 @@ export default function CarryCostCalculatorPage() {
                 </div>
               </div>
               <div className="inner-banner-title-wrapper">
-                <h1 className="inner-banner-title contact-us">See what extra months cost on your loan.</h1>
-                <p className="inner-banner-description about-us">A typical boutique $10M–$15M construction loan at about 8% is $67k–$100k a month to the bank. Enter your loan, rate, months saved, and monthly burn.</p>
+                <h1 className="inner-banner-title contact-us">
+                  See what extra months<br />
+                  cost on your loan.
+                </h1>
+                <p className="inner-banner-description about-us">
+                  A typical boutique <span className="hero-nowrap">$10M–$15M</span> construction loan at about 8% is{' '}
+                  <span className="hero-nowrap">$67k–$100k</span> a month to the bank. Enter your loan, rate, months saved, and monthly burn.
+                </p>
               </div>
               <div className="banner-button-wrapper">
                 <div className="primary-button-wrapper">
