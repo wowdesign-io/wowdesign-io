@@ -6,8 +6,16 @@
   text-wrap: pretty;
 }
 
-.page-home .hero-nowrap {
+.page-home .hero-nowrap,
+.page-calc .hero-nowrap {
   white-space: nowrap;
+}
+
+.page-calc .inner-banner-description.about-us {
+  max-width: 38rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: pretty;
 }
 
 /* Soft break before sales-team line: desktop/tablet only. Phone keeps money | how. */
