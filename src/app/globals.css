@@ -264,6 +264,13 @@ html.wwd-first.wwd-ready #wwd-page-loader {
   border-bottom: none;
 }
 
+/* Subline sits above the marquee — space under the line, not into Features. */
+.page-home .section.historical-numbers > .stats-subline {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 0 1.25rem;
+}
+
 /* Decorative sky glows sit behind content — never block clicks or clip buttons. */
 .sky-container {
   z-index: 0 !important;
