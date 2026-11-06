@@ -8,7 +8,8 @@
   display: block;
 }
 
-/* miami capitalize turns info@… into Info@… — keep email lowercase */
+/* miami capitalize/uppercase — keep contact + email as typed */
+.page-proposal.page-funnel .footer-menu-title,
 .page-proposal .footer-email-link,
 .footer-email-link {
   text-transform: none;
