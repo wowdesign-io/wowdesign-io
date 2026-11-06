@@ -1,3 +1,22 @@
+/* Home hero subhead — shorter measure + controlled breaks (no orphan “ready.”) */
+.page-home .banner-description-text {
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: pretty;
+}
+
+/* Soft breaks: desktop/tablet only. Phone keeps one hard break between money + how. */
+.page-home .hero-desc-br {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .page-home .hero-desc-br {
+    display: inline;
+  }
+}
+
 /* Card titles are h3.heading-style-h6 — they inherit display-heading
    tracking and a faded gradient fill, and shrink with Webflow's fluid rem. */
 #how-it-works .layout237_item h3.heading-style-h6 {
