@@ -1,3 +1,13 @@
+/* Funnel leave-behind: logo + Strategy Call only (no hamburger / site links) */
+.page-proposal.page-funnel .nav-menu,
+.page-proposal.page-funnel .menu-button {
+  display: none !important;
+}
+
+.page-proposal.page-funnel .navbar-button-wrapper .primary-button-wrapper {
+  display: block;
+}
+
 /* Demo hash from twin shells — clear fixed nav */
 .page-proposal #open-the-demos {
   scroll-margin-top: 96px;

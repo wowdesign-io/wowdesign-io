@@ -2,16 +2,30 @@ import InnerButton from '@/components/InnerButton'
 import SkyGlow from '@/components/SkyGlow'
 
 type FeaturesDeepDiveProps = {
-  /** Leave-behind pages: open calc without dumping the current page. */
+  /** Leave-behind pages: open CTA without dumping the current page. */
   calcNewTab?: boolean
   /** /proposal already shows twin depth in option cards — skip this feature row. */
   hideTwinFeature?: boolean
+  /** Override per-row CTA (proposal: Strategy Call). Defaults to Carry Cost Calc. */
+  ctaHref?: string
+  ctaLabel?: string
+  /** Suffix after feature name in data-cta, e.g. "Calc" or "Strategy". */
+  ctaKind?: string
 }
 
-export default function FeaturesDeepDive({ calcNewTab = false, hideTwinFeature = false }: FeaturesDeepDiveProps) {
-  const calcTarget = calcNewTab ? '_blank' : undefined
-  const calcRel = calcNewTab ? 'noopener noreferrer' : undefined
+export default function FeaturesDeepDive({
+  calcNewTab = false,
+  hideTwinFeature = false,
+  ctaHref = '/carry-cost-calculator',
+  ctaLabel = 'Carry Cost Calc',
+  ctaKind = 'Calc',
+}: FeaturesDeepDiveProps) {
+  const ctaTarget = calcNewTab ? '_blank' : undefined
+  const ctaRel = calcNewTab ? 'noopener noreferrer' : undefined
   const crmCardClass = hideTwinFeature ? 'features-typography-card top-border-none' : 'features-typography-card'
+  const featureCta = (name: string) => (
+    <InnerButton href={ctaHref} label={ctaLabel} cta={`${name} - ${ctaKind}`} target={ctaTarget} rel={ctaRel} />
+  )
 
   return (
     <section id="features" className="section features">
@@ -80,7 +94,7 @@ export default function FeaturesDeepDive({ calcNewTab = false, hideTwinFeature =
                 </div>
                 <div className="features-button-wrapper">
                   <div className="primary-button-wrapper">
-                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Digital Twin - Calc" target={calcTarget} rel={calcRel} />
+                    {featureCta('Digital Twin')}
                   </div>
                 </div>
               </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" />
@@ -154,7 +168,7 @@ export default function FeaturesDeepDive({ calcNewTab = false, hideTwinFeature =
                 </div>
                 <div className="features-button-wrapper">
                   <div className="primary-button-wrapper">
-                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="CRM - Calc" target={calcTarget} rel={calcRel} />
+                    {featureCta('CRM')}
                   </div>
                 </div>
               </div><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" /><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" />
@@ -219,7 +233,7 @@ export default function FeaturesDeepDive({ calcNewTab = false, hideTwinFeature =
                 </div>
                 <div className="features-button-wrapper">
                   <div className="primary-button-wrapper">
-                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Unit-Specific - Calc" target={calcTarget} rel={calcRel} />
+                    {featureCta('Unit-Specific')}
                   </div>
                 </div>
               </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" />
@@ -290,7 +304,7 @@ export default function FeaturesDeepDive({ calcNewTab = false, hideTwinFeature =
                 </div>
                 <div className="features-button-wrapper">
                   <div className="primary-button-wrapper">
-                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Speed - Calc" target={calcTarget} rel={calcRel} />
+                    {featureCta('Speed')}
                   </div>
                 </div>
               </div><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" /><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" />
@@ -357,7 +371,7 @@ export default function FeaturesDeepDive({ calcNewTab = false, hideTwinFeature =
                 </div>
                 <div className="features-button-wrapper">
                   <div className="primary-button-wrapper">
-                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Analytics - Calc" target={calcTarget} rel={calcRel} />
+                    {featureCta('Analytics')}
                   </div>
                 </div>
               </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" />
@@ -629,7 +643,7 @@ export default function FeaturesDeepDive({ calcNewTab = false, hideTwinFeature =
                 </div>
                 <div className="features-button-wrapper">
                   <div className="primary-button-wrapper">
-                    <InnerButton href="/carry-cost-calculator" label="Carry Cost Calc" cta="Compliance - Calc" target={calcTarget} rel={calcRel} />
+                    {featureCta('Compliance')}
                   </div>
                 </div>
               </div><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" /><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" />

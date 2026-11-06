@@ -38,7 +38,7 @@ const proposalIcon = (
 export default function ProposalPage() {
   return (
     <>
-      <SiteChrome current="none" pageClass="page-proposal" calcNewTab>
+      <SiteChrome current="none" pageClass="page-proposal" funnel>
         <PageHero
           tagline="Proposal"
           title="Sell Out Faster."
@@ -69,7 +69,13 @@ export default function ProposalPage() {
           ctaRel="noopener noreferrer"
         />
         <ProposalDemos />
-        <FeaturesDeepDive calcNewTab hideTwinFeature />
+        <FeaturesDeepDive
+          calcNewTab
+          hideTwinFeature
+          ctaHref={STRATEGY}
+          ctaLabel="Strategy Call"
+          ctaKind="Strategy"
+        />
         <PageCta
           ctaData="Proposal CTA - Strategy"
           href={STRATEGY}

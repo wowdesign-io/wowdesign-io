@@ -12,9 +12,65 @@ const NAV = [
   { href: '/carry-cost-calculator', key: 'calc' as const, label: 'Carry Cost Calc', cta: 'Nav - Calc' },
 ]
 
+const STRATEGY = 'https://cal.com/wowdesign/strategy-call'
+
+function PrimaryNavButton({
+  href,
+  label,
+  cta,
+  target,
+  rel,
+}: {
+  href: string
+  label: string
+  cta: string
+  target?: string
+  rel?: string
+}) {
+  return (
+    <a
+      href={href}
+      data-cta={cta}
+      data-w-id="3af1c84f-ff74-c014-cb3b-40446b73b1f6"
+      className="primary-button w-inline-block"
+      target={target}
+      rel={rel}
+    >
+      <div className="primary-button-border-wrap">
+        <div className="primary-button-wrap">
+          <div className="primary-button-text">{label}</div>
+          <div className="primary-button-hover-text" aria-hidden="true">
+            {label}
+          </div>
+          <div className="primary-button-hover-bg"></div>
+        </div>
+      </div>
+      <div className="line-wrap">
+        <div className="primary-line-wrap _1">
+          <div className="line _1"></div>
+          <div className="line _2"></div>
+        </div>
+        <div className="primary-line-wrap _2">
+          <div className="line _3"></div>
+          <div className="line _4"></div>
+        </div>
+        <div className="primary-line-wrap _3">
+          <div className="line _5"></div>
+          <div className="line _6"></div>
+        </div>
+        <div className="primary-line-wrap _4">
+          <div className="line _7"></div>
+          <div className="line _8"></div>
+        </div>
+      </div>
+    </a>
+  )
+}
+
 export default function SiteChrome({
   current = 'none',
   bare = false,
+  funnel = false,
   pageClass,
   calcNewTab = false,
   children,
@@ -22,6 +78,8 @@ export default function SiteChrome({
   current?: NavKey
   /** Skip site nav and footer (partner surfaces like /brand). */
   bare?: boolean
+  /** Leave-behind: logo + Strategy Call only. No site nav links. */
+  funnel?: boolean
   /** Extra class on page-wrapper (e.g. page-proposal). */
   pageClass?: string
   /** Open Carry Cost Calc from nav/footer in a new tab (leave-behind pages). */
@@ -33,7 +91,7 @@ export default function SiteChrome({
     : {}
 
   return (
-    <div className={['page-wrapper', pageClass].filter(Boolean).join(' ')}>
+    <div className={['page-wrapper', pageClass, funnel ? 'page-funnel' : ''].filter(Boolean).join(' ')}>
       <div className="global-styles">
         <div className="style-overrides w-embed"></div>
         <div className="color-schemes w-embed"></div>
@@ -53,64 +111,48 @@ export default function SiteChrome({
         <div className="nav-container _1430">
           <div className="navbar-container">
             <a
-              href="/"
+              href={funnel ? '/proposal' : '/'}
               aria-current={current === 'home' ? 'page' : undefined}
               className={current === 'home' ? 'navbar-logo w-nav-brand w--current' : 'navbar-logo w-nav-brand'}
             >
               <img src="/images/wow-design-color-logo-dark.svg" loading="lazy" alt="" className="navbar-logo-image" />
             </a>
-            <nav role="navigation" className="nav-menu w-nav-menu">
-              {NAV.map((item) => {
-                const on = current === item.key
-                const isCalc = item.key === 'calc'
-                return (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    data-cta={item.cta}
-                    aria-current={on ? 'page' : undefined}
-                    className={on ? 'nav-menu-link w-nav-link w--current' : 'nav-menu-link w-nav-link'}
-                    {...(isCalc ? calcLinkProps : {})}
-                  >
-                    {item.label}
-                  </a>
-                )
-              })}
-              <NavMenuCta />
-            </nav>
+            {!funnel ? (
+              <nav role="navigation" className="nav-menu w-nav-menu">
+                {NAV.map((item) => {
+                  const on = current === item.key
+                  const isCalc = item.key === 'calc'
+                  return (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      data-cta={item.cta}
+                      aria-current={on ? 'page' : undefined}
+                      className={on ? 'nav-menu-link w-nav-link w--current' : 'nav-menu-link w-nav-link'}
+                      {...(isCalc ? calcLinkProps : {})}
+                    >
+                      {item.label}
+                    </a>
+                  )
+                })}
+                <NavMenuCta />
+              </nav>
+            ) : null}
             <div className="navbar-button-wrapper">
-              <div className="primary-button-wrapper desktop">
-                <a href="/book-a-demo" data-cta="Nav - Demo" data-w-id="3af1c84f-ff74-c014-cb3b-40446b73b1f6" className="primary-button w-inline-block">
-                  <div className="primary-button-border-wrap">
-                    <div className="primary-button-wrap">
-                      <div className="primary-button-text">Book A Demo</div>
-                      <div className="primary-button-hover-text" aria-hidden="true">
-                        Book A Demo
-                      </div>
-                      <div className="primary-button-hover-bg"></div>
-                    </div>
-                  </div>
-                  <div className="line-wrap">
-                    <div className="primary-line-wrap _1">
-                      <div className="line _1"></div>
-                      <div className="line _2"></div>
-                    </div>
-                    <div className="primary-line-wrap _2">
-                      <div className="line _3"></div>
-                      <div className="line _4"></div>
-                    </div>
-                    <div className="primary-line-wrap _3">
-                      <div className="line _5"></div>
-                      <div className="line _6"></div>
-                    </div>
-                    <div className="primary-line-wrap _4">
-                      <div className="line _7"></div>
-                      <div className="line _8"></div>
-                    </div>
-                  </div>
-                </a>
+              <div className={funnel ? 'primary-button-wrapper' : 'primary-button-wrapper desktop'}>
+                {funnel ? (
+                  <PrimaryNavButton
+                    href={STRATEGY}
+                    label="Strategy Call"
+                    cta="Proposal Nav - Strategy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  />
+                ) : (
+                  <PrimaryNavButton href="/book-a-demo" label="Book A Demo" cta="Nav - Demo" />
+                )}
               </div>
-              <NavMenuToggle />
+              {!funnel ? <NavMenuToggle /> : null}
             </div>
           </div>
         </div>
@@ -182,69 +224,99 @@ export default function SiteChrome({
                   </div>
                 </div>
                 <div className="footer-menu-content">
-                  <div className="footer-menu-single">
-                    <div className="footer-menu-title-wrapper">
-                      <h5 className="footer-menu-title">Explore</h5>
+                  {!funnel ? (
+                    <>
+                      <div className="footer-menu-single">
+                        <div className="footer-menu-title-wrapper">
+                          <h5 className="footer-menu-title">Explore</h5>
+                        </div>
+                        <div className="footer-menu-list-wrapper">
+                          <ul role="list" className="footer-menu-list">
+                            <li className="footer-menu-list-item">
+                              <a href="/" className="footer-menu-text-link">
+                                home
+                              </a>
+                            </li>
+                            <li className="footer-menu-list-item">
+                              <a href="/about" className="footer-menu-text-link">
+                                about
+                              </a>
+                            </li>
+                            <li className="footer-menu-list-item">
+                              <a href="/features" className="footer-menu-text-link">
+                                Features
+                              </a>
+                            </li>
+                            <li className="footer-menu-list-item">
+                              <a href="/how-it-works" className="footer-menu-text-link">
+                                How it works
+                              </a>
+                            </li>
+                            <li className="footer-menu-list-item">
+                              <a href="/insights" className={current === 'insights' ? 'footer-menu-text-link w--current' : 'footer-menu-text-link'}>
+                                Insights
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div className="footer-menu-single last">
+                        <div className="footer-menu-title-wrapper">
+                          <h5 className="footer-menu-title">Get started</h5>
+                        </div>
+                        <div className="footer-menu-list-wrapper">
+                          <ul role="list" className="footer-menu-list">
+                            <li className="footer-menu-list-item">
+                              <a href="/contact" className="footer-menu-text-link">
+                                Contact
+                              </a>
+                            </li>
+                            <li className="footer-menu-list-item">
+                              <a href="/book-a-demo" className="footer-menu-text-link">
+                                Book A Demo
+                              </a>
+                            </li>
+                            <li className="footer-menu-list-item">
+                              <a href="/carry-cost-calculator" className="footer-menu-text-link" {...calcLinkProps}>
+                                Carry Cost Calculator
+                              </a>
+                            </li>
+                            <li className="footer-menu-list-item">
+                              <a href="/#faq" className="footer-menu-text-link">
+                                FAQ
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="footer-menu-single last">
+                      <div className="footer-menu-title-wrapper">
+                        <h5 className="footer-menu-title">Next step</h5>
+                      </div>
+                      <div className="footer-menu-list-wrapper">
+                        <ul role="list" className="footer-menu-list">
+                          <li className="footer-menu-list-item">
+                            <a
+                              href={STRATEGY}
+                              className="footer-menu-text-link"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              data-cta="Proposal Footer - Strategy"
+                            >
+                              Strategy Call
+                            </a>
+                          </li>
+                          <li className="footer-menu-list-item">
+                            <a href="mailto:info@wowdesign.io" className="footer-menu-text-link">
+                              info@wowdesign.io
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-                    <div className="footer-menu-list-wrapper">
-                      <ul role="list" className="footer-menu-list">
-                        <li className="footer-menu-list-item">
-                          <a href="/" className="footer-menu-text-link">
-                            home
-                          </a>
-                        </li>
-                        <li className="footer-menu-list-item">
-                          <a href="/about" className="footer-menu-text-link">
-                            about
-                          </a>
-                        </li>
-                        <li className="footer-menu-list-item">
-                          <a href="/features" className="footer-menu-text-link">
-                            Features
-                          </a>
-                        </li>
-                        <li className="footer-menu-list-item">
-                          <a href="/how-it-works" className="footer-menu-text-link">
-                            How it works
-                          </a>
-                        </li>
-                        <li className="footer-menu-list-item">
-                          <a href="/insights" className={current === 'insights' ? 'footer-menu-text-link w--current' : 'footer-menu-text-link'}>
-                            Insights
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="footer-menu-single last">
-                    <div className="footer-menu-title-wrapper">
-                      <h5 className="footer-menu-title">Get started</h5>
-                    </div>
-                    <div className="footer-menu-list-wrapper">
-                      <ul role="list" className="footer-menu-list">
-                        <li className="footer-menu-list-item">
-                          <a href="/contact" className="footer-menu-text-link">
-                            Contact
-                          </a>
-                        </li>
-                        <li className="footer-menu-list-item">
-                          <a href="/book-a-demo" className="footer-menu-text-link">
-                            Book A Demo
-                          </a>
-                        </li>
-                        <li className="footer-menu-list-item">
-                          <a href="/carry-cost-calculator" className="footer-menu-text-link" {...calcLinkProps}>
-                            Carry Cost Calculator
-                          </a>
-                        </li>
-                        <li className="footer-menu-list-item">
-                          <a href="/#faq" className="footer-menu-text-link">
-                            FAQ
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+                  )}
                   <div className="footer-menu-single last">
                     <div className="footer-menu-title-wrapper">
                       <h5 className="footer-menu-title">Social</h5>
