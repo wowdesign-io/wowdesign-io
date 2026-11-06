@@ -296,6 +296,10 @@ html.wwd-first.wwd-ready #wwd-page-loader {
 .section.features .features-typography-card::before {
   box-shadow: 0 20px 40px #0006;
 }
+/* miami top-border-none — keep shared seam to one line on the glass layer */
+.section.features .features-typography-card.top-border-none::before {
+  border-top: none;
+}
 /* Content + corners above the glass ::before (otherwise text paints behind it). */
 .cta-typography,
 .section.features .features-typography-card > .features-typography-card-single {
@@ -310,6 +314,15 @@ html.wwd-first.wwd-ready #wwd-page-loader {
 .section.features .features-card-shape-bottom-right {
   z-index: 2;
   pointer-events: none;
+}
+/* Desktop: left-card BR and right-card TL/BL share the center grid point — keep one mark. */
+@media screen and (min-width: 992px) {
+  .section.features .features-flex > .features-typography-card:has(+ .features-card-image-wrapper) .features-card-shape-bottom-right {
+    display: none;
+  }
+  .section.features .features-flex > .features-card-image-wrapper + .features-typography-card .features-typography-card-shape.bottom-left {
+    display: none;
+  }
 }
 .cta-top-left-element {
   inset: -2px auto auto -2px !important;
