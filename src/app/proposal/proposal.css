@@ -8,6 +8,12 @@
   display: block;
 }
 
+/* miami capitalize turns info@… into Info@… — keep email lowercase */
+.page-proposal .footer-email-link,
+.footer-email-link {
+  text-transform: none;
+}
+
 /* Demo hash from twin shells — clear fixed nav */
 .page-proposal #open-the-demos {
   scroll-margin-top: 96px;

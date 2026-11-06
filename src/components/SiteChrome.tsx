@@ -293,23 +293,12 @@ export default function SiteChrome({
                   ) : (
                     <div className="footer-menu-single last">
                       <div className="footer-menu-title-wrapper">
-                        <h5 className="footer-menu-title">Next step</h5>
+                        <h5 className="footer-menu-title">contact</h5>
                       </div>
                       <div className="footer-menu-list-wrapper">
                         <ul role="list" className="footer-menu-list">
                           <li className="footer-menu-list-item">
-                            <a
-                              href={STRATEGY}
-                              className="footer-menu-text-link"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              data-cta="Proposal Footer - Strategy"
-                            >
-                              Strategy Call
-                            </a>
-                          </li>
-                          <li className="footer-menu-list-item">
-                            <a href="mailto:info@wowdesign.io" className="footer-menu-text-link">
+                            <a href="mailto:info@wowdesign.io" className="footer-menu-text-link footer-email-link">
                               info@wowdesign.io
                             </a>
                           </li>
