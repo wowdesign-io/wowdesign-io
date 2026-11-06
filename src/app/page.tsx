@@ -5,7 +5,7 @@ import './how-it-works-headings.css'
 import PageCta from '@/components/PageCta'
 import ProblemSection from '@/components/ProblemSection'
 import HowItWorksSection from '@/components/HowItWorksSection'
-import OfferSection from '@/components/OfferSection'
+import SelvaShowcase from '@/components/SelvaShowcase'
 import TeamMembers from '@/components/TeamMembers'
 import InnerButton from '@/components/InnerButton'
 import JsonLd from '@/components/JsonLd'
@@ -256,7 +256,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
     </section>)}
     <ProblemSection />
     <HowItWorksSection cta="Home How it works - Page" ctaHref="/how-it-works" ctaLabel="How it works" />
-    <OfferSection />
+    <SelvaShowcase />
     <section className={heroVisual ? 'section solving hero3d-topgap' : 'section solving'}>
       <div className="container">
         <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="solving-section-title-wrapper">

@@ -308,11 +308,6 @@ export default function SiteChrome({
                               Strategy Call
                             </a>
                           </li>
-                          <li className="footer-menu-list-item">
-                            <a href="mailto:info@wowdesign.io" className="footer-menu-text-link footer-email-link">
-                              info@wowdesign.io
-                            </a>
-                          </li>
                         </ul>
                       </div>
                     </div>
