@@ -191,8 +191,9 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 We help boutique residential real estate developers{' '}
                 <span className="hero-nowrap">sell out faster,</span> so they keep $400k+ that would otherwise go to the bank.
                 <br />
-                Buyers explore every unit from their phone.<br className="hero-desc-br" />
-                {' '}Your sales team knows who&apos;s&nbsp;ready.
+                Buyers explore every unit from their phone.
+                <br />
+                Your sales team knows who&apos;s&nbsp;ready.
               </p>
             </div>
             <div className="banner-button-wrapper">

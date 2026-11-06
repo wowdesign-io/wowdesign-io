@@ -18,17 +18,6 @@
   text-wrap: pretty;
 }
 
-/* Soft break before sales-team line: desktop/tablet only. Phone keeps money | how. */
-.page-home .hero-desc-br {
-  display: none;
-}
-
-@media screen and (min-width: 768px) {
-  .page-home .hero-desc-br {
-    display: inline;
-  }
-}
-
 /* Card titles are h3.heading-style-h6 — they inherit display-heading
    tracking and a faded gradient fill, and shrink with Webflow's fluid rem. */
 #how-it-works .layout237_item h3.heading-style-h6 {
