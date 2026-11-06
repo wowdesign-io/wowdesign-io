@@ -8,9 +8,7 @@
   display: block;
 }
 
-/* miami capitalize/uppercase — keep contact + email as typed */
-.page-proposal.page-funnel .footer-menu-title,
-.page-proposal .footer-email-link,
+/* miami capitalize turns info@… into Info@… */
 .footer-email-link {
   text-transform: none;
 }
