@@ -25,8 +25,7 @@ export default function TwinOptionCards({
   id = 'your-options',
   tagline = 'Your options',
   title = 'What a project costs.',
-  description =
-    'Website and follow-up on every option. You choose the interactive building — 360, 3D Lite, or Immersive 3D.',
+  description = 'Website and follow-up on every option. Choose 360, 3D Lite, or Immersive 3D.',
   showLiveButtons = false,
   ctaHref = '/carry-cost-calculator',
   ctaLabel = 'Carry Cost Calc',

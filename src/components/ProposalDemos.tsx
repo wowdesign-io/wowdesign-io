@@ -9,7 +9,7 @@ export default function ProposalDemos() {
       id="open-the-demos"
       tagline="Your options"
       title="Open each building. Live."
-      description="Website and follow-up on every option. You choose the interactive building — 360, 3D Lite, or Immersive 3D."
+      description="Website and follow-up on every option. Choose 360, 3D Lite, or Immersive 3D."
       showLiveButtons
       ctaHref={STRATEGY}
       ctaLabel="Strategy Call"

@@ -7,7 +7,7 @@ export default function OfferSection() {
       id="the-offer"
       tagline="The offer"
       title="What a project costs."
-      description="$45k–$65k per project, plus $2,500/mo. Website and follow-up on every option. You choose the interactive building — 360, 3D Lite, or Immersive 3D."
+      description="$45k–$65k per project, plus $2,500/mo. Website and follow-up on every option. Choose 360, 3D Lite, or Immersive 3D."
       showLiveButtons={false}
       ctaHref="/carry-cost-calculator"
       ctaLabel="Carry Cost Calc"
