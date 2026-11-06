@@ -64,8 +64,8 @@ export default function ProposalPage() {
           ctaHref={STRATEGY}
           ctaLabel="Strategy Call"
         />
-        <FeaturesDeepDive calcNewTab />
         <ProposalDemos />
+        <FeaturesDeepDive calcNewTab hideTwinFeature />
         <PageCta
           ctaData="Proposal CTA - Strategy"
           href={STRATEGY}

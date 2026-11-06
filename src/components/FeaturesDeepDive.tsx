@@ -4,16 +4,20 @@ import SkyGlow from '@/components/SkyGlow'
 type FeaturesDeepDiveProps = {
   /** Leave-behind pages: open calc without dumping the current page. */
   calcNewTab?: boolean
+  /** /proposal already shows twin depth in option cards — skip this feature row. */
+  hideTwinFeature?: boolean
 }
 
-export default function FeaturesDeepDive({ calcNewTab = false }: FeaturesDeepDiveProps) {
+export default function FeaturesDeepDive({ calcNewTab = false, hideTwinFeature = false }: FeaturesDeepDiveProps) {
   const calcTarget = calcNewTab ? '_blank' : undefined
   const calcRel = calcNewTab ? 'noopener noreferrer' : undefined
+  const crmCardClass = hideTwinFeature ? 'features-typography-card top-border-none' : 'features-typography-card'
 
   return (
     <section id="features" className="section features">
       <div data-w-id="55692835-ec59-ff32-dc75-62ba954b11b2" className="container">
         <div data-w-id="cfed3ab0-e0d5-9d4d-71bb-4e33ec1cc83e" className="features-content">
+          {!hideTwinFeature ? (
           <div data-w-id="8e59ac06-7b15-3b19-f5f5-8abed0e71d57" className="features-flex">
             <SkyGlow />
             <div className="features-typography-card top-border-none">
@@ -85,12 +89,13 @@ export default function FeaturesDeepDive({ calcNewTab = false }: FeaturesDeepDiv
               <div data-w-id="a202ce4a-5e35-d5f5-2be0-ab58c0d0077c" style={{ opacity: "0" }} className="feature-card is-img"><img src="/images/digital-twin-screenshot.avif" loading="lazy" alt="" className="feature-image" /></div>
             </div>
           </div>
+          ) : null}
           <div data-w-id="ebd5f07d-eafe-59e0-f034-e156826266d1" className="features-flex">
             <SkyGlow />
             <div className="features-card-image-wrapper is-img-left">
               <div data-w-id="28e89ac4-77b9-0431-08a4-05002c844b00" style={{ opacity: "0" }} className="feature-card is-img"><img src="/images/crm-sync-v9.avif" loading="lazy" alt="" className="feature-image" /></div>
             </div>
-            <div className="features-typography-card">
+            <div className={crmCardClass}>
               <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="features-typography-card-single">
                 <div className="features-subtitle-wrapper">
                   <div className="tagline-container">
