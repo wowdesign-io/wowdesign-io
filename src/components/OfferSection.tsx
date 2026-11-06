@@ -29,7 +29,7 @@ export default function OfferSection() {
                     <h2 className="section-title">What a project costs.</h2>
                   </div>
                   <p className="text-size-medium">
-                    10–50 units. Buyers pick a unit tonight. Your sales team only calls people who are ready. Six to eight weeks. We run it.
+                    Buyers pick a unit tonight. Your sales team only calls people who are ready. Six to eight weeks. We run it.
                   </p>
                 </div>
               </div>
@@ -37,8 +37,8 @@ export default function OfferSection() {
 
             <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="pricing-single is-wowdesign offer-board">
               <div className="offer-board-price">
-                <div className="pricing-price">$45k–$75k</div>
-                <p className="pricing-short-details-text">Per project. Live in 6–8 weeks for a 10–50 unit building.</p>
+                <div className="pricing-price">$45k / $55k / $65k</div>
+                <p className="pricing-short-details-text">Per project + $2,500/mo. Live in 6–8 weeks.</p>
               </div>
               <div className="offer-board-body">
                 <div className="offer-point">
@@ -47,7 +47,7 @@ export default function OfferSection() {
                 </div>
                 <div className="offer-point">
                   <h3 className="pricing-name">What moves the number</h3>
-                  <p className="pricing-short-details-text">Units, how far the twin goes, how it shows up for your sales team. Not three packages.</p>
+                  <p className="pricing-short-details-text">Which interactive building: website + 360 ($45k), 3D Lite ($55k), or Immersive 3D ($65k). Same website and follow-up on every option.</p>
                 </div>
                 <div className="offer-point">
                   <h3 className="pricing-name">How we run it</h3>

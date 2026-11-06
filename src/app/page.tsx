@@ -812,7 +812,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 </div>
                 <div className="faq-accordion-answer-wrap">
                   <div className="faq-answer">
-                    <p className="faq-answer-text">$45k–$75k per project. Website, digital twin, and follow-up. 6–8 weeks for 10–50 unit buildings.<br /><br />The range is units, how far the twin goes, and how it lands in your sales team&apos;s tools — not three packages. We run it under maintenance. You don&apos;t buy or operate a separate viewer.</p>
+                    <p className="faq-answer-text">$45k / $55k / $65k per project — website + 360, 3D Lite, or Immersive 3D — plus $2,500/mo. Website, interactive building, and follow-up. Live in 6–8 weeks.<br /><br />Same system on every option. The investment follows which interactive building you pick. We run it under maintenance. You don&apos;t buy or operate a separate viewer.</p>
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>

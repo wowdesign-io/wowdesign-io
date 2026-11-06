@@ -167,7 +167,7 @@ export function breadcrumbList(items: { name: string; url: string }[]) {
 export const HOME_FAQS: FaqItem[] = [
   {
     q: 'What does a project cost?',
-    a: '$45k–$75k per project. Website, digital twin, and follow-up. 6–8 weeks for 10–50 unit buildings. The range is units, how far the twin goes, and how it lands in your sales team’s tools — not three packages. We run it under maintenance. You don’t buy or operate a separate viewer.',
+    a: '$45k / $55k / $65k per project — website + 360, 3D Lite, or Immersive 3D — plus $2,500/mo. Website, interactive building, and follow-up. Live in 6–8 weeks. Same system on every option; the investment follows which interactive building you pick. We run it under maintenance. You don’t buy or operate a separate viewer.',
   },
   {
     q: 'What is carry cost — and why does it matter?',
