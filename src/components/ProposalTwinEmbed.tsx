@@ -18,7 +18,7 @@ export default function ProposalTwinEmbed({
   projectUrl,
   title,
   note,
-  backHref = '/proposal',
+  backHref = '/proposal#open-the-demos',
 }: ProposalTwinEmbedProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const frameRef = useRef<HTMLIFrameElement>(null)
@@ -164,11 +164,20 @@ export default function ProposalTwinEmbed({
   return (
     <div className="proposal-twin" data-proposal-twin>
       <header className="proposal-twin__bar">
-        <a className="proposal-twin__back" href={backHref}>
-          ← Proposal
+        <a className="proposal-twin__brand" href={backHref} aria-label="Back to proposal demos">
+          <img
+            src="/images/wow-design-color-logo-dark.svg"
+            alt="wowdesign"
+            className="proposal-twin__logo"
+            width={132}
+            height={28}
+          />
         </a>
         <p className="proposal-twin__title">{title}</p>
         {note ? <p className="proposal-twin__note">{note}</p> : null}
+        <a className="proposal-twin__back" href={backHref}>
+          ← Back to demos
+        </a>
       </header>
       <div ref={containerRef} className="proposal-twin__frameWrap">
         <iframe ref={frameRef} className="proposal-twin__frame" frameBorder={0} allowFullScreen title={title} />

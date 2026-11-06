@@ -1,3 +1,8 @@
+/* Demo hash from twin shells — clear fixed nav */
+.page-proposal #open-the-demos {
+  scroll-margin-top: 96px;
+}
+
 /* Proposal-only: larger hero H1 (home uses ~7rem; other inner pages stay 54px) */
 .page-proposal .inner-banner-title {
   font-size: 72px;
