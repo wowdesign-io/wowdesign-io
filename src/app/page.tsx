@@ -23,7 +23,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
   return (
     <>
       <JsonLd data={faqPage(SITE, HOME_FAQS)} />
-<div className="page-wrapper">
+<div className="page-wrapper page-home">
     <div className="global-styles">
       <div className="style-overrides w-embed">
         <style dangerouslySetInnerHTML={{ __html: `

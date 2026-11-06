@@ -1,4 +1,9 @@
-/* Shared twin option cards — layout237 + shot (proposal + how-it-works) */
+/* Shared twin option cards — layout237 + shot (home / proposal / how-it-works) */
+
+/* Home: flush under How it works (same consecutive-section rhythm). */
+.page-home #live-project .padding-section-large {
+  padding-top: 0;
+}
 .twin-option-cards .layout237_item.is-2,
 .twin-option-cards .layout237_item.is-3 {
   margin-top: 0;

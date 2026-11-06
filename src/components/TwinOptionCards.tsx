@@ -6,21 +6,61 @@ type TwinOptionCardsProps = {
   tagline?: string
   title?: string
   description?: string
-  /** Proposal leave-behind: open live demos. How it works: omit. */
+  /** Proposal leave-behind: open live demos. Home / How it works: omit. */
   showLiveButtons?: boolean
+  /** How it works + proposal: show $45k / $55k / $65k. Home: names only. */
+  showPrices?: boolean
   ctaHref?: string
   ctaLabel?: string
   cta?: string
   ctaTarget?: string
   ctaRel?: string
+  /** Pass empty string to hide the timeline line. */
   timeline?: string
+  showBottomCta?: boolean
 }
 
 const DEMO_A = 'https://demo.wowdesign.io/residences#digital-twin'
 const DEMO_B = '/proposal/3d-lite'
 const DEMO_C = '/proposal/immersive'
 
-/** Three twin-depth options — layout237 cards. Shared by /proposal and /how-it-works. */
+const OPTIONS = [
+  {
+    key: '360',
+    label: '360',
+    price: '$45k',
+    shot: '/images/proposal/twin-360.png',
+    alt: 'Interactive building — floors and units from a phone',
+    body: 'Every floor and unit from a phone — live price and availability.',
+    demo: DEMO_A,
+    ctaOpen: 'Proposal - Open 360',
+    itemClass: 'layout237_item',
+  },
+  {
+    key: 'lite',
+    label: '3D Lite',
+    price: '$55k',
+    shot: '/images/proposal/twin-3d-lite.png',
+    alt: '3D Lite interactive building',
+    body: 'More depth than 360. Buyers walk the massing and units without the full Immersive build.',
+    demo: DEMO_B,
+    ctaOpen: 'Proposal - Open 3D Lite',
+    itemClass: 'layout237_item is-2',
+  },
+  {
+    key: 'immersive',
+    label: 'Immersive 3D',
+    price: '$65k',
+    shot: '/images/proposal/twin-immersive.png',
+    alt: 'Immersive 3D interactive building',
+    body: 'Full 3D presence. For projects where buyers need to feel the space before they commit.',
+    demo: DEMO_C,
+    ctaOpen: 'Proposal - Open Immersive',
+    itemClass: 'layout237_item is-3',
+  },
+] as const
+
+/** Three twin-depth options — layout237 cards. Shared by home / proposal / how-it-works. */
 export default function TwinOptionCards({
   id = 'your-options',
   tagline = 'Your options',
@@ -28,12 +68,14 @@ export default function TwinOptionCards({
   description =
     'Website, follow-up, and the full sales system on every option. Choose 360, 3D Lite, or Immersive 3D.',
   showLiveButtons = false,
+  showPrices = true,
   ctaHref = '/carry-cost-calculator',
   ctaLabel = 'Carry Cost Calc',
   cta = 'Options - Calc',
   ctaTarget,
   ctaRel,
   timeline = 'Full system included. Plus $2,500/mo. We keep it running. Your sales team sells. Live in 6–8 weeks.',
+  showBottomCta = true,
 }: TwinOptionCardsProps) {
   return (
     <section id={id} className="section_layout237 twin-option-cards">
@@ -68,82 +110,47 @@ export default function TwinOptionCards({
               </div>
 
               <div goo-stagger="0.3" goo="fade-up" goo-type="stagger" className="w-layout-grid layout237_list">
-                <div className="layout237_item">
-                  <img
-                    src="/images/proposal/twin-360.png"
-                    alt="Interactive building — floors and units from a phone"
-                    className="twin-option-shot"
-                    loading="lazy"
-                  />
-                  <div className="margin-bottom margin-xsmall">
-                    <div className="text-style-tagline">360</div>
-                    <h3 className="heading-style-h6">$45k</h3>
-                  </div>
-                  <p>Every floor and unit from a phone — live price and availability.</p>
-                  {showLiveButtons ? (
-                    <div className="margin-top margin-small">
-                      <div className="primary-button-wrapper">
-                        <InnerButton href={DEMO_A} label="Open live" cta="Proposal - Open 360" target="_blank" rel="noopener noreferrer" />
-                      </div>
+                {OPTIONS.map((opt) => (
+                  <div key={opt.key} className={opt.itemClass}>
+                    <img src={opt.shot} alt={opt.alt} className="twin-option-shot" loading="lazy" />
+                    <div className="margin-bottom margin-xsmall">
+                      {showPrices ? (
+                        <>
+                          <div className="text-style-tagline">{opt.label}</div>
+                          <h3 className="heading-style-h6">{opt.price}</h3>
+                        </>
+                      ) : (
+                        <h3 className="heading-style-h6">{opt.label}</h3>
+                      )}
                     </div>
-                  ) : null}
-                  <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
-                  <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
-                </div>
-
-                <div className="layout237_item is-2">
-                  <img
-                    src="/images/proposal/twin-3d-lite.png"
-                    alt="3D Lite interactive building"
-                    className="twin-option-shot"
-                    loading="lazy"
-                  />
-                  <div className="margin-bottom margin-xsmall">
-                    <div className="text-style-tagline">3D Lite</div>
-                    <h3 className="heading-style-h6">$55k</h3>
-                  </div>
-                  <p>More depth than 360. Buyers walk the massing and units without the full Immersive build.</p>
-                  {showLiveButtons ? (
-                    <div className="margin-top margin-small">
-                      <div className="primary-button-wrapper">
-                        <InnerButton href={DEMO_B} label="Open live" cta="Proposal - Open 3D Lite" target="_blank" rel="noopener noreferrer" />
+                    <p>{opt.body}</p>
+                    {showLiveButtons ? (
+                      <div className="margin-top margin-small">
+                        <div className="primary-button-wrapper">
+                          <InnerButton
+                            href={opt.demo}
+                            label="Open live"
+                            cta={opt.ctaOpen}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          />
+                        </div>
                       </div>
-                    </div>
-                  ) : null}
-                  <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
-                  <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
-                </div>
-
-                <div className="layout237_item is-3">
-                  <img
-                    src="/images/proposal/twin-immersive.png"
-                    alt="Immersive 3D interactive building"
-                    className="twin-option-shot"
-                    loading="lazy"
-                  />
-                  <div className="margin-bottom margin-xsmall">
-                    <div className="text-style-tagline">Immersive 3D</div>
-                    <h3 className="heading-style-h6">$65k</h3>
+                    ) : null}
+                    <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
+                    <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
                   </div>
-                  <p>Full 3D presence. For projects where buyers need to feel the space before they commit.</p>
-                  {showLiveButtons ? (
-                    <div className="margin-top margin-small">
-                      <div className="primary-button-wrapper">
-                        <InnerButton href={DEMO_C} label="Open live" cta="Proposal - Open Immersive" target="_blank" rel="noopener noreferrer" />
-                      </div>
-                    </div>
-                  ) : null}
-                  <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="process-card-bottom-element" />
-                  <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="process-card-top-element" />
-                </div>
+                ))}
               </div>
 
               {timeline ? <div className="process-timeline text-size-small">{timeline}</div> : null}
-              <div className="process-button-wrapper">
-                <div className="primary-button-wrapper">
-                  <InnerButton href={ctaHref} label={ctaLabel} cta={cta} target={ctaTarget} rel={ctaRel} />
+              {showBottomCta ? (
+                <div className="process-button-wrapper">
+                  <div className="primary-button-wrapper">
+                    <InnerButton href={ctaHref} label={ctaLabel} cta={cta} target={ctaTarget} rel={ctaRel} />
+                  </div>
                 </div>
-              </div>
+              ) : null}
             </div>
           </div>
         </div>
