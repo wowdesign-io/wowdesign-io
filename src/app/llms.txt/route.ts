@@ -4,11 +4,11 @@ export const dynamic = 'force-static'
 
 const BODY = `# wowdesign
 
-> wowdesign builds the website, the digital twin, and the automated follow-up for boutique real estate developers (pre-construction). Buyers explore every unit from their phone. The sales team only calls people who are ready. Public investment: $45k–$65k per project (website + 360 $45k, 3D Lite $55k, Immersive 3D $65k) plus $2,500/month maintenance. Wowdesign LLC. Miami Beach, Florida. Founder: Andy Bittner (CEO).
+> wowdesign builds the website, the digital twin, and the automated follow-up for boutique residential real estate developers (pre-construction). Buyers explore every unit from their phone. The sales team only calls people who are ready. Public investment: $45k–$65k per project (website + 360 $45k, 3D Lite $55k, Immersive 3D $65k) plus $2,500/month maintenance. Wowdesign LLC. Miami Beach, Florida. Founder: Andy Bittner (CEO).
 
 ## Who this is for
 
-- Boutique condo / residential developers, 10–50 units, US (Florida first; also TX, AZ, and similar growth markets)
+- Boutique residential real estate developers, US (Florida first; also TX, AZ, and similar growth markets)
 - Not national production homebuilders. Not the unit-buyer shopping a floor plan.
 
 ## Core pages

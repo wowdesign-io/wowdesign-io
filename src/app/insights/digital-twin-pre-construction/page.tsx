@@ -58,7 +58,7 @@ export default function Page() {
         <a href="/insights/interactive-floor-plan-vs-pdf">interactive floor plan</a>, not a PDF they wait on. You can have a beautiful site and still have no twin: stills, a PDF, a “request this floor plan” button. You can also have a twin and bury it three clicks down so nobody finds a unit. The words get used as synonyms. They are not.
       </p>
       <p>
-        For a 10–50 unit pre-construction project, the test is simple. Can a buyer open the project on their phone, walk a floor that is not built yet, and leave having picked a specific unit at a specific price? If yes, you have a sales twin. If they still have to wait until Monday for someone to tell them what is available, you have pictures.
+        For a boutique residential pre-construction project, the test is simple. Can a buyer open the project on their phone, walk a floor that is not built yet, and leave having picked a specific unit at a specific price? If yes, you have a sales twin. If they still have to wait until Monday for someone to tell them what is available, you have pictures.
       </p>
       <h2>Why the distinction costs money</h2>
       <p>

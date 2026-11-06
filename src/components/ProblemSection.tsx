@@ -20,7 +20,7 @@ type ProblemSectionProps = {
 
 export default function ProblemSection({
   calcNewTab = false,
-  keepCaption = 'What a boutique project keeps when sell-out happens months earlier.',
+  keepCaption = 'What boutique residential developers keep when sell-out happens months earlier.',
 }: ProblemSectionProps) {
   return (
     <section id="the-problem" className="section problem-band">

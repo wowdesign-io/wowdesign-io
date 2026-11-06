@@ -9,7 +9,7 @@ import { organizationGraph } from '@/lib/schema'
 const SITE = 'https://www.wowdesign.io'
 const TITLE = 'Sell Out Faster | Presales System for Boutique Real Estate Developers'
 const DESCRIPTION =
-  "We help boutique real estate developers with 10–50 unit projects sell out faster, so they keep $400k+ that would otherwise go to the bank."
+  "We help boutique residential real estate developers sell out faster, so they keep $400k+ that would otherwise go to the bank."
 const OG_IMAGE = '/images/open-graph-img-en.png'
 
 export const viewport: Viewport = {

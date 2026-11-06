@@ -15,7 +15,7 @@ export default function Page() {
   return (
     <InsightsArticle article={article}>
       <p>
-        Renderings still belong on the site. They sell the look. The lobby, the view, the kitchen that does not exist yet. A buyer who cannot see the building will not pick a unit. That job does not go away on a 10–50 unit pre-construction project.
+        Renderings still belong on the site. They sell the look. The lobby, the view, the kitchen that does not exist yet. A buyer who cannot see the building will not pick a unit. That job does not go away on a boutique residential pre-construction project.
       </p>
       <p>
         What they cannot do is tell anyone which unit is open, what it costs today, or whether the person who stared at 4B is ready for a call. A rendering pack plus a request button is still pictures. The sales team gets a name and a phone number. They still have to ask what the buyer wanted.

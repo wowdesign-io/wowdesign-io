@@ -25,7 +25,7 @@ const DEFAULT_LEAD = 'Every extra month is loan interest plus marketing burn. Ru
 
 const DEFAULT_TIMELINE = (
   <>
-    Built for 10–50 unit developments.
+    Built for boutique residential real estate developers.
     <br />
     $45k–$65k + $2,500/mo · Live in 6–8 weeks.
   </>

@@ -11,7 +11,7 @@ import NavMenuCta from '@/components/NavMenuCta'
 export const metadata: Metadata = {
   title: 'Carry Cost Calculator',
   description:
-    'See what extra months of construction-loan interest plus marketing and ops cost. Monthly interest is loan x rate / 12. Free calculator for 10-50 unit developers.',
+    'See what extra months of construction-loan interest plus marketing and ops cost. Monthly interest is loan x rate / 12. Free calculator for boutique residential real estate developers.',
   alternates: { canonical: `${SITE}/carry-cost-calculator` },
 }
 

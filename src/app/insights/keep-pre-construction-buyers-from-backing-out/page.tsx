@@ -23,7 +23,7 @@ export default function Page() {
         <a href="/insights/what-sales-team-should-know-before-calling">what the sales team should know before they call</a>. This page is the months after.
       </p>
       <p>
-        If any of those three goes dark, you are re-selling a unit you thought you had. On a 10–50 unit stack, that is a month, not a rounding error.
+        If any of those three goes dark, you are re-selling a unit you thought you had. On a boutique residential stack, that is a month, not a rounding error.
       </p>
       <h2>A PDF from month one will not hold them</h2>
       <p>
@@ -56,7 +56,7 @@ export default function Page() {
         </tbody>
       </table></div>
       <p>
-        A 10–50 unit project cannot treat a reservation as finished work. The months of the build are when they decide whether they still want it. Give them their unit to reopen, or they will reopen someone else&apos;s.
+        A boutique residential project cannot treat a reservation as finished work. The months of the build are when they decide whether they still want it. Give them their unit to reopen, or they will reopen someone else&apos;s.
       </p>
       <h2>What a walk-away costs</h2>
       <p>

@@ -16,7 +16,7 @@ export default function Page() {
     <InsightsArticle article={article}>
       <h2>What a virtual showroom actually is</h2>
       <p>
-        On a boutique 10–50 unit pre-construction project, a virtual showroom is the sales gallery on the website. A buyer opens the project on their phone, walks floors that are not built yet, and sees live price and live availability. No app. They leave having looked at a specific unit, not a mood board. That is the job. If the site cannot do that, it is not a showroom. It is a brochure with a nicer domain.
+        On a boutique residential pre-construction project, a virtual showroom is the sales gallery on the website. A buyer opens the project on their phone, walks floors that are not built yet, and sees live price and live availability. No app. They leave having looked at a specific unit, not a mood board. That is the job. If the site cannot do that, it is not a showroom. It is a brochure with a nicer domain.
       </p>
       <p>
         Follow-up is what happens after they showed that interest. The showroom is the place they did it. Mix those two and you get a pretty homepage with a “request information” button, and a sales team that still has no idea which unit anyone wanted. See{' '}
@@ -35,7 +35,7 @@ export default function Page() {
           <tr>
             <th></th>
             <th>What that usually is</th>
-            <th>What a 10–50 unit project needs</th>
+            <th>What a boutique residential project needs</th>
           </tr>
         </thead>
         <tbody>

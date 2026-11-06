@@ -187,7 +187,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
             </div>
             <div className="banner-title-description">
               <h1 className="banner-title">Sell Out Faster.</h1>
-              <p className="banner-description-text">We help boutique real estate developers with 10–50 unit projects sell out faster, so they keep $400k+ that would otherwise go to the bank. Buyers explore every unit from their phone. Your sales team knows who's ready.</p>
+              <p className="banner-description-text">We help boutique residential real estate developers sell out faster, so they keep $400k+ that would otherwise go to the bank. Buyers explore every unit from their phone. Your sales team knows who's ready.</p>
             </div>
             <div className="banner-button-wrapper">
               <div className="primary-button-wrapper">
@@ -704,7 +704,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 <div className="margin-bottom margin-small">
                   <h2 className="section-title">What developers say about results, not just websites.</h2>
                 </div>
-                <p className="text-size-medium">Built for boutique developments. Designed for measurable sales impact.</p>
+                <p className="text-size-medium">Built for boutique residential real estate developers. Designed for measurable sales impact.</p>
               </div>
               <div className="testimonial-section-button-wrap">
                 <div className="primary-button-wrapper">
@@ -924,7 +924,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
                 </div>
                 <div className="faq-accordion-answer-wrap">
                   <div className="faq-answer">
-                    <p className="faq-answer-text">It is built for 10–50 unit developments. Boutique projects feel extra months of interest and marketing burn the hardest. That is who it is for.</p>
+                    <p className="faq-answer-text">It is built for boutique residential real estate developers. They feel extra months of interest and marketing burn the hardest. That is who it is for.</p>
                   </div>
                 </div><img loading="lazy" src="/images/Features-Card-Shape-Top-Left.svg" alt="" className="single-faq-accordion-line top-left" /><img loading="lazy" src="/images/Features-Card-Shape-Top-Right.svg" alt="" className="single-faq-accordion-line top-right" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Left.svg" alt="" className="single-faq-accordion-line bottom-left" /><img loading="lazy" src="/images/Features-Card-Shape-Bottom-Right.svg" alt="" className="single-faq-accordion-line bottom-right" />
               </a>

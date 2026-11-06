@@ -195,7 +195,7 @@ export const HOME_FAQS: FaqItem[] = [
   },
   {
     q: 'Can the system handle multiple phases and complex floorplans?',
-    a: 'Yes. Multi-phase developments, varied floorplans, and live availability across buildings. Built for 10–50 unit boutique projects, not an enterprise stack you have to staff.',
+    a: 'Yes. Multi-phase developments, varied floorplans, and live availability across buildings. Built for boutique residential real estate developers, not an enterprise stack you have to staff.',
   },
   {
     q: 'Do we need all our final 3D renders finished before we start?',
@@ -207,7 +207,7 @@ export const HOME_FAQS: FaqItem[] = [
   },
   {
     q: 'Is this overkill for a smaller project?',
-    a: 'It is built for 10–50 unit developments. Boutique projects feel extra months of interest and marketing burn the hardest. That is who it is for.',
+    a: 'It is built for boutique residential real estate developers. They feel extra months of interest and marketing burn the hardest. That is who it is for.',
   },
 ]
 
@@ -243,7 +243,7 @@ export const CALC_FAQS: FaqItem[] = [
   },
   {
     q: 'Is this the same as a draw-schedule construction loan calculator?',
-    a: 'No. Lender calculators model interest on money as you draw it during the build. This tool models extra months of sell-out delay — interest plus burn — on a boutique 10–50 unit project.',
+    a: 'No. Lender calculators model interest on money as you draw it during the build. This tool models extra months of sell-out delay — interest plus burn — on a boutique residential project.',
   },
   {
     q: 'Where is the method for monthly interest?',

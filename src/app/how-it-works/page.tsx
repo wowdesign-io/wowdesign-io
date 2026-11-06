@@ -98,7 +98,7 @@ export default function HowItWorksPage() {
         </svg>
       }
     />
-    <ProblemSection keepCaption="What a 10–50 unit project keeps when sell-out happens months earlier." />
+    <ProblemSection keepCaption="What boutique residential developers keep when sell-out happens months earlier." />
     <HowItWorksSection
       tagline="The system"
       title="Your sales team only calls people who are ready."

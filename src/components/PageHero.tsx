@@ -37,7 +37,7 @@ export default function PageHero({
   ctaRel,
   timeline = (
     <>
-      Built for 10–50 unit developments.
+      Built for boutique residential real estate developers.
       <br />
       Launched in 6–8 weeks.
     </>

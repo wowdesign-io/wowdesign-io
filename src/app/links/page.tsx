@@ -91,7 +91,7 @@ export default function LinksPage() {
                     </div>
                     <div id="w-node-_91be27b6-a9c3-a889-c5b8-dbfdf756946a-f896b363" className="links10_newsletter-link-content">
                       <div className="text-size-medium text-weight-semibold">Join our newsletter</div>
-                      <div className="text-size-small">Weekly strategies for boutique real estate developers.</div>
+                      <div className="text-size-small">Weekly strategies for boutique residential real estate developers.</div>
                     </div><img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="cta-top-left-element" /><img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="cta-top-right-element" /><img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="cta-bottom-left-element" /><img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="cta-bottom-right-element" />
                   </a>
                 </div>

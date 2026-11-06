@@ -16,7 +16,7 @@ export default function Page() {
     <InsightsArticle article={article}>
       <h2>What actually shortens sell-out</h2>
       <p>
-        Faster sell-out on a 10–50 unit pre-construction project is not more renderings. It is whether a buyer can pick a unit tonight from their phone. Live price, live availability. Then get that unit back the same night, and a call from a sales team that already knows which one. If any of those three is missing, they wait. Waiting is extra months of the loan.
+        Faster sell-out on a boutique residential pre-construction project is not more renderings. It is whether a buyer can pick a unit tonight from their phone. Live price, live availability. Then get that unit back the same night, and a call from a sales team that already knows which one. If any of those three is missing, they wait. Waiting is extra months of the loan.
       </p>
       <ol>
         <li>Buyers pick a unit tonight from their phone, not a PDF they wait on.</li>
