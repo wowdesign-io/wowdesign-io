@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import InnerButton from '@/components/InnerButton'
 import './twin-option-cards.css'
 
@@ -5,7 +6,7 @@ type TwinOptionCardsProps = {
   id?: string
   tagline?: string
   title?: string
-  description?: string
+  description?: ReactNode
   /** Proposal leave-behind: open live demos. Home / How it works: omit. */
   showLiveButtons?: boolean
   /** How it works + proposal: show $45k / $55k / $65k. Home: names only. */
