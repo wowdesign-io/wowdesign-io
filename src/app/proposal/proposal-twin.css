@@ -47,7 +47,7 @@ body:has([data-proposal-twin]) {
 
 .proposal-twin__logo {
   display: block;
-  height: 22px;
+  height: 24px;
   width: auto;
 }
 
@@ -66,6 +66,7 @@ body:has([data-proposal-twin]) {
   font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.06em;
+  line-height: 1.2;
   text-transform: uppercase;
   color: #ffffff !important;
 }
@@ -84,12 +85,13 @@ body:has([data-proposal-twin]) {
   font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.02em;
+  line-height: 1;
   color: #ffffff !important;
   text-decoration: none;
   opacity: 0.85;
   white-space: nowrap;
-  padding: 0.35rem 0;
-  min-height: 40px;
+  padding: 0.5rem 0;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
 }
@@ -123,17 +125,21 @@ body:has([data-proposal-twin]) {
 }
 
 @media screen and (max-width: 767px) {
-  /* One compact row — no stacked title under a giant wordmark */
+  /* Same 3-zone row as desktop — shorter Back label, full logo at readable size */
   .proposal-twin__bar {
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     column-gap: 0.5rem;
-    padding: 0.45rem 0.75rem;
+    padding: 0.55rem 0.85rem;
+    min-height: 52px;
   }
 
   .proposal-twin__back {
-    font-size: 0.75rem;
-    min-height: 36px;
-    padding: 0.25rem 0;
+    font-size: 0.8125rem;
+    min-height: 44px;
+  }
+
+  .proposal-twin__back-rest {
+    display: none;
   }
 
   .proposal-twin__meta {
@@ -141,27 +147,16 @@ body:has([data-proposal-twin]) {
   }
 
   .proposal-twin__title {
-    font-size: 0.6875rem;
-    letter-spacing: 0.04em;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
   }
 
-  /* Chrome tip is desktop-only — kills the second line on phones */
   .proposal-twin__note {
     display: none;
   }
 
-  /* Mark only — clip the wordmark so the bar stays one row */
-  .proposal-twin__brand {
-    width: 22px;
-    overflow: hidden;
-  }
-
   .proposal-twin__logo {
-    height: 20px;
-    width: auto;
+    height: 18px;
   }
 }

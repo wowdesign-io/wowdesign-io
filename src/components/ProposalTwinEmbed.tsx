@@ -164,7 +164,7 @@ export default function ProposalTwinEmbed({
     <div className="proposal-twin" data-proposal-twin>
       <header className="proposal-twin__bar">
         <a className="proposal-twin__back" href={backHref}>
-          ← Back to demos
+          ← Back<span className="proposal-twin__back-rest"> to demos</span>
         </a>
         <div className="proposal-twin__meta">
           <p className="proposal-twin__title">{title}</p>
