@@ -19,6 +19,11 @@
   padding-top: 0;
 }
 
+/* Home: twins already keep bottom pad — don't stack solving's 7rem top. */
+.page-home .section.solving {
+  padding-top: 0;
+}
+
 .problem-band,
 .offer-band {
   position: relative;
