@@ -8,9 +8,9 @@ export default function SelvaShowcase() {
   return (
     <TwinOptionCards
       id="live-project"
-      tagline="Interactive building"
+      tagline="Digital twin"
       title="This is what buyers get."
-      description="Website, follow-up, and the full sales system on every option. The interactive building is 360, 3D Lite, or Immersive 3D."
+      description="Website, follow-up, and the full sales system on every option. The digital twin is 360, 3D Lite, or Immersive 3D."
       showPrices={false}
       showLiveButtons={false}
       timeline=""

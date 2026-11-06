@@ -60,7 +60,7 @@ export default function ProposalPage() {
         <ProblemSection calcNewTab />
         <HowItWorksSection
           tagline="What you get"
-          title="Website. Interactive building. Follow-up."
+          title="Website. Digital twin. Follow-up."
           description="One system — buyers pick a unit tonight, follow-up runs, your sales team only calls people who are ready."
           cta="Proposal - System Strategy"
           ctaHref={STRATEGY}

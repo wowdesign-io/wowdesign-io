@@ -167,7 +167,7 @@ export function breadcrumbList(items: { name: string; url: string }[]) {
 export const HOME_FAQS: FaqItem[] = [
   {
     q: 'What does a project cost?',
-    a: '$45k–$65k per project, plus $2,500/mo. Website + 360 ($45k), 3D Lite ($55k), or Immersive 3D ($65k). Website, interactive building, and follow-up. Live in 6–8 weeks. Same system on every option; the investment follows which interactive building you pick. We run it under maintenance. You don’t buy or operate a separate viewer.',
+    a: '$45k–$65k per project, plus $2,500/mo. Website + 360 ($45k), 3D Lite ($55k), or Immersive 3D ($65k). Website, digital twin, and follow-up. Live in 6–8 weeks. Same system on every option; the investment follows which digital twin you pick. We run it under maintenance. You don’t buy or operate a separate viewer.',
   },
   {
     q: 'What is carry cost — and why does it matter?',
