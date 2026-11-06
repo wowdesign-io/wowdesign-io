@@ -163,22 +163,31 @@ export default function ProposalTwinEmbed({
   return (
     <div className="proposal-twin" data-proposal-twin>
       <header className="proposal-twin__bar">
-        <a className="proposal-twin__back" href={backHref}>
-          ← Back<span className="proposal-twin__back-rest"> to demos</span>
-        </a>
+        <div className="proposal-twin__top">
+          <a className="proposal-twin__back" href={backHref} aria-label="Back to demos">
+            {/* Phosphor ArrowLeft — Relume */}
+            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 256 256" width="20" height="20">
+              <path
+                fill="currentColor"
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"
+              />
+            </svg>
+          </a>
+          <a className="proposal-twin__brand" href={backHref} aria-label="wowdesign — back to demos">
+            <img
+              src="/images/wow-design-color-logo-dark.svg"
+              alt="wowdesign"
+              className="proposal-twin__logo"
+              width={132}
+              height={28}
+            />
+          </a>
+          <span className="proposal-twin__top-spacer" aria-hidden="true" />
+        </div>
         <div className="proposal-twin__meta">
           <p className="proposal-twin__title">{title}</p>
           {note ? <p className="proposal-twin__note">{note}</p> : null}
         </div>
-        <a className="proposal-twin__brand" href={backHref} aria-label="Back to proposal demos">
-          <img
-            src="/images/wow-design-color-logo-dark.svg"
-            alt="wowdesign"
-            className="proposal-twin__logo"
-            width={132}
-            height={28}
-          />
-        </a>
       </header>
       <div ref={containerRef} className="proposal-twin__frameWrap">
         <iframe
