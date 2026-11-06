@@ -57,7 +57,7 @@ body:has([data-proposal-twin]) {
   align-items: center;
   gap: 0.2rem;
   min-width: 0;
-  flex: 1 1 10rem;
+  margin-left: auto;
   text-align: center;
 }
 
@@ -79,7 +79,7 @@ body:has([data-proposal-twin]) {
 }
 
 .proposal-twin__back {
-  margin: 0 0 0 auto;
+  margin: 0;
   font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -141,9 +141,13 @@ body:has([data-proposal-twin]) {
   }
 
   .proposal-twin__back {
-    margin-left: 0;
-    width: 100%;
+    width: auto;
     justify-content: flex-start;
+  }
+
+  .proposal-twin__meta {
+    flex: 1 1 100%;
+    margin-left: 0;
     order: 3;
   }
 }
