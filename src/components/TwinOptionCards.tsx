@@ -25,14 +25,15 @@ export default function TwinOptionCards({
   id = 'your-options',
   tagline = 'Your options',
   title = 'What a project costs.',
-  description = 'Website and follow-up on every option. Choose 360, 3D Lite, or Immersive 3D.',
+  description =
+    'Website, follow-up, and the full sales system on every option. Choose 360, 3D Lite, or Immersive 3D.',
   showLiveButtons = false,
   ctaHref = '/carry-cost-calculator',
   ctaLabel = 'Carry Cost Calc',
   cta = 'Options - Calc',
   ctaTarget,
   ctaRel,
-  timeline = 'Plus $2,500/mo. We keep it running. Your sales team sells. Live in 6–8 weeks.',
+  timeline = 'Full system included. Plus $2,500/mo. We keep it running. Your sales team sells. Live in 6–8 weeks.',
 }: TwinOptionCardsProps) {
   return (
     <section id={id} className="section_layout237 twin-option-cards">
