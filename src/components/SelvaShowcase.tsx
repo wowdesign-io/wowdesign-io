@@ -12,9 +12,9 @@ export default function SelvaShowcase() {
       title="This is what buyers get."
       description={
         <>
-          Website, follow-up, and the full sales system on every option.
+          Website, follow-up, and the full sales system
           <br />
-          The digital twin is 360, 3D Lite, or Immersive 3D.
+          on every option. The digital twin is 360, 3D Lite, or Immersive 3D.
         </>
       }
       showPrices={false}

@@ -9,9 +9,9 @@ export default function OfferSection() {
       title="Open each building. Live."
       description={
         <>
-          Website, follow-up, and the full sales system on every option.
+          Website, follow-up, and the full sales system
           <br />
-          Choose 360, 3D Lite, or Immersive 3D.
+          on every option. Choose 360, 3D Lite, or Immersive 3D.
         </>
       }
       showPrices
