@@ -98,8 +98,8 @@ export default function CarryCostCalculatorPage() {
               </div>
               <div className="inner-banner-title-wrapper">
                 <h1 className="inner-banner-title contact-us">
-                  See what extra months cost<br />
-                  on your loan.
+                  See what extra months<br />
+                  cost on your loan.
                 </h1>
                 <p className="inner-banner-description about-us">
                   A typical boutique <span className="hero-nowrap">$10M–$15M</span> construction loan at about 8% is{' '}
