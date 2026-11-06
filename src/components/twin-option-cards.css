@@ -24,3 +24,12 @@
   -webkit-text-fill-color: #fff;
   color: #fff;
 }
+
+/* Default miami process-timeline is 130px (for staggered step cards). Flat option row needs less. */
+.twin-option-cards .process-timeline {
+  margin-top: 2rem;
+}
+
+.twin-option-cards .process-button-wrapper {
+  margin-top: 1.25rem;
+}
