@@ -480,3 +480,13 @@ html.wwd-first.wwd-ready #wwd-page-loader {
   border: 0;
 }
 
+/* Footer separator: miami absolute bottom (69/60/92/86px) drifts when
+   legal stacks on mobile — sit the line on the copyright band instead. */
+.section.footer .footer-bottom-line {
+  display: none;
+}
+
+.section.footer .footer-bottom-content {
+  border-top: 1px solid #ffffff14;
+}
+
