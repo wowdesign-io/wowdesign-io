@@ -8,29 +8,26 @@ export type ProposalTwinEmbedProps = {
   title: string
   note?: string
   backHref?: string
-  /**
-   * viewport — Immersive: fixed phone fill, UTM + fullscreen only.
-   * flow — 3D Lite: same handshake as SELVA PlanpointEmbed (continuous get_size).
-   */
-  layout?: 'viewport' | 'flow'
 }
 
 /**
- * Twin shell for /proposal/3d-lite and /proposal/immersive.
- * Flow path mirrors SELVA `PlanpointEmbed`: keep asking get_size and apply every
- * height — do NOT lock early (that cuts off units as the list grows).
- * Iframe stays block/static — never absolute-fill a tall height.
+ * Fixed phone-height twin shell for /proposal/3d-lite and /proposal/immersive.
+ *
+ * Do NOT call Planpoint `get_size` / apply resize heights here.
+ * Lite’s 3D sizes to the iframe’s own 100vh — growing the iframe to content
+ * height (inline channel) makes the massing as tall as the whole unit list.
+ * Phone-height iframe → normal 3D; units scroll *inside* the iframe (same as
+ * opening app.planpoint.io on a phone). SELVA floorplan embeds can use get_size
+ * in PlanpointEmbed; this 360 Lite project cannot.
  */
 export default function ProposalTwinEmbed({
   projectUrl,
   title,
   note,
   backHref = '/proposal#open-the-demos',
-  layout = 'viewport',
 }: ProposalTwinEmbedProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const frameRef = useRef<HTMLIFrameElement>(null)
-  const isFlow = layout === 'flow'
 
   useEffect(() => {
     const iframeEl = frameRef.current
@@ -41,8 +38,6 @@ export default function ProposalTwinEmbed({
 
     let onFullscreen = false
     let savedScrollY = 0
-    /* Match SELVA: keep resize on until fullscreen. */
-    let enableResize = isFlow
 
     const urlParams = new URLSearchParams(window.location.search)
     const p = {
@@ -74,21 +69,10 @@ export default function ProposalTwinEmbed({
       parentURL: window.location.href || document.referrer,
     }
 
+    /* UTM only — never get_size (stretches Lite 3D to content height). */
     const poll = window.setInterval(() => {
-      if (iframe.contentWindow && enableResize) {
-        iframe.contentWindow.postMessage('get_size', '*')
-      }
       iframe.contentWindow?.postMessage({ type: 'utm', data: utmParams }, '*')
     }, 1000)
-
-    function applyFlowHeight(rawH: number) {
-      if (!isFlow || onFullscreen || !enableResize) return
-      if (!Number.isFinite(rawH)) return
-      const h = Math.round(rawH)
-      if (h < 480 || h > 20000) return
-      iframe.style.height = `${h}px`
-      container.style.height = `${h}px`
-    }
 
     function resetInlineLayout() {
       container.style.position = ''
@@ -99,7 +83,6 @@ export default function ProposalTwinEmbed({
       container.style.width = ''
       iframe.style.height = ''
       iframe.style.width = ''
-      if (isFlow) enableResize = true
     }
 
     function openFullscreen() {
@@ -137,7 +120,6 @@ export default function ProposalTwinEmbed({
           document.documentElement.style.overflow = ''
           resetInlineLayout()
           window.scrollTo({ top: savedScrollY, behavior: 'instant' as ScrollBehavior })
-          enableResize = isFlow
         }, 500)
       } else {
         document.documentElement.scrollTop = 0
@@ -150,7 +132,6 @@ export default function ProposalTwinEmbed({
         container.style.zIndex = '999999999'
         iframe.style.height = '100dvh'
         iframe.style.width = '100%'
-        enableResize = false
       }
     }
 
@@ -163,16 +144,8 @@ export default function ProposalTwinEmbed({
         } else {
           closeFullscreen()
         }
-        return
       }
-      if (!isFlow) return
-      if (data && data.type === 'resize') {
-        applyFlowHeight(Number(data.h))
-        return
-      }
-      if (typeof data === 'string') {
-        applyFlowHeight(parseInt(data.split('x')[0], 10))
-      }
+      /* Ignore resize / "HxW" — fixed phone shell only. */
     }
 
     window.addEventListener('message', onMessage)
@@ -191,10 +164,10 @@ export default function ProposalTwinEmbed({
       document.documentElement.style.overflow = ''
       resetInlineLayout()
     }
-  }, [projectUrl, isFlow])
+  }, [projectUrl])
 
   return (
-    <div className={`proposal-twin proposal-twin--${layout}`} data-proposal-twin>
+    <div className="proposal-twin" data-proposal-twin>
       <header className="proposal-twin__bar">
         <div className="proposal-twin__top">
           <a className="proposal-twin__back" href={backHref} aria-label="Back to demos">
