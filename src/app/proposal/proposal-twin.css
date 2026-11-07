@@ -1,24 +1,74 @@
-/* Full-viewport twin shells under /proposal/* — contrast locked against miami body color */
-html:has([data-proposal-twin]),
-body:has([data-proposal-twin]) {
+/* Twin shells under /proposal/* — contrast locked against miami body color */
+
+/* ── Viewport (immersive): fixed fill, no page scroll ── */
+html:has([data-proposal-twin]):not(:has(.proposal-twin--flow)),
+body:has([data-proposal-twin]):not(:has(.proposal-twin--flow)) {
   overflow: hidden !important;
   background: #0b0b0b !important;
-  /* Mobile browser chrome: prefer dynamic viewport */
   height: 100%;
   height: 100dvh;
 }
 
-.proposal-twin {
+.proposal-twin--viewport {
   position: fixed;
   inset: 0;
   z-index: 100000;
+  height: 100%;
+  height: 100dvh;
+}
+
+.proposal-twin--viewport .proposal-twin__frameWrap {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.proposal-twin--viewport .proposal-twin__frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Flow (3D Lite): page scrolls; iframe height from locked get_size ── */
+html:has(.proposal-twin--flow),
+body:has(.proposal-twin--flow) {
+  background: #0b0b0b !important;
+  height: auto !important;
+  min-height: 100%;
+  overflow: auto !important;
+}
+
+.proposal-twin--flow {
+  position: relative;
+  z-index: 1;
+  min-height: 100dvh;
+}
+
+.proposal-twin--flow .proposal-twin__frameWrap {
+  position: relative;
+  width: 100%;
+  /* Height set in JS from Planpoint get_size — not absolute-fill (that stretches WebGL). */
+  min-height: 70dvh;
+  overflow: visible;
+}
+
+.proposal-twin--flow .proposal-twin__frame {
+  display: block;
+  position: static;
+  width: 100%;
+  height: 70dvh; /* until get_size locks */
+  border: 0;
+  vertical-align: top;
+}
+
+/* Shared chrome */
+.proposal-twin {
   display: flex;
   flex-direction: column;
   background: #0b0b0b;
   width: 100%;
-  height: 100%;
-  height: 100dvh;
-  /* Notch / home indicator */
   padding-top: env(safe-area-inset-top, 0);
   padding-bottom: env(safe-area-inset-bottom, 0);
   padding-left: env(safe-area-inset-left, 0);
@@ -37,7 +87,6 @@ body:has([data-proposal-twin]) {
   font-family: Inter, system-ui, sans-serif;
 }
 
-/* Row 1: square back · centered logo · matching spacer */
 .proposal-twin__top {
   display: grid;
   grid-template-columns: 44px 1fr 44px;
@@ -92,7 +141,6 @@ body:has([data-proposal-twin]) {
   height: 44px;
 }
 
-/* Row 2: title + note */
 .proposal-twin__meta {
   display: flex;
   flex-direction: column;
@@ -123,24 +171,53 @@ body:has([data-proposal-twin]) {
 }
 
 .proposal-twin__frameWrap {
-  flex: 1 1 auto;
   position: relative;
   width: 100%;
-  min-height: 0;
   background: #111;
-  /* manipulation — not none — so Planpoint receives pan/pinch inside the iframe */
   touch-action: manipulation;
-  overflow: hidden;
-  overscroll-behavior: none;
 }
 
 .proposal-twin__frame {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
   border: 0;
   touch-action: manipulation;
+}
+
+.proposal-twin__interact {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin: 0;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: #0b0b0b;
+  color: #ffffff;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* Phone + flow: swipe scrolls the page until buyer opts into drag */
+@media (hover: none) and (pointer: coarse) {
+  .proposal-twin--flow .proposal-twin__frame {
+    pointer-events: none;
+  }
+
+  .proposal-twin--flow.is-live .proposal-twin__frame {
+    pointer-events: auto;
+  }
+
+  .proposal-twin--flow .proposal-twin__interact {
+    position: fixed;
+    left: 50%;
+    bottom: max(12px, env(safe-area-inset-bottom, 0px));
+    transform: translateX(-50%);
+    z-index: 5;
+    display: inline-flex;
+  }
 }
 
 @media screen and (max-width: 767px) {
