@@ -76,6 +76,19 @@ export function injectWowTwinBar(html: string, title: string): string {
     body{padding-top:104px!important}
     html{scroll-padding-top:104px}
   }
+  /* Planpoint unit "3D visit" takeover must sit above the twin bar (hashed class names vary). */
+  #theme-takeover{
+    position:fixed!important;inset:0!important;z-index:2147483647!important;
+  }
+  #theme-takeover [class*="takeoverInner"]{
+    height:100%!important;max-height:100%!important;
+  }
+  body:has(#theme-takeover [class*="takeoverInner"]) #wowdesign-twin-bar{
+    display:none!important;
+  }
+  body:has(#theme-takeover [class*="takeoverInner"]){
+    padding-top:0!important;
+  }
 </style>
 <header id="wowdesign-twin-bar" role="banner">
   <div class="wdt-top">
