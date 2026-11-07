@@ -3,7 +3,7 @@
 import { useEffect, useMemo } from 'react'
 
 export type ProposalTwinLaunchProps = {
-  /** Full demo URL on our twin subdomain, e.g. https://3dlite.wowdesign.io/demo/planpoint360 */
+  /** Twin subdomain root, e.g. https://3dlite.wowdesign.io/ */
   demoUrl: string
   title: string
   note?: string

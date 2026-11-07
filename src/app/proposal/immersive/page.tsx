@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 }
 
 /**
- * Full Planpoint demo path required so their Next router matches.
- * Host stays ours (3dimmersive.wowdesign.io); middleware injects the wowdesign bar.
+ * Twin root only — middleware maps `/` → Planpoint demo upstream so "planpoint"
+ * never appears in the address bar. Bar + favicon injected on the twin host.
  */
-const DEMO_URL = 'https://3dimmersive.wowdesign.io/demo/planpoint3d'
+const DEMO_URL = 'https://3dimmersive.wowdesign.io/'
 
 export default function ProposalImmersivePage() {
   return (

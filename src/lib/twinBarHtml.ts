@@ -2,10 +2,45 @@
 
 const BACK_HREF = 'https://www.wowdesign.io/proposal#open-the-demos'
 const LOGO_SRC = 'https://www.wowdesign.io/images/wow-design-color-logo-dark.svg'
+const FAVICON_SRC = 'https://www.wowdesign.io/favicon.png'
 
 export function injectWowTwinBar(html: string, title: string): string {
   const safeTitle = title.replace(/</g, '&lt;').replace(/>/g, '&gt;')
-  const snippet = `
+
+  const headSnippet = `
+<link rel="icon" href="${FAVICON_SRC}" type="image/png"/>
+<link rel="shortcut icon" href="${FAVICON_SRC}" type="image/png"/>
+<link rel="apple-touch-icon" href="${FAVICON_SRC}"/>
+<title>${safeTitle}</title>
+<script id="wowdesign-twin-url-scrub">
+(function(){
+  function scrubPath(path){
+    if(typeof path!=='string') return path;
+    try{
+      var u=new URL(path, location.origin);
+      if(/planpoint/i.test(u.pathname)){
+        u.pathname='/';
+        return u.pathname+u.search+u.hash;
+      }
+    }catch(e){}
+    return path;
+  }
+  function wrap(fn){
+    return function(state, title, url){
+      if(typeof url==='string') url=scrubPath(url);
+      return fn.call(this, state, title, url);
+    };
+  }
+  history.pushState=wrap(history.pushState);
+  history.replaceState=wrap(history.replaceState);
+  if(/planpoint/i.test(location.pathname)){
+    history.replaceState(history.state, '', '/'+location.search+location.hash);
+  }
+  document.title=${JSON.stringify(title)};
+})();
+</script>`
+
+  const barSnippet = `
 <style id="wowdesign-twin-bar-css">
   #wowdesign-twin-bar{
     position:fixed;top:0;left:0;right:0;z-index:2147483646;
@@ -57,9 +92,22 @@ export function injectWowTwinBar(html: string, title: string): string {
   <div class="wdt-meta"><p class="wdt-title">${safeTitle}</p></div>
 </header>`
 
-  // Insert after <body> so #__next stays the primary React root (siblings are fine).
-  if (/<body[^>]*>/i.test(html)) {
-    return html.replace(/<body([^>]*)>/i, `<body$1>${snippet}`)
+  let out = html
+  // Drop Planpoint favicon / title so ours win.
+  out = out.replace(/<link[^>]+rel=["'][^"']*icon[^"']*["'][^>]*>/gi, '')
+  out = out.replace(/<title[^>]*>[\s\S]*?<\/title>/gi, '')
+
+  if (/<head[^>]*>/i.test(out)) {
+    out = out.replace(/<head([^>]*)>/i, `<head$1>${headSnippet}`)
+  } else {
+    out = headSnippet + out
   }
-  return snippet + html
+
+  if (/<body[^>]*>/i.test(out)) {
+    out = out.replace(/<body([^>]*)>/i, `<body$1>${barSnippet}`)
+  } else {
+    out = barSnippet + out
+  }
+
+  return out
 }

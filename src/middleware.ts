@@ -48,11 +48,26 @@ function isGone(pathname: string): boolean {
 function twinDest(req: NextRequest, twin: TwinHost): URL {
   const incoming = new URL(req.url)
   const dest = new URL(incoming.pathname + incoming.search, PLANPOINT_ORIGIN)
-  if (incoming.pathname === '/' || incoming.pathname === '') {
+  // Browser stays on `/` (no "planpoint" in the address bar); upstream still needs the demo slug.
+  if (
+    incoming.pathname === '/' ||
+    incoming.pathname === '' ||
+    /^\/demo\/planpoint/i.test(incoming.pathname)
+  ) {
     dest.pathname = twin.demoPath
     if (!dest.searchParams.has('lang')) dest.searchParams.set('lang', 'English')
   }
   return dest
+}
+
+function isTwinFavicon(pathname: string): boolean {
+  const p = pathname.toLowerCase()
+  return (
+    p === '/favicon.ico' ||
+    p === '/favicon.png' ||
+    p === '/apple-touch-icon.png' ||
+    p === '/apple-touch-icon-precomposed.png'
+  )
 }
 
 /**
@@ -177,6 +192,10 @@ async function proxyTwinHtml(
         if (locUrl.hostname === 'app.planpoint.io' || locUrl.hostname.endsWith('.planpoint.io')) {
           locUrl.protocol = incoming.protocol
           locUrl.host = incoming.host
+          // Never bounce the browser onto a /demo/planpoint* path on our host.
+          if (/planpoint/i.test(locUrl.pathname)) {
+            locUrl.pathname = '/'
+          }
           return NextResponse.redirect(locUrl, upstream.status as 301 | 302 | 303 | 307 | 308)
         }
       } catch {
@@ -204,6 +223,17 @@ export async function middleware(req: NextRequest) {
 
   const twin = TWIN_HOSTS[host]
   if (twin) {
+    // Old / bookmarked Planpoint paths → clean twin root (keeps query: lang, f, u, …).
+    if (/^\/demo\/planpoint/i.test(pathname)) {
+      const url = new URL(req.url)
+      url.pathname = '/'
+      return NextResponse.redirect(url, 308)
+    }
+
+    if (isTwinFavicon(pathname)) {
+      return NextResponse.redirect('https://www.wowdesign.io/favicon.png', 302)
+    }
+
     const dest = twinDest(req, twin)
     const accept = req.headers.get('accept') ?? ''
     // API must fetch-proxy (rewrite keeps twin Host → Planpoint serves Lite for both).

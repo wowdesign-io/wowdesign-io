@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 }
 
 /**
- * Full Planpoint demo path required so their Next router matches.
- * Host stays ours (3dlite.wowdesign.io); middleware injects the wowdesign bar.
+ * Twin root only — middleware maps `/` → Planpoint demo upstream so "planpoint"
+ * never appears in the address bar. Bar + favicon injected on the twin host.
  */
-const DEMO_URL = 'https://3dlite.wowdesign.io/demo/planpoint360'
+const DEMO_URL = 'https://3dlite.wowdesign.io/'
 
 export default function Proposal3dLitePage() {
   return <ProposalTwinLaunch demoUrl={DEMO_URL} title="3D Lite demo" />
