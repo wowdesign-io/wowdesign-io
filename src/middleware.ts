@@ -29,28 +29,31 @@ function isGone(pathname: string): boolean {
   return false
 }
 
-async function proxyTwin(
-  req: NextRequest,
-  twin: { demoPath: string; title: string },
-): Promise<NextResponse> {
+function twinDest(req: NextRequest, twin: { demoPath: string }): URL {
   const incoming = new URL(req.url)
-  const { pathname } = incoming
   const dest = new URL(incoming.pathname + incoming.search, PLANPOINT_ORIGIN)
-  if (pathname === '/' || pathname === '') {
+  if (incoming.pathname === '/' || incoming.pathname === '') {
     dest.pathname = twin.demoPath
     if (!dest.searchParams.has('lang')) dest.searchParams.set('lang', 'English')
   }
+  return dest
+}
 
+async function proxyTwinHtml(
+  req: NextRequest,
+  twin: { demoPath: string; title: string },
+  dest: URL,
+): Promise<NextResponse> {
+  const incoming = new URL(req.url)
   const upstream = await fetch(dest.toString(), {
     headers: {
       'user-agent': req.headers.get('user-agent') ?? 'Mozilla/5.0',
-      accept: req.headers.get('accept') ?? '*/*',
+      accept: req.headers.get('accept') ?? 'text/html',
       'accept-language': req.headers.get('accept-language') ?? 'en',
     },
     redirect: 'manual',
   })
 
-  // Keep Planpoint redirects on our twin host (never leak app.planpoint.io).
   if (upstream.status >= 300 && upstream.status < 400) {
     const loc = upstream.headers.get('location')
     if (loc) {
@@ -68,29 +71,37 @@ async function proxyTwin(
   }
 
   const contentType = upstream.headers.get('content-type') || ''
-  if (contentType.includes('text/html')) {
-    const html = injectWowTwinBar(await upstream.text(), twin.title)
-    const headers = new Headers(upstream.headers)
-    headers.delete('content-encoding')
-    headers.delete('content-length')
-    headers.set('content-type', 'text/html; charset=utf-8')
-    return new NextResponse(html, { status: upstream.status, headers })
+  if (!contentType.includes('text/html')) {
+    return NextResponse.rewrite(dest)
   }
 
-  return new NextResponse(upstream.body, {
-    status: upstream.status,
-    headers: upstream.headers,
-  })
+  const html = injectWowTwinBar(await upstream.text(), twin.title)
+  const headers = new Headers(upstream.headers)
+  headers.delete('content-encoding')
+  headers.delete('content-length')
+  headers.set('content-type', 'text/html; charset=utf-8')
+  return new NextResponse(html, { status: upstream.status, headers })
 }
 
 export async function middleware(req: NextRequest) {
   const host = (req.headers.get('host') ?? '').split(':')[0].toLowerCase()
   const { pathname } = req.nextUrl
 
-  // Twin demo hosts: proxy to Planpoint; inject wowdesign bar into HTML.
   const twin = TWIN_HOSTS[host]
   if (twin) {
-    return proxyTwin(req, twin)
+    const dest = twinDest(req, twin)
+    const accept = req.headers.get('accept') ?? ''
+    // Assets must use rewrite — fetch-proxying /_next JS broke Planpoint boot (blank #__next).
+    const isAsset =
+      pathname.startsWith('/_next') ||
+      pathname.startsWith('/api') ||
+      /\.[a-zA-Z0-9]+$/.test(pathname)
+    const wantsHtml = accept.includes('text/html') && !isAsset
+
+    if (!wantsHtml) {
+      return NextResponse.rewrite(dest)
+    }
+    return proxyTwinHtml(req, twin, dest)
   }
 
   // Apex → www (canonical host). Staging / Vercel previews keep their host.

@@ -57,6 +57,7 @@ export function injectWowTwinBar(html: string, title: string): string {
   <div class="wdt-meta"><p class="wdt-title">${safeTitle}</p></div>
 </header>`
 
+  // Insert after <body> so #__next stays the primary React root (siblings are fine).
   if (/<body[^>]*>/i.test(html)) {
     return html.replace(/<body([^>]*)>/i, `<body$1>${snippet}`)
   }
