@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export type ProposalTwinEmbedProps = {
   /** Full Planpoint project URL including `?lang=English`. */
@@ -11,10 +11,11 @@ export type ProposalTwinEmbedProps = {
 }
 
 /**
- * Full-viewport twin shell for /proposal/3d-lite and /proposal/immersive.
- * Immersive fixed height (flex fill) — UTM + fullscreen only.
- * Never apply Planpoint get_size / resize to the parent (boot jump on mobile).
- * See references/sops/planpoint-embed.md.
+ * Twin shell for /proposal/3d-lite and /proposal/immersive.
+ * Planpoint's document is overflow:hidden and taller than a phone, so the
+ * host page has to grow. get_size is applied only when it is at least as
+ * tall as the visible frame — a smaller boot measurement used to collapse
+ * the embed into a thin strip.
  */
 export default function ProposalTwinEmbed({
   projectUrl,
@@ -24,6 +25,7 @@ export default function ProposalTwinEmbed({
 }: ProposalTwinEmbedProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const frameRef = useRef<HTMLIFrameElement>(null)
+  const [live, setLive] = useState(false)
 
   useEffect(() => {
     const iframe = frameRef.current
@@ -63,16 +65,49 @@ export default function ProposalTwinEmbed({
       parentURL: window.location.href || document.referrer,
     }
 
-    /* UTM only — immersive shell stays locked to the flex frame (no get_size poll). */
+    function requestSize() {
+      iframe.contentWindow?.postMessage('get_size', '*')
+    }
+
+    requestSize()
     const poll = window.setInterval(() => {
+      requestSize()
       iframe.contentWindow?.postMessage({ type: 'utm', data: utmParams }, '*')
     }, 1000)
+
+    let lockedHeight = 0
+    let resizePending = false
+
+    function visibleFrameHeight() {
+      const bar = container.parentElement?.querySelector('.proposal-twin__bar')
+      const barH = bar instanceof HTMLElement ? bar.offsetHeight : 0
+      return Math.max(240, Math.round(window.innerHeight - barH))
+    }
+
+    function applyContentHeight(rawH: number) {
+      if (onFullscreen) return
+      if (!Number.isFinite(rawH) || rawH < 1 || rawH > 20000) return
+      const floor = visibleFrameHeight()
+      const next = Math.max(floor, Math.round(rawH))
+      const shell = container.parentElement
+      if (shell instanceof HTMLElement) {
+        shell.dataset.scrollPage = rawH > floor + 32 ? 'true' : 'false'
+      }
+      if (!resizePending && next < lockedHeight - 2) return
+      resizePending = false
+      lockedHeight = next
+      if (Math.abs(next - container.clientHeight) < 2) return
+      container.style.flex = '0 0 auto'
+      container.style.height = `${next}px`
+      iframe.style.height = `${next}px`
+    }
 
     function resetInlineLayout() {
       container!.style.position = ''
       container!.style.top = ''
       container!.style.left = ''
       container!.style.zIndex = ''
+      container!.style.flex = ''
       container!.style.height = ''
       container!.style.width = ''
       iframe!.style.height = ''
@@ -138,11 +173,25 @@ export default function ProposalTwinEmbed({
         } else {
           closeFullscreen()
         }
+        return
       }
-      /* Intentionally ignore resize / "HxW" size strings — immersive fill only. */
+      if (data && data.type === 'resize') {
+        applyContentHeight(Number(data.h))
+        return
+      }
+      if (typeof data === 'string') {
+        const h = parseInt(data.split('x')[0], 10)
+        applyContentHeight(h)
+      }
+    }
+
+    function onResize() {
+      resizePending = true
+      requestSize()
     }
 
     window.addEventListener('message', onMessage)
+    window.addEventListener('resize', onResize)
     document.addEventListener('fullscreenchange', fullscreenHandler)
     document.addEventListener('webkitfullscreenchange', fullscreenHandler)
     document.addEventListener('mozfullscreenchange', fullscreenHandler)
@@ -151,6 +200,7 @@ export default function ProposalTwinEmbed({
     return () => {
       clearInterval(poll)
       window.removeEventListener('message', onMessage)
+      window.removeEventListener('resize', onResize)
       document.removeEventListener('fullscreenchange', fullscreenHandler)
       document.removeEventListener('webkitfullscreenchange', fullscreenHandler)
       document.removeEventListener('mozfullscreenchange', fullscreenHandler)
@@ -161,7 +211,7 @@ export default function ProposalTwinEmbed({
   }, [projectUrl])
 
   return (
-    <div className="proposal-twin" data-proposal-twin>
+    <div className={live ? 'proposal-twin is-live' : 'proposal-twin'} data-proposal-twin>
       <header className="proposal-twin__bar">
         <div className="proposal-twin__top">
           <a className="proposal-twin__back" href={backHref} aria-label="Back to demos">
@@ -200,6 +250,13 @@ export default function ProposalTwinEmbed({
           title={title}
         />
       </div>
+      <button
+        type="button"
+        className="proposal-twin__interact"
+        onClick={() => setLive((on) => !on)}
+      >
+        {live ? 'Scroll' : 'Drag to rotate'}
+      </button>
     </div>
   )
 }

@@ -1,23 +1,22 @@
 /* Full-viewport twin shells under /proposal/* — contrast locked against miami body color */
 html:has([data-proposal-twin]),
 body:has([data-proposal-twin]) {
-  overflow: hidden !important;
   background: #0b0b0b !important;
-  /* Mobile browser chrome: prefer dynamic viewport */
-  height: 100%;
-  height: 100dvh;
+  /* Grow with the embed. A fixed 100dvh shell clips the unit list, and
+     overflow:hidden on the root stops iOS from scrolling the iframe. */
+  height: auto !important;
+  min-height: 100%;
+  overflow: auto !important;
 }
 
 .proposal-twin {
-  position: fixed;
-  inset: 0;
-  z-index: 100000;
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   background: #0b0b0b;
   width: 100%;
-  height: 100%;
-  height: 100dvh;
+  min-height: 100dvh;
   /* Notch / home indicator */
   padding-top: env(safe-area-inset-top, 0);
   padding-bottom: env(safe-area-inset-bottom, 0);
@@ -128,11 +127,9 @@ body:has([data-proposal-twin]) {
   width: 100%;
   min-height: 0;
   background: #111;
-  /* Keep touch gestures inside the twin, not the page */
-  touch-action: none;
-  overflow: hidden;
-  /* iOS: avoid rubber-band scrolling the empty chrome behind the iframe */
-  overscroll-behavior: none;
+  /* visible so a vertical swipe is not trapped by an overflow:hidden box. */
+  touch-action: manipulation;
+  overflow: visible;
 }
 
 .proposal-twin__frame {
@@ -141,8 +138,52 @@ body:has([data-proposal-twin]) {
   width: 100%;
   height: 100%;
   border: 0;
-  /* Let Planpoint receive pinches / drags */
   touch-action: manipulation;
+}
+
+.proposal-twin__interact {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin: 0;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: #0b0b0b;
+  color: #ffffff;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* Phones, and only when Planpoint is taller than the screen: the embed
+   eats the swipe, so ignore touches until the buyer opts into dragging.
+   A full-viewport scene (immersive) keeps its own pan and scroll. */
+@media (hover: none) and (pointer: coarse) {
+  .proposal-twin[data-scroll-page='true'] .proposal-twin__frameWrap {
+    touch-action: pan-y;
+  }
+
+  .proposal-twin[data-scroll-page='true'] .proposal-twin__frame {
+    pointer-events: none;
+  }
+
+  .proposal-twin[data-scroll-page='true'].is-live .proposal-twin__frame {
+    pointer-events: auto;
+    touch-action: manipulation;
+  }
+
+  .proposal-twin[data-scroll-page='true'] .proposal-twin__interact {
+    position: fixed;
+    left: 50%;
+    bottom: max(12px, env(safe-area-inset-bottom, 0px));
+    transform: translateX(-50%);
+    z-index: 5;
+    display: inline-flex;
+  }
 }
 
 @media screen and (max-width: 767px) {
