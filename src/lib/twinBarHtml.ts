@@ -67,14 +67,15 @@ export function injectWowTwinBar(html: string, title: string): string {
     margin:0;font-size:.75rem;font-weight:600;letter-spacing:.06em;line-height:1.25;
     text-transform:uppercase;color:#fff!important;
   }
-  html{scroll-padding-top:96px}
-  body{padding-top:96px!important;box-sizing:border-box}
+  :root{--wdt-bar-h:96px}
+  html,body{background:#0b0b0b}
+  html{scroll-padding-top:var(--wdt-bar-h)}
+  body{padding-top:var(--wdt-bar-h)!important;box-sizing:border-box}
   @media (min-width:768px){
+    :root{--wdt-bar-h:104px}
     #wowdesign-twin-bar{padding:0.65rem 1rem 0.75rem;padding-top:calc(0.65rem + env(safe-area-inset-top,0px))}
     #wowdesign-twin-bar .wdt-logo{height:24px}
     #wowdesign-twin-bar .wdt-title{font-size:.8125rem}
-    body{padding-top:104px!important}
-    html{scroll-padding-top:104px}
   }
   /* Planpoint unit "3D visit" takeover must sit above the twin bar (hashed class names vary). */
   #theme-takeover{
@@ -103,7 +104,22 @@ export function injectWowTwinBar(html: string, title: string): string {
     <span class="wdt-spacer" aria-hidden="true"></span>
   </div>
   <div class="wdt-meta"><p class="wdt-title">${safeTitle}</p></div>
-</header>`
+</header>
+<script id="wowdesign-twin-bar-sync">
+(function(){
+  var bar=document.getElementById('wowdesign-twin-bar');
+  if(!bar) return;
+  function sync(){
+    var h=Math.ceil(bar.getBoundingClientRect().height);
+    if(h<1) return;
+    document.documentElement.style.setProperty('--wdt-bar-h', h+'px');
+  }
+  sync();
+  if(window.ResizeObserver) new ResizeObserver(sync).observe(bar);
+  window.addEventListener('resize', sync);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(sync);
+})();
+</script>`
 
   let out = html
   // Drop Planpoint favicon / title so ours win.
