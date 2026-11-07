@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 export type ProposalTwinEmbedProps = {
   /** Full Planpoint project URL including `?lang=English`. */
@@ -8,28 +8,89 @@ export type ProposalTwinEmbedProps = {
   title: string
   note?: string
   backHref?: string
+  /**
+   * lite — 360 massing. On mobile, top-level Planpoint (only way to get
+   * phone-sized 3D AND scrollable units). Desktop keeps this iframe shell.
+   * immersive — always fixed phone-height iframe (overlays, no unit stack).
+   */
+  experience?: 'lite' | 'immersive'
 }
 
+const MOBILE_MQ = '(max-width: 767px)'
+
 /**
- * Fixed phone-height twin shell for /proposal/3d-lite and /proposal/immersive.
+ * Twin shell for /proposal/3d-lite and /proposal/immersive.
  *
- * Do NOT call Planpoint `get_size` / apply resize heights here.
- * Lite’s 3D sizes to the iframe’s own 100vh — growing the iframe to content
- * height (inline channel) makes the massing as tall as the whole unit list.
- * Phone-height iframe → normal 3D; units scroll *inside* the iframe (same as
- * opening app.planpoint.io on a phone). SELVA floorplan embeds can use get_size
- * in PlanpointEmbed; this 360 Lite project cannot.
+ * Lite mobile cannot be a short iframe (no internal scroll in embed mode) or a
+ * tall get_size iframe (3D uses iframe 100vh → stretched). That circle is a
+ * Planpoint embed constraint — SELVA floorplan is a different layout. Lite
+ * mobile therefore opens the Planpoint URL top-level; browser Back returns here.
  */
 export default function ProposalTwinEmbed({
   projectUrl,
   title,
   note,
   backHref = '/proposal#open-the-demos',
+  experience = 'immersive',
 }: ProposalTwinEmbedProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const frameRef = useRef<HTMLIFrameElement>(null)
+  const [mobileLite, setMobileLite] = useState(false)
+
+  const embedUrl = useMemo(() => {
+    if (typeof window === 'undefined') return projectUrl
+    const urlParams = new URLSearchParams(window.location.search)
+    const sep = projectUrl.includes('?') ? '&' : '?'
+    const p = {
+      f: urlParams.get('f'),
+      u: urlParams.get('u'),
+      utm_source: urlParams.get('utm_source'),
+      utm_medium: urlParams.get('utm_medium'),
+      utm_campaign: urlParams.get('utm_campaign'),
+      token: urlParams.get('token'),
+    }
+    return (
+      projectUrl +
+      (p.f ? `${sep}f=${encodeURIComponent(p.f)}` : '') +
+      (p.u ? `&u=${encodeURIComponent(p.u)}` : '') +
+      (p.utm_source ? `&utm_source=${encodeURIComponent(p.utm_source)}` : '') +
+      (p.utm_medium ? `&utm_medium=${encodeURIComponent(p.utm_medium)}` : '') +
+      (p.utm_campaign ? `&utm_campaign=${encodeURIComponent(p.utm_campaign)}` : '') +
+      (p.token ? `&token=${encodeURIComponent(p.token)}` : '')
+    )
+  }, [projectUrl])
+
+  /* Lite + phone: leave the iframe circle — open Planpoint as the page. */
+  useEffect(() => {
+    if (experience !== 'lite') return
+    const mq = window.matchMedia(MOBILE_MQ)
+    const launch = () => {
+      if (!mq.matches) {
+        setMobileLite(false)
+        return
+      }
+      setMobileLite(true)
+      const urlParams = new URLSearchParams(window.location.search)
+      const sep = projectUrl.includes('?') ? '&' : '?'
+      const next =
+        projectUrl +
+        (urlParams.get('f') ? `${sep}f=${encodeURIComponent(urlParams.get('f')!)}` : '') +
+        (urlParams.get('u') ? `&u=${encodeURIComponent(urlParams.get('u')!)}` : '') +
+        (urlParams.get('utm_source') ? `&utm_source=${encodeURIComponent(urlParams.get('utm_source')!)}` : '') +
+        (urlParams.get('utm_medium') ? `&utm_medium=${encodeURIComponent(urlParams.get('utm_medium')!)}` : '') +
+        (urlParams.get('utm_campaign')
+          ? `&utm_campaign=${encodeURIComponent(urlParams.get('utm_campaign')!)}`
+          : '') +
+        (urlParams.get('token') ? `&token=${encodeURIComponent(urlParams.get('token')!)}` : '')
+      window.location.replace(next)
+    }
+    launch()
+    mq.addEventListener('change', launch)
+    return () => mq.removeEventListener('change', launch)
+  }, [experience, projectUrl])
 
   useEffect(() => {
+    if (mobileLite) return
     const iframeEl = frameRef.current
     const containerEl = containerRef.current
     if (!iframeEl || !containerEl) return
@@ -39,26 +100,9 @@ export default function ProposalTwinEmbed({
     let onFullscreen = false
     let savedScrollY = 0
 
+    iframe.src = embedUrl
+
     const urlParams = new URLSearchParams(window.location.search)
-    const p = {
-      f: urlParams.get('f'),
-      u: urlParams.get('u'),
-      utm_source: urlParams.get('utm_source'),
-      utm_medium: urlParams.get('utm_medium'),
-      utm_campaign: urlParams.get('utm_campaign'),
-      token: urlParams.get('token'),
-    }
-
-    const sep = projectUrl.includes('?') ? '&' : '?'
-    iframe.src =
-      projectUrl +
-      (p.f ? `${sep}f=${encodeURIComponent(p.f)}` : '') +
-      (p.u ? `&u=${encodeURIComponent(p.u)}` : '') +
-      (p.utm_source ? `&utm_source=${encodeURIComponent(p.utm_source)}` : '') +
-      (p.utm_medium ? `&utm_medium=${encodeURIComponent(p.utm_medium)}` : '') +
-      (p.utm_campaign ? `&utm_campaign=${encodeURIComponent(p.utm_campaign)}` : '') +
-      (p.token ? `&token=${encodeURIComponent(p.token)}` : '')
-
     const utmParams = {
       utm_source: urlParams.get('utm_source'),
       utm_medium: urlParams.get('utm_medium'),
@@ -69,7 +113,7 @@ export default function ProposalTwinEmbed({
       parentURL: window.location.href || document.referrer,
     }
 
-    /* UTM only — never get_size (stretches Lite 3D to content height). */
+    /* UTM only — never get_size on these shells. */
     const poll = window.setInterval(() => {
       iframe.contentWindow?.postMessage({ type: 'utm', data: utmParams }, '*')
     }, 1000)
@@ -145,7 +189,6 @@ export default function ProposalTwinEmbed({
           closeFullscreen()
         }
       }
-      /* Ignore resize / "HxW" — fixed phone shell only. */
     }
 
     window.addEventListener('message', onMessage)
@@ -164,7 +207,45 @@ export default function ProposalTwinEmbed({
       document.documentElement.style.overflow = ''
       resetInlineLayout()
     }
-  }, [projectUrl])
+  }, [embedUrl, mobileLite])
+
+  if (mobileLite) {
+    return (
+      <div className="proposal-twin proposal-twin--launch" data-proposal-twin>
+        <header className="proposal-twin__bar">
+          <div className="proposal-twin__top">
+            <a className="proposal-twin__back" href={backHref} aria-label="Back to demos">
+              <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 256 256" width="20" height="20">
+                <path
+                  fill="currentColor"
+                  d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"
+                />
+              </svg>
+            </a>
+            <a className="proposal-twin__brand" href={backHref} aria-label="wowdesign — back to demos">
+              <img
+                src="/images/wow-design-color-logo-dark.svg"
+                alt="wowdesign"
+                className="proposal-twin__logo"
+                width={132}
+                height={28}
+              />
+            </a>
+            <span className="proposal-twin__top-spacer" aria-hidden="true" />
+          </div>
+          <div className="proposal-twin__meta">
+            <p className="proposal-twin__title">{title}</p>
+            <p className="proposal-twin__note">Opening the live twin…</p>
+          </div>
+        </header>
+        <div className="proposal-twin__launchBody">
+          <a className="proposal-twin__launchLink" href={embedUrl}>
+            Tap here if the demo does not open
+          </a>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="proposal-twin" data-proposal-twin>

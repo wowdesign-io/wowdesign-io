@@ -12,5 +12,5 @@ export const metadata: Metadata = {
 const PROJECT_URL = 'https://app.planpoint.io/demo/planpoint360?lang=English'
 
 export default function Proposal3dLitePage() {
-  return <ProposalTwinEmbed projectUrl={PROJECT_URL} title="3D Lite demo" />
+  return <ProposalTwinEmbed projectUrl={PROJECT_URL} title="3D Lite demo" experience="lite" />
 }
