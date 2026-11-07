@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.wowdesign.io/proposal/immersive' },
 }
 
-/** Top-level twin on our DNS — proxies Planpoint Immersive. */
-const DEMO_URL = 'https://3dimmersive.wowdesign.io/demo/planpoint3d'
+/** Top-level twin on our DNS — root proxies to Planpoint Immersive via middleware. */
+const DEMO_URL = 'https://3dimmersive.wowdesign.io/'
 
 export default function ProposalImmersivePage() {
   return (
