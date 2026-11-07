@@ -8,12 +8,17 @@ export type ProposalTwinEmbedProps = {
   title: string
   note?: string
   backHref?: string
+  /**
+   * viewport — Immersive: fixed phone fill, UTM + fullscreen only.
+   * flow — 3D Lite: Planpoint inline channel — get_size once, page scrolls to units.
+   */
+  layout?: 'viewport' | 'flow'
 }
 
 /**
- * Full-viewport twin shell for /proposal/3d-lite and /proposal/immersive.
- * Fixed height (flex fill) — UTM + fullscreen only.
- * Never apply Planpoint get_size / resize to the parent (stretch, zoom creep, thin strip).
+ * Twin shell for /proposal/3d-lite and /proposal/immersive.
+ * Lite = document-flow (Planpoint grows; parent scrolls). Immersive = fixed fill.
+ * Never absolute-fill a tall get_size iframe — that stretches WebGL.
  * See references/sops/planpoint-embed.md.
  */
 export default function ProposalTwinEmbed({
@@ -21,9 +26,11 @@ export default function ProposalTwinEmbed({
   title,
   note,
   backHref = '/proposal#open-the-demos',
+  layout = 'viewport',
 }: ProposalTwinEmbedProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const frameRef = useRef<HTMLIFrameElement>(null)
+  const isFlow = layout === 'flow'
 
   useEffect(() => {
     const iframeEl = frameRef.current
@@ -34,6 +41,9 @@ export default function ProposalTwinEmbed({
 
     let onFullscreen = false
     let savedScrollY = 0
+    let sizeLocked = false
+    let sizeCandidate = 0
+    let enableResize = isFlow
 
     const urlParams = new URLSearchParams(window.location.search)
     const p = {
@@ -65,10 +75,35 @@ export default function ProposalTwinEmbed({
       parentURL: window.location.href || document.referrer,
     }
 
-    /* UTM only — shell stays locked to the flex frame (no get_size poll). */
+    function requestSize() {
+      if (!enableResize || sizeLocked || onFullscreen) return
+      iframe.contentWindow?.postMessage('get_size', '*')
+    }
+
+    if (isFlow) requestSize()
     const poll = window.setInterval(() => {
+      requestSize()
       iframe.contentWindow?.postMessage({ type: 'utm', data: utmParams }, '*')
     }, 1000)
+
+    function applyFlowHeight(rawH: number) {
+      if (!isFlow || onFullscreen || sizeLocked) return
+      if (!Number.isFinite(rawH)) return
+      const h = Math.round(rawH)
+      /* Ignore boot thin-strip / junk */
+      if (h < 480 || h > 20000) return
+
+      /* Two consecutive readings within 40px → lock. Stops the 1s rezoom loop. */
+      if (sizeCandidate > 0 && Math.abs(h - sizeCandidate) <= 40) {
+        const next = Math.max(h, sizeCandidate)
+        iframe.style.height = `${next}px`
+        container.style.height = `${next}px`
+        sizeLocked = true
+        enableResize = false
+        return
+      }
+      sizeCandidate = h
+    }
 
     function resetInlineLayout() {
       container.style.position = ''
@@ -79,6 +114,12 @@ export default function ProposalTwinEmbed({
       container.style.width = ''
       iframe.style.height = ''
       iframe.style.width = ''
+      if (isFlow) {
+        sizeLocked = false
+        sizeCandidate = 0
+        enableResize = true
+        requestSize()
+      }
     }
 
     function openFullscreen() {
@@ -128,6 +169,7 @@ export default function ProposalTwinEmbed({
         container.style.zIndex = '999999999'
         iframe.style.height = '100dvh'
         iframe.style.width = '100%'
+        enableResize = false
       }
     }
 
@@ -140,8 +182,16 @@ export default function ProposalTwinEmbed({
         } else {
           closeFullscreen()
         }
+        return
       }
-      /* Intentionally ignore resize / "HxW" size strings — fixed fill only. */
+      if (!isFlow) return
+      if (data && data.type === 'resize') {
+        applyFlowHeight(Number(data.h))
+        return
+      }
+      if (typeof data === 'string') {
+        applyFlowHeight(parseInt(data.split('x')[0], 10))
+      }
     }
 
     window.addEventListener('message', onMessage)
@@ -160,10 +210,10 @@ export default function ProposalTwinEmbed({
       document.documentElement.style.overflow = ''
       resetInlineLayout()
     }
-  }, [projectUrl])
+  }, [projectUrl, isFlow])
 
   return (
-    <div className="proposal-twin" data-proposal-twin>
+    <div className={`proposal-twin proposal-twin--${layout}`} data-proposal-twin>
       <header className="proposal-twin__bar">
         <div className="proposal-twin__top">
           <a className="proposal-twin__back" href={backHref} aria-label="Back to demos">
