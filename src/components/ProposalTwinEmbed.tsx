@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 export type ProposalTwinEmbedProps = {
   /** Full Planpoint project URL including `?lang=English`. */
@@ -8,15 +8,12 @@ export type ProposalTwinEmbedProps = {
   title: string
   note?: string
   backHref?: string
-  /**
-   * viewport — immersive fixed fill. No get_size (avoids stretch / zoom creep).
-   * flow — 3D Lite: grow iframe to Planpoint content once, page scrolls to units.
-   */
-  layout?: 'viewport' | 'flow'
 }
 
 /**
- * Twin shell for /proposal/3d-lite and /proposal/immersive.
+ * Full-viewport twin shell for /proposal/3d-lite and /proposal/immersive.
+ * Fixed height (flex fill) — UTM + fullscreen only.
+ * Never apply Planpoint get_size / resize to the parent (stretch, zoom creep, thin strip).
  * See references/sops/planpoint-embed.md.
  */
 export default function ProposalTwinEmbed({
@@ -24,12 +21,9 @@ export default function ProposalTwinEmbed({
   title,
   note,
   backHref = '/proposal#open-the-demos',
-  layout = 'viewport',
 }: ProposalTwinEmbedProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const frameRef = useRef<HTMLIFrameElement>(null)
-  const [live, setLive] = useState(false)
-  const isFlow = layout === 'flow'
 
   useEffect(() => {
     const iframeEl = frameRef.current
@@ -40,8 +34,6 @@ export default function ProposalTwinEmbed({
 
     let onFullscreen = false
     let savedScrollY = 0
-    let sizeLocked = false
-    let sizeCandidate = 0
 
     const urlParams = new URLSearchParams(window.location.search)
     const p = {
@@ -73,35 +65,10 @@ export default function ProposalTwinEmbed({
       parentURL: window.location.href || document.referrer,
     }
 
-    function requestSize() {
-      if (!isFlow || sizeLocked || onFullscreen) return
-      iframe.contentWindow?.postMessage('get_size', '*')
-    }
-
-    /* Flow: ask size until locked. Always keep UTM. Never keep resizing after lock (zoom creep). */
-    if (isFlow) requestSize()
+    /* UTM only — shell stays locked to the flex frame (no get_size poll). */
     const poll = window.setInterval(() => {
-      requestSize()
       iframe.contentWindow?.postMessage({ type: 'utm', data: utmParams }, '*')
     }, 1000)
-
-    function applyFlowHeight(rawH: number) {
-      if (!isFlow || onFullscreen || sizeLocked) return
-      if (!Number.isFinite(rawH)) return
-      const h = Math.round(rawH)
-      /* Ignore boot thin-strip / junk */
-      if (h < 480 || h > 20000) return
-
-      /* Two consecutive readings within 40px → lock. Stops the 1s rezoom loop. */
-      if (sizeCandidate > 0 && Math.abs(h - sizeCandidate) <= 40) {
-        const next = Math.max(h, sizeCandidate)
-        iframe.style.height = `${next}px`
-        container.style.height = `${next}px`
-        sizeLocked = true
-        return
-      }
-      sizeCandidate = h
-    }
 
     function resetInlineLayout() {
       container.style.position = ''
@@ -112,11 +79,6 @@ export default function ProposalTwinEmbed({
       container.style.width = ''
       iframe.style.height = ''
       iframe.style.width = ''
-      if (isFlow) {
-        sizeLocked = false
-        sizeCandidate = 0
-        requestSize()
-      }
     }
 
     function openFullscreen() {
@@ -178,16 +140,8 @@ export default function ProposalTwinEmbed({
         } else {
           closeFullscreen()
         }
-        return
       }
-      if (!isFlow) return
-      if (data && data.type === 'resize') {
-        applyFlowHeight(Number(data.h))
-        return
-      }
-      if (typeof data === 'string') {
-        applyFlowHeight(parseInt(data.split('x')[0], 10))
-      }
+      /* Intentionally ignore resize / "HxW" size strings — fixed fill only. */
     }
 
     window.addEventListener('message', onMessage)
@@ -204,17 +158,12 @@ export default function ProposalTwinEmbed({
       document.removeEventListener('mozfullscreenchange', fullscreenHandler)
       document.removeEventListener('MSFullscreenChange', fullscreenHandler)
       document.documentElement.style.overflow = ''
-      container.style.height = ''
-      iframe.style.height = ''
       resetInlineLayout()
     }
-  }, [projectUrl, isFlow])
+  }, [projectUrl])
 
   return (
-    <div
-      className={live ? `proposal-twin proposal-twin--${layout} is-live` : `proposal-twin proposal-twin--${layout}`}
-      data-proposal-twin
-    >
+    <div className="proposal-twin" data-proposal-twin>
       <header className="proposal-twin__bar">
         <div className="proposal-twin__top">
           <a className="proposal-twin__back" href={backHref} aria-label="Back to demos">
@@ -253,15 +202,6 @@ export default function ProposalTwinEmbed({
           title={title}
         />
       </div>
-      {isFlow ? (
-        <button
-          type="button"
-          className="proposal-twin__interact"
-          onClick={() => setLive((on) => !on)}
-        >
-          {live ? 'Scroll page' : 'Drag to rotate'}
-        </button>
-      ) : null}
     </div>
   )
 }
