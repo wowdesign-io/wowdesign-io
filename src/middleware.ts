@@ -1,13 +1,14 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { injectWowTwinBar } from '@/lib/twinBarHtml'
 
 /** Production custom domains — /hero-lab stays WIP on *.vercel.app only. */
 const PROD_HOSTS = new Set(['wowdesign.io', 'www.wowdesign.io'])
 
 /** Proposal twin demos — reverse-proxy Planpoint top-level on our DNS. */
-const TWIN_HOSTS: Record<string, { demoPath: string }> = {
-  '3dlite.wowdesign.io': { demoPath: '/demo/planpoint360' },
-  '3dimmersive.wowdesign.io': { demoPath: '/demo/planpoint3d' },
+const TWIN_HOSTS: Record<string, { demoPath: string; title: string }> = {
+  '3dlite.wowdesign.io': { demoPath: '/demo/planpoint360', title: '3D Lite demo' },
+  '3dimmersive.wowdesign.io': { demoPath: '/demo/planpoint3d', title: 'Immersive 3D demo' },
 }
 
 const PLANPOINT_ORIGIN = 'https://app.planpoint.io'
@@ -28,20 +29,68 @@ function isGone(pathname: string): boolean {
   return false
 }
 
-export function middleware(req: NextRequest) {
+async function proxyTwin(
+  req: NextRequest,
+  twin: { demoPath: string; title: string },
+): Promise<NextResponse> {
+  const incoming = new URL(req.url)
+  const { pathname } = incoming
+  const dest = new URL(incoming.pathname + incoming.search, PLANPOINT_ORIGIN)
+  if (pathname === '/' || pathname === '') {
+    dest.pathname = twin.demoPath
+    if (!dest.searchParams.has('lang')) dest.searchParams.set('lang', 'English')
+  }
+
+  const upstream = await fetch(dest.toString(), {
+    headers: {
+      'user-agent': req.headers.get('user-agent') ?? 'Mozilla/5.0',
+      accept: req.headers.get('accept') ?? '*/*',
+      'accept-language': req.headers.get('accept-language') ?? 'en',
+    },
+    redirect: 'manual',
+  })
+
+  // Keep Planpoint redirects on our twin host (never leak app.planpoint.io).
+  if (upstream.status >= 300 && upstream.status < 400) {
+    const loc = upstream.headers.get('location')
+    if (loc) {
+      try {
+        const locUrl = new URL(loc, PLANPOINT_ORIGIN)
+        if (locUrl.hostname === 'app.planpoint.io' || locUrl.hostname.endsWith('.planpoint.io')) {
+          locUrl.protocol = incoming.protocol
+          locUrl.host = incoming.host
+          return NextResponse.redirect(locUrl, upstream.status as 301 | 302 | 303 | 307 | 308)
+        }
+      } catch {
+        /* fall through */
+      }
+    }
+  }
+
+  const contentType = upstream.headers.get('content-type') || ''
+  if (contentType.includes('text/html')) {
+    const html = injectWowTwinBar(await upstream.text(), twin.title)
+    const headers = new Headers(upstream.headers)
+    headers.delete('content-encoding')
+    headers.delete('content-length')
+    headers.set('content-type', 'text/html; charset=utf-8')
+    return new NextResponse(html, { status: upstream.status, headers })
+  }
+
+  return new NextResponse(upstream.body, {
+    status: upstream.status,
+    headers: upstream.headers,
+  })
+}
+
+export async function middleware(req: NextRequest) {
   const host = (req.headers.get('host') ?? '').split(':')[0].toLowerCase()
   const { pathname } = req.nextUrl
 
-  // Twin demo hosts: proxy entire origin to Planpoint (including /_next assets).
+  // Twin demo hosts: proxy to Planpoint; inject wowdesign bar into HTML.
   const twin = TWIN_HOSTS[host]
   if (twin) {
-    const incoming = new URL(req.url)
-    const dest = new URL(incoming.pathname + incoming.search, PLANPOINT_ORIGIN)
-    if (pathname === '/' || pathname === '') {
-      dest.pathname = twin.demoPath
-      if (!dest.searchParams.has('lang')) dest.searchParams.set('lang', 'English')
-    }
-    return NextResponse.rewrite(dest)
+    return proxyTwin(req, twin)
   }
 
   // Apex → www (canonical host). Staging / Vercel previews keep their host.
