@@ -28,9 +28,11 @@ export default function ProposalTwinEmbed({
   const [live, setLive] = useState(false)
 
   useEffect(() => {
-    const iframe = frameRef.current
-    const container = containerRef.current
-    if (!iframe || !container) return
+    const iframeEl = frameRef.current
+    const containerEl = containerRef.current
+    if (!iframeEl || !containerEl) return
+    const iframe: HTMLIFrameElement = iframeEl
+    const container: HTMLDivElement = containerEl
 
     let onFullscreen = false
     let savedScrollY = 0
@@ -103,15 +105,15 @@ export default function ProposalTwinEmbed({
     }
 
     function resetInlineLayout() {
-      container!.style.position = ''
-      container!.style.top = ''
-      container!.style.left = ''
-      container!.style.zIndex = ''
-      container!.style.flex = ''
-      container!.style.height = ''
-      container!.style.width = ''
-      iframe!.style.height = ''
-      iframe!.style.width = ''
+      container.style.position = ''
+      container.style.top = ''
+      container.style.left = ''
+      container.style.zIndex = ''
+      container.style.flex = ''
+      container.style.height = ''
+      container.style.width = ''
+      iframe.style.height = ''
+      iframe.style.width = ''
     }
 
     function openFullscreen() {
