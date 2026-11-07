@@ -10,16 +10,16 @@ export type ProposalTwinEmbedProps = {
   backHref?: string
   /**
    * viewport — Immersive: fixed phone fill, UTM + fullscreen only.
-   * flow — 3D Lite: Planpoint inline channel — get_size once, page scrolls to units.
+   * flow — 3D Lite: same handshake as SELVA PlanpointEmbed (continuous get_size).
    */
   layout?: 'viewport' | 'flow'
 }
 
 /**
  * Twin shell for /proposal/3d-lite and /proposal/immersive.
- * Lite = document-flow (Planpoint grows; parent scrolls). Immersive = fixed fill.
- * Never absolute-fill a tall get_size iframe — that stretches WebGL.
- * See references/sops/planpoint-embed.md.
+ * Flow path mirrors SELVA `PlanpointEmbed`: keep asking get_size and apply every
+ * height — do NOT lock early (that cuts off units as the list grows).
+ * Iframe stays block/static — never absolute-fill a tall height.
  */
 export default function ProposalTwinEmbed({
   projectUrl,
@@ -41,8 +41,7 @@ export default function ProposalTwinEmbed({
 
     let onFullscreen = false
     let savedScrollY = 0
-    let sizeLocked = false
-    let sizeCandidate = 0
+    /* Match SELVA: keep resize on until fullscreen. */
     let enableResize = isFlow
 
     const urlParams = new URLSearchParams(window.location.search)
@@ -75,34 +74,20 @@ export default function ProposalTwinEmbed({
       parentURL: window.location.href || document.referrer,
     }
 
-    function requestSize() {
-      if (!enableResize || sizeLocked || onFullscreen) return
-      iframe.contentWindow?.postMessage('get_size', '*')
-    }
-
-    if (isFlow) requestSize()
     const poll = window.setInterval(() => {
-      requestSize()
+      if (iframe.contentWindow && enableResize) {
+        iframe.contentWindow.postMessage('get_size', '*')
+      }
       iframe.contentWindow?.postMessage({ type: 'utm', data: utmParams }, '*')
     }, 1000)
 
     function applyFlowHeight(rawH: number) {
-      if (!isFlow || onFullscreen || sizeLocked) return
+      if (!isFlow || onFullscreen || !enableResize) return
       if (!Number.isFinite(rawH)) return
       const h = Math.round(rawH)
-      /* Ignore boot thin-strip / junk */
       if (h < 480 || h > 20000) return
-
-      /* Two consecutive readings within 40px → lock. Stops the 1s rezoom loop. */
-      if (sizeCandidate > 0 && Math.abs(h - sizeCandidate) <= 40) {
-        const next = Math.max(h, sizeCandidate)
-        iframe.style.height = `${next}px`
-        container.style.height = `${next}px`
-        sizeLocked = true
-        enableResize = false
-        return
-      }
-      sizeCandidate = h
+      iframe.style.height = `${h}px`
+      container.style.height = `${h}px`
     }
 
     function resetInlineLayout() {
@@ -114,12 +99,7 @@ export default function ProposalTwinEmbed({
       container.style.width = ''
       iframe.style.height = ''
       iframe.style.width = ''
-      if (isFlow) {
-        sizeLocked = false
-        sizeCandidate = 0
-        enableResize = true
-        requestSize()
-      }
+      if (isFlow) enableResize = true
     }
 
     function openFullscreen() {
@@ -157,6 +137,7 @@ export default function ProposalTwinEmbed({
           document.documentElement.style.overflow = ''
           resetInlineLayout()
           window.scrollTo({ top: savedScrollY, behavior: 'instant' as ScrollBehavior })
+          enableResize = isFlow
         }, 500)
       } else {
         document.documentElement.scrollTop = 0

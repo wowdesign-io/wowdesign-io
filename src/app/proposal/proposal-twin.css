@@ -53,18 +53,18 @@ body:has(.proposal-twin--flow) {
 }
 
 .proposal-twin--flow .proposal-twin__frameWrap {
+  /* Match SELVA res-planpoint__frameWrap — height grows via continuous get_size */
   position: relative;
   width: 100%;
-  /* Height set in JS from Planpoint get_size — not absolute-fill (that stretches WebGL). */
-  min-height: 70dvh;
-  overflow: visible;
+  min-height: 100dvh;
+  overflow: hidden;
 }
 
 .proposal-twin--flow .proposal-twin__frame {
   display: block;
-  position: static;
+  position: relative;
   width: 100%;
-  height: 70dvh; /* until get_size locks */
+  min-height: 100dvh;
   border: 0;
   vertical-align: top;
 }
