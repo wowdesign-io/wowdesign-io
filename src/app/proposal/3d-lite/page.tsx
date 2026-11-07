@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import ProposalTwinEmbed from '@/components/ProposalTwinEmbed'
+import ProposalTwinLaunch from '@/components/ProposalTwinLaunch'
 import '../proposal-twin.css'
 
 export const metadata: Metadata = {
@@ -8,9 +8,9 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.wowdesign.io/proposal/3d-lite' },
 }
 
-/** Laurent logo-free lighter 3D — URL path says 360; UI is the massing / drag-to-rotate lite. */
-const PROJECT_URL = 'https://app.planpoint.io/demo/planpoint360?lang=English'
+/** Top-level twin on our DNS — proxies Planpoint Lite. */
+const DEMO_URL = 'https://3dlite.wowdesign.io/demo/planpoint360'
 
 export default function Proposal3dLitePage() {
-  return <ProposalTwinEmbed projectUrl={PROJECT_URL} title="3D Lite demo" experience="lite" />
+  return <ProposalTwinLaunch demoUrl={DEMO_URL} title="3D Lite demo" />
 }

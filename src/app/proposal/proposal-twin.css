@@ -1,6 +1,4 @@
-/* Fixed phone-height twin shells — Lite + Immersive.
-   Iframe stays viewport-sized so Planpoint 3D’s 100vh = phone height.
-   Units scroll inside the iframe. Never grow iframe via get_size (stretches 3D). */
+/* Proposal twin launch chrome — brief page before assign to 3dlite / 3dimmersive */
 
 html:has([data-proposal-twin]),
 body:has([data-proposal-twin]) {
@@ -121,29 +119,6 @@ body:has([data-proposal-twin]) {
   line-height: 1.4;
 }
 
-.proposal-twin__frameWrap {
-  flex: 1 1 auto;
-  position: relative;
-  width: 100%;
-  min-height: 0;
-  background: #111;
-  /* Let the iframe be the scroll container — do not clip its internal scroll */
-  overflow: auto;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-x pan-y pinch-zoom;
-}
-
-.proposal-twin__frame {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  touch-action: pan-x pan-y pinch-zoom;
-}
-
-/* Lite mobile: brief launch state before top-level Planpoint */
 .proposal-twin__launchBody {
   flex: 1 1 auto;
   display: flex;

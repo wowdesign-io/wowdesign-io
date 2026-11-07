@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import ProposalTwinEmbed from '@/components/ProposalTwinEmbed'
+import ProposalTwinLaunch from '@/components/ProposalTwinLaunch'
 import '../proposal-twin.css'
 
 export const metadata: Metadata = {
@@ -8,14 +8,15 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.wowdesign.io/proposal/immersive' },
 }
 
-const PROJECT_URL = 'https://app.planpoint.io/demo/planpoint3d?lang=English'
+/** Top-level twin on our DNS — proxies Planpoint Immersive. */
+const DEMO_URL = 'https://3dimmersive.wowdesign.io/demo/planpoint3d'
 
 export default function ProposalImmersivePage() {
   return (
-    <ProposalTwinEmbed
-      projectUrl={PROJECT_URL}
+    <ProposalTwinLaunch
+      demoUrl={DEMO_URL}
       title="Immersive 3D demo"
-      note="Best in Chrome. If the view stays black, turn off Brave Shields or switch browser."
+      note="Opening the live twin… Best in Chrome."
     />
   )
 }
