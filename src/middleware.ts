@@ -6,12 +6,28 @@ import { injectWowTwinBar } from '@/lib/twinBarHtml'
 const PROD_HOSTS = new Set(['wowdesign.io', 'www.wowdesign.io'])
 
 /** Proposal twin demos — reverse-proxy Planpoint top-level on our DNS. */
-const TWIN_HOSTS: Record<string, { demoPath: string; title: string }> = {
-  '3dlite.wowdesign.io': { demoPath: '/demo/planpoint360', title: '3D Lite demo' },
-  '3dimmersive.wowdesign.io': { demoPath: '/demo/planpoint3d', title: 'Immersive 3D demo' },
+type TwinHost = {
+  demoPath: string
+  title: string
+  /** Planpoint /demo/[hostName] slug — must match app.planpoint.io paths. */
+  planpointHostName: string
+}
+
+const TWIN_HOSTS: Record<string, TwinHost> = {
+  '3dlite.wowdesign.io': {
+    demoPath: '/demo/planpoint360',
+    title: '3D Lite demo',
+    planpointHostName: 'planpoint360',
+  },
+  '3dimmersive.wowdesign.io': {
+    demoPath: '/demo/planpoint3d',
+    title: 'Immersive 3D demo',
+    planpointHostName: 'planpoint3d',
+  },
 }
 
 const PLANPOINT_ORIGIN = 'https://app.planpoint.io'
+const PLANPOINT_HOST = 'app.planpoint.io'
 
 /** Old Webflow template / dead asset paths — tell Google they are gone. */
 const GONE_PREFIXES = ['/product', '/category']
@@ -29,7 +45,7 @@ function isGone(pathname: string): boolean {
   return false
 }
 
-function twinDest(req: NextRequest, twin: { demoPath: string }): URL {
+function twinDest(req: NextRequest, twin: TwinHost): URL {
   const incoming = new URL(req.url)
   const dest = new URL(incoming.pathname + incoming.search, PLANPOINT_ORIGIN)
   if (incoming.pathname === '/' || incoming.pathname === '') {
@@ -39,9 +55,108 @@ function twinDest(req: NextRequest, twin: { demoPath: string }): URL {
   return dest
 }
 
+/**
+ * NextResponse.rewrite() to Planpoint keeps our twin Host / X-Forwarded-Host.
+ * Planpoint then treats the request as a custom-domain lookup and both twin
+ * hosts resolve to the Lite project. Fetch-proxy with Host: app.planpoint.io
+ * and rewrite JSON hostName to the correct /demo slug.
+ */
+async function proxyTwinApi(
+  req: NextRequest,
+  twin: TwinHost,
+  dest: URL,
+): Promise<NextResponse> {
+  const headers = new Headers()
+  const allow = new Set([
+    'accept',
+    'accept-language',
+    'content-type',
+    'user-agent',
+    'cookie',
+    'authorization',
+    'x-requested-with',
+  ])
+  req.headers.forEach((value, key) => {
+    if (allow.has(key.toLowerCase())) headers.set(key, value)
+  })
+  headers.set('host', PLANPOINT_HOST)
+  headers.set('origin', PLANPOINT_ORIGIN)
+  const referer = req.headers.get('referer')
+  if (referer) {
+    try {
+      const r = new URL(referer)
+      headers.set('referer', `${PLANPOINT_ORIGIN}${r.pathname}${r.search}`)
+    } catch {
+      headers.set('referer', `${PLANPOINT_ORIGIN}${twin.demoPath}`)
+    }
+  } else {
+    headers.set('referer', `${PLANPOINT_ORIGIN}${twin.demoPath}`)
+  }
+
+  let body: BodyInit | undefined
+  if (req.method !== 'GET' && req.method !== 'HEAD') {
+    const raw = await req.arrayBuffer()
+    const ct = (req.headers.get('content-type') || '').toLowerCase()
+    if (ct.includes('application/json') && raw.byteLength > 0) {
+      try {
+        const json: unknown = JSON.parse(new TextDecoder().decode(raw))
+        body = JSON.stringify(rewriteTwinApiJson(json, twin, dest.pathname))
+        headers.set('content-type', 'application/json')
+      } catch {
+        body = raw
+      }
+    } else if (raw.byteLength > 0) {
+      body = raw
+    }
+  }
+
+  const upstream = await fetch(dest.toString(), {
+    method: req.method,
+    headers,
+    body,
+    redirect: 'manual',
+  })
+
+  const out = new Headers(upstream.headers)
+  out.delete('content-encoding')
+  out.delete('content-length')
+  out.delete('transfer-encoding')
+  return new NextResponse(upstream.body, { status: upstream.status, headers: out })
+}
+
+function rewriteTwinApiJson(json: unknown, twin: TwinHost, apiPath: string): unknown {
+  if (!json || typeof json !== 'object' || Array.isArray(json)) return json
+  const obj = { ...(json as Record<string, unknown>) }
+  const twinHostNames = new Set(Object.keys(TWIN_HOSTS))
+  const demoSlugs = new Set(
+    Object.values(TWIN_HOSTS).map((t) => t.planpointHostName),
+  )
+
+  const fixHost = (value: unknown): string | unknown => {
+    if (typeof value !== 'string') return value
+    const lower = value.toLowerCase()
+    if (twinHostNames.has(lower)) return twin.planpointHostName
+    if (demoSlugs.has(value) && value !== twin.planpointHostName) {
+      return twin.planpointHostName
+    }
+    return value
+  }
+
+  if ('hostName' in obj) obj.hostName = fixHost(obj.hostName)
+  if ('hostname' in obj) obj.hostname = fixHost(obj.hostname)
+
+  // projects/find (and siblings) key off namespace + hostName on app.planpoint.io
+  if (apiPath.includes('/projects/find') || apiPath.includes('/masterplans/find')) {
+    if (!obj.namespace) obj.namespace = 'demo'
+    obj.hostName = twin.planpointHostName
+  }
+
+  return obj
+}
+
 async function proxyTwinHtml(
   req: NextRequest,
-  twin: { demoPath: string; title: string },
+  twin: TwinHost,
   dest: URL,
 ): Promise<NextResponse> {
   const incoming = new URL(req.url)
@@ -91,11 +206,12 @@ export async function middleware(req: NextRequest) {
   if (twin) {
     const dest = twinDest(req, twin)
     const accept = req.headers.get('accept') ?? ''
+    // API must fetch-proxy (rewrite keeps twin Host → Planpoint serves Lite for both).
+    if (pathname.startsWith('/api')) {
+      return proxyTwinApi(req, twin, dest)
+    }
     // Assets must use rewrite — fetch-proxying /_next JS broke Planpoint boot (blank #__next).
-    const isAsset =
-      pathname.startsWith('/_next') ||
-      pathname.startsWith('/api') ||
-      /\.[a-zA-Z0-9]+$/.test(pathname)
+    const isAsset = pathname.startsWith('/_next') || /\.[a-zA-Z0-9]+$/.test(pathname)
     const wantsHtml = accept.includes('text/html') && !isAsset
 
     if (!wantsHtml) {
