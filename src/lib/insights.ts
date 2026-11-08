@@ -103,7 +103,7 @@ export function insightsForHub(): InsightArticle[] {
 /** Body word counts from page.tsx (JSX stripped). Hub read time = body + answer + FAQs ÷ 200. */
 const INSIGHT_BODY_WORDS: Record<string, number> = {
   'construction-loan-extra-month': 402,
-  'construction-loan-presale-requirement': 700,
+  'construction-loan-presale-requirement': 925,
   'digital-twin-pre-construction': 492,
   'follow-up-pre-construction-buyers': 482,
   'interactive-floor-plan-vs-pdf': 454,
@@ -212,9 +212,32 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'US construction lenders commonly want 50–70% of project revenue under contract before they fund. Count dollars from contracts the lender will take, not a round unit count, and not a reservation without a deposit. Fannie Mae’s 50% conveyed or under-contract test is about unit-buyer mortgages. It is not the construction draw.',
     datePublished: '2026-09-08',
-    dateModified: '2026-11-01',
-    ctaLead: 'See what extra months of interest cost on your construction loan before the draw.',
-    ctaTitle: 'Run the months against your loan.',
+    dateModified: '2026-11-08',
+    ctaLead: 'If the dollar line is still open, those months are already on the loan.',
+    ctaTitle: 'Run the months against your construction loan.',
+    takeaways: [
+      'Construction lenders typically want 50–70% of project revenue under qualifying contracts, not a unit count.',
+      'Fannie Mae’s 50% test is for unit-buyer mortgages. It is not the construction draw.',
+      'Convert the percent to dollars, keep only contracts the lender will take, then map the stack.',
+    ],
+    pullQuote: 'Count dollars from contracts the lender will take, not a round unit count.',
+    workedExample: {
+      title: 'Illustrative: dollars, then units',
+      rows: [
+        'Sell-out revenue $14.4M. Lender wants 60% under qualifying contracts. Line = $8.64M, not 17 of 28 units.',
+        '14 studios at $400k = $5.6M. That is 50% of a 28-unit stack and 39% of revenue. Missed the line.',
+        '4 penthouses at $900k plus 8 mid-floor at $520k = $7.76M. That is 43% of units and 54% of revenue. Still short.',
+        'Gap = $8.64M - $7.76M = $880k. About two more mid-floor contracts at $520k.',
+      ],
+      note: 'Illustrative arithmetic. Method: (lender percent × sell-out revenue) − qualifying contract revenue already in. Then map leftover dollars onto units still open.',
+    },
+    sources: [
+      {
+        label: 'Fannie Mae Selling Guide, Full Review for units in new and newly converted condo projects (08/05/2026)',
+        url: 'https://selling-guide.fanniemae.com/sel/b4-2.2-03/full-review-additional-eligibility-requirements-units-new-and-newly-converted-condo-projects',
+        note: 'At least 50% of the total units in the project or subject legal phase must have been conveyed or be under contract for sale to principal-residence or second-home purchasers. The project or phase must be substantially complete. This is unit-buyer mortgage eligibility, not the construction draw. Construction-lender 50–70% of revenue remains a market pattern, not a statute.',
+      },
+    ],
     faqs: [
       {
         q: 'What is the typical presale percentage for a construction loan in Florida?',
@@ -222,15 +245,15 @@ export const INSIGHTS: InsightArticle[] = [
       },
       {
         q: 'Is Fannie Mae’s 50% the same test as a construction lender’s presale?',
-        a: 'No. Fannie’s 50% is share of units conveyed or under contract to principal-residence or second-home purchasers, so unit-buyers can get those mortgages. Construction lenders want a share of project revenue under qualifying contracts. Keep them separate.',
+        a: 'No. Fannie’s 50% is share of units conveyed or under contract to principal-residence or second-home purchasers, so unit-buyers can get those mortgages. The project or phase must also be substantially complete. Construction lenders want a share of project revenue under qualifying contracts. Keep them separate.',
+      },
+      {
+        q: 'Can you hit 50% of units and still miss the construction draw?',
+        a: 'Yes. If cheaper units sell first, unit count runs ahead of revenue. Illustrative: 14 studios at $400k on a $14.4M sell-out is 50% of a 28-unit stack and only 39% of revenue. Convert the lender percent to dollars, then map the stack.',
       },
       {
         q: 'What counts as a qualifying presale for a construction loan?',
         a: 'Usually a binding purchase contract with a deposit the lender will recognize, not a reservation or a letter of intent. Related-party and bulk contracts are often excluded. Ask the lender in writing. The 50–70% line is percent of revenue from those contracts, not a unit count.',
-      },
-      {
-        q: 'Why do construction lenders care about presales?',
-        a: 'Qualifying presales prove demand and reduce the chance they are financing unsold inventory. Until that line is hit you keep paying interest and marketing with no draw.',
       },
     ],
   },
