@@ -1,25 +1,24 @@
 import TwinOptionCards from '@/components/TwinOptionCards'
 
 /**
- * Home: three ways to show the building — what buyers get.
- * Live demos open so prospects can try each twin; prices stay on /how-it-works.
+ * Home: same priced twin row as /how-it-works, with Digital twin tagline + live demos.
  */
 export default function SelvaShowcase() {
   return (
     <TwinOptionCards
       id="live-project"
       tagline="Digital twin"
-      title="This is what buyers get."
+      title="Same system. Three ways to show the building."
       description={
         <>
           Website, follow-up, and the full sales system on every option.
           <br />
-          The digital twin is 360, 3D Lite, or Immersive 3D.
+          Choose 360, 3D Lite, or Immersive 3D.
         </>
       }
-      showPrices={false}
+      showPrices
       showLiveButtons
-      timeline=""
+      timeline="Full system included. Plus $2,500/mo. We keep it running. Your sales team sells. Live in 6–8 weeks."
       ctaHref="/book-a-demo"
       ctaLabel="Book a Demo"
       cta="Home - Twins Book a Demo"
