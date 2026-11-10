@@ -267,7 +267,7 @@ export default function HomePage({ heroVisual }: { heroVisual?: ReactNode }) {
     <section className="section historical-numbers">
       <div className="stats-subline text-size-small">
         Supporting proof from comparable developments.
-        <br />
+        <br className="stats-subline-br" />
         $400k+ is typical carry kept by selling out faster.
       </div>
       <div className="historical-numbers-content">

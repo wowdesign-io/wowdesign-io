@@ -272,6 +272,13 @@ html.wwd-first.wwd-ready #wwd-page-loader {
   line-height: 1.4;
 }
 
+/* One line on desktop; keep the sentence break on phone. */
+@media screen and (min-width: 768px) {
+  .page-home .section.historical-numbers > .stats-subline .stats-subline-br {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .page-home .section.historical-numbers > .stats-subline {
     padding: 0 1rem;
