@@ -25,17 +25,7 @@ const DEMO_A = 'https://demo.wowdesign.io/residences#digital-twin'
 const DEMO_B = '/proposal/3d-lite'
 const DEMO_C = '/proposal/immersive'
 
-/** Phosphor currency-circle — Relume. Only when prices are on the cards. */
-const dollarIcon = (
-  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="100%" height="100%" viewBox="0 0 256 256">
-    <g fill="currentColor">
-      <path d="M224 128a96 96 0 1 1-96-96a96 96 0 0 1 96 96" opacity=".2"></path>
-      <path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m0 192a88 88 0 1 1 88-88a88.1 88.1 0 0 1-88 88m40-68a28 28 0 0 1-28 28h-4v8a8 8 0 0 1-16 0v-8h-16a8 8 0 0 1 0-16h36a12 12 0 0 0 0-24h-24a28 28 0 0 1 0-56h4v-8a8 8 0 0 1 16 0v8h16a8 8 0 0 1 0 16h-36a12 12 0 0 0 0 24h24a28 28 0 0 1 28 28"></path>
-    </g>
-  </svg>
-)
-
-/** Phosphor buildings — Relume. Home twin row (no prices). */
+/** Phosphor buildings — Relume. Twin row tagline (home / proposal / how-it-works). */
 const buildingsIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256">
     <g fill="currentColor">
@@ -98,8 +88,6 @@ export default function TwinOptionCards({
   timeline = 'Full system included. Plus $2,500/mo. We keep it running. Your sales team sells. Live in 6–8 weeks.',
   showBottomCta = true,
 }: TwinOptionCardsProps) {
-  const taglineIcon = showPrices ? dollarIcon : buildingsIcon
-
   return (
     <section id={id} className="section_layout237 twin-option-cards">
       <div className="padding-global">
@@ -112,7 +100,7 @@ export default function TwinOptionCards({
                     <div className="display-flex-vertical flex-align-center">
                       <div className="margin-bottom margin-xsmall">
                         <div className="tagline-container">
-                          <div className="icon-embed-xsmall text-color-primary w-embed">{taglineIcon}</div>
+                          <div className="icon-embed-xsmall text-color-primary w-embed">{buildingsIcon}</div>
                           <div className="text-style-tagline">{tagline}</div>
                         </div>
                       </div>

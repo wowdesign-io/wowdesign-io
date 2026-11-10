@@ -7,7 +7,7 @@ export default function ProposalDemos() {
   return (
     <TwinOptionCards
       id="open-the-demos"
-      tagline="Your options"
+      tagline="Digital twin"
       title="Open each building. Live."
       description={
         <>
