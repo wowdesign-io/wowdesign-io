@@ -7,7 +7,7 @@ type TwinOptionCardsProps = {
   tagline?: string
   title?: string
   description?: ReactNode
-  /** Proposal leave-behind: open live demos. Home / How it works: omit. */
+  /** Open live twin demos (home + proposal). How it works: usually omit. */
   showLiveButtons?: boolean
   /** How it works + proposal: show $45k / $55k / $65k. Home: names only. */
   showPrices?: boolean
@@ -54,7 +54,7 @@ const OPTIONS = [
     alt: 'Digital twin — floors and units from a phone',
     body: 'Every floor and unit from a phone — live price and availability.',
     demo: DEMO_A,
-    ctaOpen: 'Proposal - Open 360',
+    ctaOpen: 'Twins - Open 360',
     itemClass: 'layout237_item',
   },
   {
@@ -65,7 +65,7 @@ const OPTIONS = [
     alt: '3D Lite digital twin',
     body: 'More depth than 360. Buyers walk the massing and units without the full Immersive build.',
     demo: DEMO_B,
-    ctaOpen: 'Proposal - Open 3D Lite',
+    ctaOpen: 'Twins - Open 3D Lite',
     itemClass: 'layout237_item is-2',
   },
   {
@@ -76,7 +76,7 @@ const OPTIONS = [
     alt: 'Immersive 3D digital twin',
     body: 'Full 3D presence. For projects where buyers need to feel the space before they commit.',
     demo: DEMO_C,
-    ctaOpen: 'Proposal - Open Immersive',
+    ctaOpen: 'Twins - Open Immersive',
     itemClass: 'layout237_item is-3',
   },
 ] as const

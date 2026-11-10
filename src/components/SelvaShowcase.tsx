@@ -2,7 +2,7 @@ import TwinOptionCards from '@/components/TwinOptionCards'
 
 /**
  * Home: three ways to show the building — what buyers get.
- * No prices / no live links. Investment lives on /how-it-works.
+ * Live demos open so prospects can try each twin; prices stay on /how-it-works.
  */
 export default function SelvaShowcase() {
   return (
@@ -18,7 +18,7 @@ export default function SelvaShowcase() {
         </>
       }
       showPrices={false}
-      showLiveButtons={false}
+      showLiveButtons
       timeline=""
       ctaHref="/book-a-demo"
       ctaLabel="Book a Demo"
