@@ -23,7 +23,7 @@ export default function Page() {
       </p>
       <p>
         Boutique residential projects feel each slipped month harder than a 200-unit operator. One extra quarter is money out before a brick is laid, and again after completion until the last closing. See{' '}
-        <a href="/insights/sell-pre-construction-condos-faster">how to sell pre-construction condos faster</a> for the sequence that takes months off. This page is the scoreboard, not that playbook.
+        <a href="/insights/sell-pre-construction-condos-faster">how to sell pre-construction condos faster</a> for the sequence that takes months off.
       </p>
       <h2>Two clocks: the draw and the last unit</h2>
       <p>
