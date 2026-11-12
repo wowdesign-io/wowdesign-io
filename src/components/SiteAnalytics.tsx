@@ -4,41 +4,61 @@ const GA_ID = 'G-D4B4T43SBH'
 const CLARITY_ID = 'xblutmy6s9'
 
 /**
- * GA4 + Clarity + conversion events (GSC/Grok SEO pass 2026-10-20).
- * Single gtag ID — do not add a second tag.
+ * GA4 + Clarity + conversion events.
+ * Tracking loads only on www.wowdesign.io. Preview / staging / localhost get a
+ * gtag no-op so event helpers never throw and no hits leave the page.
  *
  * Mark as Key events in GA4 Admin: generate_lead, book_demo_click, calculator_calculate.
  *
- * 2026-11-02: internal-link clicks delay navigation ~400ms so GA4 can flush
- * (transport_type beacon does not work for GA4). calculator_calculate watches
- * #wwd-results. Cal lead binding retries until the embed API is ready.
+ * 2026-11-02: internal-link clicks delay navigation ~400ms so GA4 can flush.
+ * 2026-11-12: production-host gate (no GA/Clarity on *.vercel.app).
  */
 export default function SiteAnalytics() {
   return (
     <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-        strategy="afterInteractive"
-      />
-      <Script id="ga4-init" strategy="afterInteractive">{`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', '${GA_ID}', {
-          send_page_view: true,
-          ...(location.search.indexOf('gtm_debug=') !== -1 || location.search.indexOf('debug_mode=1') !== -1
-            ? { debug_mode: true }
-            : {})
-        });
+      {/* Runs before other afterInteractive scripts — no-op gtag off production. */}
+      <Script id="wwd-analytics-gate" strategy="beforeInteractive">{`
+        (function () {
+          var host = (location.hostname || '').toLowerCase();
+          var allow = host === 'www.wowdesign.io';
+          window.__WWD_TRACK__ = allow;
+          if (!allow) {
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function () {};
+          }
+        })();
       `}</Script>
-      <Script id="clarity-init" strategy="afterInteractive">{`
-        (function(c,l,a,r,i,t,y){
-          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "${CLARITY_ID}");
+
+      <Script id="wwd-analytics-boot" strategy="afterInteractive">{`
+        (function () {
+          if (!window.__WWD_TRACK__) return;
+
+          var GA_ID = '${GA_ID}';
+          var CLARITY_ID = '${CLARITY_ID}';
+
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+          document.head.appendChild(s);
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){ dataLayer.push(arguments); }
+          window.gtag = gtag;
+          gtag('js', new Date());
+          var cfg = { send_page_view: true };
+          if (location.search.indexOf('gtm_debug=') !== -1 || location.search.indexOf('debug_mode=1') !== -1) {
+            cfg.debug_mode = true;
+          }
+          gtag('config', GA_ID, cfg);
+
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", CLARITY_ID);
+        })();
       `}</Script>
+
       <Script
         id="wwd-ga4-events"
         strategy="afterInteractive"
@@ -159,7 +179,6 @@ export default function SiteAnalytics() {
       tracked = true;
     }
 
-    // Same-origin navigations: hold the page ~400ms so GA4 can send the hit
     if (tracked && sameOriginNav(a, href)) {
       e.preventDefault();
       setTimeout(function () { go(href); }, NAV_DELAY_MS);
