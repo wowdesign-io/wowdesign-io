@@ -293,7 +293,7 @@ export default function CarryCostCalculatorPage() {
       <div className="footer-bottom-line"></div>
     </section>
   </div>
-      <WebflowScripts extras={['https://cdn.jsdelivr.net/gh/wowdesign-io/carry-cost-calc@ae9773d/carry-cost-calculator.js']} />
+      <WebflowScripts extras={['https://cdn.jsdelivr.net/gh/wowdesign-io/carry-cost-calc@e7a6ab5/carry-cost-calculator.js']} />
     </>
   )
 }

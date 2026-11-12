@@ -22,7 +22,7 @@ export default function Page() {
       </p>
       <p>
         This is not a script. It is what has to be in the tools they already use before they pick up. Follow-up the same night is how that picture gets built. See{' '}
-        <a href="/insights/follow-up-pre-construction-buyers">what follow-up should include</a>. This page is the call, not the email.
+        <a href="/insights/follow-up-pre-construction-buyers">what follow-up should include</a>. What follows is the call, not the email.
       </p>
       <div className="table-scroll"><table>
         <thead>

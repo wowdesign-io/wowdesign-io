@@ -53,7 +53,7 @@ export default function Page() {
       </table></div>
       <p>
         Related-party and insider units are not the same demand as an unrelated buyer putting money down. Bulk contracts are often haircut or excluded because one walk-away takes a hole the size of several units. A reservation can convert. Until it is a binding contract with a held deposit, it does not move the construction draw. Ten contracts on paper can be six after that filter. See{' '}
-        <a href="/insights/why-construction-lenders-care-about-presales">why construction lenders care about presales</a> if you want the leftover-inventory reason. This table is the filter, not a statute.
+        <a href="/insights/why-construction-lenders-care-about-presales">why construction lenders care about presales</a> if you want the leftover-inventory reason.
       </p>
       <h2>How to score your stack against the line</h2>
       <p>
