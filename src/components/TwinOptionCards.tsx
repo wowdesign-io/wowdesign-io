@@ -53,7 +53,7 @@ const OPTIONS = [
     price: '$55k',
     shot: '/images/proposal/twin-3d-lite.png',
     alt: '3D Lite digital twin',
-    body: 'More depth than 360. Buyers walk the massing and units without the full Immersive build.',
+    body: 'Buyers explore the building in 3D and open units. Deeper than 360, lighter than Immersive.',
     demo: DEMO_B,
     ctaOpen: 'Twins - Open 3D Lite',
     itemClass: 'layout237_item is-2',
