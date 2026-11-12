@@ -318,7 +318,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'Renderings sell the look. A boutique residential project website also needs live units, live price, a way to pick one tonight, and a path into the tools the sales team already uses. Pictures without that do not tell anyone who is ready, and extra months of the loan keep running.',
     datePublished: '2026-09-13',
-    dateModified: '2026-10-20',
+    dateModified: '2026-11-12',
     faqs: [
       {
         q: 'What does a boutique developer website need besides renderings?',
@@ -330,7 +330,7 @@ export const INSIGHTS: InsightArticle[] = [
       },
       {
         q: 'Is this the same as a digital twin or a virtual showroom?',
-        a: 'Close, but not the same phrase. The showroom is the gallery they land on. The twin is the live building inside it. This page is the checklist for the website around both, not only the pictures.',
+        a: 'Close, but not the same phrase. The showroom is the gallery they land on. The twin is the live building inside it. The site still needs the checklist around both, not only the pictures.',
       },
     ],
   },
@@ -343,7 +343,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'There is no honest single month-count for every 20–40 unit condo. Price, location, and whether buyers can commit before a sales office exists all move it. Time two clocks: the lender’s 50–70% under contract, then the last unit. Extra months cost about $67k–$100k in interest on a typical boutique loan.',
     datePublished: '2026-09-20',
-    dateModified: '2026-10-25',
+    dateModified: '2026-11-12',
     faqs: [
       {
         q: 'How long does it take to sell out a 20–40 unit condo building?',
@@ -368,7 +368,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'Before they pick up, the sales team should already know which unit the buyer looked at, whether it is still open and at what price, how far they went, and whether they came back. A name and a phone number is not that picture. Calling without it is a cold call.',
     datePublished: '2026-10-04',
-    dateModified: '2026-10-20',
+    dateModified: '2026-11-12',
     faqs: [
       {
         q: 'What should a sales team know before they call a condo buyer?',
@@ -393,7 +393,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'A buyer who reserved in month one still has to live through the build. They stay if they can come back to their unit (live price, live availability) and a sales team that already knows which one. A PDF from the first week will not hold them. A cancellation is another month of the loan.',
     datePublished: '2026-10-11',
-    dateModified: '2026-10-20',
+    dateModified: '2026-11-12',
     faqs: [
       {
         q: 'How to keep pre-construction buyers from backing out during the build?',
@@ -445,7 +445,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'You do not need a published units-per-month rate. You need qualifying contracts, at the prices in your stack, fast enough to hit the lender\'s share of project revenue before the window on the term sheet closes. Convert the percent to dollars, then to contracts they will count. Soft holds do not count.',
     datePublished: '2026-10-20',
-    dateModified: '2026-11-01',
+    dateModified: '2026-11-12',
     faqs: [
       {
         q: 'How fast do you need to pre-sell to hit a construction loan draw?',
@@ -495,7 +495,7 @@ export const INSIGHTS: InsightArticle[] = [
     answer:
       'A qualifying presale is a binding purchase contract with a deposit the construction lender will recognize, from a buyer they will count. Reservations, letters of intent, and related-party deals usually drop out. Ask the lender in writing. The 50–70% line is percent of revenue from those contracts, not a unit count.',
     datePublished: '2026-11-01',
-    dateModified: '2026-11-01',
+    dateModified: '2026-11-12',
     faqs: [
       {
         q: 'What counts as a qualifying presale for a construction loan?',

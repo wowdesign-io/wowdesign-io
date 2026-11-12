@@ -21,7 +21,7 @@ export default function Page() {
         <a href="/insights/why-construction-lenders-care-about-presales">why construction lenders care about presales</a>.
       </p>
       <p>
-        A published absorption rate from a different city is a guess. Pace is remaining qualifying dollars divided by the months you still have before you miss the window. If buyers cannot pick a specific unit from their phone tonight, they wait. Waiting is how that monthly pace slips. This page is the scoreboard for the draw. The sequence that takes months off lives on{' '}
+        A published absorption rate from a different city is a guess. Pace is remaining qualifying dollars divided by the months you still have before you miss the window. If buyers cannot pick a specific unit from their phone tonight, they wait. Waiting is how that monthly pace slips. The sequence that takes months off lives on{' '}
         <a href="/insights/sell-pre-construction-condos-faster">how to sell pre-construction condos faster</a>.
       </p>
       <h2>Convert the line to a monthly pace</h2>
@@ -29,7 +29,7 @@ export default function Page() {
         Start with dollars, not unit count. Take the percent on your term sheet. Multiply by project sell-out revenue. That is the qualifying-contract line. Then divide by the months you still have before that window closes. The result is the monthly pace the lender is actually watching. Soft holds, letters of intent, and related-party contracts usually drop out of that math. Ten names on a list can be six after the filter. Ask the lender in writing what they will take before you brief the sales team that you are on pace.
       </p>
       <p>
-        Worked example. A $12M sell-out with a 50% line is $6M in contracts they will count. If six months remain on the sheet, you need about $1M a month in qualifying contracts. Method: (presale percent × project revenue) ÷ months left. If penthouses and studios are different prices, that is not half the units. A 30-unit building can look “halfway sold” on a unit count and still miss the revenue line, or the other way around. Map the stack to dollars first.
+        Worked example (illustrative numbers). A $12M sell-out with a 50% line is $6M in contracts they will count. If six months remain on the sheet, you need about $1M a month in qualifying contracts. Method: (presale percent × project revenue) ÷ months left. If penthouses and studios are different prices, that is not half the units. A 30-unit building can look “halfway sold” on a unit count and still miss the revenue line, or the other way around. Map the stack to dollars first.
       </p>
       <ol>
         <li>Take the lender percent from the term sheet. Often 50–70% of revenue.</li>
