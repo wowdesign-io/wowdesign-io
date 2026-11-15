@@ -113,7 +113,7 @@ const INSIGHT_BODY_WORDS: Record<string, number> = {
   'how-long-sell-out-20-40-unit-condo': 605,
   'what-sales-team-should-know-before-calling': 535,
   'keep-pre-construction-buyers-from-backing-out': 553,
-  'why-construction-lenders-care-about-presales': 557,
+  'why-construction-lenders-care-about-presales': 1073,
   'how-fast-pre-sell-construction-loan-draw': 574,
   'sell-last-units-pre-construction-condo': 568,
   'what-counts-qualifying-presale-construction-loan': 530,
@@ -414,25 +414,47 @@ export const INSIGHTS: InsightArticle[] = [
     tag: 'Lenders',
     h1: 'Why do construction lenders care about presales?',
     description:
-      'Construction lenders fund the build and get repaid when units close. Qualifying presales prove demand so they are not financing unsold inventory. Until that line you keep paying interest and marketing with no draw.',
+      'Construction lenders fund the build and get repaid when units close. Unsold units are leftover exposure on their book. Qualifying contracts shrink that leftover. Until that line they will not fund.',
     answer:
-      'Construction lenders fund the build. They get repaid when units close. Qualifying presales. Binding contracts with deposits they will count. Prove demand so they are not financing unsold inventory. Until that line, you keep paying interest and marketing with no draw. The 50–70% of revenue they often want is that test, not a unit count.',
+      'Construction lenders fund the build and get repaid when units close. Unsold units are leftover exposure on their book. Qualifying contracts with deposits they will count shrink that leftover. Until that line they will not fund, and you keep paying interest and marketing with no draw. That percent tests leftover risk, not unit count.',
     datePublished: '2026-10-18',
-    dateModified: '2026-10-20',
-    ctaLead: 'Leftover inventory is months of interest. Put your loan numbers on the calculator.',
+    dateModified: '2026-11-15',
+    ctaLead: 'Leftover exposure is months you still pay. Put your loan numbers on the calculator.',
     ctaTitle: 'What does waiting on the draw cost you?',
+    takeaways: [
+      'Unsold units are leftover exposure the construction lender has to live with after they fund.',
+      'Qualifying contracts shrink that leftover. Soft holds do not.',
+      'Fannie’s 50% is for unit-buyer mortgages. It is not this draw.',
+    ],
+    sources: [
+      {
+        label: 'OCC Comptroller’s Handbook, Commercial Real Estate Lending',
+        url: 'https://www.occ.gov/publications-and-resources/publications/comptrollers-handbook/files/commercial-real-estate-lending/pub-ch-commercial-real-estate.pdf',
+        note: 'Presale and unit-release requirements, limits on unsold speculative units, and bona fide commitments with meaningful deposits. Opened 2026-11-15.',
+      },
+      {
+        label:
+          'Fannie Mae Selling Guide, Full Review: Additional Eligibility Requirements for Units in New and Newly Converted Condo Projects',
+        url: 'https://selling-guide.fanniemae.com/sel/b4-2.2-03/full-review-additional-eligibility-requirements-units-new-and-newly-converted-condo-projects',
+        note: 'At least 50% of units conveyed or under contract to principal-residence or second-home purchasers. That test is for unit-buyer mortgages, not the construction draw. Opened 2026-11-15.',
+      },
+    ],
     faqs: [
       {
         q: 'Why do construction lenders care about presales?',
-        a: 'Qualifying presales. Contracts and deposits they will count. Prove demand so they are not financing unsold inventory. Until that line you keep paying interest and marketing with no draw.',
+        a: 'They fund the build and get repaid when units close. Presales they will count shrink leftover exposure they would otherwise carry. A list of names without a binding contract and a meaningful deposit usually does not do that.',
       },
       {
         q: 'Is this the same as Fannie Mae’s 50%?',
-        a: 'No. Fannie’s 50% is whether unit-buyers can get those mortgages. Construction lenders care about leftover risk on the build: share of project revenue under qualifying contracts. Keep them separate.',
+        a: 'No. Fannie’s 50% is share of units conveyed or under contract to principal-residence or second-home purchasers, so unit-buyers can get those mortgages. Construction lenders care about leftover risk on the build: share of project revenue under qualifying contracts. Keep them separate.',
       },
       {
-        q: 'What does missing the presale line cost?',
-        a: 'You keep paying the loan and the ads with no draw. On a typical boutique $10M–$15M loan at about 8%, monthly interest is loan × rate ÷ 12. about $67k–$100k.',
+        q: 'What is leftover exposure after they fund?',
+        a: 'Project sell-out revenue minus the qualifying contracts they counted. On an illustrative $12M sell-out with a 50% line, they fund when $6M is under those contracts. The other $6M is leftover they agreed to live with.',
+      },
+      {
+        q: 'Do more presales always mean a cheaper construction loan?',
+        a: 'Not automatically. Some private lenders will fund with fewer presales and price the extra leftover risk. Your term sheet is the deal. More qualifying contracts still cut leftover. They do not rewrite the rate by themselves.',
       },
     ],
   },
