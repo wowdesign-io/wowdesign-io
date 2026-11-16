@@ -92,6 +92,8 @@ export default function InsightsArticle({
                             <img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" />
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" />
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" />
                           </div>
                         ) : null}
                         {children}
@@ -128,6 +130,8 @@ export default function InsightsArticle({
                             <img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" />
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" />
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src="/images/Features-Card-Shape-Bottom-Right.svg" loading="lazy" alt="" className="features-card-shape-bottom-right" />
                           </div>
                         ) : null}
                         {article.sources && article.sources.length > 0 ? (

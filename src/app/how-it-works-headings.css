@@ -236,7 +236,8 @@
   z-index: 1;
   width: 100%;
 }
-.insights-article .insights-callout .features-typography-card-shape {
+.insights-article .insights-callout .features-typography-card-shape,
+.insights-article .insights-callout .features-card-shape-bottom-right {
   z-index: 2;
   pointer-events: none;
 }
