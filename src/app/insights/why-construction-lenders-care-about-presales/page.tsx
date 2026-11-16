@@ -116,7 +116,7 @@ export default function Page() {
           share).
         </figcaption>
       </figure>
-      <div className="features-typography-card top-border-none insights-worked-example">
+      <div className="features-typography-card top-border-none insights-callout insights-worked-example">
         <div className="features-typography-card-single">
           <h3>Worked example (illustrative numbers)</h3>
           <ol>

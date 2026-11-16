@@ -65,23 +65,6 @@ export default function InsightsArticle({
           timeline={null}
         />
 
-        {article.takeaways && article.takeaways.length > 0 ? (
-          <section className="section features insights-takeaways" aria-label="Key takeaways">
-            <div className="container">
-              <div className="features-typography-card top-border-none">
-                <div className="features-typography-card-single">
-                  <div className="text-style-tagline">Key takeaways</div>
-                  <ul className="insights-takeaways-list">
-                    {article.takeaways.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-        ) : null}
-
         <section className="section_content7 insights-article">
           <div className="padding-global">
             <div className="container-large">
@@ -90,6 +73,21 @@ export default function InsightsArticle({
                   <div className="max-width-large align-center">
                     <div className="content7_content-wrapper">
                       <div className="text-rich-text w-richtext">
+                        {article.takeaways && article.takeaways.length > 0 ? (
+                          <div
+                            className="features-typography-card top-border-none insights-callout insights-takeaways"
+                            aria-label="Key takeaways"
+                          >
+                            <div className="features-typography-card-single">
+                              <div className="text-style-tagline">Key takeaways</div>
+                              <ul className="insights-takeaways-list">
+                                {article.takeaways.map((item) => (
+                                  <li key={item}>{item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        ) : null}
                         {children}
                         {article.pullQuote ? (
                           <blockquote className="insights-pull-quote">{article.pullQuote}</blockquote>
@@ -108,7 +106,7 @@ export default function InsightsArticle({
                           </figure>
                         ))}
                         {article.workedExample ? (
-                          <div className="features-typography-card top-border-none insights-worked-example">
+                          <div className="features-typography-card top-border-none insights-callout insights-worked-example">
                             <div className="features-typography-card-single">
                               <h3>{article.workedExample.title}</h3>
                               <ol>

@@ -192,18 +192,23 @@
   color: #fff;
   font-weight: 500;
 }
-/* Takeaways reuse Features glass card — kill 690px Features min-height + 7rem section pad */
-.section.features.insights-takeaways {
-  padding-top: 0;
-  padding-bottom: 1.5rem;
+/* Hero already breathes — don't stack Features-section + 7rem article pad */
+.insights-article .padding-section-large {
+  padding-top: 2.5rem;
 }
-.section.features.insights-takeaways .features-typography-card {
-  max-width: 720px;
+
+/* Takeaways + worked example: Features card class, article-column width (not 660×690 shell) */
+.insights-article .insights-callout.features-typography-card {
+  max-width: 100%;
   width: 100%;
-  margin: 0 auto;
   min-height: 0;
   height: auto;
+  margin: 0 0 1.75rem;
   padding: 1.5rem 1.75rem;
+  align-items: stretch;
+}
+.insights-article .insights-worked-example {
+  margin: 1.5rem 0;
 }
 .insights-takeaways-list {
   margin: 12px 0 0;
@@ -213,16 +218,6 @@
 }
 .insights-sources {
   margin-top: 2rem;
-}
-/* Worked example reuses Features card class — kill 660×690 Features shell inside article */
-.insights-article .insights-worked-example.features-typography-card {
-  max-width: 100%;
-  width: 100%;
-  min-height: 0;
-  height: auto;
-  margin: 1.5rem 0;
-  padding: 1.5rem 1.75rem;
-  align-items: stretch;
 }
 .insights-article .insights-worked-example h3 {
   font-family: Outfit, Arial, sans-serif;
