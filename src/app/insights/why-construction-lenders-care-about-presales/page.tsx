@@ -33,8 +33,8 @@ export default function Page() {
       </p>
       <p>
         A boutique residential stack makes that leftover more concentrated. There are fewer units to
-        hide a miss. Six unsold homes on a 24-unit building is a quarter of the sell-out still
-        sitting there. On a 400-unit tower the same miss is noise. On yours it is the residual loan.
+        hide a miss. On an illustrative 24-unit stack, six unsold homes is a quarter of the sell-out
+        still sitting there. On a 400-unit tower the same miss is noise. On yours it is the residual loan.
         US bank examiners tell construction lenders to keep speculative unsold units limited, and to
         treat presales as real only when the commitment is bona fide and the deposit is meaningful. A
         list of names is not that.
@@ -48,9 +48,9 @@ export default function Page() {
         Each contract they will count takes a slice of sell-out revenue off the leftover. Binding
         purchase contract, a deposit they recognize, a buyer who is not you or a related party. A
         reservation, a letter of intent, or a hold with no money usually stays in the leftover. So
-        does a related-party or bulk contract they haircut. Ten names on a list can be six after that
-        filter. Ask the lender in writing what they will take before you brief the sales team that
-        you are “at 50%.”
+        does a related-party or bulk contract they haircut. Illustrative: ten names on a list can be
+        six after that filter. Ask the lender in writing what they will take before you brief the
+        sales team that you are “at 50%.”
       </p>
       <p>
         The share they wrote on the sheet is the point where leftover exposure is small enough that
