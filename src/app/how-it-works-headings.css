@@ -197,8 +197,13 @@
   padding-top: 2.5rem;
 }
 
-/* Takeaways + worked example: Features card class, article-column width (not 660×690 shell) */
+/*
+ * Takeaways + worked example: same Features glass + corner marks as hub cards,
+ * sized to the article column (not the 660×690 Features shell).
+ */
 .insights-article .insights-callout.features-typography-card {
+  position: relative;
+  z-index: 1;
   max-width: 100%;
   width: 100%;
   min-height: 0;
@@ -206,9 +211,40 @@
   margin: 0 0 1.75rem;
   padding: 1.5rem 1.75rem;
   align-items: stretch;
+  background-color: transparent !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  border: 1px solid transparent !important;
+  overflow: visible !important;
+  box-shadow: none !important;
+}
+.insights-article .insights-callout.features-typography-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  pointer-events: none;
+  background-color: var(--surface-30);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border: 1px solid #ffffff14;
+  box-sizing: border-box;
+  box-shadow: 0 20px 40px #0006;
+}
+.insights-article .insights-callout > .features-typography-card-single {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+.insights-article .insights-callout .features-typography-card-shape {
+  z-index: 2;
+  pointer-events: none;
 }
 .insights-article .insights-worked-example {
   margin: 1.5rem 0;
+}
+.insights-article .insights-callout .text-style-tagline {
+  color: var(--primary);
 }
 .insights-takeaways-list {
   margin: 12px 0 0;
@@ -226,6 +262,8 @@
   line-height: 1.35;
   color: #fff;
   margin: 0 0 0.75rem;
+  background-image: none;
+  -webkit-text-fill-color: #fff;
 }
 .insights-article .insights-worked-example ol {
   margin: 0 0 1rem;
@@ -329,19 +367,27 @@
 }
 
 .insights-article .insights-figure {
-  margin: 1.75rem 0;
+  display: block;
+  margin: 1.75rem auto;
+  text-align: center;
 }
-.insights-article .insights-figure svg {
+.insights-article .insights-figure svg,
+.insights-article .insights-figure img {
   width: 100%;
+  max-width: 40rem;
   height: auto;
   display: block;
+  margin-left: auto;
+  margin-right: auto;
   border: 1px solid var(--light-border, rgba(255, 255, 255, 0.12));
 }
 .insights-article .insights-figure figcaption {
-  margin-top: 0.65rem;
+  margin: 0.65rem auto 0;
+  max-width: 36rem;
   font-size: 0.9375rem;
   line-height: 1.5;
   color: #b8b8bc;
+  text-align: center;
 }
 .insights-article .table-scroll {
   width: 100%;

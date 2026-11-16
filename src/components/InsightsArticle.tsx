@@ -75,7 +75,7 @@ export default function InsightsArticle({
                       <div className="text-rich-text w-richtext">
                         {article.takeaways && article.takeaways.length > 0 ? (
                           <div
-                            className="features-typography-card top-border-none insights-callout insights-takeaways"
+                            className="features-typography-card insights-callout insights-takeaways"
                             aria-label="Key takeaways"
                           >
                             <div className="features-typography-card-single">
@@ -86,6 +86,12 @@ export default function InsightsArticle({
                                 ))}
                               </ul>
                             </div>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" />
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" />
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" />
                           </div>
                         ) : null}
                         {children}
@@ -106,7 +112,7 @@ export default function InsightsArticle({
                           </figure>
                         ))}
                         {article.workedExample ? (
-                          <div className="features-typography-card top-border-none insights-callout insights-worked-example">
+                          <div className="features-typography-card insights-callout insights-worked-example">
                             <div className="features-typography-card-single">
                               <h3>{article.workedExample.title}</h3>
                               <ol>
@@ -116,6 +122,12 @@ export default function InsightsArticle({
                               </ol>
                               <p>{article.workedExample.note}</p>
                             </div>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" />
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" />
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" />
                           </div>
                         ) : null}
                         {article.sources && article.sources.length > 0 ? (

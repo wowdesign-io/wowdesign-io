@@ -116,7 +116,7 @@ export default function Page() {
           share).
         </figcaption>
       </figure>
-      <div className="features-typography-card top-border-none insights-callout insights-worked-example">
+      <div className="features-typography-card insights-callout insights-worked-example">
         <div className="features-typography-card-single">
           <h3>Worked example (illustrative numbers)</h3>
           <ol>
@@ -133,6 +133,12 @@ export default function Page() {
             the interest method.
           </p>
         </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/Features-Card-Shape-Top-Left.svg" loading="lazy" alt="" className="features-typography-card-shape top-left" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/Features-Card-Shape-Top-Right.svg" loading="lazy" alt="" className="features-typography-card-shape top-right" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/Features-Card-Shape-Bottom-Left.svg" loading="lazy" alt="" className="features-typography-card-shape bottom-left" />
       </div>
       <h2>Is this the same as Fannie Mae&apos;s 50%?</h2>
       <p>
