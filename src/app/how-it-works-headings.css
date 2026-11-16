@@ -301,6 +301,21 @@
   position: static;
 }
 
+.insights-article .insights-figure {
+  margin: 1.75rem 0;
+}
+.insights-article .insights-figure svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--light-border, rgba(255, 255, 255, 0.12));
+}
+.insights-article .insights-figure figcaption {
+  margin-top: 0.65rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #b8b8bc;
+}
 .insights-article .table-scroll {
   width: 100%;
   overflow-x: auto;
