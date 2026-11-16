@@ -256,6 +256,28 @@
 .insights-sources {
   margin-top: 2rem;
 }
+/* Nested under .insights-sources — misses `.w-richtext > h2`, falls through to miami 3.5rem */
+.insights-article .insights-sources h2 {
+  color: #fff;
+  font-family: Outfit, Arial, sans-serif;
+  font-size: 1.85rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 2rem 0 0.85em;
+  background-image: none;
+  -webkit-text-fill-color: #fff;
+}
+.insights-article .insights-sources ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #d4d4d8;
+  line-height: 1.55;
+}
+.insights-article .insights-sources li {
+  margin-bottom: 0.75em;
+  font-size: clamp(17px, 1.125rem, 19px);
+}
 .insights-article .insights-worked-example h3 {
   font-family: Outfit, Arial, sans-serif;
   font-size: 1.35rem;
