@@ -214,8 +214,35 @@
 .insights-sources {
   margin-top: 2rem;
 }
-.insights-worked-example {
+/* Worked example reuses Features card class — kill 660×690 Features shell inside article */
+.insights-article .insights-worked-example.features-typography-card {
+  max-width: 100%;
+  width: 100%;
+  min-height: 0;
+  height: auto;
   margin: 1.5rem 0;
+  padding: 1.5rem 1.75rem;
+  align-items: stretch;
+}
+.insights-article .insights-worked-example h3 {
+  font-family: Outfit, Arial, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #fff;
+  margin: 0 0 0.75rem;
+}
+.insights-article .insights-worked-example ol {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  color: #d4d4d8;
+  line-height: 1.55;
+}
+.insights-article .insights-worked-example p {
+  margin: 0;
+  color: #a1a1aa;
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 .insights-pull-quote {
   border-left: 3px solid #ee7c2c;
