@@ -102,7 +102,7 @@ export function insightsForHub(): InsightArticle[] {
 
 /** Body word counts from page.tsx (JSX stripped). Hub read time = body + answer + FAQs ÷ 200. */
 const INSIGHT_BODY_WORDS: Record<string, number> = {
-  'construction-loan-extra-month': 402,
+  'construction-loan-extra-month': 983,
   'construction-loan-presale-requirement': 925,
   'digital-twin-pre-construction': 492,
   'follow-up-pre-construction-buyers': 482,
@@ -133,23 +133,46 @@ export const INSIGHTS: InsightArticle[] = [
     tag: 'Construction loan',
     h1: 'How much does an extra month of a construction loan cost?',
     description:
-      'On a typical boutique $10M–$15M construction loan at about 8%, the bank takes $67k–$100k a month in interest. Marketing and ops keep running until units are gone. Run your numbers.',
+      'On a typical boutique $10M–$15M construction loan at about 8%, monthly interest is about $67k–$100k. That is loan × rate ÷ 12. Extra months also burn marketing and ops. Size it from your loan.',
     answer:
-      'On a typical boutique $10M–$15M construction loan at about 8%, monthly interest is about $67k–$100k. That is loan × rate ÷ 12. Extra months also burn marketing and ops. Three extra months on a $12M loan at 8% is $240k in interest before you add burn.',
+      'On a typical boutique $10M–$15M construction loan at about 8%, monthly interest is about $67k–$100k. That is loan × rate ÷ 12. Extra months also burn marketing and ops. Three extra months on a $12M loan at 8% is $240k in interest before you add burn. Size it from your loan.',
     datePublished: '2026-09-08',
-    dateModified: '2026-10-20',
+    dateModified: '2026-11-22',
+    ctaLead: 'Put your loan, rate, and monthly burn on the calculator.',
+    ctaTitle: 'What does an extra month cost on your numbers?',
+    takeaways: [
+      'Monthly interest is loan × rate ÷ 12. A $12M loan at 8% is $80,000.',
+      'Ads and ops keep running. Leave burn at 0 only if you want the bank line.',
+      'Extra months can deplete the interest reserve before sell-out. That is still your month.',
+    ],
+    sources: [
+      {
+        label: 'OCC Comptroller’s Handbook, Commercial Real Estate Lending',
+        url: 'https://www.occ.gov/publications-and-resources/publications/comptrollers-handbook/files/commercial-real-estate-lending/pub-ch-commercial-real-estate.pdf',
+        note: 'An appropriate interest reserve should cover interest through anticipated completion and sale. Delays and market changes are how that reserve is depleted before the project is done. Opened 2026-11-22.',
+      },
+      {
+        label: 'FDIC RMS Manual, Construction and Land Development Lending (Core Analysis)',
+        url: 'https://www.fdic.gov/risk-management-manual-examination-policies/construction-and-land-development-lending.pdf',
+        note: 'Examiners ask whether the bank uses interest reserves, and whether any extension of those reserves is backed by a realistic completion date and continued feasibility. Opened 2026-11-22.',
+      },
+    ],
     faqs: [
       {
         q: 'How do you calculate monthly construction-loan interest?',
-        a: 'Monthly interest is loan amount × (annual rate ÷ 100) ÷ 12. A $12M loan at 8% is $80,000 a month to the bank.',
+        a: 'Monthly interest is loan amount × (annual rate ÷ 100) ÷ 12. A $12M loan at 8% is $80,000 a month to the bank. The formula treats the full loan as outstanding so you can size delay. Construction loans usually accrue on what has been drawn.',
       },
       {
         q: 'Does that number include marketing and ops?',
-        a: 'Interest is only the bank line. Ads, brokers, and ops keep running until units are gone. Add that monthly burn on top. The calculator models both.',
+        a: 'Interest is only the bank line. Ads, brokers, and ops keep running until units are gone. Add that monthly burn on top. Leave burn at 0 if you only want the bank line. The calculator models both.',
       },
       {
         q: 'How much is three extra months on a $10–15 million loan?',
-        a: 'At 8%, three months of interest is about $200k–$300k. Add marketing and ops for those months. That is the $400k+ on a typical boutique timeline when sell-out slips.',
+        a: 'At 8%, three months of interest is about $200k–$300k. Add marketing and ops for those months. Illustrative: $12M at 8% is $240,000 of interest. Plus a $15k monthly burn is $285,000.',
+      },
+      {
+        q: 'Is this the same as a construction-loan draw schedule?',
+        a: 'No. A draw schedule shows interest as you pull during the build. This method sizes extra months of delay after you already know the loan. Use it when sell-out or the build slips, not as a replacement for your lender’s draw model.',
       },
     ],
   },
